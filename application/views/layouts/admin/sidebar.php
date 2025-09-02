@@ -355,7 +355,7 @@
                          <!--begin:Menu link-->
                          <span class="menu-link">
                              <span class="menu-icon">
-                                 <i class="ki-duotone ki-address-book fs-2">
+                                 <i class="ki-duotone ki-abstract-28 fs-2">
                                      <span class="path1"></span>
                                      <span class="path2"></span>
                                      <span class="path3"></span>
