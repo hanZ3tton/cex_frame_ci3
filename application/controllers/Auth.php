@@ -47,7 +47,7 @@ class Auth extends MY_Controller
             'assets/css/style.bundle.css'
         ];
 
-        $this->loadView('auth/reset_password', 'Reset Password', $data);
+        $this->loadView('auth/forgot_password', 'Reset Password', $data);
     }
 
     public function new_password()

@@ -355,13 +355,13 @@
                          <!--begin:Menu link-->
                          <span class="menu-link">
                              <span class="menu-icon">
-                                 <i class="ki-duotone ki-abstract-28 fs-2">
+                                 <i class="bi bi-truck fs-2">
                                      <span class="path1"></span>
                                      <span class="path2"></span>
                                      <span class="path3"></span>
                                  </i>
                              </span>
-                             <span class="menu-title">User Profile</span>
+                             <span class="menu-title">Shipment</span>
                              <span class="menu-arrow"></span>
                          </span>
                          <!--end:Menu link-->
@@ -376,7 +376,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Overview</span>
+                                     <span class="menu-title">All Inbound</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -390,7 +390,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Projects</span>
+                                     <span class="menu-title">Not Proccess</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -404,7 +404,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Campaigns</span>
+                                     <span class="menu-title">Not Completed</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -418,7 +418,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Documents</span>
+                                     <span class="menu-title">Completed</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -432,21 +432,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Followers</span>
-                                 </a>
-                                 <!--end:Menu link-->
-                             </div>
-                             <!--end:Menu item-->
-                             <!--begin:Menu item-->
-                             <div class="menu-item">
-                                 <!--begin:Menu link-->
-                                 <a
-                                     class="menu-link"
-                                     href="pages/user-profile/activity.html">
-                                     <span class="menu-bullet">
-                                         <span class="bullet bullet-dot"></span>
-                                     </span>
-                                     <span class="menu-title">Activity</span>
+                                     <span class="menu-title">Outbound</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
