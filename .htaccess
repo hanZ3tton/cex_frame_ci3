@@ -17,6 +17,6 @@ RewriteRule ^(.*)$ index.php/$1 [L]
 
 # Redirect index.php to base_url this folder name/index.php
 RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
-RewriteRule (.*?)index\.php/*(.*) %{BASE_URL}/cx_shipment/$1$2 [R=301,NE,L]
+RewriteRule (.*?)index\.php/*(.*) %{BASE_URL}/cex_frame_ci3/$1$2 [R=301,NE,L]
 
 

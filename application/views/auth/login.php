@@ -94,7 +94,7 @@
                         <div></div>
                         <!--begin::Link-->
                         <a
-                            href="authentication/layouts/corporate/reset-password.html"
+                            href="<?= base_url('auth/forgot_password') ?>"
                             class="link-primary">Forgot Password ?</a>
                         <!--end::Link-->
                     </div>
@@ -120,7 +120,7 @@
                     <div class="text-gray-500 text-center fw-semibold fs-6">
                         Not a Member yet?
                         <a
-                            href="authentication/layouts/corporate/sign-up.html"
+                            href="<?= base_url('auth/regist') ?>"
                             class="link-primary">Sign up</a>
                     </div>
                     <!--end::Sign up-->

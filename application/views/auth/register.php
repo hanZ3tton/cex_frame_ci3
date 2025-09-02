@@ -109,7 +109,7 @@
                     <!--end::Submit button-->
                     <!--begin::Sign up-->
                     <div class="text-gray-500 text-center fw-semibold fs-6">Already have an Account?
-                        <a href="authentication/layouts/corporate/sign-in.html" class="link-primary fw-semibold">Sign in</a>
+                        <a href="<?= base_url('auth/login') ?>" class="link-primary fw-semibold">Sign in</a>
                     </div>
                     <!--end::Sign up-->
                 </form>
