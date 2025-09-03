@@ -5875,6 +5875,16 @@
                           <!--begin::Menu separator-->
                           <div class="separator my-2"></div>
                           <!--end::Menu separator-->
+
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-5">
+                              <p class="menu-link px-5 m-0">Credit: Rp. 250.000</p>
+                          </div>
+                          <!--end::Menu item-->
+
+                          <!--begin::Menu separator-->
+                          <div class="separator my-2"></div>
+                          <!--end::Menu separator-->
                           <!--begin::Menu item-->
                           <div class="menu-item px-5">
                               <a href="account/overview.html" class="menu-link px-5">My Profile</a>
