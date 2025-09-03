@@ -328,7 +328,7 @@
                                     <!--begin::Action buttons-->
                                     <div class="d-flex justify-content-end">
                                         <!--begin::Button-->
-                                        <button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                        <a href="<?= base_url('admin/user') ?>" class="btn btn-light me-3">Cancel</a>
                                         <!--end::Button-->
                                         <!--begin::Button-->
                                         <button type="submit" data-kt-contacts-type="submit" class="btn btn-primary">
