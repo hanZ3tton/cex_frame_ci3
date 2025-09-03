@@ -73,7 +73,7 @@
                                      <span class="path4"></span>
                                  </i>
                              </span>
-                             <span class="menu-title">Dashboards</span>
+                             <span class="menu-title">Admin</span>
                              <span class="menu-arrow"></span>
                          </span>
                          <!--end:Menu link-->
@@ -82,11 +82,11 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link active" href="index.html">
+                                 <a class="menu-link active" href="<?= base_url('admin/dashboard') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Default</span>
+                                     <span class="menu-title">Dashboard</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -654,7 +654,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/overview.html">
+                                     href="<?= base_url('admin/user') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -663,6 +663,35 @@
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a
+                                     class="menu-link"
+                                     href="pages/user-profile/documents.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">CS</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a
+                                     class="menu-link"
+                                     href="pages/user-profile/documents.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Driver</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -677,6 +706,7 @@
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -691,21 +721,6 @@
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
-                             <!--begin:Menu item-->
-                             <div class="menu-item">
-                                 <!--begin:Menu link-->
-                                 <a
-                                     class="menu-link"
-                                     href="pages/user-profile/documents.html">
-                                     <span class="menu-bullet">
-                                         <span class="bullet bullet-dot"></span>
-                                     </span>
-                                     <span class="menu-title">Customers</span>
-                                 </a>
-                                 <!--end:Menu link-->
-                             </div>
-                             <!--end:Menu item-->
-
 
                          </div>
                          <!--end:Menu sub-->

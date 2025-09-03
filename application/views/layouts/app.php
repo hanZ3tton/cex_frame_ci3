@@ -76,6 +76,10 @@
                 <?php $this->load->view($contents) ?>
                 <!--end:::Main-->
 
+                <!--begin::Footer-->
+                <?php $this->load->view('layouts/admin/footer') ?>
+                <!--end:::Footer-->
+
             </div>
             <!--end::Wrapper-->
 
