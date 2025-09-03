@@ -14,11 +14,11 @@
         public function index()
         {
             $data = [];
-            $this->config->load('assets/user');
+            $this->config->load('assets/courier');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('admin/user/index', 'User List', $data);
+            $this->loadView('admin/user/index', 'Courier', $data);
         }
     }

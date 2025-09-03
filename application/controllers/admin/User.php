@@ -21,4 +21,26 @@
 
             $this->loadView('admin/user/index', 'User List', $data);
         }
+
+        public function create()
+        {
+            $data = [];
+            $this->config->load('assets/user');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('admin/user/create', 'Create User', $data);
+        }
+
+        public function edit()
+        {
+            $data = [];
+            $this->config->load('assets/user');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('admin/user/edit', 'Update User', $data);
+        }
     }
