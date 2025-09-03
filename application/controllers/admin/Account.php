@@ -21,4 +21,15 @@
 
             $this->loadView('admin/account/index', 'My Account', $data);
         }
+
+        public function settings()
+        {
+            $data = [];
+            $this->config->load('assets/account');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('admin/account/settings', 'Settings Account', $data);
+        }
     }
