@@ -316,8 +316,8 @@
         ?>
         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
             <?php foreach ($tabs as $key => $label): ?>
-                <li class="nav-item">
-                    <a class="nav-link <?= ($active_tab === $key ? 'active' : ''); ?>"
+                <li class="nav-item mt-2">
+                    <a class="nav-link text-active-primary ms-0 me-10 py-5   <?= ($active_tab === $key ? 'active' : ''); ?>"
                         href="<?= tab_link($tab_url, $key); ?>">
                         <?= $label; ?>
                     </a>
