@@ -141,7 +141,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/overview.html">
+                                     href="<?= base_url('admin/shipment') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -298,7 +298,7 @@
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Tracking SHipment</span>
+                                     <span class="menu-title">Tracking Shipment</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -336,7 +336,7 @@
                      </div>
                      <!--end:Menu Tracking-->
 
-                     <!--begin:Menu Deposit-->
+                     <!--begin: Menu Deposit-->
                      <div
                          data-kt-menu-trigger="click"
                          class="menu-item menu-accordion">
@@ -355,189 +355,36 @@
                          <!--begin:Menu sub-->
                          <div class="menu-sub menu-sub-accordion">
                              <!--begin:Menu item-->
-                             <div
-                                 data-kt-menu-trigger="click"
-                                 class="menu-item menu-accordion">
+                             <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <span class="menu-link">
+                                 <a class="menu-link" href="pages/social/feeds.html">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Topup</span>
-                                     <span class="menu-arrow"></span>
-                                 </span>
+                                     <span class="menu-title">Top Up</span>
+                                 </a>
                                  <!--end:Menu link-->
-                                 <!--begin:Menu sub-->
-                                 <div
-                                     class="menu-sub menu-sub-accordion menu-active-bg">
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/corporate/sign-in.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Sign-in</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/corporate/sign-up.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Sign-up</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/corporate/two-factor.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Two-Factor</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/corporate/reset-password.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Reset Password</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/corporate/new-password.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">New Password</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                 </div>
-                                 <!--end:Menu sub-->
                              </div>
                              <!--end:Menu item-->
                              <!--begin:Menu item-->
-                             <div
-                                 data-kt-menu-trigger="click"
-                                 class="menu-item menu-accordion">
+                             <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <span class="menu-link">
+                                 <a
+                                     class="menu-link"
+                                     href="pages/social/activity.html">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Overlay Layout</span>
-                                     <span class="menu-arrow"></span>
-                                 </span>
+                                     <span class="menu-title">Update Location</span>
+                                 </a>
                                  <!--end:Menu link-->
-                                 <!--begin:Menu sub-->
-                                 <div
-                                     class="menu-sub menu-sub-accordion menu-active-bg">
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/overlay/sign-in.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Sign-in</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/overlay/sign-up.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Sign-up</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/overlay/two-factor.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Two-Factor</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/overlay/reset-password.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Reset Password</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                     <!--begin:Menu item-->
-                                     <div class="menu-item">
-                                         <!--begin:Menu link-->
-                                         <a
-                                             class="menu-link"
-                                             href="authentication/layouts/overlay/new-password.html">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">New Password</span>
-                                         </a>
-                                         <!--end:Menu link-->
-                                     </div>
-                                     <!--end:Menu item-->
-                                 </div>
-                                 <!--end:Menu sub-->
                              </div>
                              <!--end:Menu item-->
                          </div>
                          <!--end:Menu sub-->
+
                      </div>
-                     <!--end:Menu Deposit-->
+                     <!--end: Menu Deposit-->
 
                      <!--begin:Menu Reports-->
                      <div
@@ -617,7 +464,7 @@
                          <!--begin:Menu link-->
                          <a
                              class="menu-link"
-                             href="#">
+                             href="<?= base_url('admin/shipping_rates') ?>">
                              <span class="menu-icon">
                                  <i class="bi bi-currency-dollar fs-2">
                                      <span class="path1"></span>

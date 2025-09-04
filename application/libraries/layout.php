@@ -21,6 +21,8 @@ class Layout
 
     public function set_view($view, $data = [])
     {
+        $this->data = array_merge($this->data, $data);
+
         $this->data['contents'] = $view;
     }
 

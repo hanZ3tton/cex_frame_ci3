@@ -13,7 +13,13 @@
 
         public function index()
         {
-            $data = [];
+            $tab = $this->input->get('tab', TRUE) ?: 'overview';
+
+            $data = [
+                'active_tab' => $tab,
+                'tab_view'   => "admin/account/tab/{$tab}",
+                'tab_url'    => site_url('admin/account/index'),
+            ];
             $this->config->load('assets/account');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];

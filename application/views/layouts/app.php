@@ -68,17 +68,21 @@
             <!--begin::Wrapper-->
             <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
 
-                <!--begin::Sidebar-->
-                <?php $this->load->view('layouts/admin/sidebar'); ?>
-                <!--end::Sidebar-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 
-                <!--begin::Main-->
-                <?php $this->load->view($contents) ?>
-                <!--end:::Main-->
+                    <!--begin::Sidebar-->
+                    <?php $this->load->view('layouts/admin/sidebar'); ?>
+                    <!--end::Sidebar-->
 
-                <!--begin::Footer-->
-                <?php $this->load->view('layouts/admin/footer') ?>
-                <!--end:::Footer-->
+                    <!--begin::Main-->
+                    <?php $this->load->view($contents) ?>
+                    <!--end:::Main-->
+
+                    <!--begin::Footer-->
+                    <?php $this->load->view('layouts/admin/footer') ?>
+                    <!--end:::Footer-->
+
+                </div>
 
             </div>
             <!--end::Wrapper-->
