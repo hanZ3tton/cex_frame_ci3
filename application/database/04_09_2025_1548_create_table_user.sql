@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `users`(
-    `id` INT NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `role_id` INT NOT NULL DEFAULT 1,
     `username` VARCHAR(50) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
