@@ -8,12 +8,15 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px p-10">
                 <!--begin::Form-->
+                <?php
+                if ($this->session->flashdata('error')) {
+                    echo $this->session->flashdata('error');
+                }
+                ?>
                 <form
                     class="form w-100"
-                    novalidate="novalidate"
-                    id="kt_sign_in_form"
-                    data-kt-redirect-url="index.html"
-                    action="#">
+                    action="<?= base_url('auth/login_process') ?>"
+                    method="post">
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
                         <!--begin::Title-->
@@ -74,6 +77,8 @@
                             name="email"
                             autocomplete="off"
                             class="form-control bg-transparent" />
+                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
+
                         <!--end::Email-->
                     </div>
                     <!--end::Input group=-->
@@ -85,6 +90,8 @@
                             name="password"
                             autocomplete="off"
                             class="form-control bg-transparent" />
+                        <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
+
                         <!--end::Password-->
                     </div>
                     <!--end::Input group=-->
@@ -103,7 +110,6 @@
                     <div class="d-grid mb-10">
                         <button
                             type="submit"
-                            id="kt_sign_in_submit"
                             class="btn btn-primary">
                             <!--begin::Indicator label-->
                             <span class="indicator-label">Sign In</span>

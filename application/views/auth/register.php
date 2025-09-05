@@ -7,7 +7,7 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px p-10">
                 <!--begin::Form-->
-                <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" data-kt-redirect-url="authentication/layouts/corporate/sign-in.html" action="#">
+                <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" data-kt-redirect-url="authentication/layouts/corporate/sign-in.html" action="<?= base_url('auth/regist_process') ?>" method="post">
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
                         <!--begin::Title-->
@@ -46,9 +46,19 @@
                     <!--end::Separator-->
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
+                        <!--begin::Username-->
+                        <input type="text" placeholder="Username" name="username" autocomplete="off" class="form-control bg-transparent" />
+                        <?= form_error('username', '<div class="text-danger">', '</div>'); ?>
+                        <!--end::Username-->
+                    </div>
+                    <!--begin::Input group-->
+                    <!--begin::Input group=-->
+                    <div class="fv-row mb-8">
                         <!--begin::Email-->
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
+                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                         <!--end::Email-->
+
                     </div>
                     <!--begin::Input group-->
                     <div class="fv-row mb-8" data-kt-password-meter="true">
@@ -57,6 +67,7 @@
                             <!--begin::Input wrapper-->
                             <div class="position-relative mb-3">
                                 <input class="form-control bg-transparent" type="password" placeholder="Password" name="password" autocomplete="off" />
+                                <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
                                 <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                                     <i class="ki-duotone ki-eye-slash fs-2"></i>
                                     <i class="ki-duotone ki-eye fs-2 d-none"></i>
@@ -82,6 +93,7 @@
                     <div class="fv-row mb-8">
                         <!--begin::Repeat Password-->
                         <input placeholder="Repeat Password" name="confirm-password" type="password" autocomplete="off" class="form-control bg-transparent" />
+                        <?= form_error('confirm-password', '<div class="text-danger">', '</div>'); ?>
                         <!--end::Repeat Password-->
                     </div>
                     <!--end::Input group=-->
@@ -109,7 +121,7 @@
                     <!--end::Submit button-->
                     <!--begin::Sign up-->
                     <div class="text-gray-500 text-center fw-semibold fs-6">Already have an Account?
-                        <a href="<?= base_url('auth/login') ?>" class="link-primary fw-semibold">Sign in</a>
+                        <button class="link-primary fw-semibold">Sign in</button>
                     </div>
                     <!--end::Sign up-->
                 </form>
