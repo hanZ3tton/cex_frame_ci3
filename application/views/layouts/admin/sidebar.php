@@ -128,6 +128,9 @@
                                      <span class="path1"></span>
                                      <span class="path2"></span>
                                      <span class="path3"></span>
+                                     <span class="path3"></span>
+                                     <span class="path4"></span>
+                                     <span class="path5"></span>
                                  </i>
                              </span>
                              <span class="menu-title">Shipment</span>
@@ -146,10 +149,14 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">All Inbound</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -160,10 +167,14 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Not Proccess</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -174,10 +185,14 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Not Completed</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -188,10 +203,14 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Completed</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
@@ -202,10 +221,14 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Outbound</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
                              <!--end:Menu item-->
+
                          </div>
                          <!--end:Menu sub-->
                      </div>
@@ -290,6 +313,9 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Data Kalog</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -329,6 +355,9 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Data JNT Cargo</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
