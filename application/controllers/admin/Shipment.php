@@ -36,4 +36,15 @@
 
             $this->loadView('admin/shipment/create', 'Create Shipment', $data);
         }
+        public function np()
+        {
+            $data = [];
+
+            $this->config->load('assets/shipment');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('admin/shipment/not_proccess/index', 'Not Process', $data);
+        }
     }
