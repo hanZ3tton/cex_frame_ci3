@@ -23,7 +23,7 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800">Max Smith</span>
+                <span class="fw-bold fs-6 text-gray-800"><?= $this->session->userdata('username') ?></span>
             </div>
             <!--end::Col-->
         </div>
