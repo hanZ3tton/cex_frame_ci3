@@ -28,100 +28,6 @@
 									</div>
 									<!--end::Page title-->
 									<!--begin::Actions-->
-									<div class="d-flex align-items-center gap-2 gap-lg-3">
-										<!--begin::Filter menu-->
-										<div class="m-0">
-											<!--begin::Menu toggle-->
-											<a href="#" class="btn btn-sm btn-flex btn-secondary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-											<i class="ki-duotone ki-filter fs-6 text-muted me-1">
-												<span class="path1"></span>
-												<span class="path2"></span>
-											</i>Filter</a>
-											<!--end::Menu toggle-->
-											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_685c320bcceeb">
-												<!--begin::Header-->
-												<div class="px-7 py-5">
-													<div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
-												</div>
-												<!--end::Header-->
-												<!--begin::Menu separator-->
-												<div class="separator border-gray-200"></div>
-												<!--end::Menu separator-->
-												<!--begin::Form-->
-												<div class="px-7 py-5">
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Status:</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<div>
-															<select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_685c320bcceeb" data-allow-clear="true">
-																<option></option>
-																<option value="1">Approved</option>
-																<option value="2">Pending</option>
-																<option value="2">In Process</option>
-																<option value="2">Rejected</option>
-															</select>
-														</div>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Member Type:</label>
-														<!--end::Label-->
-														<!--begin::Options-->
-														<div class="d-flex">
-															<!--begin::Options-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-																<input class="form-check-input" type="checkbox" value="1" />
-																<span class="form-check-label">Author</span>
-															</label>
-															<!--end::Options-->
-															<!--begin::Options-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-																<span class="form-check-label">Customer</span>
-															</label>
-															<!--end::Options-->
-														</div>
-														<!--end::Options-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Notifications:</label>
-														<!--end::Label-->
-														<!--begin::Switch-->
-														<div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-															<input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-															<label class="form-check-label">Enabled</label>
-														</div>
-														<!--end::Switch-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end">
-														<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-														<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-													</div>
-													<!--end::Actions-->
-												</div>
-												<!--end::Form-->
-											</div>
-											<!--end::Menu 1-->
-										</div>
-										<!--end::Filter menu-->
-										<!--begin::Secondary button-->
-										<!--end::Secondary button-->
-										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
-										<!--end::Primary button-->
-									</div>
 									<!--end::Actions-->
 								</div>
 								<!--end::Toolbar container-->
@@ -175,27 +81,100 @@
 									<!--end::Billing Address-->
 									<!--begin::Billing History-->
 									<div class="card">
-										<div class="card-header border-0 pt-6">
-											<div class="card-title">
-												<div class="d-flex align-items-center position-relative my-1">
-													<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Code" />
+										<div class="card">
+											<div class="card-header border-0 pt-6">
+												<div class="card-title">
+													<div class="d-flex align-items-center position-relative my-1">
+														<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+														<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Code" />
+													</div>
+													</div>
+												<div class="card-toolbar">
+													<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+														<a href="#" class="btn btn-sm btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_download_topup">
+															<i class="fas fa-download"></i> Download
+														</a>
+														<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_topup_deposit">
+															<i class="fas fa-plus"></i> Top up Deposit
+														</a>
+													</div>
 												</div>
 												</div>
-											<div class="card-toolbar">
-												<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-													<a href="#" class="btn btn-sm btn-light-primary me-3">
-														<i class="fas fa-download"></i> Download
-													</a>
-													<a href="#" class="btn btn-sm btn-primary">
-														<i class="fas fa-plus"></i> Top up Deposit
-													</a>
+											<div class="modal fade" id="kt_modal_download_topup" tabindex="-1" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered mw-650px">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h2 class="fw-bold">Download Topup Data</h2>
+															<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+															</div>
+														</div>
+														<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+															<form id="kt_modal_download_form" class="form" action="#">
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Start From</label>
+																	<input type="date" class="form-control form-control-solid" placeholder="dd/mm/yyyy" name="start_date" />
+																</div>
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Due To</label>
+																	<input type="date" class="form-control form-control-solid" placeholder="dd/mm/yyyy" name="due_to_date" />
+																</div>
+																<div class="text-center">
+																	<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Close</button>
+																	<button type="submit" class="btn btn-primary">Download</button>
+																</div>
+															</form>
+														</div>
+													</div>
 												</div>
 											</div>
+
+											<div class="modal fade" id="kt_modal_topup_deposit" tabindex="-1" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered mw-650px">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h2 class="fw-bold">Add Deposit</h2>
+															<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+															</div>
+														</div>
+														<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+															<form id="kt_modal_topup_form" class="form" action="#">
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Bank Name</label>
+																	<input type="text" class="form-control form-control-solid" placeholder="Bank Name" name="bank_name" />
+																</div>
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Bank Account Name</label>
+																	<input type="text" class="form-control form-control-solid" placeholder="Bank Account Name" name="bank_account_name" />
+																</div>
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Bank Destination</label>
+																	<select class="form-select form-select-solid" name="destination_bank">
+																		<option>BCA 586-520-2641</option>
+																	</select>
+																</div>
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Nominal</label>
+																	<input type="text" class="form-control form-control-solid" placeholder="Nominal..." name="nominal" />
+																</div>
+																<div class="mb-5 fv-row">
+																	<label class="form-label required fw-bold fs-6">Transfer Proof</label>
+																	<input type="file" class="form-control form-control-solid" name="transfer_proof" />
+																</div>
+																<div class="text-center">
+																	<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Close</button>
+																	<button type="submit" class="btn btn-primary">Save</button>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
 											</div>
+										</div>
 										<div class="card-body py-4">
 											<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 												<thead>
@@ -228,7 +207,7 @@
 														<td>Sahid</td>
 														<td>500.000</td>
 														<td>21 Jun 2025, 3:20 pm</td>
-														<td>BCA</td>
+														<td>BRI</td>
 														<td>
 															<img src="https://office.choirexpress.co.id/uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg" alt="" width="40" class="img-circle" data-toggle="tooltip" data-placement="bottom" title="uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg">
 														</td>
@@ -266,7 +245,7 @@
 														<td>24 Jun 2025, 5:20 pm</td>
 														<td>BCA</td>
 														<td>
-															<img src="https://office.choirexpress.co.id/uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg" alt="" width="40" class="img-circle" data-toggle="tooltip" data-placement="bottom" title="uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg">
+															<img src="https://office.choirexpress.co.id/uploads/deposit/1733300665_profile_bukti_tf_CAFRAME_1733300664.jpg" alt="" width="40" class="img-circle" data-toggle="tooltip" data-placement="bottom" title="uploads/deposit/1733300665_profile_bukti_tf_CAFRAME_1733300664.jpg">
 														</td>
 														<td>Rejected</td>
 														<td>BCA 123-456-7890</td>
@@ -282,11 +261,29 @@
 														<td>Ganjar</td>
 														<td>650.000</td>
 														<td>24 Aug 2025, 9:20 pm</td>
-														<td>BCA</td>
+														<td>BRI</td>
 														<td>
 															<img src="https://office.choirexpress.co.id/uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg" alt="" width="40" class="img-circle" data-toggle="tooltip" data-placement="bottom" title="uploads/deposit/1750074684_profile_bukti_tf_CAFRAME_1750074684.jpg">
 														</td>
 														<td>Accepted</td>
+														<td>BCA 123-456-7890</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="form-check form-check-sm form-check-custom form-check-solid">
+																<input class="form-check-input" type="checkbox" value="1" />
+															</div>
+														</td>
+														<td>144272</td>
+														<td>CAFRAME</td>
+														<td>Bapak Mulyono</td>
+														<td>850.000</td>
+														<td>27 Jun 2025, 5:50 pm</td>
+														<td>BCA</td>
+														<td>
+															<img src="https://office.choirexpress.co.id/uploads/deposit/1733300665_profile_bukti_tf_CAFRAME_1733300664.jpg" alt="" width="40" class="img-circle" data-toggle="tooltip" data-placement="bottom" title="uploads/deposit/1733300665_profile_bukti_tf_CAFRAME_1733300664.jpg">
+														</td>
+														<td>Rejected</td>
 														<td>BCA 123-456-7890</td>
 													</tr>
 													

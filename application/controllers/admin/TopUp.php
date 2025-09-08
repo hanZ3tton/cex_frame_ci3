@@ -15,11 +15,22 @@
         {
             $data = [];
 
-            $this->config->load('assets/TopUp');
+            $this->config->load('assets/topup');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
             $this->loadView('admin/TopUp/index', 'TopUp', $data);
+        }
+        public function deposit()
+        {
+            $data = [];
+
+            $this->config->load('assets/deposittopup');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('admin/TopUp/deposit', 'Deposit', $data);
         }
     }
