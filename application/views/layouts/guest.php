@@ -56,9 +56,16 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
-    <!--begin::Custom Javascript(used for this page only)-->
-    <script src="assets/js/custom/authentication/sign-in/general.js"></script>
-    <!--end::Custom Javascript-->
+
+    <!--begin::Page-level Assets JS-->
+    <?php foreach ($scripts as $script) : ?>
+        <?php if (parse_url($script, PHP_URL_SCHEME) === 'https') : ?>
+            <script src="<?= $script; ?>"></script>
+        <?php else : ?>
+            <script src="<?= base_url($script); ?>"></script>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <!--end::Page-level Assets JS-->
     <!--end::Javascript-->
 </body>
 <!--end::Body-->

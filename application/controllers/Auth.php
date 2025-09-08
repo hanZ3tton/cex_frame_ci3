@@ -23,14 +23,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->loadView('auth/login', 'Login', $data);
         if ($this->session->userdata('user_id')) {
@@ -76,14 +71,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->loadView('auth/forgot_password', 'Reset Password', $data);
         if ($this->session->userdata('user_id')) {
@@ -95,14 +85,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->loadView('auth/new_password', 'New Password', $data);
         if ($this->session->userdata('user_id')) {
@@ -114,14 +99,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->loadView('auth/register', 'Register', $data);
         if ($this->session->userdata('user_id')) {
@@ -133,14 +113,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->form_validation->set_rules('username', 'Username', 'required|alpha_dash|is_unique[users.username]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');

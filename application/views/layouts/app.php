@@ -121,7 +121,6 @@
     <!--end::Global Javascript Bundle-->
 
     <!--begin::Page-level Assets JS-->
-    <!--begin::Page-level Assets JS-->
     <?php foreach ($scripts as $script) : ?>
         <?php if (parse_url($script, PHP_URL_SCHEME) === 'https') : ?>
             <script src="<?= $script; ?>"></script>
