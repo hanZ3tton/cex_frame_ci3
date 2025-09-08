@@ -9,6 +9,9 @@
             parent::__construct();
 
             $this->defaultLayout = 'layouts/app';
+            if ($this->session->userdata('user_id') == null) {
+                redirect('auth');
+            }
         }
 
         public function index()

@@ -42,14 +42,9 @@ class Auth extends MY_Controller
     {
         $data = [];
         $this->pageScripts = [
-            'assets/plugins/global/plugins.bundle.js',
-            'assets/js/scripts.bundle.js',
             'assets/js/custom/authentication/sign-in/general.js'
         ];
-        $this->pageStyles = [
-            'assets/plugins/global/plugins.bundle.css',
-            'assets/css/style.bundle.css'
-        ];
+        $this->pageStyles = [];
 
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -63,6 +58,7 @@ class Auth extends MY_Controller
             $user = $this->User_model->getUserByEmail($email);
             if ($user && password_verify($password, $user->password)) {
                 $this->session->set_userdata('user_id', $user->id);
+                $this->session->set_userdata('email', $user->email);
                 $this->session->set_userdata('username', $user->username);
                 $this->session->set_userdata('logged_in', TRUE);
                 redirect('admin/dashboard');
