@@ -66,7 +66,7 @@
                                     <!--end:::Tab item-->
                                     <!--begin:::Tab item-->
                                     <li class="nav-item">
-                                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Advanced</a>
+                                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Inbound Information</a>
                                     </li>
                                     <!--end:::Tab item-->
                                 </ul>
@@ -88,17 +88,55 @@
                                                 <!--begin::Card body-->
                                                 <div class="card-body pt-0">
                                                     <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="required form-label">Product Name</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="product_name" class="form-control mb-2" placeholder="Product name" value="" />
-                                                        <!--end::Input-->
-                                                        <!--begin::Description-->
-                                                        <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
-                                                        <!--end::Description-->
+                                                    <div class="row g-5">
+                                                        <!-- AWB Number -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="required form-label">AWB Number</label>
+                                                            <input type="text" name="awb_number" class="form-control mb-2" placeholder="AWB Number" value="" />
+                                                            <div class="text-muted fs-7">Enter the Air Waybill Number.</div>
+                                                        </div>
+
+                                                        <!-- Courier -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="required form-label">Courier</label>
+                                                            <input type="text" name="courier" class="form-control mb-2" placeholder="Courier" value="" />
+                                                            <div class="text-muted fs-7">Enter courier name.</div>
+                                                        </div>
+
+                                                        <!-- Status -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="required form-label">Status</label>
+                                                            <select name="status" class="form-select mb-2">
+                                                                <option value="">-- Select Status --</option>
+                                                                <option value="pending">Pending</option>
+                                                                <option value="received">Received</option>
+                                                                <option value="problem">Problem</option>
+                                                            </select>
+                                                            <div class="text-muted fs-7">Choose the shipment status.</div>
+                                                        </div>
+
+                                                        <!-- Sender -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="required form-label">Sender</label>
+                                                            <input type="text" name="sender" class="form-control mb-2" placeholder="Sender" value="" />
+                                                            <div class="text-muted fs-7">Enter sender name.</div>
+                                                        </div>
+
+                                                        <!-- Receiver -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="required form-label">Receiver</label>
+                                                            <input type="text" name="receiver" class="form-control mb-2" placeholder="Receiver" value="" />
+                                                            <div class="text-muted fs-7">Enter receiver name.</div>
+                                                        </div>
+
+                                                        <!-- Received By -->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="form-label">Received By</label>
+                                                            <input type="text" name="received_by" class="form-control mb-2" placeholder="Receiver's Representative" value="" />
+                                                            <div class="text-muted fs-7">Enter who received the package.</div>
+                                                        </div>
                                                     </div>
+
                                                     <!--end::Input group-->
                                                     <!--begin::Input group-->
                                                     <div>
@@ -117,47 +155,6 @@
                                                 <!--end::Card header-->
                                             </div>
                                             <!--end::General options-->
-                                            <!--begin::Media-->
-                                            <div class="card card-flush py-4">
-                                                <!--begin::Card header-->
-                                                <div class="card-header">
-                                                    <div class="card-title">
-                                                        <h2>Media</h2>
-                                                    </div>
-                                                </div>
-                                                <!--end::Card header-->
-                                                <!--begin::Card body-->
-                                                <div class="card-body pt-0">
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-2">
-                                                        <!--begin::Dropzone-->
-                                                        <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                            <!--begin::Message-->
-                                                            <div class="dz-message needsclick">
-                                                                <!--begin::Icon-->
-                                                                <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>
-                                                                <!--end::Icon-->
-                                                                <!--begin::Info-->
-                                                                <div class="ms-4">
-                                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-                                                                    <span class="fs-7 fw-semibold text-gray-500">Upload up to 10 files</span>
-                                                                </div>
-                                                                <!--end::Info-->
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Dropzone-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Set the product media gallery.</div>
-                                                    <!--end::Description-->
-                                                </div>
-                                                <!--end::Card header-->
-                                            </div>
-                                            <!--end::Media-->
                                             <!--begin::Pricing-->
                                             <div class="card card-flush py-4">
                                                 <!--begin::Card header-->
@@ -331,79 +328,54 @@
                                     <!--begin::Tab pane-->
                                     <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
                                         <div class="d-flex flex-column gap-7 gap-lg-10">
-                                            <!--begin::Inventory-->
+                                            <!--begin::Media-->
                                             <div class="card card-flush py-4">
                                                 <!--begin::Card header-->
                                                 <div class="card-header">
                                                     <div class="card-title">
-                                                        <h2>Inventory</h2>
+                                                        <h2>Package Photo Information</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body pt-0">
+                                                    <!--begin::Input group-->
+                                                    <div class="mb-100 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="required form-label">Package Photo</label>
                                                     </div>
                                                 </div>
                                                 <!--end::Card header-->
                                                 <!--begin::Card body-->
                                                 <div class="card-body pt-0">
                                                     <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="required form-label">SKU</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="sku" class="form-control mb-2" placeholder="SKU Number" value="" />
-                                                        <!--end::Input-->
-                                                        <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Enter the product SKU.</div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="required form-label">Barcode</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="barcode" class="form-control mb-2" placeholder="Barcode Number" value="" />
-                                                        <!--end::Input-->
-                                                        <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Enter the product barcode number.</div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="required form-label">Quantity</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div class="d-flex gap-3">
-                                                            <input type="number" name="shelf" class="form-control mb-2" placeholder="On shelf" value="" />
-                                                            <input type="number" name="warehouse" class="form-control mb-2" placeholder="In warehouse" />
+                                                    <div class="fv-row mb-2">
+                                                        <!--begin::Dropzone-->
+                                                        <div class="dropzone" id="kt_ecommerce_add_product_media">
+                                                            <!--begin::Message-->
+                                                            <div class="dz-message needsclick">
+                                                                <!--begin::Icon-->
+                                                                <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>
+                                                                <!--end::Icon-->
+                                                                <!--begin::Info-->
+                                                                <div class="ms-4">
+                                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
+                                                                    <span class="fs-7 fw-semibold text-gray-500">Upload up to 10 files</span>
+                                                                </div>
+                                                                <!--end::Info-->
+                                                            </div>
                                                         </div>
-                                                        <!--end::Input-->
-                                                        <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Enter the product quantity.</div>
-                                                        <!--end::Description-->
+                                                        <!--end::Dropzone-->
                                                     </div>
                                                     <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label">Allow Backorders</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div class="form-check form-check-custom form-check-solid mb-2">
-                                                            <input class="form-check-input" type="checkbox" value="" />
-                                                            <label class="form-check-label">Yes</label>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                        <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Allow customers to purchase products that are out of stock.</div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Input group-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Set the product media gallery.</div>
+                                                    <!--end::Description-->
                                                 </div>
                                                 <!--end::Card header-->
                                             </div>
-                                            <!--end::Inventory-->
+                                            <!--end::Media-->
                                             <!--begin::Variations-->
                                             <div class="card card-flush py-4">
                                                 <!--begin::Card header-->
@@ -609,33 +581,6 @@
                 <!--end::Content-->
             </div>
             <!--end::Content wrapper-->
-            <!--begin::Footer-->
-            <div id="kt_app_footer" class="app-footer">
-                <!--begin::Footer container-->
-                <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
-                    <!--begin::Copyright-->
-                    <div class="text-gray-900 order-2 order-md-1">
-                        <span class="text-muted fw-semibold me-1">2025&copy;</span>
-                        <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-                    </div>
-                    <!--end::Copyright-->
-                    <!--begin::Menu-->
-                    <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                        <li class="menu-item">
-                            <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-                        </li>
-                    </ul>
-                    <!--end::Menu-->
-                </div>
-                <!--end::Footer container-->
-            </div>
-            <!--end::Footer-->
         </div>
         <!--end:::Main-->
     </div>
