@@ -124,7 +124,7 @@
                          <!--begin:Menu link-->
                          <span class="menu-link">
                              <span class="menu-icon">
-                                 <i class="bi bi-truck fs-2">
+                                 <i class="ki-duotone ki-parcel fs-2">
                                      <span class="path1"></span>
                                      <span class="path2"></span>
                                      <span class="path3"></span>
@@ -218,13 +218,7 @@
                          <!--begin:Menu link-->
                          <span class="menu-link">
                              <span class="menu-icon">
-                                 <i class="bi bi-building fs-2">
-                                     <span class="path1"></span>
-                                     <span class="path2"></span>
-                                     <span class="path3"></span>
-                                     <span class="path4"></span>
-                                     <span class="path5"></span>
-                                 </i>
+                                 <i class="bi bi-building fs-2"></i>
                              </span>
                              <span class="menu-title">Data Head Office</span>
                              <span class="menu-arrow"></span>
@@ -272,6 +266,131 @@
                          <!--end:Menu sub-->
                      </div>
                      <!--end:Menu Data Heed Office-->
+
+                     <!--begin: Menu Kalog-->
+                     <div
+                         data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion">
+                         <!--begin:Menu link-->
+                         <span class="menu-link">
+                             <span class="menu-icon">
+                                 <i class="bi bi-train-front-fill fs-2"></i>
+                             </span>
+                             <span class="menu-title">Kalog</span>
+                             <span class="menu-arrow"></span>
+                         </span>
+                         <!--end:Menu link-->
+                         <!--begin:Menu sub-->
+                         <div class="menu-sub menu-sub-accordion">
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a class="menu-link" href="pages/social/feeds.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Data Kalog</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+                         </div>
+                         <!--end:Menu sub-->
+
+                     </div>
+                     <!--end: Menu Kalog-->
+
+                     <!--begin: Menu JNE Cargo-->
+                     <div
+                         data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion">
+                         <!--begin:Menu link-->
+                         <span class="menu-link">
+                             <span class="menu-icon">
+                                 <i class="ki-duotone ki-delivery fs-2">
+                                     <span class="path1"></span>
+                                     <span class="path2"></span>
+                                     <span class="path3"></span>
+                                     <span class="path4"></span>
+                                     <span class="path5"></span>
+                                 </i>
+                             </span>
+                             <span class="menu-title">JNE Cargo</span>
+                             <span class="menu-arrow"></span>
+                         </span>
+                         <!--end:Menu link-->
+                         <!--begin:Menu sub-->
+                         <div class="menu-sub menu-sub-accordion">
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a class="menu-link" href="pages/social/feeds.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Data JNT Cargo</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+                         </div>
+                         <!--end:Menu sub-->
+
+                     </div>
+                     <!--end: Menu JNE Cargo-->
+
+                     <!--begin: Menu Dosmestics-->
+                     <div
+                         data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion">
+                         <!--begin:Menu link-->
+                         <span class="menu-link">
+                             <span class="menu-icon">
+                                 <i class="ki-duotone ki-logistic fs-2">
+                                     <span class="path1"></span>
+                                     <span class="path2"></span>
+                                     <span class="path3"></span>
+                                     <span class="path4"></span>
+                                     <span class="path5"></span>
+                                     <span class="path6"></span>
+                                     <span class="path7"></span>
+                                 </i>
+                             </span>
+                             <span class="menu-title">Domestics</span>
+                             <span class="menu-arrow"></span>
+                         </span>
+                         <!--end:Menu link-->
+                         <!--begin:Menu sub-->
+                         <div class="menu-sub menu-sub-accordion">
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a class="menu-link" href="pages/social/feeds.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Exsys Shipment</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+                             <!--begin:Menu item-->
+                             <div class="menu-item">
+                                 <!--begin:Menu link-->
+                                 <a class="menu-link" href="pages/social/feeds.html">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">J&T Express</span>
+                                 </a>
+                                 <!--end:Menu link-->
+                             </div>
+                             <!--end:Menu item-->
+                         </div>
+                         <!--end:Menu sub-->
+
+                     </div>
+                     <!--end: Menu Dosmestics-->
 
                      <!--begin:Menu Tracking-->
                      <div
@@ -346,6 +465,8 @@
                                  <i class="ki-duotone ki-wallet fs-2">
                                      <span class="path1"></span>
                                      <span class="path2"></span>
+                                     <span class="path3"></span>
+                                     <span class="path4"></span>
                                  </i>
                              </span>
                              <span class="menu-title">Deposit</span>
@@ -362,20 +483,6 @@
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Top Up</span>
-                                 </a>
-                                 <!--end:Menu link-->
-                             </div>
-                             <!--end:Menu item-->
-                             <!--begin:Menu item-->
-                             <div class="menu-item">
-                                 <!--begin:Menu link-->
-                                 <a
-                                     class="menu-link"
-                                     href="pages/social/activity.html">
-                                     <span class="menu-bullet">
-                                         <span class="bullet bullet-dot"></span>
-                                     </span>
-                                     <span class="menu-title">Update Location</span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -466,10 +573,7 @@
                              class="menu-link"
                              href="<?= base_url('admin/shipping_rates') ?>">
                              <span class="menu-icon">
-                                 <i class="bi bi-currency-dollar fs-2">
-                                     <span class="path1"></span>
-                                     <span class="path2"></span>
-                                 </i>
+                                 <i class="bi bi-currency-dollar fs-2"></i>
                              </span>
                              <span class="menu-title">Shipping Rates</span>
                          </a>
