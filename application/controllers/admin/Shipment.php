@@ -34,6 +34,6 @@
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('admin/shipment/add', 'Create Shipment', $data);
+            $this->loadView('admin/shipment/create', 'Create Shipment', $data);
         }
     }

@@ -132,8 +132,8 @@
 								</i>Export</button>
 							<!--end::Export-->
 							<!--begin::Add user-->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
-								<i class="ki-duotone ki-plus fs-2"></i>Add Shipment</button>
+							<a href="<?= base_url('admin/shipment/create') ?>" class="btn btn-primary">
+								<i class="ki-duotone ki-plus fs-2"></i>Add Shipment</a>
 							<!--end::Add user-->
 						</div>
 						<!--end::Toolbar-->
@@ -498,14 +498,6 @@
 								<td>24 Jun 2025, 05:00 PM</td>
 								<td class="text-end">
 									<div class="d-flex justify-content-end gap-2">
-										<a
-											href="#"
-											class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-											<i class="ki-duotone ki-switch fs-2">
-												<span class="path1"></span>
-												<span class="path2"></span>
-											</i>
-										</a>
 										<a
 											href="#"
 											class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
