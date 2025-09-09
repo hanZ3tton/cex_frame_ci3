@@ -55,6 +55,7 @@ class Auth extends MY_Controller
                 $this->session->set_userdata('user_id', $user->id);
                 $this->session->set_userdata('email', $user->email);
                 $this->session->set_userdata('username', $user->username);
+                $this->session->set_userdata('role_id', $user->role_id);
                 $this->session->set_userdata('logged_in', TRUE);
                 redirect('v3/admin/dashboard');
             } else {
@@ -103,7 +104,7 @@ class Auth extends MY_Controller
         ];
         $this->pageStyles = [];
 
-        $this->loadView('auth/register', 'Register', $data);
+        $this->loadView('v3/auth/register', 'Register', $data);
         if ($this->session->userdata('user_id')) {
             redirect('v3/admin/dashboard');
         }

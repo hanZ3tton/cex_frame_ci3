@@ -24,7 +24,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <a
                                 href="#"
-                                class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $this->session->userdata('username') . $this->session->userdata('role_id') ?></a>
+                                class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $this->session->userdata('username') ?></a>
                             <a href="#">
                                 <i class="ki-duotone ki-verify fs-1 text-primary">
                                     <span class="path1"></span>
@@ -41,25 +41,24 @@
                                 <i class="ki-duotone ki-profile-circle fs-4 me-1">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
-                                    <span class="path3"></span> </i><?= $roles->name ?></a>
+                                    <span class="path3"></span> </i><?= $roles->name; ?></a>
                             <a
                                 href="#"
                                 class="d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2">
                                 <i class="ki-duotone ki-geolocation fs-4 me-1">
                                     <span class="path1"></span>
-                                    <span class="path2"></span> </i><?php $address = ($users->address) ? $users->address : "Not filled yet";
+                                    <span class="path2"></span> </i><?php $address = ($users->address) ? $users->address : "Not filled";
                                                                     echo $address ?></a>
                             <a
                                 href="#"
                                 class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                 <i class="ki-duotone ki-sms fs-4">
                                     <span class="path1"></span>
-                                    <span class="path2"></span> </i><?= $users->email    ?></a>
+                                    <span class="path2"></span> </i><?= $users->email ?></a>
                         </div>
                         <!--end::Info-->
                     </div>
                     <!--end::User-->
-
                 </div>
                 <!--end::Title-->
                 <!--begin::Stats-->
@@ -89,38 +88,79 @@
                                 <!--end::Number-->
                                 <!--begin::Label-->
                                 <div class="fw-semibold fs-6 text-gray-500">
-                                    Credit
+                                    Earnings
                                 </div>
                                 <!--end::Label-->
                             </div>
                             <!--end::Stat-->
-
+                            <!--begin::Stat-->
+                            <div
+                                class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                <!--begin::Number-->
+                                <div class="d-flex align-items-center">
+                                    <i
+                                        class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <div
+                                        class="fs-2 fw-bold"
+                                        data-kt-countup="true"
+                                        data-kt-countup-value="80">
+                                        0
+                                    </div>
+                                </div>
+                                <!--end::Number-->
+                                <!--begin::Label-->
+                                <div class="fw-semibold fs-6 text-gray-500">
+                                    Projects
+                                </div>
+                                <!--end::Label-->
+                            </div>
+                            <!--end::Stat-->
+                            <!--begin::Stat-->
+                            <div
+                                class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                <!--begin::Number-->
+                                <div class="d-flex align-items-center">
+                                    <i
+                                        class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <div
+                                        class="fs-2 fw-bold"
+                                        data-kt-countup="true"
+                                        data-kt-countup-value="60"
+                                        data-kt-countup-prefix="%">
+                                        0
+                                    </div>
+                                </div>
+                                <!--end::Number-->
+                                <!--begin::Label-->
+                                <div class="fw-semibold fs-6 text-gray-500">
+                                    Success Rate
+                                </div>
+                                <!--end::Label-->
+                            </div>
+                            <!--end::Stat-->
                         </div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Wrapper-->
                     <!--begin::Progress-->
                     <div
-                        <?php
-                        $name = ($users->username) ? 20 : 0;
-                        $agent = ($users->agent) ? 20 : 0;
-                        $phone = ($users->phone) ? 20 : 0;
-                        $email = ($users->email) ? 20 : 0;
-                        $address = ($users->address) ? 20 : 0;
-
-                        $completion = $name + $agent + $phone + $email + $address;
-                        ?>
                         class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
                         <div
                             class="d-flex justify-content-between w-100 mt-auto mb-2">
-                            <span class="fw-semibold fs-6 text-gray-500">Profile Completion</span>
-                            <span class="fw-bold fs-6"><?= $completion ?>%</span>
+                            <span class="fw-semibold fs-6 text-gray-500">Profile Compleation</span>
+                            <span class="fw-bold fs-6">50%</span>
                         </div>
                         <div class="h-5px mx-3 w-100 bg-light mb-3">
                             <div
                                 class="bg-success rounded h-5px"
                                 role="progressbar"
-                                style="width: <?= $completion ?>%"
+                                style="width: 50%"
                                 aria-valuenow="50"
                                 aria-valuemin="0"
                                 aria-valuemax="100"></div>

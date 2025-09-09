@@ -8,11 +8,6 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px p-10">
                 <!--begin::Form-->
-                <?php
-                if ($this->session->flashdata('error')) {
-                    echo $this->session->flashdata('error');
-                }
-                ?>
                 <form
                     class="form w-100"
                     action="<?= base_url('v3/auth/login_process') ?>"
@@ -22,52 +17,8 @@
                         <!--begin::Title-->
                         <h1 class="text-gray-900 fw-bolder mb-3">Sign In</h1>
                         <!--end::Title-->
-                        <!--begin::Subtitle-->
-                        <div class="text-gray-500 fw-semibold fs-6">
-                            Your Social Campaigns
-                        </div>
-                        <!--end::Subtitle=-->
                     </div>
                     <!--begin::Heading-->
-                    <!--begin::Login options-->
-                    <div class="row g-3 mb-9">
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                            <!--begin::Google link=-->
-                            <a
-                                href="#"
-                                class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                <img
-                                    alt="Logo"
-                                    src="assets/media/svg/brand-logos/google-icon.svg"
-                                    class="h-15px me-3" />Sign in with Google</a>
-                            <!--end::Google link=-->
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                            <!--begin::Google link=-->
-                            <a
-                                href="#"
-                                class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                <img
-                                    alt="Logo"
-                                    src="assets/media/svg/brand-logos/apple-black.svg"
-                                    class="theme-light-show h-15px me-3" />
-                                <img
-                                    alt="Logo"
-                                    src="assets/media/svg/brand-logos/apple-black-dark.svg"
-                                    class="theme-dark-show h-15px me-3" />Sign in with Apple</a>
-                            <!--end::Google link=-->
-                        </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Login options-->
-                    <!--begin::Separator-->
-                    <div class="separator separator-content my-14">
-                        <span class="w-125px text-gray-500 fw-semibold fs-7">Or with email</span>
-                    </div>
-                    <!--end::Separator-->
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
                         <!--begin::Email-->
@@ -91,6 +42,11 @@
                             autocomplete="off"
                             class="form-control bg-transparent" />
                         <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
+                        <div class="text-danger"> <?php
+                                                    if ($this->session->flashdata('error')) {
+                                                        echo $this->session->flashdata('error');
+                                                    }
+                                                    ?></div>
 
                         <!--end::Password-->
                     </div>
@@ -126,7 +82,7 @@
                     <div class="text-gray-500 text-center fw-semibold fs-6">
                         Not a Member yet?
                         <a
-                            href="<?= base_url('auth/regist') ?>"
+                            href="<?= base_url('v3/auth/regist') ?>"
                             class="link-primary">Sign up</a>
                     </div>
                     <!--end::Sign up-->
@@ -286,7 +242,7 @@
             <!--begin::Title-->
             <h1
                 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
-                Fast, Efficient and Productive
+                Frame Choir
             </h1>
             <!--end::Title-->
             <!--begin::Text-->

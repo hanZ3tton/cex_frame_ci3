@@ -1,7 +1,7 @@
     <?php
     defined('BASEPATH') or exit('No direct script access allowed');
 
-    class TopUp extends MY_Controller
+    class Topup extends MY_Controller
     {
 
         public function __construct()
@@ -26,11 +26,11 @@
         {
             $data = [];
 
-            $this->config->load('assets/deposittopup');
+            $this->config->load('assets/topup');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('admin/TopUp/deposit', 'Deposit', $data);
+            $this->loadView('v3/admin/TopUp/deposit', 'Deposit', $data);
         }
     }

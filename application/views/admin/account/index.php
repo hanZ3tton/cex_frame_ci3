@@ -20,7 +20,7 @@
 					class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href="index.html" class="text-muted text-hover-primary">Home</a>
+						<a href="<?= base_url() ?>" class="text-muted text-hover-primary">Home</a>
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
@@ -45,7 +45,7 @@
 		<div id="kt_app_content_container" class="app-container container-xxl">
 
 			<!--begin:: Navbar Profile-->
-			<?php $this->load->view('v3/admin/account/nav', [
+			<?php $this->load->view('admin/account/nav', [
 				'active_tab' => isset($active_tab) ? $active_tab : 'overview',
 				'tab_url'    => isset($tab_url) ? $tab_url : site_url('admin/account/index'),
 			]); ?>

@@ -16,13 +16,7 @@ $config['assets'] = [
         'https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js',
         'https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js',
         'assets/plugins/custom/datatables/datatables.bundle.js',
-        'assets/js/widgets.bundle.js',
-        'assets/js/custom/widgets.js',
-        'assets/js/custom/apps/chat/chat.js',
-        'assets/js/custom/utilities/modals/upgrade-plan.js',
-        'assets/js/custom/utilities/modals/create-app.js',
         'assets/js/custom/utilities/modals/new-target.js',
-        'assets/js/custom/utilities/modals/users-search.js',
     ],
     'css' => [
         'assets/plugins/custom/datatables/datatables.bundle.css'
