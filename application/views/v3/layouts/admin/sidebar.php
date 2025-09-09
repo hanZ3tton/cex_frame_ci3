@@ -252,11 +252,14 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="account/overview.html">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/direct_inbound_ho') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Overview</span>
+                                     <span class="menu-title">Direct Inbound HO</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -264,11 +267,14 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="account/settings.html">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/not_completed') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Settings</span>
+                                     <span class="menu-title">Not Completed</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
@@ -276,11 +282,14 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="account/security.html">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/data_receipt') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
-                                     <span class="menu-title">Security</span>
+                                     <span class="menu-title">Data receipt</span>
+                                     <span class="menu-badge">
+                                         <span class="badge badge-success">3</span>
+                                     </span>
                                  </a>
                                  <!--end:Menu link-->
                              </div>
