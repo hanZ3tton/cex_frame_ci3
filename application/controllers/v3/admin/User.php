@@ -7,8 +7,8 @@
         public function __construct()
         {
             parent::__construct();
-
             $this->defaultLayout = 'v3/layouts/app';
+            $this->load->model('User_model');
             if ($this->session->userdata('user_id') == null) {
                 redirect('v3/auth');
             }
@@ -16,12 +16,13 @@
 
         public function index()
         {
-            $data = [];
+            $data = [
+                'users' => $this->User_model->getAllUser()
+            ];
             $this->config->load('assets/user');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
-
             $this->loadView('v3/admin/user/index', 'User List', $data);
         }
 
