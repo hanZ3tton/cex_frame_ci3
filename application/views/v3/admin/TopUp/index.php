@@ -126,48 +126,7 @@
 					</div>
 				</div>
 
-				<div class="modal fade" id="kt_modal_topup_deposit" tabindex="-1" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered mw-650px">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h2 class="fw-bold">Add Deposit</h2>
-								<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-									<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-								</div>
-							</div>
-							<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-								<form id="kt_modal_topup_form" class="form" action="#">
-									<div class="mb-5 fv-row">
-										<label class="form-label required fw-bold fs-6">Bank Name</label>
-										<input type="text" class="form-control form-control-solid" placeholder="Bank Name" name="bank_name" />
-									</div>
-									<div class="mb-5 fv-row">
-										<label class="form-label required fw-bold fs-6">Bank Account Name</label>
-										<input type="text" class="form-control form-control-solid" placeholder="Bank Account Name" name="bank_account_name" />
-									</div>
-									<div class="mb-5 fv-row">
-										<label class="form-label required fw-bold fs-6">Bank Destination</label>
-										<select class="form-select form-select-solid" name="destination_bank">
-											<option>BCA 586-520-2641</option>
-										</select>
-									</div>
-									<div class="mb-5 fv-row">
-										<label class="form-label required fw-bold fs-6">Nominal</label>
-										<input type="text" class="form-control form-control-solid" placeholder="Nominal..." name="nominal" />
-									</div>
-									<div class="mb-5 fv-row">
-										<label class="form-label required fw-bold fs-6">Transfer Proof</label>
-										<input type="file" class="form-control form-control-solid" name="transfer_proof" />
-									</div>
-									<div class="text-center">
-										<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-primary">Save</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div class="card-body py-4">
 					<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 						<thead>
