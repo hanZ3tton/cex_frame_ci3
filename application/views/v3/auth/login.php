@@ -8,11 +8,6 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px p-10">
                 <!--begin::Form-->
-                <?php
-                if ($this->session->flashdata('error')) {
-                    $error = $this->session->flashdata('error');
-                }
-                ?>
                 <form
                     class="form w-100"
                     action="<?= base_url('v3/auth/login_process') ?>"
@@ -47,7 +42,11 @@
                             autocomplete="off"
                             class="form-control bg-transparent" />
                         <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
-                        <div class="text-danger"> <?= $error ?></div>
+                        <div class="text-danger"> <?php
+                                                    if ($this->session->flashdata('error')) {
+                                                        echo $this->session->flashdata('error');
+                                                    }
+                                                    ?></div>
 
                         <!--end::Password-->
                     </div>
