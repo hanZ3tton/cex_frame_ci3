@@ -10,7 +10,7 @@
                 <!--begin::Form-->
                 <?php
                 if ($this->session->flashdata('error')) {
-                    echo $this->session->flashdata('error');
+                    $error = $this->session->flashdata('error');
                 }
                 ?>
                 <form
@@ -47,6 +47,7 @@
                             autocomplete="off"
                             class="form-control bg-transparent" />
                         <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
+                        <div class="text-danger"> <?= $error ?></div>
 
                         <!--end::Password-->
                     </div>
