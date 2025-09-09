@@ -45,7 +45,7 @@
 		<div id="kt_app_content_container" class="app-container container-xxl">
 
 			<!--begin:: Navbar Profile-->
-			<?php $this->load->view('admin/account/nav', [
+			<?php $this->load->view('v3/admin/account/nav', [
 				'active_tab' => isset($active_tab) ? $active_tab : 'overview',
 				'tab_url'    => isset($tab_url) ? $tab_url : site_url('admin/account/index'),
 			]); ?>

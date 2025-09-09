@@ -5887,7 +5887,7 @@
                           <!--end::Menu separator-->
                           <!--begin::Menu item-->
                           <div class="menu-item px-5">
-                              <a href="<?= base_url('admin/account/index') ?>" class="menu-link px-5">My Profile</a>
+                              <a href="<?= base_url('v3/admin/account/index') ?>" class="menu-link px-5">My Profile</a>
                           </div>
                           <!--end::Menu item-->
                           <!--begin::Menu item-->
@@ -6166,7 +6166,7 @@
                           <!--begin::Menu item-->
                           <div class="menu-item px-5">
                               <a
-                                  href="<?= base_url('auth/logout') ?>"
+                                  href="<?= base_url('v3/auth/logout') ?>"
                                   class="menu-link px-5">Sign Out</a>
                           </div>
                           <!--end::Menu item-->
