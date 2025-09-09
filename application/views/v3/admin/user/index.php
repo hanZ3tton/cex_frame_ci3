@@ -515,7 +515,7 @@
                 <div class="card-body py-4">
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                        <thead>
+                        <thead class="">
                             <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2">
                                     <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
@@ -524,68 +524,84 @@
                                 </th>
                                 <th class="min-w-125px">User</th>
                                 <th class="min-w-125px">Role</th>
+                                <th class="min-w-125px">Phone Number</th>
+                                <th class="min-w-125px">Agent</th>
+                                <th class="min-w-325px">Address</th>
                                 <th class="min-w-125px">Last login</th>
                                 <th class="min-w-125px">Status</th>
-                                <th class="min-w-125px">Joined Date</th>
+                                <th class="min-w-125px">Created At</th>
+                                <th class="min-w-125px">Updated At</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1" />
-                                    </div>
-                                </td>
-                                <td class="d-flex align-items-center">
-                                    <!--begin:: Avatar -->
-                                    <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                        <a href="apps/user-management/users/view.html">
-                                            <div class="symbol-label">
-                                                <img src="assets/media/avatars/300-6.jpg" alt="Emma Smith" class="w-100" />
+                            <?php foreach ($users as $user): ?>
+                                <tr>
+                                    <td>
+                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                            <input class="form-check-input" type="checkbox" value="1" />
+                                        </div>
+                                    </td>
+                                    <td class="d-flex align-items-center">
+                                        <!--begin:: Avatar -->
+                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                            <a href="apps/user-management/users/view.html">
+                                                <div class="symbol-label">
+                                                    <img src="assets/media/avatars/300-6.jpg" alt="Emma Smith" class="w-100" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--end::Avatar-->
+
+                                        <!--begin::User details-->
+                                        <div class="d-flex flex-column">
+                                            <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1"><?= $user->username ?></a>
+                                            <span><?= $user->email ?></span>
+                                        </div>
+                                        <!--begin::User details-->
+                                    </td>
+                                    <td>Administrator</td>
+                                    <td><?= $user->phone ?></td>
+                                    <td><?= $user->agent ?></td>
+                                    <td><?= $user->address ?></td>
+                                    <td>
+                                        <div class="badge badge-light fw-bold"><?= $last_login = ($user->last_login) ? $user->last_login : "Not login yet" ?></div>
+                                    </td>
+                                    <td>
+                                        <?php if ($user->is_active): ?>
+                                            <div class="badge badge-light-success fw-bold">
+                                                Active
                                             </div>
-                                        </a>
-                                    </div>
-                                    <!--end::Avatar-->
+                                        <?php else: ?>
+                                            <div class="badge badge-light-danger fw-bold">
+                                                Inactive
+                                            </div>
+                                        <?php endif ?>
+                                    </td>
+                                    <td><?= $user->created_at ?></td>
+                                    <td><?= $user->updated_at ?></td>
+                                    <td class="text-end">
+                                        <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                        <!--begin::Menu-->
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a href="<?= base_url('v3/admin/user/edit') ?>" class="menu-link px-3">Edit</a>
+                                            </div>
+                                            <!--end::Menu item-->
 
-                                    <!--begin::User details-->
-                                    <div class="d-flex flex-column">
-                                        <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-                                        <span>smith@kpmg.com</span>
-                                    </div>
-                                    <!--begin::User details-->
-                                </td>
-                                <td>Administrator</td>
-                                <td>
-                                    <div class="badge badge-light fw-bold">Yesterday</div>
-                                </td>
-                                <td>
-                                    <div class="badge badge-light-success fw-bold">
-                                        Active
-                                    </div>
-                                </td>
-                                <td>24 Jun 2025, 5:20 pm</td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                        <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                    <!--begin::Menu-->
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="<?= base_url('v3/admin/user/edit') ?>" class="menu-link px-3">Edit</a>
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                            </div>
+                                            <!--end::Menu item-->
+
                                         </div>
-                                        <!--end::Menu item-->
-
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                        </div>
-                                        <!--end::Menu item-->
-
-                                    </div>
-                                    <!--end::Menu-->
-                                </td>
-                            </tr>
+                                        <!--end::Menu-->
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                     <!--end::Table-->

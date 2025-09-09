@@ -57,6 +57,11 @@ class Auth extends MY_Controller
                 $this->session->set_userdata('username', $user->username);
                 $this->session->set_userdata('role_id', $user->role_id);
                 $this->session->set_userdata('logged_in', TRUE);
+                $data = [
+                    'last_login' => date('Y-m-d H:i:s'),
+                    'is_active' => 1
+                ];
+                $this->User_model->updateUser($user->id, $data);
                 redirect('v3/admin/dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
@@ -132,6 +137,7 @@ class Auth extends MY_Controller
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
                 'created_at' => date('Y-m-d H:i:s'),
+                'is_active' => 1
             ];
             if ($this->User_model->createUser($data)) {
                 $this->session->set_flashdata('success', 'Registration successful');
