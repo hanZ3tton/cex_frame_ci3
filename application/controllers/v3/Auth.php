@@ -103,7 +103,7 @@ class Auth extends MY_Controller
         ];
         $this->pageStyles = [];
 
-        $this->loadView('auth/register', 'Register', $data);
+        $this->loadView('v3/auth/register', 'Register', $data);
         if ($this->session->userdata('user_id')) {
             redirect('v3/admin/dashboard');
         }
