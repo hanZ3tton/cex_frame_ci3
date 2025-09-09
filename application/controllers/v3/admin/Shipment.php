@@ -47,4 +47,16 @@
 
             $this->loadView('v3/admin/shipment/not_proccess/index', 'Not Process', $data);
         }
+
+        public function notc()
+        {
+            $data = [];
+
+            $this->config->load('assets/shipment');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('v3/admin/shipment/not_complete/index', 'Not Complete', $data);
+        }
     }
