@@ -1,7 +1,7 @@
     <?php
     defined('BASEPATH') or exit('No direct script access allowed');
 
-    class TopUp extends MY_Controller
+    class Topup extends MY_Controller
     {
 
         public function __construct()
