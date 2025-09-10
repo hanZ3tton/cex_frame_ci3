@@ -22,9 +22,7 @@ class Auth extends MY_Controller
     public function login()
     {
         $data = [];
-        $this->pageScripts = [
-            'assets/js/custom/authentication/sign-in/general.js'
-        ];
+        $this->pageScripts = [];
         $this->pageStyles = [];
 
         $this->loadView('v3/auth/login', 'Login', $data);
@@ -36,9 +34,7 @@ class Auth extends MY_Controller
     public function login_process()
     {
         $data = [];
-        $this->pageScripts = [
-            'assets/js/custom/authentication/sign-in/general.js'
-        ];
+        $this->pageScripts = [];
         $this->pageStyles = [];
 
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -65,7 +61,7 @@ class Auth extends MY_Controller
                 redirect('v3/admin/dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
-                redirect('v3/auth/login');
+                $this->loadView('v3/auth/login', 'Login', $data);
             }
         }
         if ($this->session->userdata('user_id')) {
