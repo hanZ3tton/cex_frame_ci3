@@ -637,7 +637,7 @@
                                 <span class="path4"></span>
                                 <span class="path5"></span>
                             </i>
-                            <h2 class="mb-0">Detailed Item Data</h2>
+                            <h2 class="mb-0">Shipping Information</h2>
                         </div>
                         <!--end::Card title-->
                         <!--begin::Notice-->
@@ -673,7 +673,7 @@
                                 <div class="w-100">
                                     <!--begin::Select2-->
                                     <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
-                                        <option value="">Pilih Jenis Paket</option>
+                                        <option value="">Pick the Package Type</option>
                                         <option value="non_garment">Non Garment</option>
                                         <option value="garment">Garment</option>
                                         <option value="extra_sensitive">Extra / Sensitive Items</option>
@@ -730,7 +730,7 @@
                             <div class="col">
                                 <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Width</span>
+                                        <span class="required">Weight(KG)</span>
                                     </label>
                                     <input type="number" class="form-control form-control-solid" name="width" value="" />
                                 </div>
@@ -741,7 +741,7 @@
                             <div class="col">
                                 <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Height</span>
+                                        <span class="required">Colli Total</span>
                                     </label>
                                     <input type="number" class="form-control form-control-solid" name="height" value="" />
                                 </div>
@@ -759,17 +759,17 @@
                                 <div class="fv-row mb-12">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Package Type</span>
+                                        <span class="required">Service</span>
                                     </label>
                                     <!--end::Label-->
                                     <div class="w-100">
                                         <!--begin::Select2-->
-                                        <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select Package Type">
-                                            <option value="">Pilih Jenis Paket</option>
-                                            <option value="non_garment">Non Garment</option>
-                                            <option value="garment">Garment</option>
-                                            <option value="extra_sensitive">Extra / Sensitive Items</option>
-                                            <option value="electronic">Electronic</option>
+                                        <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select Service">
+                                            <option value="electronic">Select Service</option>
+                                            <option value="">REGULER</option>
+                                            <option value="non_garment">SPECIAL</option>
+                                            <option value="garment">EXPRESS</option>
+                                            <option value="extra_sensitive">PROMO</option>
                                         </select>
                                         <!--end::Select2-->
                                     </div>
@@ -797,9 +797,9 @@
                             <div class="col">
                                 <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Width</span>
+                                        <span class="required">Refference Number</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                    <input type="Text" class="form-control form-control-solid" name="width" value="" />
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -809,64 +809,135 @@
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
+                        <!--begin::Card title-->
+                        <div class="card-title d-flex align-items-center mb-5">
+                            <i class="ki-duotone ki-badge fs-1 me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                                <span class="path5"></span>
+                            </i>
+                            <h2 class="mb-0">Detailed Item Data</h2>
+                        </div>
+                        <!--end::Card title-->
+                        <!--begin::Notice-->
+                        <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6 mb-7">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-design-1 fs-2tx text-primary me-4"></i>
+                            <!--end::Icon-->
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-stack flex-grow-1">
+                                <!--begin::Content-->
+                                <div class="fw-semibold">
+                                    <div class="fs-6 text-gray-700">
+                                        Please ensure that the data matches the actual contents of the package. <br>
+                                        If there is any intentional discrepancy, all risks to the package
+                                        (Loss / Damage) are the responsibility of the sender and not of
+                                        <strong>Choir Express</strong>. <br>
+                                        In the event of loss or damage, Choir Express will only compensate
+                                        based on the invoice value or up to a maximum of <strong>$100</strong>.
+                                    </div>
+                                </div>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        <!--end::Notice-->
 
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold form-label mt-3">
-                                <span class="required">Name</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's name.">
-                                    <i class="ki-duotone ki-information fs-7">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                </span>
-                            </label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <input type="text" class="form-control form-control-solid" name="name" value="" />
-                            <!--end::Input-->
+                        <!--begin::Row-->
+                        <div class="row row-cols-1 row-cols-md-2">
+
+                            <!--begin::Col-->
+                            <div class="col">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-12">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Package Type</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="w-100">
+                                        <!--begin::Select2-->
+                                        <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
+                                            <option value="">Pick the Package Type</option>
+                                            <option value="non_garment">Non Garment</option>
+                                            <option value="garment">Garment</option>
+                                            <option value="extra_sensitive">Extra / Sensitive Items</option>
+                                            <option value="electronic">Electronic</option>
+                                        </select>
+                                        <!--end::Select2-->
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+
+                            <!--begin::Col-->
+                            <div class="col">
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Item Name</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="height" value="" />
+                                </div>
+                            </div>
+                            <!--end::Col -->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold form-label mt-3">
-                                <span>Company Name</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
-                                    <i class="ki-duotone ki-information fs-7">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                </span>
-                            </label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <input type="text" class="form-control form-control-solid" name="company_name" value="" />
-                            <!--end::Input-->
+                        <!--end::Row-->
+
+                        <!--begin::Row-->
+                        <div class="row row-cols-1 row-cols-md-2">
+
+
+                            <!--begin::Col-->
+                            <div class="col">
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Quantity(PCS)</span>
+                                    </label>
+                                    <input type="number" class="form-control form-control-solid" name="height" value="" />
+                                </div>
+                            </div>
+                            <!--end::Col -->
+
+                            <!--begin::Col-->
+                            <div class="col">
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Value(USD)</span>
+                                    </label>
+                                    <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                </div>
+                            </div>
+                            <!--end::Col -->
+
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold form-label mt-3">
-                                <span>Notes</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter any additional notes about the contact (optional).">
-                                    <i class="ki-duotone ki-information fs-7">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                </span>
-                            </label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <textarea class="form-control form-control-solid" name="notes"></textarea>
-                            <!--end::Input-->
+                        <!--end::Row-->
+
+                        <!--begin::Row-->
+                        <div class="row row-cols-1 row-cols-md-4">
+
+
+                            <!--begin::Col-->
+                            <div class="col">
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="">Total(USD)</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control form-control-solid"
+                                            name="total" step="0.01" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Col-->
+
+
                         </div>
-                        <!--end::Input group-->
+                        <!--end::Row-->
+
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
@@ -927,5 +998,3 @@
 <!--end::Javascript-->
 </body>
 <!--end::Body-->
-
-</html>
