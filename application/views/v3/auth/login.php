@@ -6,12 +6,12 @@
         <!--begin::Form-->
         <div class="d-flex flex-center flex-column flex-lg-row-fluid">
             <!--begin::Wrapper-->
-            <div class="w-lg-500px p-10">
+            <div class="w-lg-500px p-10 card bg-white shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                 <!--begin::Form-->
                 <form
-                    class="form w-100"
+                    class="form w-100 card-body"
                     action="<?= base_url('v3/auth/login_process') ?>"
-                    method="post">
+                    method="POST">
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
                         <!--begin::Title-->
@@ -21,33 +21,43 @@
                     <!--begin::Heading-->
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
-                        <!--begin::Email-->
+                        <!--begin::Label-->
+                        <label class="required form-label fs-4 fw-light">Email</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
                         <input
                             type="text"
-                            placeholder="Email"
+                            id="email"
                             name="email"
+                            class="form-control mb-2 bg-transparent"
+                            placeholder="Email"
                             autocomplete="off"
-                            class="form-control bg-transparent" />
+                            value="<?= set_value('email'); ?>" />
                         <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
-
-                        <!--end::Email-->
+                        <!--end::Input-->
                     </div>
                     <!--end::Input group=-->
                     <div class="fv-row mb-3">
                         <!--begin::Password-->
+                        <!--begin::Label-->
+                        <label class="required form-label fs-4 fw-light">Password</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
                         <input
                             type="password"
-                            placeholder="Password"
                             name="password"
-                            autocomplete="off"
-                            class="form-control bg-transparent" />
+                            class="form-control mb-2 bg-transparent"
+                            placeholder="Password"
+                            autocomplete="off" />
                         <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
-                        <div class="text-danger"> <?php
-                                                    if ($this->session->flashdata('error')) {
-                                                        echo $this->session->flashdata('error');
-                                                    }
-                                                    ?></div>
-
+                        <div class="text-danger">
+                            <?php
+                            if ($this->session->flashdata('error')) {
+                                echo $this->session->flashdata('error');
+                            }
+                            ?>
+                        </div>
+                        <!--end::Input-->
                         <!--end::Password-->
                     </div>
                     <!--end::Input group=-->
@@ -218,45 +228,5 @@
         <!--end::Footer-->
     </div>
     <!--end::Body-->
-    <!--begin::Aside-->
-    <div
-        class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2"
-        style="background-image: url(assets/media/misc/auth-bg.png)">
-        <!--begin::Content-->
-        <div
-            class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
-            <!--begin::Logo-->
-            <a href="index.html" class="mb-0 mb-lg-12">
-                <img
-                    alt="Logo"
-                    src="assets/media/logos/custom-1.png"
-                    class="h-60px h-lg-75px" />
-            </a>
-            <!--end::Logo-->
-            <!--begin::Image-->
-            <img
-                class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20"
-                src="assets/media/misc/auth-screens.png"
-                alt="" />
-            <!--end::Image-->
-            <!--begin::Title-->
-            <h1
-                class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
-                Frame Choir
-            </h1>
-            <!--end::Title-->
-            <!--begin::Text-->
-            <div class="d-none d-lg-block text-white fs-base text-center">
-                In this kind of post,
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the blogger</a>introduces a person they’ve interviewed <br />and provides some
-                background information about
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the interviewee</a>and their <br />work following this is a transcript of the
-                interview.
-            </div>
-            <!--end::Text-->
-        </div>
-        <!--end::Content-->
-    </div>
-    <!--end::Aside-->
 </div>
 <!--end::Authentication - Sign-in-->
