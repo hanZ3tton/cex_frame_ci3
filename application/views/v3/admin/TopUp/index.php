@@ -77,22 +77,26 @@
 			<!--begin::Billing History-->
 			<div class="card">
 				<div class="card-header border-0 pt-6">
+					<!-- card-title untuk penempatan search input -->
 					<div class="card-title">
 						<div class="d-flex align-items-center position-relative my-1">
 							<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
 								<span class="path1"></span>
 								<span class="path2"></span>
 							</i>
-							<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Code" />
+							<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search" />
 						</div>
 					</div>
+					<!-- card-toolbar untuk penempatan tombol-tombol -->
 					<div class="card-toolbar">
 						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-							<a href="#" class="btn btn-sm btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_download_topup">
+							<!-- Tombol "Download" -->
+							<a href="#" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_download_topup">
 								<i class="fas fa-download"></i> Download
 							</a>
-							<a href="<?= base_url('v3/admin/topup/deposit') ?>" class="btn btn-sm btn-primary">
-								<i class=" fas fa-plus"></i> Topup Deposit
+							<!-- Tombol "Topup Deposit" -->
+							<a href="<?= base_url('v3/admin/TopUp/deposit') ?>" class="btn btn-primary">
+								<i class="ki-duotone ki-plus fs-2"></i>Topup Deposit
 							</a>
 						</div>
 					</div>
