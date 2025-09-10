@@ -29,7 +29,7 @@
         {
             $data = [];
 
-            $this->config->load('assets/add');
+            $this->config->load('assets/_partials/form');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
