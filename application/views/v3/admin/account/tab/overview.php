@@ -7,36 +7,54 @@
             <h3 class="fw-bold m-0">Profile Details</h3>
         </div>
         <!--end::Card title-->
-        <!--begin::Action-->
-        <a
-            href="account/settings.html"
-            class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
-        <!--end::Action-->
+
     </div>
     <!--begin::Card header-->
     <!--begin::Card body-->
     <div class="card-body p-9">
-        <!--begin::Row-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Username</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800"><?= $users->username ?></span>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Row-->
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Agent</label>
+            <label class="col-lg-4 fw-semibold text-muted">Account</label>
+            <!--end::Label-->
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <span
+                    class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $mitra->account ?></span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Agent Name</label>
             <!--end::Label-->
             <!--begin::Col-->
             <?php
-            if ($users->agent) {
-                $agent = $users->agent;
+            if ($mitra->name) {
+                $agent = $mitra->name;
+                $color = "text-gray-800";
+            } else {
+                $agent = "Please fill this data";
+                $color = "badge badge-light-warning";
+            }
+            ?>
+            <div class="col-lg-8 fv-row">
+                <span class="fw-semibold <?= $color ?> fs-6"><?= $agent ?></span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Business Name</label>
+            <!--end::Label-->
+            <!--begin::Col-->
+            <?php
+            if ($mitra->business_name) {
+                $agent = $mitra->business_name;
                 $color = "text-gray-800";
             } else {
                 $agent = "Please fill this data";
@@ -65,8 +83,8 @@
             <!--end::Label-->
             <!--begin::Col-->
             <?php
-            if ($users->phone) {
-                $phone = $users->phone;
+            if ($mitra->phone) {
+                $phone = $mitra->phone;
                 $color = "text-gray-800";
             } else {
                 $phone = "Please fill this data";
@@ -75,20 +93,6 @@
             ?>
             <div class="col-lg-8 d-flex align-items-center">
                 <span class="fw-bold fs-6 <?= $color ?> me-2"><?= $phone ?></span>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Email</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <a
-                    href="#"
-                    class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $users->email ?></a>
             </div>
             <!--end::Col-->
         </div>
@@ -109,8 +113,8 @@
             <!--end::Label-->
             <!--begin::Col-->
             <?php
-            if ($users->address) {
-                $address = $users->address;
+            if ($mitra->address) {
+                $address = $mitra->address;
                 $color = "text-gray-800";
             } else {
                 $address = "Please fill this data";
@@ -126,11 +130,11 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Created At</label>
+            <label class="col-lg-4 fw-semibold text-muted">Register Date</label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800"><?= $users->created_at ?></span>
+                <span class="fw-bold fs-6 text-gray-800"><?= $mitra->register_date ?></span>
             </div>
             <!--end::Col-->
         </div>
@@ -138,12 +142,12 @@
         <!--begin::Input group-->
         <div class="row mb-10">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Update At</label>
+            <label class="col-lg-4 fw-semibold text-muted">Updated At</label>
             <!--begin::Label-->
             <!--begin::Label-->
             <?php
-            if ($users->updated_at) {
-                $update = $users->updated_at;
+            if ($mitra->updatedon) {
+                $update = $mitra->updatedon;
                 $color = "text-gray-800";
             } else {
                 $update = "Not Update Yet";
@@ -156,7 +160,7 @@
             <!--begin::Label-->
         </div>
         <!--end::Input group-->
-        <?php if (empty($users->agent) || empty($users->phone) || empty($users->address)): ?>
+        <?php if (empty($mitra->business_name) || empty($mitra->name) || empty($mitra->phone) || empty($mitra->address)): ?>
 
             <!--begin::Notice-->
             <div

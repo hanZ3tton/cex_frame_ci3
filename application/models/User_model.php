@@ -8,9 +8,9 @@ class User_model extends CI_Model
         return $query->result();
     }
 
-    public function getUserById($id)
+    public function getUserByCode($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('code', $id);
         $query = $this->db->get('tb_user_agent');
         return $query->row();
     }
@@ -29,12 +29,12 @@ class User_model extends CI_Model
 
     public function updateUser($id, $data)
     {
-        $this->db->where('id', $id);
+        $this->db->where('code', $id);
         return $this->db->update('tb_user_agent', $data);
     }
     public function deleteUser($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('code', $id);
         return $this->db->delete('tb_user_agent');
     }
 }

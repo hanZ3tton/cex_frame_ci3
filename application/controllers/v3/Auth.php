@@ -64,7 +64,6 @@ class Auth extends MY_Controller
                 ];
                 $this->session->set_userdata($session_data);
                 redirect('v3/admin/dashboard');
-                echo "haha";
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
                 $this->loadView('v3/auth/login', 'Login', $data);

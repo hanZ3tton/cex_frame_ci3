@@ -1,5 +1,3 @@
-settings
-
 <!--begin::Basic info-->
 <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
@@ -69,26 +67,24 @@ settings
                 <!--begin::Input group-->
                 <div class="row mb-6">
                     <!--begin::Label-->
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Username</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Agent Name</label>
                     <!--end::Label-->
-
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="text" name="username" class="form-control form-control-lg form-control-solid" placeholder="John Doe" value="<?= $users->username ?>" />
-                        <?= form_error('username', '<div class="text-danger">', '</div>'); ?>
+                        <input type="text" name="agent" class="form-control form-control-lg form-control-solid" placeholder="Agent name" value="<?= $mitra->name ?>" />
+                        <?= form_error('agent', '<div class="text-danger">', '</div>'); ?>
                     </div>
                     <!--end::Col-->
-
                 </div>
                 <!--end::Input group-->
                 <!--begin::Input group-->
                 <div class="row mb-6">
                     <!--begin::Label-->
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Agent</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Business Name</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="text" name="agent" class="form-control form-control-lg form-control-solid" placeholder="Agent name" value="<?= $users->agent ?>" />
+                        <input type="text" name="business_name" class="form-control form-control-lg form-control-solid" placeholder="Business name" value="<?= $mitra->business_name ?>" />
                         <?= form_error('agent', '<div class="text-danger">', '</div>'); ?>
                     </div>
                     <!--end::Col-->
@@ -110,7 +106,7 @@ settings
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="tel" name="phone" class="form-control form-control-lg form-control-solid" placeholder="Phone number" value="<?= $users->phone ?>" />
+                        <input type="tel" name="phone" class="form-control form-control-lg form-control-solid" placeholder="Phone number" value="<?= $mitra->phone ?>" />
                         <?= form_error('phone', '<div class="text-danger">', '</div>'); ?>
                     </div>
                     <!--end::Col-->
@@ -123,7 +119,7 @@ settings
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="text" name="email" class="form-control form-control-lg form-control-solid" placeholder="example@example.com" value="<?= $users->email ?>" />
+                        <input type="text" name="email" class="form-control form-control-lg form-control-solid" placeholder="example@example.com" value="<?= $mitra->email ?>" />
                         <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
 
                     </div>
@@ -137,7 +133,7 @@ settings
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="text" name="address" class="form-control form-control-lg form-control-solid" placeholder="Morioh.st 12" value="<?= $users->address ?>" />
+                        <input type="text" name="address" class="form-control form-control-lg form-control-solid" placeholder="Morioh.st 12" value="<?= $mitra->address ?>" />
                         <?= form_error('address', '<div class="text-danger">', '</div>'); ?>
                     </div>
                     <!--end::Col-->
