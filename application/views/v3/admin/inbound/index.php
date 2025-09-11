@@ -496,11 +496,16 @@
 									<td><span class="<?= $inbound->label ?> "> <?= $inbound->status_name ?> </span></td>
 									<td>Jane Smith</td>
 									<td class="text-start"><?= $inbound->shipper_phone ?></td>
-									<td class="text-start">1.2</td>
-									<td>Clothes</td>
-									<td>Admin</td>
-									<td>24-01-2025 05:00</td>
-									<td>Admin</td>
+									<td class="text-start"><?= $inbound->weight ?></td>
+									<td><?= $inbound->goods_desc ?></td>
+									<td><?= $inbound->cs ?></td>
+									<td>
+										<?php if ($inbound->updatedon == NULL) : ?>
+											<span class="badge badge-light-secondary">Not Updated</span>
+										<?php endif; ?>
+										<?= $inbound->updatedon ?>
+									</td>
+									<td><?= $inbound->updatedby ?></td>
 									<td class="text-end">
 										<div class="d-flex justify-content-end gap-2">
 											<a
