@@ -78,8 +78,8 @@
                                     <div
                                         class="fs-2 fw-bold"
                                         data-kt-countup="true"
-                                        data-kt-countup-value="4500"
-                                        data-kt-countup-prefix="$">
+                                        data-kt-countup-value="<?= $this->session->userdata('credit'); ?>"
+                                        data-kt-countup-prefix="Rp">
                                         0
                                     </div>
                                 </div>

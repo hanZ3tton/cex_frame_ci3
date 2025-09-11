@@ -5866,7 +5866,7 @@
                                     </div>
                                     <a
                                         href="#"
-                                        class="fw-semibold text-muted text-hover-primary fs-7"><?= $this->session->userdata('email') ?></a>
+                                        class="fw-semibold text-muted text-hover-primary fs-7"><?= " Account : " . $this->session->userdata('account') ?></a>
                                 </div>
                                 <!--end::Username-->
                             </div>
@@ -5878,7 +5878,7 @@
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <p class="menu-link px-5 m-0">Credit: Rp. 250.000</p>
+                            <p class="menu-link px-5 m-0">Credit: <?= "Rp " . number_format($this->session->userdata('credit'), 0, ",", "."); ?></p>
                         </div>
                         <!--end::Menu item-->
 

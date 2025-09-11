@@ -10,6 +10,7 @@ class Auth extends MY_Controller
         $this->defaultLayout = 'v3/layouts/guest';
         $this->load->library('form_validation');
         $this->load->model('User_model');
+        $this->load->model('Mitra_model');
     }
 
     public function index()
@@ -47,6 +48,7 @@ class Auth extends MY_Controller
 
             $user = $this->User_model->getUserByUsername($username);
             if ($user && hash('sha256', $password) == $user->password) {
+                $mitra = $this->Mitra_model->getMitraByAccount($user->account);
 
                 if ($user->status == 2) {
                     $this->session->set_flashdata('error', 'Your account is inactive. Please contact the admin.');
@@ -56,10 +58,12 @@ class Auth extends MY_Controller
 
                 $session_data = [
                     'account' => $user->account,
+                    'user_code' => $user->code,
                     'name' => $user->name,
                     'profile_photo' => $user->profile_photo,
                     'username' => $user->username,
                     'grup' => $user->grup,
+                    'credit' => $mitra->deposit_balance,
                     'logged_in' => TRUE
                 ];
                 $this->session->set_userdata($session_data);

@@ -522,14 +522,12 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-125px">User</th>
-                                <th class="min-w-125px">Role</th>
-                                <th class="min-w-125px">Phone Number</th>
-                                <th class="min-w-125px">Agent</th>
-                                <th class="min-w-325px">Address</th>
-                                <th class="min-w-125px">Last login</th>
-                                <th class="min-w-125px">Status</th>
-                                <th class="min-w-125px">Created At</th>
+                                <th class="min-w-125px">Username</th>
+                                <th class="min-w-125px">Name</th>
+                                <th class="min-w-125px">Account</th>
+                                <th class="min-w-125px">Grup</th>
+                                <th class="min-w-325px">Status</th>
+                                <th class="min-w-125px">Updated By</th>
                                 <th class="min-w-125px">Updated At</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
@@ -542,33 +540,12 @@
                                             <input class="form-check-input" type="checkbox" value="1" />
                                         </div>
                                     </td>
-                                    <td class="d-flex align-items-center">
-                                        <!--begin:: Avatar -->
-                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                            <a href="apps/user-management/users/view.html">
-                                                <div class="symbol-label">
-                                                    <img src="assets/media/avatars/300-6.jpg" alt="Emma Smith" class="w-100" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!--end::Avatar-->
-
-                                        <!--begin::User details-->
-                                        <div class="d-flex flex-column">
-                                            <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1"><?= $user->username ?></a>
-                                            <span><?= $user->email ?></span>
-                                        </div>
-                                        <!--begin::User details-->
-                                    </td>
-                                    <td>Administrator</td>
-                                    <td><?= $user->phone ?></td>
-                                    <td><?= $user->agent ?></td>
-                                    <td><?= $user->address ?></td>
+                                    <td> <?= $user->username ?></td>
+                                    <td><?= $user->nama ?></td>
+                                    <td><?= $user->account ?></td>
+                                    <td><?= $user->grup ?></td>
                                     <td>
-                                        <div class="badge badge-light fw-bold"><?= $last_login = ($user->last_login) ? $user->last_login : "Not login yet" ?></div>
-                                    </td>
-                                    <td>
-                                        <?php if ($user->is_active): ?>
+                                        <?php if ($user->status): ?>
                                             <div class="badge badge-light-success fw-bold">
                                                 Active
                                             </div>
@@ -578,8 +555,8 @@
                                             </div>
                                         <?php endif ?>
                                     </td>
-                                    <td><?= $user->created_at ?></td>
-                                    <td><?= $user->updated_at ?></td>
+                                    <td><?= $user->updatedby ?></td>
+                                    <td><?= $user->updatedon ?></td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                             <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
