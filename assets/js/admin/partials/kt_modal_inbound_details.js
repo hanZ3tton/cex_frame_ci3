@@ -1,14 +1,14 @@
 "use strict";
-var KTModalNewTicket = (function () {
+var KTModalInboundDetails = (function () {
 	var t, e, n, i, o, a;
 	return {
 		init: function () {
-			(a = document.querySelector("#kt_modal_new_ticket")) &&
+			(a = document.querySelector("#kt_modal_inbound_details-")) &&
 				((o = new bootstrap.Modal(a)),
-				(i = document.querySelector("#kt_modal_new_ticket_form")),
-				(t = document.getElementById("kt_modal_new_ticket_submit")),
-				(e = document.getElementById("kt_modal_new_ticket_cancel")),
-				new Dropzone("#kt_modal_create_ticket_attachments", {
+				(i = document.querySelector("#kt_modal_new_inbound_form")),
+				(t = document.getElementById("kt_modal_new_inbound_submit")),
+				(e = document.getElementById("kt_modal_new_inbound_cancel")),
+				new Dropzone("#kt_modal_create_inbound_detail_attachments", {
 					url: "https://keenthemes.com/scripts/void.php",
 					paramName: "file",
 					maxFiles: 10,
@@ -28,43 +28,6 @@ var KTModalNewTicket = (function () {
 				$(i.querySelector('[name="status"]')).on("change", function () {
 					n.revalidateField("status");
 				}),
-				(n = FormValidation.formValidation(i, {
-					fields: {
-						subject: {
-							validators: {
-								notEmpty: { message: "Ticket subject is required" },
-							},
-						},
-						user: {
-							validators: { notEmpty: { message: "Ticket user is required" } },
-						},
-						due_date: {
-							validators: {
-								notEmpty: { message: "Ticket due date is required" },
-							},
-						},
-						description: {
-							validators: {
-								notEmpty: { message: "Target description is required" },
-							},
-						},
-						"notifications[]": {
-							validators: {
-								notEmpty: {
-									message: "Please select at least one notifications method",
-								},
-							},
-						},
-					},
-					plugins: {
-						trigger: new FormValidation.plugins.Trigger(),
-						bootstrap: new FormValidation.plugins.Bootstrap5({
-							rowSelector: ".fv-row",
-							eleInvalidClass: "",
-							eleValidClass: "",
-						}),
-					},
-				})),
 				t.addEventListener("click", function (e) {
 					e.preventDefault(),
 						n &&
@@ -124,6 +87,3 @@ var KTModalNewTicket = (function () {
 		},
 	};
 })();
-KTUtil.onDOMContentLoaded(function () {
-	KTModalNewTicket.init();
-});

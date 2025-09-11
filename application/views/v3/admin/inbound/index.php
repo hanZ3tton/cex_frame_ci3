@@ -59,7 +59,7 @@
 					<!--begin::Card title-->
 					<div class="card-title">
 						<!--begin::Search-->
-						<div class="d-flex align-items-center position-relative my-1">
+						<div id="kt_daterangepicker_3" class="d-flex align-items-center position-relative my-1">
 							<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
 								<span class="path1"></span>
 								<span class="path2"></span>
@@ -485,7 +485,7 @@
 									</td>
 									<td class="text-start"><?= $inbound->code ?></td>
 									<td>
-										<a href="">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_inbound_detail">
 											<i class="ki-duotone ki-magnifier fs-3 text-center">
 												<span class="path1"></span>
 												<span class="path2"></span>
@@ -530,6 +530,9 @@
 										</div>
 									</td>
 								</tr>
+								<!--begin::Modal detail inbound-->
+								<?php $this->load->view('v3/admin/inbound/modal/index', ['inbound' => $inbound]); ?>
+								<!--end::Modal detail inbound-->
 							<?php endforeach ?>
 						</tbody>
 					</table>
