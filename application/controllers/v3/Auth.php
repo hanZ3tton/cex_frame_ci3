@@ -7,7 +7,6 @@ class Auth extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->session->set_userdata('logged_in', TRUE);
         $this->defaultLayout = 'v3/layouts/guest';
         $this->load->library('form_validation');
         $this->load->model('User_model');

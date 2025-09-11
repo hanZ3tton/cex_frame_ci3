@@ -8,6 +8,7 @@
             parent::__construct();
 
             $this->defaultLayout = 'v3/layouts/app';
+            $this->load->model('Inbound_model');
             if (!$this->session->userdata('logged_in')) {
                 redirect('v3/auth');
             }
@@ -15,7 +16,9 @@
 
         public function index()
         {
-            $data = [];
+            $data = [
+                'inbounds' => $this->Inbound_model->getAllInbound()
+            ];
 
             $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
