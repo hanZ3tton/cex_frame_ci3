@@ -17,7 +17,7 @@ class Domestic extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/shipment');
+    $this->config->load('assets/topup');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
