@@ -1,7 +1,7 @@
     <?php
     defined('BASEPATH') or exit('no direct script access allowed');
 
-    class shipment extends MY_Controller
+    class Inbound extends MY_Controller
     {
         public function __construct()
         {
@@ -17,12 +17,12 @@
         {
             $data = [];
 
-            $this->config->load('assets/shipment');
+            $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/shipment/index', 'Shipment List', $data);
+            $this->loadView('v3/admin/inbound/index', 'Inbound List', $data);
         }
 
         public function create()
@@ -34,29 +34,29 @@
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/shipment/create', 'Create Shipment', $data);
+            $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
         }
         public function np()
         {
             $data = [];
 
-            $this->config->load('assets/shipment');
+            $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/shipment/not_proccess/index', 'Not Process', $data);
+            $this->loadView('v3/admin/inbound/not_proccess/index', 'Not Process', $data);
         }
 
         public function notc()
         {
             $data = [];
 
-            $this->config->load('assets/shipment');
+            $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/shipment/not_complete/index', 'Not Complete', $data);
+            $this->loadView('v3/admin/inbound/not_complete/index', 'Not Complete', $data);
         }
     }

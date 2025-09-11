@@ -144,7 +144,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="<?= base_url('v3/admin/shipment') ?>">
+                                     href="<?= base_url('v3/admin/inbound') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
