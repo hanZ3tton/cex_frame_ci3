@@ -462,7 +462,7 @@
                   </div>
                 </th>
                 <th class="min-w-75px text-start">Airwaybill</th>
-                <th class="min-w-125px text-center">Date</th>
+                <th class="min-w-100px">Date</th>
                 <th class="min-w-50px text-left">Cln</th>
                 <th class="min-w-50px text-left">Inv</th>
                 <th class="min-w-50px text-left">Pay</th>
@@ -470,18 +470,17 @@
                 <th class="min-w-125px">Data Inbound</th>
                 <th class="min-w-125px">Sender Name</th>
                 <th class="min-w-125px">Receiver Name</th>
-                <th class="min-w-125px">Address</th>
+                <th class="min-w-250px">Address</th>
                 <th class="min-w-125px">Postal Code</th>
                 <th class="min-w-125px">City</th>
                 <th class="min-w-125px text-start">Phone number</th>
                 <th class="min-w-125px text-start">Country</th>
                 <th class="min-w-125px text-start">Goods Desc</th>
                 <th class="min-w-125px text-start">Actual Weight</th>
-                <th class="min-w-125px text-start">Weight</th>
-                <th class="min-w-125px">Package</th>
-                <th class="min-w-125px">Postage</th>
-                <th class="min-w-125px">paid</th>
-                <th class="min-w-125px">Service</th>
+                <th class="min-w-100px text-start">Weight</th>
+                <th class="min-w-150px text-center">Postage</th>
+                <th class="min-w-75px text-center">paid</th>
+                <th class="min-w-125px text-center">Service</th>
                 <th class="min-w-150px">Term of Payment</th>
                 <th class="min-w-150px">Refrence Number</th>
                 <th class="text-end min-w-100px">Actions</th>
@@ -500,24 +499,23 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><span class=""> </span></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><span class="<?= $order->status_label ?>"><?= $order->status_name ?></span></td>
+                  <td><?= $order->inbound ?></td>
+                  <td><?= $order->ship_name ?></td>
+                  <td><?= $order->rec_name ?></td>
+                  <td><?= $order->ship_address ?></td>
+                  <td><?= $order->rec_postcode ?></td>
+                  <td><?= $order->rec_city ?></td>
+                  <td><?= $order->rec_phone ?></td>
+                  <td><?= $order->origin ?></td>
+                  <td><?= $order->desc_of_goods ?></td>
+                  <td class="text-center"><?= $order->weight ?></td>
+                  <td class="text-center"><?= $order->charge_weight ?></td>
+                  <td class="text-center"><?= $order->ongkir ?></td>
+                  <td class="text-center"><?= $order->payment ?></td>
+                  <td class="text-center"><?= $order->service ?></td>
+                  <td><?= $order->payment ?></td>
+                  <td class="text-center"><?= $order->connote_reff ?></td>
                   <td class="text-end">
                     <div class="d-flex justify-content-end gap-2">
                       <a
@@ -541,8 +539,8 @@
                       </a>
                     </div>
                   </td>
-                <?php endforeach ?>
                 </tr>
+              <?php endforeach ?>
             </tbody>
           </table>
           <!--end::Table-->

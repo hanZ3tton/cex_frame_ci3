@@ -131,10 +131,6 @@
                   <span class="path2"></span>
                 </i>Export</button>
               <!--end::Export-->
-              <!--begin::Add Inbound-->
-              <a href="#" class="btn btn-primary">
-                <i class="ki-duotone ki-plus fs-2"></i>Add Shipment</a>
-              <!--end::Add Inbound-->
             </div>
             <!--end::Toolbar-->
             <!--begin::Group actions-->
@@ -470,77 +466,77 @@
                 <th class="min-w-125px">Data Inbound</th>
                 <th class="min-w-125px">Sender Name</th>
                 <th class="min-w-125px">Receiver Name</th>
-                <th class="min-w-125px">Address</th>
+                <th class="min-w-250px">Address</th>
                 <th class="min-w-125px">Postal Code</th>
                 <th class="min-w-125px">City</th>
                 <th class="min-w-125px text-start">Phone number</th>
                 <th class="min-w-125px text-start">Country</th>
                 <th class="min-w-125px text-start">Goods Desc</th>
                 <th class="min-w-125px text-start">Actual Weight</th>
-                <th class="min-w-125px text-start">Weight</th>
-                <th class="min-w-125px">Package</th>
-                <th class="min-w-125px">Postage</th>
-                <th class="min-w-125px">paid</th>
-                <th class="min-w-125px">Service</th>
+                <th class="min-w-100px text-start">Weight</th>
+                <th class="min-w-150px text-center">Postage</th>
+                <th class="min-w-75px text-center">paid</th>
+                <th class="min-w-125px text-center">Service</th>
                 <th class="min-w-150px">Term of Payment</th>
                 <th class="min-w-150px">Refrence Number</th>
                 <th class="text-end min-w-100px">Actions</th>
               </tr>
             </thead>
             <tbody class="text-gray-600 fw-semibold">
-              <tr>
-                <td>
-                  <div class="form-check form-check-sm form-check-custom form-check-solid">
-                    <input class="form-check-input" type="checkbox" value="" />
-                  </div>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><span class=""> </span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="text-end">
-                  <div class="d-flex justify-content-end gap-2">
-                    <a
-                      href="#"
-                      class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                      <i class="ki-duotone ki-pencil fs-2">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                      </i>
-                    </a>
-                    <a
-                      href="#"
-                      class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                      <i class="ki-duotone ki-trash fs-2">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                        <span class="path3"></span>
-                        <span class="path4"></span>
-                        <span class="path5"></span>
-                      </i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
+              <?php foreach ($orders as $order) : ?>
+                <tr>
+                  <td>
+                    <div class="form-check form-check-sm form-check-custom form-check-solid">
+                      <input class="form-check-input" type="checkbox" value="" />
+                    </div>
+                  </td>
+                  <td><?= $order->code ?></td>
+                  <td class="text-end"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="<?= $order->status_label ?>"><?= $order->status_name ?></span></td>
+                  <td><?= $order->inbound ?></td>
+                  <td><?= $order->ship_name ?></td>
+                  <td><?= $order->rec_name ?></td>
+                  <td><?= $order->ship_address ?></td>
+                  <td><?= $order->rec_postcode ?></td>
+                  <td><?= $order->rec_city ?></td>
+                  <td><?= $order->rec_phone ?></td>
+                  <td><?= $order->origin ?></td>
+                  <td><?= $order->desc_of_goods ?></td>
+                  <td class="text-center"><?= $order->weight ?></td>
+                  <td class="text-center"><?= $order->charge_weight ?></td>
+                  <td class="text-center"><?= $order->ongkir ?></td>
+                  <td class="text-center"><?= $order->payment ?></td>
+                  <td class="text-center"><?= $order->service ?></td>
+                  <td><?= $order->payment ?></td>
+                  <td class="text-center"><?= $order->connote_reff ?></td>
+                  <td class="text-end">
+                    <div class="d-flex justify-content-end gap-2">
+                      <a
+                        href="#"
+                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                        <i class="ki-duotone ki-pencil fs-2">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                        </i>
+                      </a>
+                      <a
+                        href="#"
+                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                        <i class="ki-duotone ki-trash fs-2">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                          <span class="path3"></span>
+                          <span class="path4"></span>
+                          <span class="path5"></span>
+                        </i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach ?>
             </tbody>
           </table>
           <!--end::Table-->

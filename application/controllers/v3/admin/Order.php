@@ -16,8 +16,10 @@ class Order extends MY_Controller
 
   public function index()
   {
+    $status_id = 3;
+
     $data = [
-      'orders' => $this->Order_model->getAll()
+      'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
 
     $this->config->load('assets/order');
@@ -30,8 +32,10 @@ class Order extends MY_Controller
 
   public function completed()
   {
+    $status_id = 7;
+
     $data = [
-      'orders' => $this->Order_model->getAll()
+      'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
 
     $this->config->load('assets/order');

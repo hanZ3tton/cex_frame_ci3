@@ -18,12 +18,13 @@ class Order_model extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function get_order_by_status()
+  public function get_order_by_status($status_id)
   {
     $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label as status_label');
     $this->db->from($this->table);
     $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');
     $this->db->order_by("{$this->table}.code", 'DESC');
+    $this->db->where("{$this->table}.status", $status_id);
     return $this->db->get()->result();
   }
 }
