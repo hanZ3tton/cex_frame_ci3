@@ -48,11 +48,22 @@ class Auth extends MY_Controller
 
             $user = $this->User_model->getUserByUsername($username);
             if ($user && hash('sha256', $password) == $user->password) {
-                $this->session->set_userdata('user_code', $user->code);
-                $this->session->set_userdata('acoount', $user->acount);
-                $this->session->set_userdata('username', $user->username);
-                $this->session->set_userdata('role_id', $user->role_id);
-                $this->session->set_userdata('logged_in', TRUE);
+
+                if ($user->status == 2) {
+                    $this->session->set_flashdata('error', 'Your account is inactive. Please contact the admin.');
+                    redirect('v3/auth/login');
+                    return;
+                }
+
+                $session_data = [
+                    'account' => $user->account,
+                    'name' => $user->name,
+                    'profile_photo' => $user->profile_photo,
+                    'username' => $user->username,
+                    'grup' => $user->grup,
+                    'logged_in' => TRUE
+                ];
+                $this->session->set_userdata($session_data);
                 redirect('v3/admin/dashboard');
                 echo "haha";
             } else {
