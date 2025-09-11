@@ -4,7 +4,7 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">JNT Express - Create Order</h1>
+            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Tracking Information</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -141,88 +141,255 @@
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
 
-                            <h2 class="mb-0">Shipper</h2>
+                            <h2 class="mb-0">Shipping Details (Local Order)</h2>
                         </div>
                         <!--end::Card title-->
                         <!--begin::Row-->
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 row-cols-lg-2 g-5">
+                            <!--begin::Col-->
+                            <div class="col-lg-6">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Shipment Code</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="shipment_code" value="JO0313778494" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <div class="col-lg-6">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Order ID</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="order_id" value="JNT20250620152412" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 row-cols-lg-2 g-5">
+                            <!--begin::Col-->
+                            <div class="col-lg-4">
+                                <!--begin::Input group-->
+                                <div class="fv-row justify-content-center mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Service Type</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge badge-light-primary fw-bold me-2">Dropoff Service</span>
+                                    </div>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+
+                            <div class="col-lg-2">
+                                <!--begin::Input group-->
+                                <div class="fv-row justify-content-center mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Status</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge badge-light-danger fw-bold me-2">Order Canceled</span>
+                                    </div>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::row-->
+                        <div class="row row-cols-1 row-cols-lg-4 g-5">
+                            <!--begin::Col-->
+                            <div class="col-lg-3">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Item Name</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="item_name" value="Baju" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-3">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Goods Description</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="goods_description" value="Baju" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-3">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Quantity</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="quantity" value="1" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-3">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Express Type</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="express_type" value="1" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::row-->
+                        <div class="row row-cols-1 row-cols-lg-3 g-5">
+                            <!--begin::Col-->
+                            <div class="col">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Weight</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="weight" value="1.00 kg" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Goods Value</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="goods_value" value="100000" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Insurance</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="insurance" value="200.00" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::row-->
+                        
+                        <div class="row row-cols-1 g-5">
                             <!--begin::Col-->
                             <div class="col-lg-4">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Account</span>
+                                        <span>Order Date</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="account" value="CAFRAME" readonly />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Input group-->
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
-                            <!--begin::Col for Province-->
-                            <div class="col">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Province</span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Province">
-                                        <option label="Label" value=""></option>
-                                        <option value="1">NANGGROE ACEH DARUSSALAM</option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="order_date" value="2025-06-20 15:24:12" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
-                            <!--begin::Col for City-->
-                            <div class="col">
+                            <!--begin::Col-->
+                            <div class="col-lg-4">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">City</span>
+                                        <span>Updated At</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select City">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="updated_at" value="2025-06-25 10:02:07" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
-                            <!--begin::Col for District-->
-                            <div class="col">
+                            <!--begin::Col-->
+                            <div class="col-lg-4">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">District</span>
+                                        <span>Created At</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select District">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="created_at" value="2025-06-20 08:24:14" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
                         </div>
+                        <!--end::row-->
+
                         <!--end::Col-->
                         <!--end::Separator-->
                                                 <div class="separator mb-6"></div>

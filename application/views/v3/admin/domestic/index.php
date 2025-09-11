@@ -89,24 +89,15 @@
                 </button>
                 <!--end::Export-->
                 <!--end::Add user-->
-                <button type="button" class="btn btn-primary">
+                
+                  <a href="<?= base_url('v3/admin/domestic/detailandtracking') ?>" class="btn btn-primary me-3">
                     <i class="fa fa-truck fs-2">
                         <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>Detail And Tracking
-                </button>
+                        <span class="path2"></span> 
+                    </i> Detail And Tracking
+                  </a>
                 <!--end::Filter-->
             </div>
-
-            <!-- end::Toolbar -->
-
-            <!--end::Toolbar-->
-            <!--begin::Group actions-->
-            
-            <!--end::Modal - New Card-->
-            <!--begin::Modal - Add task-->
-            
-            <!--end::Modal - Add task-->
           </div>
           <!--end::Card toolbar-->
         </div>
