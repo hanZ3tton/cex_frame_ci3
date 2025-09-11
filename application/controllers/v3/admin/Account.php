@@ -11,7 +11,7 @@
             $this->load->model('User_model');
             $this->load->model('Role_model');
             $this->load->library('form_validation');
-            if ($this->session->userdata('user_id') == null) {
+            if (!$this->session->userdata('logged_in')) {
                 redirect('v3/auth');
             }
         }

@@ -9,7 +9,7 @@
             parent::__construct();
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->model('User_model');
-            if ($this->session->userdata('user_id') == null) {
+            if (!$this->session->userdata('logged_in')) {
                 redirect('v3/auth');
             }
         }

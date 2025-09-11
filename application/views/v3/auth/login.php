@@ -22,18 +22,18 @@
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
                         <!--begin::Label-->
-                        <label class="required form-label fs-4 fw-light">Email</label>
+                        <label class="required form-label fs-4 fw-light">Username</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input
                             type="text"
-                            id="email"
-                            name="email"
+                            id="username"
+                            name="username"
                             class="form-control mb-2 bg-transparent"
-                            placeholder="Email"
+                            placeholder="Username"
                             autocomplete="off"
-                            value="<?= set_value('email'); ?>" />
-                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
+                            value="<?= set_value('username'); ?>" />
+                        <?= form_error('username', '<div class="text-danger">', '</div>'); ?>
                         <!--end::Input-->
                     </div>
                     <!--end::Input group=-->

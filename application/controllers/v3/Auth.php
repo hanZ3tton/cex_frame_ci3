@@ -37,28 +37,24 @@ class Auth extends MY_Controller
         $this->pageScripts = [];
         $this->pageStyles = [];
 
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->loadView('v3/auth/login', 'Login', $data);
         } else {
-            $email = $this->input->post('email');
+            $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $user = $this->User_model->getUserByEmail($email);
-            if ($user && password_verify($password, $user->password)) {
-                $this->session->set_userdata('user_id', $user->id);
-                $this->session->set_userdata('email', $user->email);
+            $user = $this->User_model->getUserByUsername($username);
+            if ($user && hash('sha256', $password) == $user->password) {
+                $this->session->set_userdata('user_code', $user->code);
+                $this->session->set_userdata('acoount', $user->acount);
                 $this->session->set_userdata('username', $user->username);
                 $this->session->set_userdata('role_id', $user->role_id);
                 $this->session->set_userdata('logged_in', TRUE);
-                $data = [
-                    'last_login' => date('Y-m-d H:i:s'),
-                    'is_active' => 1
-                ];
-                $this->User_model->updateUser($user->id, $data);
                 redirect('v3/admin/dashboard');
+                echo "haha";
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
                 $this->loadView('v3/auth/login', 'Login', $data);
