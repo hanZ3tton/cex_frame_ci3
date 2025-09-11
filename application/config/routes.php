@@ -52,3 +52,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'v3/auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['admin/list_inbound_all'] = 'v3/admin/inbound';
+$route['admin/list_inbound'] = 'v3/admin/inbound/not_proccess';
+$route['admin/list_order'] = 'v3/admin/order';
+$route['admin/list_order_completed'] = 'v3/admin/order/completed';

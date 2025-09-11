@@ -7,7 +7,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Users List</h1>
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Inbound</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -59,7 +59,7 @@
                     <!--begin::Card title-->
                     <div class="card-title">
                         <!--begin::Search-->
-                        <div class="d-flex align-items-center position-relative my-1">
+                        <div id="kt_daterangepicker_3" class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
@@ -131,10 +131,10 @@
                                     <span class="path2"></span>
                                 </i>Export</button>
                             <!--end::Export-->
-                            <!--begin::Add user-->
-                            <a href="<?= base_url('v3/admin/shipment/create') ?>" class="btn btn-primary">
-                                <i class="ki-duotone ki-plus fs-2"></i>Add Shipment</a>
-                            <!--end::Add user-->
+                            <!--begin::Add Inbound-->
+                            <a href="<?= base_url('v3/admin/inbound/create') ?>" class="btn btn-primary">
+                                <i class="ki-duotone ki-plus fs-2"></i>Add Inbound</a>
+                            <!--end::Add Inbound-->
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Group actions-->
@@ -461,198 +461,80 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-50px">ID</th>
-                                <th class="min-w-125px">AWB Number</th>
+                                <th class="min-w-75px text-start">Code</th>
+                                <th class="min-w-50px text-left">#</th>
                                 <th class="min-w-125px">Date</th>
-                                <th class="min-w-125px">Cln</th>
-                                <th class="min-w-125px">Inv</th>
-                                <th class="min-w-125px">Pay</th>
                                 <th class="min-w-125px">Status</th>
-                                <th class="min-w-125px">Courier</th>
-                                <th class="min-w-125px">Inbound Data</th>
                                 <th class="min-w-125px">Sender</th>
-                                <th class="min-w-125px">Receiver</th>
-                                <th class="min-w-125px">Address</th>
-                                <th class="min-w-125px">Postal Code</th>
-                                <th class="min-w-125px">City</th>
-                                <th class="min-w-125px">Phone Number</th>
-                                <th class="min-w-125px">Country</th>
-                                <th class="min-w-125px">Actual Weight</th>
-                                <th class="min-w-125px">Weight Charge</th>
+                                <th class="min-w-150px text-start">Phone number</th>
+                                <th class="min-w-125px text-start">Weight</th>
                                 <th class="min-w-125px">Package</th>
-                                <th class="min-w-125px">Shipping Cost</th>
-                                <th class="min-w-125px">Paid</th>
-                                <th class="min-w-125px">Service</th>
-                                <th class="min-w-125px" style="white-space: nowrap;">Term of Payment</th>
-                                <th class="min-w-125px" style="white-space: nowrap;">Reference Number </th>
-                                <th class=" text-end min-w-100px">Actions</th>
+                                <th class="min-w-125px">CS</th>
+                                <th class="min-w-150px">Updated On</th>
+                                <th class="min-w-125px">Inbound by</th>
+                                <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1" />
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>AWB123456789</td>
-                                <td>24 Jun 2025</td>
-                                <td>CLN001</td>
-                                <td>INV001</td>
-                                <td>PAY001</td>
-                                <td><span class="badge badge-light-success">Delivered</span></td>
-                                <td>JNE</td>
-                                <td>Inbound001</td>
-                                <td>John Doe</td>
-                                <td>Jane Smith</td>
-                                <td>Jl. Merdeka No.10</td>
-                                <td>40123</td>
-                                <td>Bandung</td>
-                                <td>08123456789</td>
-                                <td>Indonesia</td>
-                                <td>2 Kg</td>
-                                <td>2.5 Kg</td>
-                                <td>2 Box</td>
-                                <td>Rp50.000</td>
-                                <td>Yes</td>
-                                <td>Express</td>
-                                <td>Cash</td>
-                                <td>REF001</td>
-                                <td class="text-end">
-                                    <div class="d-flex justify-content-end gap-2">
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                            <i class="ki-duotone ki-pencil fs-2">
+                        <tbody class="text-gray-600 fw-semibold">
+                            <?php foreach ($inbounds as $inbound) : ?>
+                                <tr>
+                                    <td>
+                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                            <input class="form-check-input" type="checkbox" value="<?= $inbound->code ?>" />
+                                        </div>
+                                    </td>
+                                    <td class="text-start"><?= $inbound->code ?></td>
+                                    <td>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_inbound_detail">
+                                            <i class="ki-duotone ki-magnifier fs-3 text-center">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>
                                         </a>
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                            <i class="ki-duotone ki-trash fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                                <span class="path5"></span>
-                                            </i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="2" />
-                                    </div>
-                                </td>
-                                <td>2</td>
-                                <td>AWB987654321</td>
-                                <td>25 Jun 2025</td>
-                                <td>CLN002</td>
-                                <td>INV002</td>
-                                <td>PAY002</td>
-                                <td><span class="badge badge-light-warning">In Transit</span></td>
-                                <td>SiCepat</td>
-                                <td>Inbound002</td>
-                                <td>Amanda Lee</td>
-                                <td>Chris Evan</td>
-                                <td>Jl. Asia Afrika No.20</td>
-                                <td>40234</td>
-                                <td>Jakarta</td>
-                                <td>08234567890</td>
-                                <td>Indonesia</td>
-                                <td>5 Kg</td>
-                                <td>5.2 Kg</td>
-                                <td>1 Box</td>
-                                <td>Rp120.000</td>
-                                <td>No</td>
-                                <td>Regular</td>
-                                <td>Transfer</td>
-                                <td>REF002</td>
-                                <td class="text-end">
-                                    <div class="d-flex justify-content-end gap-2">
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                            <i class="ki-duotone ki-pencil fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                            <i class="ki-duotone ki-trash fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                                <span class="path5"></span>
-                                            </i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="3" />
-                                    </div>
-                                </td>
-                                <td>3</td>
-                                <td>AWB555666777</td>
-                                <td>26 Jun 2025</td>
-                                <td>CLN003</td>
-                                <td>INV003</td>
-                                <td>PAY003</td>
-                                <td><span class="badge badge-light-danger">Pending</span></td>
-                                <td>POS Indonesia</td>
-                                <td>Inbound003</td>
-                                <td>Michael Jordan</td>
-                                <td>David Beckham</td>
-                                <td>Jl. Braga No.5</td>
-                                <td>40345</td>
-                                <td>Surabaya</td>
-                                <td>08345678901</td>
-                                <td>Indonesia</td>
-                                <td>10 Kg</td>
-                                <td>10.3 Kg</td>
-                                <td>3 Box</td>
-                                <td>Rp200.000</td>
-                                <td>No</td>
-                                <td>Overnight</td>
-                                <td>Credit</td>
-                                <td>REF003</td>
-                                <td class="text-end">
-                                    <div class="d-flex justify-content-end gap-2">
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                            <i class="ki-duotone ki-pencil fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                            <i class="ki-duotone ki-trash fs-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                                <span class="path5"></span>
-                                            </i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td><?= date('d/m/Y', strtotime($inbound->inbound_date)) ?></td>
+                                    <td><span class="<?= $inbound->label ?> "> <?= $inbound->status_name ?> </span></td>
+                                    <td><?= $inbound->shipper_name ?></td>
+                                    <td class="text-start"><?= $inbound->shipper_phone ?></td>
+                                    <td class="text-start"><?= $inbound->weight ?></td>
+                                    <td><?= $inbound->goods_desc ?></td>
+                                    <td><?= $inbound->cs ?></td>
+                                    <td>
+                                        <?php if ($inbound->updatedon == NULL) : ?>
+                                            <span class="badge badge-light-secondary">Not Updated</span>
+                                        <?php endif; ?>
+                                        <?= $inbound->updatedon ?>
+                                    </td>
+                                    <td><?= $inbound->updatedby ?></td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <a
+                                                href="#"
+                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                <i class="ki-duotone ki-pencil fs-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                            </a>
+                                            <a
+                                                href="#"
+                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                <i class="ki-duotone ki-trash fs-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                    <span class="path4"></span>
+                                                    <span class="path5"></span>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--begin::Modal detail inbound-->
+                                <?php $this->load->view('v3/admin/inbound/modal/index', ['inbound' => $inbound]); ?>
+                                <!--end::Modal detail inbound-->
+                            <?php endforeach ?>
                         </tbody>
-
                     </table>
                     <!--end::Table-->
                 </div>

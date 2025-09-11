@@ -144,7 +144,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="<?= base_url('v3/admin/inbound') ?>">
+                                     href="<?= base_url('admin/list_inbound_all') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -162,7 +162,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/projects.html">
+                                     href="<?= base_url('admin/list_inbound') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -180,7 +180,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/campaigns.html">
+                                     href="<?= base_url('admin/list_order') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -198,7 +198,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/documents.html">
+                                     href="<?= base_url('admin/list_order_completed') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

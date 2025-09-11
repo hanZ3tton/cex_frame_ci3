@@ -17,7 +17,7 @@
         public function index()
         {
             $data = [
-                'inbounds' => $this->Inbound_model->getAllInbound()
+                'inbounds' => $this->Inbound_model->getAll()
             ];
 
             $this->config->load('assets/inbound');
@@ -26,6 +26,19 @@
             $this->pageStyles =  $page_assets['css'];
 
             $this->loadView('v3/admin/inbound/index', 'Inbound List', $data);
+        }
+
+        public function not_proccess()
+        {
+            $data = [
+                'inbounds' => $this->Inbound_model->get_inbound_by_status()
+            ];
+            $this->config->load('assets/inbound');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
         }
 
         public function create()
@@ -38,52 +51,5 @@
             $this->pageStyles =  $page_assets['css'];
 
             $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
-        }
-        public function np()
-        {
-            $data = [];
-
-            $this->config->load('assets/inbound');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/inbound/not_proccess/index', 'Not Process', $data);
-        }
-
-        public function notc()
-        {
-            $data = [];
-
-            $this->config->load('assets/inbound');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/inbound/not_complete/index', 'Not Complete', $data);
-        }
-
-        public function complete()
-        {
-            $data = [];
-
-            $this->config->load('assets/inbound');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/shipment/complete/index', 'Complete', $data);
-        }
-
-        public function outbond()
-        {
-            $data = [];
-
-            $this->config->load('assets/inbound');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/shipment/outbond/index', 'inbound List', $data);
         }
     }

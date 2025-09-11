@@ -132,9 +132,6 @@
 								</i>Export</button>
 							<!--end::Export-->
 							<!--begin::Add user-->
-							<a href="<?= base_url('v3/admin/inbound/create') ?>" class="btn btn-primary">
-								<i class="ki-duotone ki-plus fs-2"></i>Add Shipment</a>
-							<!--end::Add user-->
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Group actions-->
@@ -494,7 +491,7 @@
 									</td>
 									<td><?= date('d/m/Y', strtotime($inbound->inbound_date)) ?></td>
 									<td><span class="<?= $inbound->label ?> "> <?= $inbound->status_name ?> </span></td>
-									<td>Jane Smith</td>
+									<td><?= $inbound->shipper_name ?></td>
 									<td class="text-start"><?= $inbound->shipper_phone ?></td>
 									<td class="text-start"><?= $inbound->weight ?></td>
 									<td><?= $inbound->goods_desc ?></td>
