@@ -27,7 +27,7 @@ class Auth extends MY_Controller
         $this->pageStyles = [];
 
         $this->loadView('v3/auth/login', 'Login', $data);
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
@@ -74,7 +74,7 @@ class Auth extends MY_Controller
                 $this->loadView('v3/auth/login', 'Login', $data);
             }
         }
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
@@ -88,7 +88,7 @@ class Auth extends MY_Controller
         $this->pageStyles = [];
 
         $this->loadView('auth/forgot_password', 'Reset Password', $data);
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
@@ -102,7 +102,7 @@ class Auth extends MY_Controller
         $this->pageStyles = [];
 
         $this->loadView('auth/new_password', 'New Password', $data);
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
@@ -116,7 +116,7 @@ class Auth extends MY_Controller
         $this->pageStyles = [];
 
         $this->loadView('v3/auth/register', 'Register', $data);
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
@@ -153,7 +153,7 @@ class Auth extends MY_Controller
                 redirect('v3/auth/regist');
             }
         }
-        if ($this->session->userdata('user_id')) {
+        if ($this->session->userdata('logged_in')) {
             redirect('v3/admin/dashboard');
         }
     }
