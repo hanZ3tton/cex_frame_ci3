@@ -57,7 +57,7 @@ class Auth extends MY_Controller
                 }
 
                 $session_data = [
-                    'account' => $user->account,
+                    'account' => $mitra->account,
                     'user_code' => $user->code,
                     'name' => $user->name,
                     'profile_photo' => $user->profile_photo,

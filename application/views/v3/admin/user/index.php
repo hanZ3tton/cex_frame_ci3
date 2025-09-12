@@ -524,9 +524,8 @@
                                 </th>
                                 <th class="min-w-125px">Username</th>
                                 <th class="min-w-125px">Name</th>
-                                <th class="min-w-125px">Account</th>
                                 <th class="min-w-125px">Grup</th>
-                                <th class="min-w-325px">Status</th>
+                                <th class="min-w-125px">Status</th>
                                 <th class="min-w-125px">Updated By</th>
                                 <th class="min-w-125px">Updated At</th>
                                 <th class="text-end min-w-100px">Actions</th>
@@ -542,7 +541,6 @@
                                     </td>
                                     <td> <?= $user->username ?></td>
                                     <td><?= $user->nama ?></td>
-                                    <td><?= $user->account ?></td>
                                     <td><?= $user->grup ?></td>
                                     <td>
                                         <?php if ($user->status): ?>
@@ -564,13 +562,18 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="<?= base_url('v3/admin/user/edit') ?>" class="menu-link px-3">Edit</a>
+                                                <a href="<?= base_url('v3/admin/user/edit/' . $user->code) ?>" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
 
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                                <a href="<?= base_url('v3/admin/user/change_password/' . $user->code) ?>" class="menu-link px-3">Change Password</a>
+                                            </div>
+                                            <!--end::Menu item-->
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a href="<?= base_url('v3/admin/user/delete/' . $user->code) ?>" class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
 

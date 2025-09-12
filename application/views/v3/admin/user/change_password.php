@@ -68,27 +68,6 @@
                         <div class="card-body pt-5">
                             <!--begin::Form-->
                             <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/user/store') ?>" method="post">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Name</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's name.">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="name" value="" />
-                                    <?= form_error('name', '<div class="text-danger">', '</div>'); ?>
-
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
 
 
                                 <!--begin::Input group-->
@@ -131,72 +110,6 @@
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label for="is_active" class="col-sm-3 col-form-label">Status</label>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input"
-                                            type="checkbox"
-                                            id="is_active"
-                                            name="is_active"
-                                            value="1"
-                                            <?= set_checkbox('is_active', '1', true) ?>>
-                                        <label class="form-check-label" for="is_active">
-                                            Active Account
-                                        </label>
-                                    </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <div class='separator separator-dashed my-5'></div>
-
-                                <!--begin::Roles-->
-                                <!--begin::Input row-->
-                                <div class="d-flex fv-row">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="OPS" id="kt_modal_update_role_option_0" checked='checked' />
-                                        <!--end::Input-->
-
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                            <div class="fw-bold text-gray-800">OPS</div>
-                                            <div class="text-gray-600">Operational</div>
-                                        </label>
-                                        <!--end::Label-->
-
-                                    </div>
-                                    <!--end::Radio-->
-
-                                </div>
-                                <!--end::Input row-->
-
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex fv-row">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="CS" id="kt_modal_update_role_option_1" />
-                                        <!--end::Input-->
-
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_1">
-                                            <div class="fw-bold text-gray-800">CS</div>
-                                            <div class="text-gray-600">Customer Service</div>
-                                        </label>
-                                        <!--end::Label-->
-
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
-
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--end::Roles-->
-
                                 <!--begin::Action buttons-->
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Button-->

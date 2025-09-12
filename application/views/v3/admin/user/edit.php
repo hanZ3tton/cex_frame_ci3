@@ -7,7 +7,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Add New User</h1>
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Edit User</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -22,7 +22,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Create New User</li>
+                    <li class="breadcrumb-item text-muted">Edit User</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -67,78 +67,12 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-5">
                             <!--begin::Form-->
-                            <form id="kt_ecommerce_settings_general_form" class="form" action="#">
-                                <!--begin::Input group-->
-                                <div class="mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-3">
-                                        <span>Avatar</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Allowed file types: png, jpg, jpeg.">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Image input wrapper-->
-                                    <div class="mt-1">
-                                        <!--begin::Image placeholder-->
-                                        <style>
-                                            .image-input-placeholder {
-                                                background-image: url('assets/media/svg/files/blank-image.svg');
-                                            }
-
-                                            [data-bs-theme="dark"] .image-input-placeholder {
-                                                background-image: url('assets/media/svg/files/blank-image-dark.svg');
-                                            }
-                                        </style>
-                                        <!--end::Image placeholder-->
-                                        <!--begin::Image input-->
-                                        <div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
-                                            <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper w-100px h-100px" style="background-image: url('')"></div>
-                                            <!--end::Preview existing avatar-->
-                                            <!--begin::Edit-->
-                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                                <i class="ki-duotone ki-pencil fs-7">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                                                <input type="hidden" name="avatar_remove" />
-                                                <!--end::Inputs-->
-                                            </label>
-                                            <!--end::Edit-->
-                                            <!--begin::Cancel-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-                                                <i class="ki-duotone ki-cross fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </span>
-                                            <!--end::Cancel-->
-                                            <!--begin::Remove-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                                                <i class="ki-duotone ki-cross fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </span>
-                                            <!--end::Remove-->
-                                        </div>
-                                        <!--end::Image input-->
-                                    </div>
-                                    <!--end::Image input wrapper-->
-                                </div>
-                                <!--end::Input group-->
+                            <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/user/update/' . $user->code) ?>" method="post">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Full Name</span>
+                                        <span class="required">Name</span>
                                         <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's name.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
@@ -149,70 +83,30 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="name" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="name" value="<?= $user->nama ?>" />
+                                    <?= form_error('name', '<div class="text-danger">', '</div>'); ?>
+
                                     <!--end::Input-->
                                 </div>
-                                <!--end::Input group-->
 
-                                <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Email</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="company_name" value="" />
+                                    <label for="is_active" class="col-sm-3 col-form-label">Status</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input"
+                                            type="checkbox"
+                                            id="is_active"
+                                            name="is_active"
+                                            value="1"
+                                            <?= set_checkbox('is_active', '1', true) ?>>
+                                        <label class="form-check-label" for="is_active">
+                                            Active Account
+                                        </label>
+                                    </div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Password</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="password" class="form-control form-control-solid" name="company_name" value="" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Confrim Password</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="company_name" value="" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
+                                <div class='separator separator-dashed my-5'></div>
 
                                 <!--begin::Roles-->
                                 <!--begin::Input row-->
@@ -220,13 +114,13 @@
                                     <!--begin::Radio-->
                                     <div class="form-check form-check-custom form-check-solid">
                                         <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
+                                        <input class="form-check-input me-3" name="user_role" type="radio" value="OPS" id="kt_modal_update_role_option_0" checked='checked' />
                                         <!--end::Input-->
 
                                         <!--begin::Label-->
                                         <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                            <div class="fw-bold text-gray-800">Administrator</div>
-                                            <div class="text-gray-600">Best for business owners and company administrators</div>
+                                            <div class="fw-bold text-gray-800">OPS</div>
+                                            <div class="text-gray-600">Operational</div>
                                         </label>
                                         <!--end::Label-->
 
@@ -242,13 +136,13 @@
                                     <!--begin::Radio-->
                                     <div class="form-check form-check-custom form-check-solid">
                                         <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1" />
+                                        <input class="form-check-input me-3" name="user_role" type="radio" value="CS" id="kt_modal_update_role_option_1" />
                                         <!--end::Input-->
 
                                         <!--begin::Label-->
                                         <label class="form-check-label" for="kt_modal_update_role_option_1">
-                                            <div class="fw-bold text-gray-800">Customer Service</div>
-                                            <div class="text-gray-600">Best for developers or people primarily using the API</div>
+                                            <div class="fw-bold text-gray-800">CS</div>
+                                            <div class="text-gray-600">Customer Service</div>
                                         </label>
                                         <!--end::Label-->
 
@@ -258,79 +152,15 @@
                                 <!--end::Input row-->
 
                                 <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex fv-row">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2" />
-                                        <!--end::Input-->
-
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_2">
-                                            <div class="fw-bold text-gray-800">Driver</div>
-                                            <div class="text-gray-600">Best for people who need full access to analytics data, but don't need to update business settings</div>
-                                        </label>
-                                        <!--end::Label-->
-
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
-
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex fv-row">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
-                                        <!--end::Input-->
-
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_3">
-                                            <div class="fw-bold text-gray-800">Courier</div>
-                                            <div class="text-gray-600">Best for employees who regularly refund payments and respond to disputes</div>
-                                        </label>
-                                        <!--end::Label-->
-
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
-
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex fv-row">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
-                                        <!--end::Input-->
-
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_4">
-                                            <div class="fw-bold text-gray-800">Staff</div>
-                                            <div class="text-gray-600">Best for people who need to preview content data, but don't need to make any updates</div>
-                                        </label>
-                                        <!--end::Label-->
-
-                                    </div>
-                                    <!--end::Radio-->
-
-                                </div>
-                                <!--end::Input row-->
                                 <!--end::Roles-->
-                                <!--begin::Separator-->
-                                <div class="separator mb-6"></div>
-                                <!--end::Separator-->
+
                                 <!--begin::Action buttons-->
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Button-->
-                                    <a href="<?= base_url('admin/user') ?>" class="btn btn-light me-3">Cancel</a>
+                                    <a href="<?= base_url('v3/admin/user') ?>" class="btn btn-light me-3">Cancel</a>
                                     <!--end::Button-->
                                     <!--begin::Button-->
-                                    <button type="submit" data-kt-contacts-type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary">
                                         <span class="indicator-label">Save</span>
                                         <span class="indicator-progress">Please wait...
                                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

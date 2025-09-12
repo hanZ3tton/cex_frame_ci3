@@ -4,6 +4,9 @@ class User_model extends CI_Model
 
     public function getAllUser()
     {
+        $account  = $this->session->userdata('account');
+        $this->db->where('account', $account);
+        $this->db->where('grup <>', 'ADMIN');
         $query = $this->db->get('tb_user_agent');
         return $query->result();
     }
