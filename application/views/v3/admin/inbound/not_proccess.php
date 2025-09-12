@@ -485,7 +485,15 @@
                                     </td>
                                     <td class="text-start"><?= $inbound->code ?></td>
                                     <td>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_inbound_detail">
+                                        <a href="#"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_inbound_detail"
+                                            data-inbound-date="<?= $inbound->inbound_date ?>"
+                                            data-inbound-cs="<?= $inbound->cs ?>"
+                                            data-sender-name="<?= $inbound->shipper_name ?>"
+                                            data-phone="<?= $inbound->shipper_phone ?>"
+                                            data-weight="<?= $inbound->weight ?>"
+                                            data-goods-desc="<?= $inbound->goods_desc ?>">
                                             <i class="ki-duotone ki-magnifier fs-3 text-center">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>

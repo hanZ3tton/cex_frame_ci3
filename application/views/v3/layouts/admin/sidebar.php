@@ -252,7 +252,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/direct_inbound_ho') ?>">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/direct_inbound_ho') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -267,7 +267,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/not_completed') ?>">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/not_completed') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -282,7 +282,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_head_office/data_receipt') ?>">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/index') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -403,7 +403,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="pages/social/feeds.html">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/domestic/exsys_shipment') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -415,7 +415,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="pages/social/feeds.html">
+                                 <a class="menu-link" href="<?= base_url('v3/admin/domestic/index') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

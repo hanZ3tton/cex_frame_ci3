@@ -11,6 +11,7 @@ class Auth extends MY_Controller
         $this->load->library('form_validation');
         $this->load->model('User_model');
         $this->load->model('Mitra_model');
+        $this->session->set_userdata('logged_in', true);
     }
 
     public function index()

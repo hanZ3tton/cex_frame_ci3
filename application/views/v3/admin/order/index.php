@@ -463,15 +463,15 @@
                 </th>
                 <th class="min-w-75px text-start">Airwaybill</th>
                 <th class="min-w-100px">Date</th>
-                <th class="min-w-50px text-left">Cln</th>
-                <th class="min-w-50px text-left">Inv</th>
-                <th class="min-w-50px text-left">Pay</th>
+                <th class="min-w-50px text-start">Cln</th>
+                <th class="min-w-50px text-start">Inv</th>
+                <th class="min-w-50px text-start">Pay</th>
                 <th class="min-w-75px">Status</th>
                 <th class="min-w-125px">Data Inbound</th>
                 <th class="min-w-125px">Sender Name</th>
                 <th class="min-w-125px">Receiver Name</th>
-                <th class="min-w-250px">Address</th>
-                <th class="min-w-125px">Postal Code</th>
+                <th class="min-w-125px">Address</th>
+                <th class="min-w-125px text-start">Postal Code</th>
                 <th class="min-w-125px">City</th>
                 <th class="min-w-125px text-start">Phone number</th>
                 <th class="min-w-125px text-start">Country</th>
@@ -504,7 +504,7 @@
                   <td><?= $order->ship_name ?></td>
                   <td><?= $order->rec_name ?></td>
                   <td><?= $order->ship_address ?></td>
-                  <td><?= $order->rec_postcode ?></td>
+                  <td class="text-center"><?= $order->rec_postcode ?></td>
                   <td><?= $order->rec_city ?></td>
                   <td><?= $order->rec_phone ?></td>
                   <td><?= $order->origin ?></td>
