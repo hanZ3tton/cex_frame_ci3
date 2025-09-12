@@ -52,4 +52,16 @@
 
             $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
         }
+
+        public function outbond()
+        {
+            $data = [];
+
+            $this->config->load('assets/inbound');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('v3/admin/shipment/outbond/index', 'Create Inbound', $data);
+        }
     }
