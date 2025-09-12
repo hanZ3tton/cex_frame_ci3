@@ -74,21 +74,13 @@
             <!--begin::Toolbar-->
             <!-- begin::Toolbar -->
             <!-- Container fleksibel untuk menempatkan tombol-tombol di sisi kanan -->
-          	<div class="d-flex justify-content-end" >
-				<!--begin::Liat Resi-->
-				<a class="text-gray-600 fw-bold btn-active-light-primary me-4">
-					<i class="fa-solid fa-print fs-2 me-1"></i>
-					<span>View Receipt</span>
-				</a>
-				<!--end::Liat Resi-->
-
-				<!--begin::Cek Status Paket-->
-				<a class="text-gray-600 fw-bold btn-active-light-primary me-4">
-					<i class="fa-solid fa-magnifying-glass fs-2 me-1"></i>
-					<span>Package Status</span>
-				</a>
-				<!--end::Cek Status Paket-->
-			</div>
+          	<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                <!--begin::Filter-->
+                <!--begin::Add user-->
+                <a href="#" class="btn btn-primary me-3">
+                    <i class="fa fa-edit fs-2"></i>Create Resi
+                </a>
+            </div>
        	</div>
           <!--end::Card toolbar-->
         </div>
@@ -108,27 +100,22 @@
                             </div>
                         </th>
                         <!-- Kolom header lainnya -->
-                        <th class="min-w-50px">Action</th>
+                        <th class="min-w-125px">Action</th>
+                        <th class="min-w-125px">Connote</th>
                         <th class="min-w-125px">Status</th>
-                        <th class="min-w-125px">Date</th>
-						<th class="min-w-125px">Connote</th>
-						<th class="min-w-125px">AirwayBill</th>
-                        <th class="min-w-125px">Release</th>
-                        <th class="min-w-125px">Weight</th>
-                        <th class="min-w-125px">Charge Weight</th>
-                        <th class="min-w-125px">Consignee Name</th>
-                        <th class="min-w-125px">Consignee Phone</th>
-                        <th class="min-w-125px">Consignee Address</th>
-                        <th class="min-w-125px">Cons City</th>
-                        <th class="min-w-125px">Post Code</th>
-                        <th class="min-w-125px">Destination</th>
+						<th class="min-w-125px">Receiption Date</th>
+						<th class="min-w-125px">Weight</th>
+                        <th class="min-w-125px">Receiver Name</th>
+                        <th class="min-w-125px">Receiver Phone</th>
+                        <th class="min-w-125px">Receiver Address</th>
+                        <th class="min-w-125px">Receiver City</th>
+                        <th class="min-w-125px">Postal Code</th>
+                        <th class="min-w-125px">Country</th>
                         <th class="min-w-125px">Qty</th>
-                        <th class="min-w-125px">Value</th>
-                        <th class="min-w-125px">Description</th>
-                        <th class="min-w-125px">Item Value (USD)</th>
-                        <th class="min-w-125px">Release Date</th>
-                        <th class="min-w-125px">Category</th>
-                        <th class="min-w-125px">Admin</th>
+                        <th class="min-w-125px">Goods Description</th>
+                        <th class="min-w-125px">Goods Value (USD)</th>
+                        <th class="min-w-125px">Admin Resi</th>
+                        <th class="min-w-125px">AirwayBill</th>
                       </tr>
                 </thead>
                 <!-- Body tabel -->
@@ -140,69 +127,22 @@
 								<input class="form-check-input" type="checkbox" value="1" />
 							</div>
 						</td>
-						<td>
-							<div class="d-flex justify-content-start align-items-center">
-								<!-- Ikon cetak (fa-print) -->
-								<i class="fa-solid fa-print me-2"></i>
-								<!-- Ikon cari (fa-search) -->
-								<i class="fa-solid fa-magnifying-glass"></i>
-							</div>
-						</td>
-						<td>Delivered</td>
-						<td>08-08-2025	</td>
-						<td>17546397661636594</td>
-						<td>SF3235200655586</td>
 						<td></td>
-						<td>3</td>
-						<td>3</td>
-						<td>Chua Yi Xuan	</td>
-						<td>90012345</td>
-						<td>10 Bayfront Avenue, Marina Bay Sands	</td>
-						<td>SINGAPORE</td>
-						<td>018956</td>
-						<td>SINGAPORE</td>
-						<td>0</td>
-						<td>165000</td>
-						<td>-</td>
-						<td>3</td>
-						<td>0000-00-00 00:00:00	</td>
-						<td>PAKAIAN / AKSESORIS / LAINYA	</td>
-						<td>developer</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="form-check form-check-sm form-check-custom form-check-solid">
-								<input class="form-check-input" type="checkbox" value="1" />
-							</div>
-						</td>
-						<td>
-							<div class="d-flex justify-content-start align-items-center">
-								<!-- Ikon cetak (fa-print) -->
-								<i class="fa-solid fa-print me-2"></i>
-								<!-- Ikon cari (fa-search) -->
-								<i class="fa-solid fa-magnifying-glass"></i>
-							</div>
-						</td>
-						<td>Delivered</td>
-						<td>08-08-2025	</td>
-						<td>17546397661636594</td>
-						<td>SF3235200655586</td>
 						<td></td>
-						<td>3</td>
-						<td>3</td>
-						<td>Chua Yi Xuan	</td>
-						<td>90012345</td>
-						<td>10 Bayfront Avenue, Marina Bay Sands	</td>
-						<td>SINGAPORE</td>
-						<td>018956</td>
-						<td>SINGAPORE</td>
-						<td>0</td>
-						<td>165000</td>
-						<td>-</td>
-						<td>3</td>
-						<td>0000-00-00 00:00:00	</td>
-						<td>PAKAIAN / AKSESORIS / LAINYA	</td>
-						<td>developer</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
 					</tr>
                 </tbody>
             </table>

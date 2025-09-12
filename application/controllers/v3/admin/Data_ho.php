@@ -17,7 +17,7 @@ class Data_ho extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/inbound');
+    $this->config->load('assets/topup');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
@@ -25,26 +25,26 @@ class Data_ho extends MY_Controller
     $this->loadView('v3/admin/data_ho/index', 'Data Head Office', $data);
   }
 
-  public function create()
+  public function not_completed()
   {
     $data = [];
 
-    $this->config->load('assets/add');
+    $this->config->load('assets/topup');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/domestic/create', 'Create Order', $data);
+    $this->loadView('v3/admin/data_ho/not_completed', 'Not Completed', $data);
   }
-  public function detailandtracking()
+  public function direct_inbound_ho()
   {
     $data = [];
 
-    $this->config->load('assets/add');
+    $this->config->load('assets/topup');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/domestic/detailandtracking', 'Detail And Tracking Information', $data);
+    $this->loadView('v3/admin/data_ho/direct_inbound_ho', 'Direct Inbound Head Office', $data);
   }
 }
