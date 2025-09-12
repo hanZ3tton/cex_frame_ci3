@@ -47,4 +47,15 @@ class Domestic extends MY_Controller
 
     $this->loadView('v3/admin/domestic/detailandtracking', 'Detail And Tracking Information', $data);
   }
+  public function exsys_shipment()
+  {
+    $data = [];
+
+    $this->config->load('assets/topup');
+    $page_assets = $this->config->item('assets');
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
+
+    $this->loadView('v3/admin/domestic/exsys_shipment', 'Exsys Shipment', $data);
+  }
 }

@@ -7,7 +7,7 @@
       <!--begin::Page title-->
       <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
         <!--begin::Title-->
-        <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Not Completed</h1>
+        <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Exsys Shipment</h1>
         <!--end::Title-->
         <!--begin::Breadcrumb-->
         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -77,8 +77,8 @@
           	<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                 <!--begin::Filter-->
                 <!--begin::Add user-->
-                <a href="#" class="btn btn-primary me-3">
-                    <i class="fa fa-edit fs-2"></i>Create Resi
+                <a class="btn btn-primary me-3">
+                    <i class="fa fa-plus fs-3"></i>Add New Shipment
                 </a>
             </div>
        	</div>
@@ -100,22 +100,19 @@
                             </div>
                         </th>
                         <!-- Kolom header lainnya -->
-                        <th class="min-w-125px">Action</th>
-                        <th class="min-w-125px">Connote</th>
+                        <th class="min-w-125px">Code</th>
                         <th class="min-w-125px">Status</th>
-						<th class="min-w-125px">Receiption Date</th>
-						<th class="min-w-125px">Weight</th>
-                        <th class="min-w-125px">Receiver Name</th>
-                        <th class="min-w-125px">Receiver Phone</th>
-                        <th class="min-w-125px">Receiver Address</th>
-                        <th class="min-w-125px">Receiver City</th>
-                        <th class="min-w-125px">Postal Code</th>
-                        <th class="min-w-125px">Country</th>
-                        <th class="min-w-125px">Qty</th>
-                        <th class="min-w-125px">Goods Description</th>
-                        <th class="min-w-125px">Goods Value (USD)</th>
-                        <th class="min-w-125px">Admin Resi</th>
+                        <th class="min-w-125px">Confirm Status</th>
+                        <th class="min-w-125px">Account</th>
+                        <th class="min-w-125px">Request Date</th>
                         <th class="min-w-125px">AirwayBill</th>
+                        <th class="min-w-125px">Vendor</th>
+                        <th class="min-w-125px">Shipper</th>
+                        <th class="min-w-125px">Receiver</th>
+                        <th class="min-w-125px">Created At</th>
+                        <th class="min-w-125px">Created By</th>
+                        <th class="min-w-125px">Modified At</th>
+                        <th class="min-w-125px">Modified By</th>
                       </tr>
                 </thead>
                 <!-- Body tabel -->
@@ -127,9 +124,6 @@
 								<input class="form-check-input" type="checkbox" value="1" />
 							</div>
 						</td>
-						<td></td>
-						<td></td>
-						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
