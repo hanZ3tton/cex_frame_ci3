@@ -72,8 +72,8 @@
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Name</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's name.">
+                                        <span>Name</span>
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter your name">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>

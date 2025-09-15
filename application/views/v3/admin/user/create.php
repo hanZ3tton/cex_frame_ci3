@@ -72,8 +72,8 @@
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Name</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's name.">
+                                        <span>Name</span>
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter your name">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -95,8 +95,8 @@
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Password</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
+                                        <span>Password</span>
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter a strong password">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -115,8 +115,8 @@
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Confirm Password</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's company name (optional).">
+                                        <span>Confirm Password</span>
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Type your password again to confirm it">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>

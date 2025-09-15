@@ -7,7 +7,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Add New User</h1>
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Change Password</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -22,7 +22,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Create New User</li>
+                    <li class="breadcrumb-item text-muted">Change Password</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -59,7 +59,7 @@
                                     <span class="path4"></span>
                                     <span class="path5"></span>
                                 </i>
-                                <h2>User Form</h2>
+                                <h2>Change Password</h2>
                             </div>
                             <!--end::Card title-->
                         </div>
@@ -67,7 +67,7 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-5">
                             <!--begin::Form-->
-                            <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/user/store') ?>" method="post">
+                            <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/user/update_password/' . $user->code) ?>" method="post">
 
 
                                 <!--begin::Input group-->
