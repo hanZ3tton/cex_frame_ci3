@@ -1,89 +1,21 @@
-"use strict";
-var KTModalInboundDetails = (function () {
-	var t, e, n, i, o, a;
-	return {
-		init: function () {
-			(a = document.querySelector("#kt_modal_inbound_details-")) &&
-				((o = new bootstrap.Modal(a)),
-				(i = document.querySelector("#kt_modal_new_inbound_form")),
-				(t = document.getElementById("kt_modal_new_inbound_submit")),
-				(e = document.getElementById("kt_modal_new_inbound_cancel")),
-				new Dropzone("#kt_modal_create_inbound_detail_attachments", {
-					url: "https://keenthemes.com/scripts/void.php",
-					paramName: "file",
-					maxFiles: 10,
-					maxFilesize: 10,
-					addRemoveLinks: !0,
-					accept: function (t, e) {
-						"justinbieber.jpg" == t.name ? e("Naha, you don't.") : e();
-					},
-				}),
-				$(i.querySelector('[name="due_date"]')).flatpickr({
-					enableTime: !0,
-					dateFormat: "d, M Y, H:i",
-				}),
-				$(i.querySelector('[name="user"]')).on("change", function () {
-					n.revalidateField("user");
-				}),
-				$(i.querySelector('[name="status"]')).on("change", function () {
-					n.revalidateField("status");
-				}),
-				t.addEventListener("click", function (e) {
-					e.preventDefault(),
-						n &&
-							n.validate().then(function (e) {
-								console.log("validated!"),
-									"Valid" == e
-										? (t.setAttribute("data-kt-indicator", "on"),
-										  (t.disabled = !0),
-										  setTimeout(function () {
-												t.removeAttribute("data-kt-indicator"),
-													(t.disabled = !1),
-													Swal.fire({
-														text: "Form has been successfully submitted!",
-														icon: "success",
-														buttonsStyling: !1,
-														confirmButtonText: "Ok, got it!",
-														customClass: { confirmButton: "btn btn-primary" },
-													}).then(function (t) {
-														t.isConfirmed && o.hide();
-													});
-										  }, 2e3))
-										: Swal.fire({
-												text: "Sorry, looks like there are some errors detected, please try again.",
-												icon: "error",
-												buttonsStyling: !1,
-												confirmButtonText: "Ok, got it!",
-												customClass: { confirmButton: "btn btn-primary" },
-										  });
-							});
-				}),
-				e.addEventListener("click", function (t) {
-					t.preventDefault(),
-						Swal.fire({
-							text: "Are you sure you would like to cancel?",
-							icon: "warning",
-							showCancelButton: !0,
-							buttonsStyling: !1,
-							confirmButtonText: "Yes, cancel it!",
-							cancelButtonText: "No, return",
-							customClass: {
-								confirmButton: "btn btn-primary",
-								cancelButton: "btn btn-active-light",
-							},
-						}).then(function (t) {
-							t.value
-								? (i.reset(), o.hide())
-								: "cancel" === t.dismiss &&
-								  Swal.fire({
-										text: "Your form has not been cancelled!.",
-										icon: "error",
-										buttonsStyling: !1,
-										confirmButtonText: "Ok, got it!",
-										customClass: { confirmButton: "btn btn-primary" },
-								  });
-						});
-				}));
-		},
-	};
-})();
+var inboundModal = document.getElementById("kt_modal_inbound_detail");
+
+inboundModal.addEventListener("shown.bs.modal", function (event) {
+	var button = event.relatedTarget;
+
+	// Ambil data-* dari tombol
+	var date = button.getAttribute("data-inbound-date");
+	var cs = button.getAttribute("data-inbound-cs");
+	var name = button.getAttribute("data-sender-name");
+	var phone = button.getAttribute("data-phone");
+	var weight = button.getAttribute("data-weight");
+	var desc = button.getAttribute("data-goods-desc");
+
+	// Set ke modal (sudah aman karena modal visible)
+	this.querySelector("#detail-date").textContent = date;
+	this.querySelector("#detail-cs").textContent = cs;
+	this.querySelector("#detail-shipper").textContent = name;
+	this.querySelector("#detail-phone").textContent = phone;
+	this.querySelector("#detail-weight").textContent = weight;
+	this.querySelector("#detail-goods-desc").textContent = desc;
+});
