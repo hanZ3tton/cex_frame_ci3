@@ -62,6 +62,8 @@ $route['admin/list_inbound_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
 $route['admin/list_cleansing_ho'] = 'v3/admin/data_ho/not_completed';
 $route['admin/list_recipe_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
 
+$route['admin/list_jnt_cargo'] = 'v3/admin/cargo';
+
 $route['admin/domestic/shipment'] = 'v3/admin/domestic/shipment';
 $route['admin/domestic/jnt_express'] = 'v3/admin/domestic/jnt_express';
 

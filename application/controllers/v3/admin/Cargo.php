@@ -24,7 +24,7 @@ class Cargo extends MY_Controller
     $datatables_assets = $this->config->item('assets');
 
     $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $cargo_assets['css']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
 
     $this->loadView('v3/admin/cargo/index', 'JNE Cargo List', $data);
   }
