@@ -221,9 +221,10 @@
                         <!--end::Separator-->
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
-                            <i class="ki-duotone ki-profile-user fs-1 me-2"> <!-- Ikon profile user untuk recipient -->
+                            <i class="ki-duotone ki-delivery-3 fs-1 me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
+                                <span class="path3"></span>
                             </i>
                             <h2 class="mb-0">Recipient Information</h2>
                         </div>
@@ -624,10 +625,12 @@
 
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center mb-5">
-                            <i class="ki-duotone ki-delivery fs-1 me-2"> <!-- Ikon delivery untuk shipping -->
+                            <i class="ki-duotone ki-delivery fs-1 me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                                 <span class="path3"></span>
+                                <span class="path4"></span>
+                                <span class="path5"></span>
                             </i>
                             <h2 class="mb-0">Shipping Information</h2>
                         </div>
@@ -803,9 +806,12 @@
                         <!--end::Separator-->
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center mb-5">
-                            <i class="ki-duotone ki-basket fs-1 me-2"> <!-- Ikon basket untuk item detail -->
+                            <i class="ki-duotone ki-parcel fs-1 me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                                <span class="path5"></span>
                             </i>
                             <h2 class="mb-0">Detailed Item Data</h2>
                         </div>

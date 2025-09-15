@@ -65,6 +65,66 @@
         <div
             id="kt_app_content_container"
             class="app-container container-fluid">
+            <?php if ($this->session->flashdata('success')): ?>
+                <!--begin::Alert-->
+                <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                    <!--end::Icon-->
+
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-column pe-0 pe-sm-10">
+                        <!--begin::Title-->
+                        <h5 class="mb-1 text-success">Successfully</h5>
+                        <!--end::Title-->
+
+                        <!--begin::Content-->
+                        <span class="text-success"><?= $this->session->flashdata('success') ?></span>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+
+                    <!--begin::Close-->
+                    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                        <i class="ki-duotone ki-cross fs-1 text-success"><span class="path1"></span><span class="path2"></span></i>
+                    </button>
+                    <!--end::Close-->
+                </div>
+                <!--end::Alert-->
+            <?php elseif ($this->session->flashdata('error')): ?>
+                <!--begin::Alert-->
+                <div class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-information fs-2hx text-danger me-4">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                    </i>
+                    <!--end::Icon-->
+
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-column pe-0 pe-sm-10">
+                        <!--begin::Title-->
+                        <h5 class="mb-1 text-danger">Error</h5>
+                        <!--end::Title-->
+
+                        <!--begin::Content-->
+                        <span class="text-danger"><?= $this->session->flashdata('error') ?></span>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+
+                    <!--begin::Close-->
+                    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                        <i class="ki-duotone ki-cross fs-1 text-danger"><span class="path1"></span><span class="path2"></span></i>
+                    </button>
+                    <!--end::Close-->
+                </div>
+                <!--end::Alert-->
+            <?php endif ?>
             <!--begin::Row-->
             <div class="row g-5 gx-xl-10 mb-5 mb-xl-10">
                 <!--begin::Col-->

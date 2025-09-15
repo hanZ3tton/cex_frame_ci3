@@ -252,7 +252,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/direct_inbound_ho') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/list_inbound_ho') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -267,7 +267,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/not_completed') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/list_cleansing_ho') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -282,7 +282,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/data_ho/index') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/list_recipe_ho') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -359,7 +359,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="pages/social/feeds.html">
+                                 <a class="menu-link" href="<?= base_url('admin/list_jnt_cargo') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -403,25 +403,25 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/domestic/exsys_shipment') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/domestic/shipment') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
                                      <span class="menu-title">Exsys Shipment</span>
                                  </a>
                                  <!--end:Menu link-->
-                             </div>
-                             <!--end:Menu item-->
-                             <!--begin:Menu item-->
-                             <div class="menu-item">
-                                 <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/domestic/index') ?>">
-                                     <span class="menu-bullet">
-                                         <span class="bullet bullet-dot"></span>
-                                     </span>
-                                     <span class="menu-title">J&T Express</span>
-                                 </a>
-                                 <!--end:Menu link-->
+                                 <!--begin:Menu item-->
+                                 <div class="menu-item">
+                                     <!--begin:Menu link-->
+                                     <a class="menu-link" href="<?= base_url('admin/domestic/jnt_express') ?>">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">J&T Express</span>
+                                     </a>
+                                     <!--end:Menu link-->
+                                 </div>
+                                 <!--end:Menu item-->
                              </div>
                              <!--end:Menu item-->
                          </div>
@@ -453,7 +453,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('v3/admin/topup') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/topup') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -546,7 +546,7 @@
                          <!--begin:Menu link-->
                          <a
                              class="menu-link"
-                             href="<?= base_url('v3/admin/shipping_rates') ?>">
+                             href="<?= base_url('v3/rate_calculate') ?>">
                              <span class="menu-icon">
                                  <i class="bi bi-currency-dollar fs-2"></i>
                              </span>

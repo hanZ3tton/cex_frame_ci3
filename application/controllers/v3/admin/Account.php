@@ -74,6 +74,59 @@
                 }
             }
         }
+        // change password form
+        public function change_password()
+        {
+            $data = [];
+            $this->pageScripts = [
+                "assets/js/custom/apps/contacts/edit-contact.js",
+                "assets/js/widgets.bundle.js",
+                "assets/js/custom/widgets.js",
+                "assets/js/custom/apps/chat/chat.js",
+                "assets/js/custom/utilities/modals/upgrade-plan.js",
+                "assets/js/custom/utilities/modals/create-app.js",
+                "assets/js/custom/utilities/modals/users-search.js",
+            ];
+            $this->pageStyles = [
+                'assets/plugins/custom/datatables/datatables.bundle.css',
+            ];
+            $this->loadView('v3/admin/account/change_password', 'Change Password', $data);
+        }
+        // update data password
+        public function update_password()
+        {
+            $data = [];
+            $this->pageScripts = [
+                "assets/js/custom/apps/contacts/edit-contact.js",
+                "assets/js/widgets.bundle.js",
+                "assets/js/custom/widgets.js",
+                "assets/js/custom/apps/chat/chat.js",
+                "assets/js/custom/utilities/modals/upgrade-plan.js",
+                "assets/js/custom/utilities/modals/create-app.js",
+                "assets/js/custom/utilities/modals/users-search.js",
+            ];
+            $this->pageStyles = [
+                'assets/plugins/custom/datatables/datatables.bundle.css',
+            ];
+            $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+            $this->form_validation->set_rules('confirm_password', 'Password', 'required|matches[password]');
+            if ($this->form_validation->run() == false) {
+                $this->loadView('v3/admin/account/change_password', 'Change Password', $data);
+            } else {
+                $code = $this->session->userdata('user_code');
+                $password = $this->input->post('password');
+                $data = [
+                    'password' => hash('sha256', $password)
+                ];
+                if ($this->User_model->updateUser($code, $data)) {
+                    $this->session->set_flashdata('success', 'Password successfully updated! You can now log in with your new password. ');
+                    redirect('v3/admin/dashboard');
+                } else {
+                    $this->session->set_flashdata('error', 'Failed to change password. Try again later');
+                    redirect('v3/admin/dashboard');
+                }
+            }
+        }
 
         public function settings()
         {

@@ -104,8 +104,8 @@
                 ];
 
                 if ($this->User_model->createUser($data)) {
-                    $this->session->set_flashdata('success', 'New user has been added');
                     redirect('v3/admin/user');
+                    $this->session->set_flashdata('success', 'New user has been added');
                 } else {
                     $this->session->set_flashdata('error', 'Failed to create user. Try again later');
                     redirect('v3/admin/user');

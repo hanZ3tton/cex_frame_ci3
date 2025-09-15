@@ -6160,7 +6160,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5 my-1">
-                            <a href="account/settings.html" class="menu-link px-5">Account Settings</a>
+                            <a href="<?= base_url('v3/admin/account/change_password') ?>" class="menu-link px-5">Change Password</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->

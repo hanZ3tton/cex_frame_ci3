@@ -64,4 +64,16 @@
 
             $this->loadView('v3/admin/shipment/outbond/index', 'Create Inbound', $data);
         }
+
+        public function createinbound()
+        {
+            $data = [];
+
+            $this->config->load('assets/_partials/form');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('v3/admin/inbound/createinbound', 'Create Inbound', $data);
+        }
     }

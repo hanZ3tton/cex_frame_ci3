@@ -57,3 +57,16 @@ $route['admin/list_inbound_all'] = 'v3/admin/inbound';
 $route['admin/list_inbound'] = 'v3/admin/inbound/not_proccess';
 $route['admin/list_order'] = 'v3/admin/order';
 $route['admin/list_order_completed'] = 'v3/admin/order/completed';
+
+$route['admin/list_inbound_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
+$route['admin/list_cleansing_ho'] = 'v3/admin/data_ho/not_completed';
+$route['admin/list_recipe_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
+
+$route['admin/list_jnt_cargo'] = 'v3/admin/cargo';
+
+$route['admin/domestic/shipment'] = 'v3/admin/domestic/shipment';
+$route['admin/domestic/jnt_express'] = 'v3/admin/domestic/jnt_express';
+
+$route['admin/rate_calculate'] = 'v3/admin/shipping_rates';
+
+$route['admin/topup'] = 'v3/admin/topup';

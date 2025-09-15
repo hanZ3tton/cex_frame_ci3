@@ -74,65 +74,65 @@
             <!--begin::Toolbar-->
             <!-- begin::Toolbar -->
             <!-- Container fleksibel untuk menempatkan tombol-tombol di sisi kanan -->
-          	<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                <!--begin::Filter-->
-                <!--begin::Add user-->
-                <a href="#" class="btn btn-primary me-3">
-                    <i class="fa fa-plus fs-2"></i>Claim To Become Receipt
-                </a>
+            <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+              <!--begin::Filter-->
+              <!--begin::Add user-->
+              <a href="#" class="btn btn-primary me-3">
+                <i class="fa fa-plus fs-4"></i>Claim To Become Receipt
+              </a>
             </div>
-       	</div>
+          </div>
           <!--end::Card toolbar-->
         </div>
         <!--end::Card header-->
         <!--begin::Card body-->
         <!-- Bagian body dari card, dengan padding vertikal -->
         <div class="card-body py-4">
-            <!-- Tabel dengan styling yang responsif dan rata tengah -->
-            <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_users">
-                <!-- Header tabel -->
-                <thead>
-                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                        <!-- Kolom untuk checkbox -->
-                        <th class="w-10px pe-2">
-                            <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-                            </div>
-                        </th>
-                        <!-- Kolom header lainnya -->
-                        <th class="min-w-125px">Date</th>
-                        <th class="min-w-125px">Weight</th>
-                        <th class="min-w-125px">Notes</th>
-						<th class="min-w-125px">Cs</th>
-						<th class="min-w-125px">Receiver Name</th>
-                        <th class="min-w-125px">Receiver Address</th>
-                        <th class="min-w-125px">Photo 1</th>
-                        <th class="min-w-125px">Photo 2</th>
-                        <th class="min-w-125px">Photo 3</th>
-                      </tr>
-                </thead>
-                <!-- Body tabel -->
-                <tbody class="text-gray-600 fw-semibold">
-                    <!-- Baris data contoh -->
-					<tr>
-						<td>
-							<div class="form-check form-check-sm form-check-custom form-check-solid">
-								<input class="form-check-input" type="checkbox" value="1" />
-							</div>
-						</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-                </tbody>
-            </table>
-            <!--end::Table-->
+          <!-- Tabel dengan styling yang responsif dan rata tengah -->
+          <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_users">
+            <!-- Header tabel -->
+            <thead>
+              <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                <!-- Kolom untuk checkbox -->
+                <th class="w-10px pe-2">
+                  <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                    <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
+                  </div>
+                </th>
+                <!-- Kolom header lainnya -->
+                <th class="min-w-125px">Date</th>
+                <th class="min-w-125px">Weight</th>
+                <th class="min-w-125px">Notes</th>
+                <th class="min-w-125px">Cs</th>
+                <th class="min-w-125px">Receiver Name</th>
+                <th class="min-w-125px">Receiver Address</th>
+                <th class="min-w-125px">Photo 1</th>
+                <th class="min-w-125px">Photo 2</th>
+                <th class="min-w-125px">Photo 3</th>
+              </tr>
+            </thead>
+            <!-- Body tabel -->
+            <tbody class="text-gray-600 fw-semibold">
+              <!-- Baris data contoh -->
+              <tr>
+                <td>
+                  <div class="form-check form-check-sm form-check-custom form-check-solid">
+                    <input class="form-check-input" type="checkbox" value="1" />
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <!--end::Table-->
         </div>
 
         <!--end::Card body-->

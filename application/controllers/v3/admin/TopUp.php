@@ -20,10 +20,14 @@
 
             $this->config->load('assets/topup');
             $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/TopUp/index', 'TopUp', $data);
+            $this->config->load('assets/_partials/dataTables');
+            $datatables_assets = $this->config->item('assets');
+
+            $this->pageScripts = array_merge($page_assets['js'], $page_assets['js']);
+            $this->pageStyles = array_merge($datatables_assets['css'], $datatables_assets['css']);
+
+            $this->loadView('v3/admin/Topup/index', 'TopUp', $data);
         }
         public function deposit()
         {
