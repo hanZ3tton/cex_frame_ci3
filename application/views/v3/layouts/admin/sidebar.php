@@ -317,7 +317,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="<?= base_url('admin/list_jnt_cargo') ?>">
+                                 <a class="menu-link" href="<?= base_url('admin/list_kalog') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

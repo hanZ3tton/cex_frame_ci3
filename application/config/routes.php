@@ -69,6 +69,8 @@ $route['admin/list_recipe_ho'] = 'v3/admin/data_ho/index';
 
 $route['admin/list_recipe_ho'] = 'v3/admin/data_ho/index';
 
+$route['admin/list_kalog'] = 'v3/admin/data_kalog/index';
+
 $route['admin/list_jnt_cargo'] = 'v3/admin/cargo';
 
 $route['admin/domestic/shipment'] = 'v3/admin/domestic/shipment';
