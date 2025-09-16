@@ -58,6 +58,9 @@
             if ($this->form_validation->run() == FALSE) {
                 $this->loadView('v3/admin/account/index', 'My Account', $data);
             } else {
+                $dataUser = [
+                    'nama' => $this->input->post('name')
+                ];
                 $data = [
                     'name' => $this->input->post('agent'),
                     'business_name' => $this->input->post('business_name'),
@@ -67,7 +70,9 @@
                     'updatedon' => date('Y-m-d H:i:s'),
                 ];
                 $account = $this->session->userdata('account');
-                if ($this->Mitra_model->updateMitra($account, $data)) {
+                $updateMitra = $this->Mitra_model->updateMitra($account, $data);
+                $updateUser =  $this->User_model->updateUser($this->session->userdata('user_code'), $dataUser);
+                if ($updateMitra && $updateUser) {
                     redirect('v3/admin/account/index');
                 } else {
                     $this->session->set_flashdata('error', 'Invalid username or password');
