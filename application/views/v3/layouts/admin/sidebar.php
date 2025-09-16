@@ -489,7 +489,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="pages/social/feeds.html">
+                                 <a class="menu-link" href="v3/admin/reports/index">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -503,7 +503,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/social/activity.html">
+                                     href="v3/admin/reports/manifest_reports">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

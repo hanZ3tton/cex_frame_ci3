@@ -96,6 +96,7 @@
         <!--begin::Card body-->
         <!-- Bagian body dari card, dengan padding vertikal -->
         <div class="card-body py-4">
+          <div class="table-responsive">
             <!-- Tabel dengan styling yang responsif dan rata tengah -->
             <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_users">
                 <!-- Header tabel -->
@@ -206,6 +207,7 @@
 					</tr>
                 </tbody>
             </table>
+            </div>
             <!--end::Table-->
         </div>
 
