@@ -67,6 +67,19 @@
                 <!--begin::Input group-->
                 <div class="row mb-6">
                     <!--begin::Label-->
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row">
+                        <input type="text" name="name" class="form-control form-control-lg form-control-solid" placeholder="Your name" value="<?= $user->nama ?>" />
+                        <?= form_error('agent', '<div class="text-danger">', '</div>'); ?>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">Agent Name</label>
                     <!--end::Label-->
                     <!--begin::Col-->

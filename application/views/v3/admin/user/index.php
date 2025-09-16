@@ -604,7 +604,7 @@
                                     <td><?= $user->nama ?></td>
                                     <td><?= $user->grup ?></td>
                                     <td>
-                                        <?php if ($user->status): ?>
+                                        <?php if ($user->status == 1): ?>
                                             <div class="badge badge-light-success fw-bold">
                                                 Active
                                             </div>

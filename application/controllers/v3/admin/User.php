@@ -158,7 +158,7 @@
                 $data = [
                     'nama' => $this->input->post('name'),
                     'grup' => $this->input->post('user_role'),
-                    'status' => $this->input->post('is_active'),
+                    'status' => $this->input->post('status'),
                     'updatedby' => $usernameAdmin,
                     'updatedon' => date('Y-m-d H:i:s')
                 ];
