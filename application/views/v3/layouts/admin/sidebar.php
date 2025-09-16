@@ -234,7 +234,7 @@
                      </div>
                      <!--end:Menu Shipement-->
 
-                     <!--begin:Menu Data Heed Office-->
+                     <!--begin:Menu Data Head Office-->
                      <div
                          data-kt-menu-trigger="click"
                          class="menu-item menu-accordion">
@@ -317,7 +317,7 @@
                              <!--begin:Menu item-->
                              <div class="menu-item">
                                  <!--begin:Menu link-->
-                                 <a class="menu-link" href="pages/social/feeds.html">
+                                 <a class="menu-link" href="<?= base_url('admin/list_jnt_cargo') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -546,7 +546,7 @@
                          <!--begin:Menu link-->
                          <a
                              class="menu-link"
-                             href="<?= base_url('v3/rate_calculate') ?>">
+                             href="<?= base_url('admin/rate_calculate') ?>">
                              <span class="menu-icon">
                                  <i class="bi bi-currency-dollar fs-2"></i>
                              </span>
@@ -580,7 +580,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="<?= base_url('v3/admin/user') ?>">
+                                     href="<?= base_url('admin/list_user') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

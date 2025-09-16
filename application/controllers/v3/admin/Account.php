@@ -12,7 +12,7 @@
             $this->load->model('Mitra_model');
             $this->load->library('form_validation');
             if (!$this->session->userdata('logged_in')) {
-                redirect('v3/auth');
+                redirect('auth');
             }
         }
 
@@ -74,7 +74,7 @@
                 }
             }
         }
-        // change password form
+
         public function change_password()
         {
             $data = [];
@@ -92,7 +92,7 @@
             ];
             $this->loadView('v3/admin/account/change_password', 'Change Password', $data);
         }
-        // update data password
+
         public function update_password()
         {
             $data = [];

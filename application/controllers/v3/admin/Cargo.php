@@ -9,7 +9,7 @@ class Cargo extends MY_Controller
 
     $this->defaultLayout = 'v3/layouts/app';
     if (!$this->session->userdata('logged_in')) {
-      redirect('v3/auth');
+      redirect('auth');
     }
   }
 
@@ -40,6 +40,7 @@ class Cargo extends MY_Controller
 
     $this->loadView('v3/admin/shipment/create', 'Create Shipment', $data);
   }
+
   public function np()
   {
     $data = [];

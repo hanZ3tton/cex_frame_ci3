@@ -11,11 +11,10 @@
             $this->load->model('User_model');
             $this->load->library('form_validation');
             if (!$this->session->userdata('logged_in')) {
-                redirect('v3/auth');
+                redirect('auth');
             }
         }
 
-        // list user
         public function index()
         {
             $data = [
@@ -28,7 +27,6 @@
             $this->loadView('v3/admin/user/index', 'User List', $data);
         }
 
-        // form create user
         public function create()
         {
             $data = [];
@@ -48,7 +46,6 @@
             $this->loadView('v3/admin/user/create', 'Create User', $data);
         }
 
-        // insert user data
         public function store()
         {
             $data = [];
@@ -112,7 +109,7 @@
                 }
             }
         }
-        // edit user form
+
         public function edit($code)
         {
             $data = [
@@ -133,7 +130,7 @@
 
             $this->loadView('v3/admin/user/edit', 'Update User', $data);
         }
-        // update data user
+
         public function update($code)
         {
             $data = [
@@ -175,7 +172,7 @@
                 }
             }
         }
-        // change password form
+
         public function change_password($code)
         {
             $data = [
@@ -195,7 +192,7 @@
             ];
             $this->loadView('v3/admin/user/change_password', 'Change Password', $data);
         }
-        // update data password
+
         public function update_password($code)
         {
             $data = [
@@ -231,6 +228,7 @@
                 }
             }
         }
+
         public function delete($code)
         {
             if ($this->User_model->deleteUser($code)) {

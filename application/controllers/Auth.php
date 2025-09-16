@@ -11,13 +11,11 @@ class Auth extends MY_Controller
         $this->load->library('form_validation');
         $this->load->model('User_model');
         $this->load->model('Mitra_model');
-        $this->session->set_userdata('logged_in', true);
     }
 
     public function index()
     {
-        // Redirect to login page
-        redirect('v3/auth/login');
+        redirect('login');
     }
 
     public function login()
@@ -28,7 +26,7 @@ class Auth extends MY_Controller
 
         $this->loadView('v3/auth/login', 'Login', $data);
         if ($this->session->userdata('logged_in')) {
-            redirect('v3/admin/dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -53,7 +51,7 @@ class Auth extends MY_Controller
 
                 if ($user->status == 2) {
                     $this->session->set_flashdata('error', 'Your account is inactive. Please contact the admin.');
-                    redirect('v3/auth/login');
+                    redirect('login');
                     return;
                 }
 
@@ -68,14 +66,14 @@ class Auth extends MY_Controller
                     'logged_in' => TRUE
                 ];
                 $this->session->set_userdata($session_data);
-                redirect('v3/admin/dashboard');
+                redirect('admin/dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
                 $this->loadView('v3/auth/login', 'Login', $data);
             }
         }
         if ($this->session->userdata('logged_in')) {
-            redirect('v3/admin/dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -87,9 +85,9 @@ class Auth extends MY_Controller
         ];
         $this->pageStyles = [];
 
-        $this->loadView('auth/forgot_password', 'Reset Password', $data);
+        $this->loadView('v3/auth/forgot_password', 'Reset Password', $data);
         if ($this->session->userdata('logged_in')) {
-            redirect('v3/admin/dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -101,9 +99,9 @@ class Auth extends MY_Controller
         ];
         $this->pageStyles = [];
 
-        $this->loadView('auth/new_password', 'New Password', $data);
+        $this->loadView('v3/auth/new_password', 'New Password', $data);
         if ($this->session->userdata('logged_in')) {
-            redirect('v3/admin/dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -117,7 +115,7 @@ class Auth extends MY_Controller
 
         $this->loadView('v3/auth/register', 'Register', $data);
         if ($this->session->userdata('logged_in')) {
-            redirect('v3/admin/dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -161,6 +159,6 @@ class Auth extends MY_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('v3/auth/login');
+        redirect('auth/login');
     }
 }

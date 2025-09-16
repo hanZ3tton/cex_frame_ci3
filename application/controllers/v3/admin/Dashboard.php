@@ -3,14 +3,13 @@
 
     class Dashboard extends MY_Controller
     {
-
         public function __construct()
         {
             parent::__construct();
 
             $this->defaultLayout = 'v3/layouts/app';
             if (!$this->session->userdata('logged_in')) {
-                redirect('v3/auth');
+                redirect('auth');
             }
         }
 

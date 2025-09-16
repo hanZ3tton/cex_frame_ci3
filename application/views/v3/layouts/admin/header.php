@@ -6166,7 +6166,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
                             <a
-                                href="<?= base_url('v3/auth/logout') ?>"
+                                href="<?= base_url('auth/logout') ?>"
                                 class="menu-link px-5">Sign Out</a>
                         </div>
                         <!--end::Menu item-->

@@ -9,7 +9,7 @@
 
             $this->defaultLayout = 'v3/layouts/app';
             if ($this->session->userdata('user_id') == null) {
-                redirect('v3/auth');
+                redirect('auth');
             };
         }
 

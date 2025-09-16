@@ -10,7 +10,7 @@ class Order extends MY_Controller
     $this->defaultLayout = 'v3/layouts/app';
     $this->load->model('Order_model');
     if (!$this->session->userdata('logged_in')) {
-      redirect('v3/auth');
+      redirect('auth');
     }
   }
 

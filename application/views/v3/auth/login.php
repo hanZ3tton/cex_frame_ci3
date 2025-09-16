@@ -10,7 +10,7 @@
                 <!--begin::Form-->
                 <form
                     class="form w-100 card-body"
-                    action="<?= base_url('v3/auth/login_process') ?>"
+                    action="<?= base_url('auth/login_process') ?>"
                     method="POST">
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
