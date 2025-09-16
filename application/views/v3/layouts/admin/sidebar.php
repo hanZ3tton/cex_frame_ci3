@@ -216,7 +216,7 @@
                                  <!--begin:Menu link-->
                                  <a
                                      class="menu-link"
-                                     href="pages/user-profile/followers.html">
+                                     href="<?= base_url('admin/list_order_outbound') ?>">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>

@@ -44,14 +44,19 @@ class Data_ho extends MY_Controller
 
     $this->loadView('v3/admin/data_ho/not_completed', 'Not Completed', $data);
   }
+
   public function direct_inbound_ho()
   {
     $data = [];
 
     $this->config->load('assets/topup');
     $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
 
     $this->loadView('v3/admin/data_ho/direct_inbound_ho', 'Direct Inbound Head Office', $data);
   }

@@ -22,8 +22,12 @@
 
             $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
+
+            $this->config->load('assets/_partials/dataTables');
+            $datatables_assets = $this->config->item('assets');
+
+            $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+            $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
 
             $this->loadView('v3/admin/inbound/index', 'Inbound List', $data);
         }
@@ -35,8 +39,12 @@
             ];
             $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
+
+            $this->config->load('assets/_partials/dataTables');
+            $datatables_assets = $this->config->item('assets');
+
+            $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+            $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
 
             $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
         }
