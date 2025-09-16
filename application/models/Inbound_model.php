@@ -11,6 +11,7 @@ class Inbound_model extends CI_Model
 
   public function getAll()
   {
+    $account = $this->session->userdata('account');
     $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label, tb_user_agent.nama as cs_name');
     $this->db->from($this->table);
     $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');

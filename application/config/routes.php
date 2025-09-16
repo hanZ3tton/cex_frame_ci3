@@ -59,6 +59,7 @@ $route['admin/dashboard'] = 'v3/admin/dashboard';
 
 $route['admin/list_inbound_all'] = 'v3/admin/inbound';
 $route['admin/list_inbound'] = 'v3/admin/inbound/not_proccess';
+$route['admin/add_inbound'] = 'v3/admin/inbound/create';
 $route['admin/list_order'] = 'v3/admin/order';
 $route['admin/list_order_completed'] = 'v3/admin/order/completed';
 $route['admin/list_order_outbound'] = 'v3/admin/order/outbound';

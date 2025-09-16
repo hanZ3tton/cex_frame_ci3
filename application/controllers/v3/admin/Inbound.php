@@ -9,6 +9,7 @@
 
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->model('Inbound_model');
+            $this->load->model('User_model');
             if (!$this->session->userdata('logged_in')) {
                 redirect('auth');
             }
@@ -49,18 +50,6 @@
             $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
         }
 
-        public function create()
-        {
-            $data = [];
-
-            $this->config->load('assets/_partials/form');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
-        }
-
         public function outbond()
         {
             $data = [];
@@ -73,15 +62,26 @@
             $this->loadView('v3/admin/shipment/outbond/index', 'Create Inbound', $data);
         }
 
-        public function createinbound()
+        public function create()
         {
-            $data = [];
+            $data = [
+                'inbounds' => $this->Inbound_model->getAll(),
+                'users' => $this->User_model->getAllUser()
+            ];
 
             $this->config->load('assets/_partials/form');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
 
-            $this->loadView('v3/admin/inbound/createinbound', 'Create Inbound', $data);
+            $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
+        }
+
+        public function store()
+        {
+            $this->form_validation->set_rules('sender_name', 'Sender Name', 'required');
+            $this->form_validation->set_rules('phone_num', 'Phone Number', 'required|min_length[10]');
+            $this->form_validation->set_rules('weight', 'Weight', 'required');
+            $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
         }
     }

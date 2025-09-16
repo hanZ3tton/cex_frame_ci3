@@ -132,7 +132,7 @@
                                 </i>Export</button>
                             <!--end::Export-->
                             <!--begin::Add Inbound-->
-                            <a href="<?= base_url('v3/admin/inbound/create') ?>" class="btn btn-primary">
+                            <a href="<?= base_url('admin/add_inbound') ?>" class="btn btn-primary">
                                 <i class="ki-duotone ki-plus fs-2"></i>Add Inbound</a>
                             <!--end::Add Inbound-->
                         </div>
