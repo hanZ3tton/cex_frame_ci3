@@ -33,23 +33,46 @@ class Cargo extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/add');
+    $this->config->load('assets/cargo');
     $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/shipment/create', 'Create Shipment', $data);
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+
+    $this->loadView('v3/admin/cargo/create', 'Create JNT Cargo Form', $data);
   }
 
-  public function np()
+  public function edit_cargo()
   {
     $data = [];
 
-    $this->config->load('assets/shipment');
+    $this->config->load('assets/cargo');
     $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/shipment/not_proccess/index', 'Not Process', $data);
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+
+    $this->loadView('v3/admin/cargo/edit_cargo', 'Edit JNT Cargo Form', $data);
+  }
+  public function cargo_details()
+  {
+    $data = [];
+
+    $this->config->load('assets/cargo');
+    $page_assets = $this->config->item('assets');
+
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+
+    $this->loadView('v3/admin/cargo/cargo_details', 'JNT Cargo Details Form', $data);
   }
 }
