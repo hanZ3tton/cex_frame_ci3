@@ -25,7 +25,7 @@
 							<!--end::Title-->
 						</div>
 						<!--end::Heading-->
-						<!--begin::Input group-->
+						<!--begin::Detail-->
 						<div class="row g-9 mb-8">
 							<!--begin::Col-->
 							<div class="col-md-6 fv-row">
@@ -35,46 +35,72 @@
 							<!--end::Col-->
 							<!--begin::Col-->
 							<div class="col-md-6 fv-row ">
-								<label class="fs-6 fw-semibold mb-2">Date Inbound</label>
+								<label class="fs-6 fw-semibold mb-2">CS</label>
 								<p class="form-control form-control-solid"><span id="detail-cs"></span></p>
 							</div>
 							<!--end::Col-->
 
 						</div>
-						<!--end::Input group-->
-						<!--begin::Input group-->
+						<!--end::Detail-->
+
+						<!--begin::Detail-->
 						<div class="row g-9 mb-8">
 							<!--begin::Col-->
 							<div class="col-md-6 fv-row">
-								<label class="fs-6 fw-semibold mb-2">Date Inbound</label>
+								<label class="fs-6 fw-semibold mb-2">Shipper Name</label>
 								<p class="form-control form-control-solid"><span id="detail-shipper"></span></p>
 							</div>
 							<!--end::Col-->
 							<!--begin::Col-->
 							<!--begin::Col-->
 							<div class="col-md-6 fv-row">
-								<label class="fs-6 fw-semibold mb-2">Date Inbound</label>
+								<label class="fs-6 fw-semibold mb-2">Shipper Phone</label>
 								<p class="form-control form-control-solid"><span id="detail-phone"></span></p>
 							</div>
 							<!--end::Col-->
 						</div>
-						<!--end::Input group-->
+						<!--end::Detail-->
 
-						<!--begin::Input group-->
+						<!--begin::Detail-->
 						<div class="row g-9 mb-8">
 							<div class="col-md-6 fv-row">
-								<label class="fs-6 fw-semibold mb-2">Date Inbound</label>
+								<label class="fs-6 fw-semibold mb-2">Goods Description</label>
 								<p class="form-control form-control-solid"><span id="detail-goods-desc"></span></p>
 							</div>
 							<!--end::Col-->
 							<!--begin::Col-->
 							<div class="col-md-6 fv-row">
-								<label class="fs-6 fw-semibold mb-2">Date Inbound</label>
+								<label class="fs-6 fw-semibold mb-2">Weight</label>
 								<p class="form-control form-control-solid"><span id="detail-weight"></span></p>
 							</div>
 							<!--end::Col-->
 						</div>
-						<!--end::Input group-->
+						<!--end::Detail-->
+
+						<!--begin::Detail-->
+						<div class="row g-9 mb-8">
+							<div class="col-md-4 fv-row">
+								<label class="fs-6 fw-semibold mb-2">Picture 1</label>
+								<img id="detail-picture-1" src="" width="150" alt="">
+							</div>
+
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col-md-4 fv-row">
+								<label class="fs-6 fw-semibold mb-2">Picture 2</label>
+								<img id="detail-picture-2" src="" width="150" alt="">
+							</div>
+
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col-md-4 fv-row">
+								<label class="fs-6 fw-semibold mb-2">Picture 3</label>
+								<img id="detail-picture-3" src="" width="150" alt="">
+							</div>
+
+							<!--end::Col-->
+						</div>
+						<!--end::Detail-->
 					</div>
 					<!--end::Modal body-->
 				</div>

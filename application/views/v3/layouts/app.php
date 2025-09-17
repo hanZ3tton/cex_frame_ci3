@@ -113,6 +113,7 @@
     <!--begin::Javascript-->
     <script>
         var hostUrl = "assets/";
+        var baseUrl = "<?= base_url('uploads/'); ?>";
     </script>
 
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->

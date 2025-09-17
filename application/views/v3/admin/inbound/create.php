@@ -65,7 +65,7 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-5">
                             <!--begin::Form-->
-                            <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('admin/inbound/store') ?>" method="post">
+                            <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/inbound/store') ?>" enctype="multipart/form-data" method="post">
                                 <!--begin::Input group-->
                                 <div class="row mb-7">
                                     <div class="col-md-6 mb-5">
@@ -82,8 +82,8 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="sender_name" value="" />
-                                        <?= form_error('sender_name', '<div class="text-danger">', '</div>'); ?>
+                                        <input type="text" class="form-control form-control-solid" name="shipper_name" value="" />
+                                        <?= form_error('shipper_name', '<div class="text-danger">', '</div>'); ?>
                                     </div>
 
                                     <div class="col-md-6">
@@ -99,8 +99,8 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="phone_number" value="" />
-                                        <?= form_error('phone_number', '<div class="text-danger">', '</div>'); ?>
+                                        <input type="text" class="form-control form-control-solid" name="shipper_phone" value="" />
+                                        <?= form_error('shipper_phone', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                 </div>
                                 <!--end::Input group-->
@@ -162,7 +162,7 @@
                                         <!--begin::Default example-->
                                         <div class="input-group flex-nowrap">
                                             <div class="overflow-hidden flex-grow-1">
-                                                <select class="form-select rounded-start-0" data-control="select2" data-placeholder="Select an option" data-hide-search="true">>
+                                                <select class="form-select rounded-start-0" name="cs" data-control="select2" data-placeholder="Select an option" data-hide-search="true">>
                                                     <option></option>
                                                     <?php foreach ($users as $user) : ?>
                                                         <option value="<?= $user->nama ?>"><?= $user->nama ?></option>
@@ -212,7 +212,7 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                                <input type="file" name="photo_1" accept=".png, .jpg, .jpeg">
                                                 <input type="hidden" name="avatar_remove">
                                                 <!--end::Inputs-->
                                             </label>
@@ -282,7 +282,7 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                                <input type="file" name="photo_2" accept=".png, .jpg, .jpeg">
                                                 <input type="hidden" name="avatar_remove">
                                                 <!--end::Inputs-->
                                             </label>
@@ -352,7 +352,7 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                                <input type="file" name="photo_3" accept=".png, .jpg, .jpeg">
                                                 <input type="hidden" name="avatar_remove">
                                                 <!--end::Inputs-->
                                             </label>

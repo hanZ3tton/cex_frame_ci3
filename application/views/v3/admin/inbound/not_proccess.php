@@ -266,11 +266,14 @@
                                             data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_inbound_detail"
                                             data-inbound-date="<?= $inbound->inbound_date ?>"
-                                            data-inbound-cs="<?= $inbound->cs ?>"
                                             data-sender-name="<?= $inbound->shipper_name ?>"
                                             data-phone="<?= $inbound->shipper_phone ?>"
                                             data-weight="<?= $inbound->weight ?>"
-                                            data-goods-desc="<?= $inbound->goods_desc ?>">
+                                            data-goods-desc="<?= $inbound->goods_desc ?>"
+                                            data-inbound-cs="<?= $inbound->cs ?>"
+                                            data-inbound-picture-1="<?= $inbound->picture ?>"
+                                            data-inbound-picture-2="<?= $inbound->picture2 ?>"
+                                            data-inbound-picture-3="<?= $inbound->picture3 ?>">
                                             <i class="ki-duotone ki-magnifier fs-3 text-center">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>

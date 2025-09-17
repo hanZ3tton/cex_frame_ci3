@@ -28,4 +28,9 @@ class Inbound_model extends CI_Model
     $this->db->where("{$this->table}.status" == 15, 'tb_status.code');
     return $this->db->get()->result();
   }
+
+  public function insert($data)
+  {
+    return $this->db->insert($this->table, $data);
+  }
 }
