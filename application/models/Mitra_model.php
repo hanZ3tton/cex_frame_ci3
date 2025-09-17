@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') or exit('No direct script access allowed');
 class Mitra_model extends CI_Model
 {
     public function getMitraByAccount($account)

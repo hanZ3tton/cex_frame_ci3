@@ -91,15 +91,15 @@
 
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
-                                    <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                    <label for="is_active" class="col-sm-3 col-form-label">Status</label>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input"
                                             type="checkbox"
-                                            id="status"
-                                            name="status"
+                                            id="is_active"
+                                            name="is_active"
                                             value="1"
-                                            <?= set_checkbox('status', '1', true) ?>>
-                                        <label class="form-check-label" for="status">
+                                            <?= set_checkbox('is_active', '1', $user->status == 1) ?>>
+                                        <label class="form-check-label" for="is_active">
                                             Active Account
                                         </label>
                                     </div>

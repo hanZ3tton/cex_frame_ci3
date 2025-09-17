@@ -932,7 +932,7 @@
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
-                         <!--begin::Search-->
+                        <!--begin::Search-->
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
                                 <span class="path1"></span>

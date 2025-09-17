@@ -32,15 +32,11 @@ class Auth extends MY_Controller
 
     public function login_process()
     {
-        $data = [];
-        $this->pageScripts = [];
-        $this->pageStyles = [];
-
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->loadView('v3/auth/login', 'Login', $data);
+            $this->login();
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
@@ -69,7 +65,7 @@ class Auth extends MY_Controller
                 redirect('admin/dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
-                $this->loadView('v3/auth/login', 'Login', $data);
+                $this->login();
             }
         }
         if ($this->session->userdata('logged_in')) {

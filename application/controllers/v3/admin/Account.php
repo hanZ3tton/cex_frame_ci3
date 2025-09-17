@@ -36,27 +36,11 @@
 
         public function edit_profile()
         {
-            $tab = $this->input->get('tab', TRUE) ?: 'settings';
-            $data = [
-                'active_tab' => $tab,
-                'tab_view'   => "v3/admin/account/tab/{$tab}",
-                'tab_url'    => site_url('v3/admin/account/index'),
-                'user'     => $this->User_model->getUserByCode($this->session->userdata('user_code')),
-                'mitra'     => $this->Mitra_model->getMitrabyAccount($this->session->userdata('account')),
-
-            ];
-            $this->config->load('assets/account');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
             $this->form_validation->set_rules('phone', 'Contact Phone', 'numeric');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 
-
-
             if ($this->form_validation->run() == FALSE) {
-                $this->loadView('v3/admin/account/index', 'My Account', $data);
+                $this->index();
             } else {
                 $dataUser = [
                     'nama' => $this->input->post('name')
@@ -100,23 +84,10 @@
 
         public function update_password()
         {
-            $data = [];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
             $this->form_validation->set_rules('confirm_password', 'Password', 'required|matches[password]');
             if ($this->form_validation->run() == false) {
-                $this->loadView('v3/admin/account/change_password', 'Change Password', $data);
+                $this->change_password();
             } else {
                 $code = $this->session->userdata('user_code');
                 $password = $this->input->post('password');

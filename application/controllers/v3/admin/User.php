@@ -48,25 +48,11 @@
 
         public function store()
         {
-            $data = [];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
-
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
             $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
             if ($this->form_validation->run() == FALSE) {
-                $this->loadView('v3/admin/user/create', 'Create User', $data);
+                $this->create();
             } else {
                 // generate new username
                 $account = $this->session->userdata('account');
@@ -133,32 +119,15 @@
 
         public function update($code)
         {
-            $data = [
-                'user' => $this->User_model->getUserByCode($code)
-            ];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
-
-
             $this->form_validation->set_rules('name', 'Name', 'required');
             if ($this->form_validation->run() == FALSE) {
-                $this->loadView('v3/admin/user/edit', 'Update User', $data);
+                $this->edit($code);
             } else {
                 $usernameAdmin = $this->session->userdata('username');
                 $data = [
                     'nama' => $this->input->post('name'),
                     'grup' => $this->input->post('user_role'),
-                    'status' => $this->input->post('status'),
+                    'status' => $this->input->post('is_active'),
                     'updatedby' => $usernameAdmin,
                     'updatedon' => date('Y-m-d H:i:s')
                 ];
@@ -195,25 +164,10 @@
 
         public function update_password($code)
         {
-            $data = [
-                'user' => $this->User_model->getUserByCode($code)
-            ];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
             $this->form_validation->set_rules('confirm_password', 'Password', 'required|matches[password]');
             if ($this->form_validation->run() == false) {
-                $this->loadView('v3/admin/user/change_password', 'Change Password', $data);
+                $this->change_password($code);
             } else {
                 $password = $this->input->post('password');
                 $data = [
