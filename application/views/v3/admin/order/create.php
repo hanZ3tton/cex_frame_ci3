@@ -10,7 +10,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a href="<?= base_url('v3/admin/dashboard') ?>" class="text-muted text-hover-primary">Not Completed</a>
+                    <a href="<?= base_url('v3/admin/order/index') ?>" class="text-muted text-hover-primary">Not Completed</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -137,7 +137,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-5">
                     <!--begin::Form-->
-                    <form id="kt_ecommerce_settings_general_form" class="form" action="">
+                    <form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/order/store') ?>" method="post">
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
                             <i class="ki-duotone ki-user fs-1 me-2"> <!-- Ikon user untuk sender -->
@@ -156,7 +156,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Name</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's email.">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the sender name.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -166,7 +166,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="email" class="form-control form-control-solid" name="email" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="sender_name" value="" />
+                                    <?= form_error('sender_name', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -179,7 +180,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span>Phone</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's phone number (optional).">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's phone number.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -189,7 +190,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="phone" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="sender_phone" value="" />
+                                    <?= form_error('sender_phone', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -202,7 +204,7 @@
                             <!--begin::Label-->
                             <label class="fs-6 fw-semibold form-label mt-3">
                                 <span>Sender Address</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter any additional notes about the contact (optional).">
+                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter the address.">
                                     <i class="ki-duotone ki-information fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -212,7 +214,9 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <textarea class="form-control form-control-solid" name="notes"></textarea>
+                            <textarea class="form-control form-control-solid" name="sender_address"></textarea>
+                            <?= form_error('sender_address', '<div class="text-danger">', '</div>'); ?>
+
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
@@ -238,7 +242,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Name</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's email.">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter recipient the name.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -248,7 +252,9 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="email" class="form-control form-control-solid" name="email" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_name" value="" />
+                                    <?= form_error('recipient_name', '<div class="text-danger">', '</div>'); ?>
+
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -261,7 +267,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span>Phone</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's phone number (optional).">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's phone number.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -271,7 +277,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="phone" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_phone" value="" />
+                                    <?= form_error('recipient_phone', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -288,7 +295,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">ARC Number / Recipient ID </span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's email.">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the ARC Number.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -298,7 +305,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="email" class="form-control form-control-solid" name="email" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_id" value="" />
+                                    <?= form_error('recipient_id', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -311,7 +319,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span>Postal Code</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's phone number (optional).">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the postal code.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -321,7 +329,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="phone" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="postal_code" value="" />
+                                    <?= form_error('postal_code', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -349,6 +358,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" class="form-control form-control-solid" name="city" value="" />
+                                    <?= form_error('city', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -373,6 +383,7 @@
                                         </select>
                                         <!--end::Select2-->
                                     </div>
+                                    <?= form_error('country', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                                 <!--end::Input group-->
                             </div>
@@ -384,7 +395,7 @@
                             <!--begin::Label-->
                             <label class="fs-6 fw-semibold form-label mt-3">
                                 <span>Recipient Address</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter any additional notes about the contact (optional).">
+                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter recipient address).">
                                     <i class="ki-duotone ki-information fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -394,7 +405,9 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <textarea class="form-control form-control-solid" name="notes"></textarea>
+                            <textarea class="form-control form-control-solid" name="recipient_address"></textarea>
+                            <?= form_error('recipient_address', '<div class="text-danger">', '</div>'); ?>
+
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
@@ -446,7 +459,7 @@
                                 <!--end::Label-->
                                 <div class="w-100">
                                     <!--begin::Select2-->
-                                    <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
+                                    <select id="package" class="form-select form-select-solid" name="package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
                                         <option value="">Pick the Package Type</option>
                                         <option value="non_garment">Non Garment</option>
                                         <option value="garment">Garment</option>
@@ -455,6 +468,8 @@
                                     </select>
                                     <!--end::Select2-->
                                 </div>
+                                <?= form_error('package', '<div class="text-danger">', '</div>'); ?>
+
                             </div>
                             <!--end::Input group-->
                         </div>
@@ -469,6 +484,7 @@
                                         <span class="required">Length</span>
                                     </label>
                                     <input type="number" class="form-control form-control-solid" name="length" value="" />
+                                    <?= form_error('length', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
                             <!--end::Col Length-->
@@ -480,6 +496,8 @@
                                         <span class="required">Width</span>
                                     </label>
                                     <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                    <?= form_error('width', '<div class="text-danger">', '</div>'); ?>
+
                                 </div>
                             </div>
                             <!--end::Col Width-->
@@ -491,6 +509,8 @@
                                         <span class="required">Height</span>
                                     </label>
                                     <input type="number" class="form-control form-control-solid" name="height" value="" />
+                                    <?= form_error('height', '<div class="text-danger">', '</div>'); ?>
+
                                 </div>
                             </div>
                             <!--end::Col Height-->
@@ -506,7 +526,9 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight(KG)</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="weight" value="" />
+                                    <?= form_error('weight', '<div class="text-danger">', '</div>'); ?>
+
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -517,7 +539,8 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Colli Total</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="colli" value="" />
+                                    <?= form_error('colli', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -538,42 +561,29 @@
                                     <!--end::Label-->
                                     <div class="w-100">
                                         <!--begin::Select2-->
-                                        <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select Service">
-                                            <option value="electronic">Select Service</option>
-                                            <option value="">REGULER</option>
-                                            <option value="non_garment">SPECIAL</option>
-                                            <option value="garment">EXPRESS</option>
-                                            <option value="extra_sensitive">PROMO</option>
+                                        <select id="service" class="form-select form-select-solid" name="service" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select Service">
+                                            <option value="0">Select Service</option>
+                                            <option value="reguler">REGULER</option>
+                                            <option value="special">SPECIAL</option>
+                                            <option value="express">EXPRESS</option>
+                                            <option value="promo">PROMO</option>
                                         </select>
                                         <!--end::Select2-->
                                     </div>
+                                    <?= form_error('service', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
-
-                            <!--begin::Col-->
-                            <div class="col">
-                                <div class="fv-row mb-7">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Height</span>
-                                    </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" value="" />
-                                </div>
-                            </div>
-                            <!--end::Col -->
-                        </div>
-                        <!--end::Row-->
-                        <!--begin::Row-->
-                        <div class="row row-cols-1 row-cols-md-2">
-
                             <!--begin::Col-->
                             <div class="col">
                                 <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Refference Number</span>
                                     </label>
-                                    <input type="Text" class="form-control form-control-solid" name="width" value="" />
+                                    <input type="Text" class="form-control form-control-solid" name="refference" value="" />
+                                    <?= form_error('refference', '<div class="text-danger">', '</div>'); ?>
+
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -633,7 +643,7 @@
                                     <!--end::Label-->
                                     <div class="w-100">
                                         <!--begin::Select2-->
-                                        <select id="Package" class="form-select form-select-solid" name="Package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
+                                        <select id="package_detail" class="form-select form-select-solid" name="package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
                                             <option value="">Pick the Package Type</option>
                                             <option value="non_garment">Non Garment</option>
                                             <option value="garment">Garment</option>
@@ -653,7 +663,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Name</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="height" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="item_name" value="" />
                                 </div>
                             </div>
                             <!--end::Col -->
