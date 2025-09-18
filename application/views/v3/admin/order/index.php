@@ -494,7 +494,7 @@
                       <input class="form-check-input" type="checkbox" value="" />
                     </div>
                   </td>
-                  <td><?= $order->code ?></td>
+                  <td><?= $order->final_connote ?></td>
                   <td class="text-end"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
                   <td></td>
                   <td></td>

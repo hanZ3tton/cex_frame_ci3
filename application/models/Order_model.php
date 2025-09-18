@@ -27,4 +27,14 @@ class Order_model extends CI_Model
     $this->db->where("{$this->table}.status", $status_id);
     return $this->db->get()->result();
   }
+
+  public function insert($data)
+  {
+    return $this->db->insert($this->table, $data);
+  }
+  public function update($code, $data)
+  {
+    $this->db->where('code', $code);
+    return $this->db->update($this->table, $data);
+  }
 }
