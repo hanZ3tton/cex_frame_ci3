@@ -246,7 +246,6 @@
 								<th class="min-w-125px">CS</th>
 								<th class="min-w-150px">Updated On</th>
 								<th class="min-w-125px">Inbound by</th>
-								<th class="text-end min-w-100px">Actions</th>
 							</tr>
 						</thead>
 						<tbody class="text-gray-600 fw-semibold">
@@ -293,29 +292,6 @@
 										<?= $inbound->updatedon ?>
 									</td>
 									<td><?= $inbound->updatedby ?></td>
-									<td class="text-end">
-										<div class="d-flex justify-content-end gap-2">
-											<a
-												href="#"
-												class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-												<i class="ki-duotone ki-pencil fs-2">
-													<span class="path1"></span>
-													<span class="path2"></span>
-												</i>
-											</a>
-											<a
-												href="#"
-												class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-												<i class="ki-duotone ki-trash fs-2">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-													<span class="path4"></span>
-													<span class="path5"></span>
-												</i>
-											</a>
-										</div>
-									</td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>
