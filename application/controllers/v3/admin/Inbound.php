@@ -9,6 +9,7 @@
 
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->helper('upload');
+            $this->load->helper('image');
             $this->load->model('Inbound_model');
             $this->load->model('User_model');
             if (!$this->session->userdata('logged_in')) {
@@ -19,7 +20,7 @@
         public function index()
         {
             $data = [
-                'inbounds' => $this->Inbound_model->getAll()
+                'inbounds' => $this->Inbound_model->getAll(),
             ];
 
             $this->config->load('assets/inbound');
@@ -133,6 +134,79 @@
             }
 
             $this->Inbound_model->insert($data);
+            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+            redirect('admin/list_inbound');
+        }
+
+        public function edit($code)
+        {
+            $data = [
+                'inbound' => $this->Inbound_model->get_inbound_by_code($code),
+                'users' => $this->User_model->getAllUser()
+            ];
+
+            $this->config->load('assets/_partials/form');
+            $page_assets = $this->config->item('assets');
+            $this->pageScripts =  $page_assets['js'];
+            $this->pageStyles =  $page_assets['css'];
+
+            $this->loadView('v3/admin/inbound/edit', 'Edit Inbound', $data);
+        }
+
+        public function update($code)
+        {
+            $this->form_validation->set_rules('shipper_name', 'Shipper Name', 'required');
+            $this->form_validation->set_rules('shipper_phone', 'Shipper Phone', 'required|min_length[10]');
+            $this->form_validation->set_rules('weight', 'Weight', 'required');
+            $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
+            $this->form_validation->set_rules('cs', 'CS', 'required');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data = [
+                    'inbounds' => $this->Inbound_model->get_inbound_by_status()
+                ];
+                $this->config->load('assets/inbound');
+                $page_assets = $this->config->item('assets');
+
+                $this->config->load('assets/_partials/dataTables');
+                $datatables_assets = $this->config->item('assets');
+
+                $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+                $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+
+                $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
+                return;
+            }
+
+            $data = [
+                'shipper_name' => $this->input->post('shipper_name'),
+                'shipper_phone' =>  $this->input->post('shipper_phone'),
+                'weight' =>  $this->input->post('weight'),
+                'goods_desc' =>  $this->input->post('goods_desc'),
+                'cs' =>  $this->input->post('cs'),
+                'updatedon' => date('Y-m-d H:i:s'),
+                'updatedby' =>  $this->session->userdata('account'),
+            ];
+
+            $photo_fields = [
+                'picture' => 'photo_1',
+                'picture2' => 'photo_2',
+                'picture3' => 'photo_3'
+            ];
+
+            foreach ($photo_fields as $key => $field) {
+                if (!empty($_FILES[$field]['name'])) {
+                    $fileName = upload_photo($field);
+                    if (!$fileName) {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
+                        redirect('admin/list_inbound');
+                        return;
+                    }
+                    $data[$key] = $fileName;
+                }
+            }
+
+            $this->Inbound_model->update($code, $data);
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
             redirect('admin/list_inbound');
         }

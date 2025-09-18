@@ -12,25 +12,58 @@ class Inbound_model extends CI_Model
   public function getAll()
   {
     $account = $this->session->userdata('account');
-    $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label, tb_user_agent.nama as cs_name');
+
+    $this->db->select("{$this->table}.*,
+                         tb_status.status_name,
+                         tb_status.label,
+                         tb_user_agent.nama as cs_name");
     $this->db->from($this->table);
-    $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');
-    $this->db->join('tb_user_agent', $this->table . '.cs = tb_user_agent.username', 'left');
+    $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
+    $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
+
+    if ($account) {
+      $this->db->where("{$this->table}.account", $account);
+    }
+
     return $this->db->get()->result();
   }
 
-  public function get_inbound_by_status()
+
+  public function get_inbound_by_status($status = 15)
   {
-    $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label, tb_user_agent.nama as cs_name');
+    $this->db->select("{$this->table}.*,
+                         tb_status.status_name,
+                         tb_status.label,
+                         tb_user_agent.nama as cs_name");
     $this->db->from($this->table);
-    $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');
-    $this->db->join('tb_user_agent', $this->table . '.cs = tb_user_agent.username', 'left');
-    $this->db->where("{$this->table}.status" == 15, 'tb_status.code');
+    $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
+    $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
+    $this->db->where("{$this->table}.status", $status);
     return $this->db->get()->result();
   }
+
+  public function get_inbound_by_code($code)
+  {
+    $this->db->select("{$this->table}.*,
+                         tb_status.status_name,
+                         tb_status.label,
+                         tb_user_agent.nama as cs_name");
+    $this->db->from($this->table);
+    $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
+    $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
+    $this->db->where("{$this->table}.code", $code);
+    return $this->db->get()->row(); // karena code unik, ambil 1 row aja
+  }
+
 
   public function insert($data)
   {
     return $this->db->insert($this->table, $data);
+  }
+
+  public function update($code, $data)
+  {
+    $this->db->where('code', $code);
+    return $this->db->update($this->table, $data);
   }
 }
