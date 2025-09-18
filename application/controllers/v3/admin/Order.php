@@ -118,4 +118,9 @@ class Order extends MY_Controller
 
     $this->loadView('v3/admin/order/outbound', 'List Order Completed', $data);
   }
+
+  public function outbound_scanner()
+  {
+    $this->loadView('v3/admin/order/obscan', 'List Order Completed', []);
+  }
 }

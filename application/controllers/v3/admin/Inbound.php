@@ -79,56 +79,9 @@
 
         public function store()
         {
-            $this->form_validation->set_rules('shipper_name', 'Shipper Name', 'required');
-            $this->form_validation->set_rules('shipper_phone', 'Shipper Phone', 'required|min_length[10]');
+            $this->form_validation->set_rules('sender_name', 'Sender Name', 'required');
+            $this->form_validation->set_rules('phone_num', 'Phone Number', 'required|min_length[10]');
             $this->form_validation->set_rules('weight', 'Weight', 'required');
             $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
-            $this->form_validation->set_rules('cs', 'CS', 'required');
-
-            if ($this->form_validation->run() == FALSE) {
-                $this->loadView('v3/admin/inbound/not_process', 'Create User', $data);
-            }
-
-            $data = [
-                'account' => $this->session->userdata('account'),
-                'inbound_date' => date('Y/m/d'),
-                'shipper_name' => $this->input->post('shipper_name'),
-                'shipper_phone' =>  $this->input->post('shipper_phone'),
-                'weight' =>  $this->input->post('weight'),
-                'goods_desc' =>  $this->input->post('goods_desc'),
-                'cs' =>  $this->input->post('cs'),
-                'status' =>  15
-            ];
-
-            $config = [
-                'upload_path'   => './uploads/',
-                'allowed_types' => 'jpg|jpeg|png',
-                'max_size'      => 5120,
-                'encrypt_name'  => TRUE
-            ];
-
-            $photo_fields = [
-                'picture' => 'photo_1',
-                'picture2' => 'photo_2',
-                'picture3' => 'photo_3'
-            ];
-
-            foreach ($photo_fields as $key => $field) {
-                if (!empty($_FILES[$field]['name'])) {
-                    $this->upload->initialize($config);
-                    if ($this->upload->do_upload($field)) {
-                        $uploadData = $this->upload->data();
-                        $data[$key] = $uploadData['file_name'];
-                    } else {
-                        $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/list_inbound');
-                        return;
-                    }
-                }
-            }
-
-            $this->Inbound_model->insert($data);
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-            redirect('admin/list_inbound');
         }
     }
