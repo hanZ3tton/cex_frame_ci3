@@ -8,6 +8,7 @@
             parent::__construct();
 
             $this->defaultLayout = 'v3/layouts/app';
+            $this->load->helper('upload');
             $this->load->model('Inbound_model');
             $this->load->model('User_model');
             if (!$this->session->userdata('logged_in')) {
@@ -86,25 +87,31 @@
             $this->form_validation->set_rules('cs', 'CS', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->loadView('v3/admin/inbound/not_process', 'Create User', $data);
+                $data = [
+                    'inbounds' => $this->Inbound_model->get_inbound_by_status()
+                ];
+                $this->config->load('assets/inbound');
+                $page_assets = $this->config->item('assets');
+
+                $this->config->load('assets/_partials/dataTables');
+                $datatables_assets = $this->config->item('assets');
+
+                $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+                $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+
+                $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
+                return;
             }
 
             $data = [
                 'account' => $this->session->userdata('account'),
-                'inbound_date' => date('Y/m/d'),
+                'inbound_date' => date('Y-m-d'),
                 'shipper_name' => $this->input->post('shipper_name'),
                 'shipper_phone' =>  $this->input->post('shipper_phone'),
                 'weight' =>  $this->input->post('weight'),
                 'goods_desc' =>  $this->input->post('goods_desc'),
                 'cs' =>  $this->input->post('cs'),
                 'status' =>  15
-            ];
-
-            $config = [
-                'upload_path'   => './uploads/',
-                'allowed_types' => 'jpg|jpeg|png',
-                'max_size'      => 5120,
-                'encrypt_name'  => TRUE
             ];
 
             $photo_fields = [
@@ -115,15 +122,13 @@
 
             foreach ($photo_fields as $key => $field) {
                 if (!empty($_FILES[$field]['name'])) {
-                    $this->upload->initialize($config);
-                    if ($this->upload->do_upload($field)) {
-                        $uploadData = $this->upload->data();
-                        $data[$key] = $uploadData['file_name'];
-                    } else {
+                    $fileName = upload_photo($field);
+                    if (!$fileName) {
                         $this->session->set_flashdata('error', $this->upload->display_errors());
                         redirect('admin/list_inbound');
                         return;
                     }
+                    $data[$key] = $fileName;
                 }
             }
 
