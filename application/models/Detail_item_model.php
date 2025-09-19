@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Destinations_model extends CI_Model
+class Detail_item_model extends CI_Model
 {
     protected $table = 'tb_order_member_detail_item';
 
@@ -9,10 +9,15 @@ class Destinations_model extends CI_Model
         parent::__construct();
     }
 
-    public function getAll($cleansing_code)
+    public function getAll($awb)
     {
         $this->db->from($this->table);
-        $this->db->where('cleansing_code', $cleansing_code);
+        $this->db->where('cleansing_code', $awb);
         return $this->db->get()->result();
+    }
+
+    public function insert($data)
+    {
+        $this->db->insert($this->table, $data);
     }
 }

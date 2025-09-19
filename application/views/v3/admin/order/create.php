@@ -137,7 +137,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-5">
                     <!--begin::Form-->
-                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/store') ?>" method="post">
+                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/update_order/' . $final_connote) ?>" method="post">
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
                             <i class="ki-duotone ki-user fs-1 me-2"> <!-- Ikon user untuk sender -->
@@ -561,8 +561,8 @@
                                     <!--end::Label-->
                                     <div class="w-100">
                                         <!--begin::Select2-->
-                                        <select id="service" class="form-select form-select-solid" name="service" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select Service">
-                                            <option value="0">Select Service</option>
+                                        <select id="service" class="form-select form-select-solid" name="service" data-placeholder="Select Service">
+                                            <option value="">Select Service</option>
                                             <option value="reguler">REGULER</option>
                                             <option value="special">SPECIAL</option>
                                             <option value="express">EXPRESS</option>
@@ -592,7 +592,7 @@
                     </form>
                     <!--end::Form-->
 
-                    <form action="a" method="post" id="item_detail">
+                    <form action="<?= base_url('v3/admin/order/insert_detail_item/' . $final_connote) ?>" method="post" id="item_detail">
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
@@ -646,15 +646,16 @@
                                     <!--end::Label-->
                                     <div class="w-100">
                                         <!--begin::Select2-->
-                                        <select id="package_detail" class="form-select form-select-solid" name="package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
+                                        <select id="package_detail" class="form-select form-select-solid" name="package_detail" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
                                             <option value="">Pick the Package Type</option>
-                                            <option value="non_garment">Non Garment</option>
-                                            <option value="garment">Garment</option>
-                                            <option value="extra_sensitive">Extra / Sensitive Items</option>
-                                            <option value="electronic">Electronic</option>
+                                            <option value="Non garment">Non Garment</option>
+                                            <option value="Garment">Garment</option>
+                                            <option value="Extra Sensitive">Extra / Sensitive Items</option>
+                                            <option value="Electronic">Electronic</option>
                                         </select>
                                         <!--end::Select2-->
                                     </div>
+                                    <?= form_error('package_detail', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                                 <!--end::Input group-->
                             </div>
@@ -667,6 +668,7 @@
                                         <span class="required">Item Name</span>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="item_name" value="" />
+                                    <?= form_error('item_name', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -683,7 +685,8 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Quantity(PCS)</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="qty" value="" />
+                                    <?= form_error('qty', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -694,7 +697,8 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Value(USD)</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="value" value="" />
+                                    <?= form_error('value', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
                             <!--end::Col -->
@@ -739,51 +743,31 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-75px text-start">Code</th>
-                                <th class="min-w-50px text-left">#</th>
-                                <th class="min-w-125px">Date</th>
-                                <th class="min-w-125px">Status</th>
-                                <th class="min-w-125px">Sender</th>
-                                <th class="min-w-150px text-start">Phone number</th>
-                                <th class="min-w-125px text-start">Weight</th>
-                                <th class="min-w-125px">Package</th>
-                                <th class="min-w-125px">CS</th>
-                                <th class="min-w-150px">Updated On</th>
-                                <th class="min-w-125px">Inbound by</th>
+                                <th class="min-w-15px text-start">AWB</th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Value(USD)</th>
+                                <th>Total Price(USD)</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
-                            <!-- <?php foreach ($inbounds as $inbound) : ?>
+                            <?php
+                            if ($detail_item > 0) {
+                                foreach ($detail_item as $item) : ?>
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="<?= $inbound->code ?>" />
+                                                <input class="form-check-input" type="checkbox" value="<?= $item->code ?>" />
                                             </div>
                                         </td>
-                                        <td class="text-start"><?= $inbound->code ?></td>
-                                        <td>
-                                            <a href="">
-                                                <i class="ki-duotone ki-magnifier fs-3 text-center">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </a>
-                                        </td>
-                                        <td><?= date('d/m/Y', strtotime($inbound->inbound_date)) ?></td>
-                                        <td><span class="<?= $inbound->label ?> "> <?= $inbound->status_name ?> </span></td>
-                                        <td>Jane Smith</td>
-                                        <td class="text-start"><?= $inbound->shipper_phone ?></td>
-                                        <td class="text-start"><?= $inbound->weight ?></td>
-                                        <td><?= $inbound->goods_desc ?></td>
-                                        <td><?= $inbound->cs ?></td>
-                                        <td>
-                                            <?php if ($inbound->updatedon == NULL) : ?>
-                                                <span class="badge badge-light-secondary">Not Updated</span>
-                                            <?php endif; ?>
-                                            <?= $inbound->updatedon ?>
-                                        </td>
-                                        <td><?= $inbound->updatedby ?></td>
+                                        <td class="text-start"><?= $item->cleansing_code ?></td>
+                                        <td><?= $item->goods_type ?></td>
+                                        <td><?= $item->goods_category ?></td>
+                                        <td><?= $item->qty ?></td>
+                                        <td><?= $item->price ?></td>
+                                        <td><?= $item->qty *  $item->price ?></td>
                                         <td class="text-end">
                                             <div class="d-flex justify-content-end gap-2">
                                                 <a
@@ -808,7 +792,8 @@
                                             </div>
                                         </td>
                                     </tr>
-                                <?php endforeach ?> -->
+                            <?php endforeach;
+                            } ?>
                         </tbody>
                     </table>
                     <!--begin::Action buttons-->
@@ -836,34 +821,3 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
-<!--begin::Scrolltop-->
-<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-    <i class="ki-duotone ki-arrow-up">
-        <span class="path1"></span>
-        <span class="path2"></span>
-    </i>
-</div>
-<!--end::Scrolltop-->
-<!--begin::Javascript-->
-<script>
-    var hostUrl = "assets/";
-</script>
-<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<script src="assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
-<!--begin::Vendors Javascript(used for this page only)-->
-<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-<!--end::Vendors Javascript-->
-<!--begin::Custom Javascript(used for this page only)-->
-<script src="assets/js/custom/apps/contacts/edit-contact.js"></script>
-<script src="assets/js/widgets.bundle.js"></script>
-<script src="assets/js/custom/widgets.js"></script>
-<script src="assets/js/custom/apps/chat/chat.js"></script>
-<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-<!--end::Custom Javascript-->
-<!--end::Javascript-->
-</body>
-<!--end::Body-->

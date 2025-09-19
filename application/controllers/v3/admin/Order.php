@@ -10,6 +10,7 @@ class Order extends MY_Controller
     $this->defaultLayout = 'v3/layouts/app';
     $this->load->model('Order_model');
     $this->load->model('Destinations_model');
+    $this->load->model('Detail_item_model');
     $this->load->library('form_validation');
     if (!$this->session->userdata('logged_in')) {
       redirect('auth');
@@ -21,7 +22,7 @@ class Order extends MY_Controller
     $status_id = 3;
 
     $data = [
-      'orders' => $this->Order_model->getAll()
+      'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
 
     $this->config->load('assets/order');
@@ -36,25 +37,9 @@ class Order extends MY_Controller
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
 
-  public function create()
+  public function create_empty_data()
   {
-    $status_id = 3;
 
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id),
-      'destinations' => $this->Destinations_model->getAll(),
-    ];
-
-    $this->config->load('assets/order');
-    $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/order/create', 'Create Order', $data);
     $time = time();
     $account = $this->session->userdata('account');
     $username = $this->session->userdata('username');
@@ -80,12 +65,79 @@ class Order extends MY_Controller
     ];
     $this->Order_model->insert($data_order);
     $insert_id = $this->db->insert_id();
-    $data = [
+    $data_item = [
       'connote' => $account . '-' . $insert_id,
-      'final_connote' => $insert_id
+      'final_connote' => $insert_id,
     ];
-    $this->Order_model->update($insert_id, $data);
+    $this->Order_model->update($insert_id, $data_item);
+    redirect('v3/admin/order/create_form/' . $insert_id);
   }
+
+
+  public function create_form($awb)
+  {
+    $status_id = 3;
+    $data = [
+      'orders' => $this->Order_model->get_order_by_status($status_id),
+      'destinations' => $this->Destinations_model->getAll(),
+      'final_connote' => $awb,
+      'detail_item' => 0
+    ];
+
+    $this->config->load('assets/order');
+    $page_assets = $this->config->item('assets');
+
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->loadView('v3/admin/order/create', 'Create Order', $data);
+  }
+
+  public function edit($awb)
+  {
+    $status_id = 3;
+
+    $data = [
+      'orders' => $this->Order_model->get_order_by_status($status_id),
+      'destinations' => $this->Destinations_model->getAll(),
+      'final_connote' => $awb,
+      'detail_item' => $this->Detail_item_model->getAll($awb)
+    ];
+
+    $this->config->load('assets/order');
+    $page_assets = $this->config->item('assets');
+
+    $this->config->load('assets/_partials/dataTables');
+    $datatables_assets = $this->config->item('assets');
+
+    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
+    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->loadView('v3/admin/order/create', 'Update Order', $data);
+  }
+
+  public function insert_detail_item($awb)
+  {
+    $this->form_validation->set_rules('package_detail', 'Category', 'required');
+    $this->form_validation->set_rules('item_name', 'Item Name', 'required');
+    $this->form_validation->set_rules('qty', 'Quantity', 'required');
+    $this->form_validation->set_rules('value', 'Value', 'required');
+    if ($this->form_validation->run() == FALSE) {
+      $this->edit($awb);
+    } else {
+      $data = [
+        'cleansing_code' => $awb,
+        'goods_type' => $this->input->post('package_detail'),
+        'goods_category' => $this->input->post('item_name'),
+        'qty' => $this->input->post('qty'),
+        'price' => $this->input->post('value'),
+      ];
+      $this->Detail_item_model->insert($data);
+      redirect('v3/admin/order/edit/' . $awb);
+    }
+  }
+
   public function update_order($awb)
   {
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
@@ -107,11 +159,19 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('service', 'Service', 'required');
     $this->form_validation->set_rules('refference', 'Refference Number', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->create();
+      $this->edit($awb);
     } else {
       $number_of_pieces = 1; //default
-      $vendor_awb = rand(0, 1000);
-      $customs_value = "";
+      $vendor_awb = $awb;
+      $qty = 0;
+      $customs_value = 0;
+      $qry =  $this->Detail_item_model->getAll($awb);
+      foreach ($qry as $row) {
+        $goods_desc = $row->goods_category . ',';
+        $qty += $row->qty;
+        $customs_value += $row->price * $row->qty;
+      }
+
       $goods_desc = "";
       $account = $this->session->userdata('account');
       $username = $this->session->userdata('username');
@@ -164,8 +224,11 @@ class Order extends MY_Controller
         'service' => $this->input->post('service'),
         'arc_no' => $this->input->post('arc_no'),
         'jenis_paket' => $this->input->post('jenis'),
-        'connote_reff' => $this->input->post('connote_reff')
+        'connote_reff' => $this->input->post('refference')
       ];
+      if ($this->Order_model->update($awb, $data)) {
+        redirect('admin/list_order');
+      }
     }
   }
 
