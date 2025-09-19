@@ -1,15 +1,15 @@
 "use strict";
 
-var KTUsersList = (function () {
+var KTOrdersList = (function () {
 	// Define shared variables
-	var table = document.getElementById("kt_table_users");
+	var table = document.getElementById("kt_table_orders");
 	var datatable;
 	var toolbarBase;
 	var toolbarSelected;
 	var selectedCount;
 
 	// Private functions
-	var initUserTable = function () {
+	var initOrderTable = function () {
 		// Set date data order
 		const tableRows = table.querySelectorAll("tbody tr");
 
@@ -212,15 +212,17 @@ var KTUsersList = (function () {
 		const checkboxes = table.querySelectorAll('[type="checkbox"]');
 
 		// Select elements
-		toolbarBase = document.querySelector('[data-kt-user-table-toolbar="base"]');
+		toolbarBase = document.querySelector(
+			'[data-kt-order-table-toolbar="base"]'
+		);
 		toolbarSelected = document.querySelector(
-			'[data-kt-user-table-toolbar="selected"]'
+			'[data-kt-order-table-toolbar="selected"]'
 		);
 		selectedCount = document.querySelector(
-			'[data-kt-user-table-select="selected_count"]'
+			'[data-kt-order-table-select="selected_count"]'
 		);
 		const deleteSelected = document.querySelector(
-			'[data-kt-user-table-select="delete_selected"]'
+			'[data-kt-order-table-select="delete_selected"]'
 		);
 
 		// Toggle delete selected toolbar
@@ -328,7 +330,7 @@ var KTUsersList = (function () {
 				return;
 			}
 
-			initUserTable();
+			initOrderTable();
 			initToggleToolbar();
 			handleSearchDatatable();
 			handleResetForm();
@@ -340,5 +342,5 @@ var KTUsersList = (function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-	KTUsersList.init();
+	KTOrdersList.init();
 });

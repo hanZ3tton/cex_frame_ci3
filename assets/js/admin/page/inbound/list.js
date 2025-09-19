@@ -224,6 +224,9 @@ var KTInboundsList = (function () {
 		const deleteSelected = document.querySelector(
 			'[data-kt-inbound-table-select="delete_selected"]'
 		);
+		const editSelected = document.querySelector(
+			'[data-kt-inbound-table-select="edit_selected"]'
+		);
 
 		// Toggle delete selected toolbar
 		checkboxes.forEach((c) => {
@@ -234,6 +237,26 @@ var KTInboundsList = (function () {
 				}, 50);
 			});
 		});
+
+		const toggleToolbars = () => {
+			let checkedNodes = Array.from(checkboxes).filter((c) => c.checked);
+			let count = checkedNodes.length;
+
+			if (count > 0) {
+				selectedCount.innerHTML = count;
+				toolbarBase.classList.add("d-none");
+				toolbarSelected.classList.remove("d-none");
+
+				if (count === 1) {
+					editSelected.classList.remove("d-none");
+				} else {
+					editSelected.classList.add("d-none");
+				}
+			} else {
+				toolbarBase.classList.remove("d-none");
+				toolbarSelected.classList.add("d-none");
+			}
+		};
 
 		// Deleted selected rows
 		deleteSelected.addEventListener("click", function () {

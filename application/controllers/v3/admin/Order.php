@@ -25,14 +25,10 @@ class Order extends MY_Controller
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
 
-    $this->config->load('assets/order');
+    $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
@@ -73,7 +69,6 @@ class Order extends MY_Controller
     redirect('v3/admin/order/create_form/' . $insert_id);
   }
 
-
   public function create_form($awb)
   {
     $status_id = 3;
@@ -84,14 +79,11 @@ class Order extends MY_Controller
       'detail_item' => 0
     ];
 
-    $this->config->load('assets/order');
+    $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
     $this->loadView('v3/admin/order/create', 'Create Order', $data);
   }
 

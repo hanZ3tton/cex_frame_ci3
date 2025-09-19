@@ -6,7 +6,6 @@
         public function __construct()
         {
             parent::__construct();
-
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->helper('upload');
             $this->load->helper('image');
@@ -25,7 +24,6 @@
 
             $this->config->load('assets/inbound/list');
             $page_assets = $this->config->item('assets');
-
             $this->pageScripts = $page_assets['js'];
             $this->pageStyles = $page_assets['css'];
 
@@ -43,18 +41,6 @@
             $this->pageStyles = $page_assets['css'];
 
             $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
-        }
-
-        public function outbond()
-        {
-            $data = [];
-
-            $this->config->load('assets/inbound');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/shipment/outbond/index', 'Create Inbound', $data);
         }
 
         public function create()
@@ -97,7 +83,8 @@
                 'weight' =>  $this->input->post('weight'),
                 'goods_desc' =>  $this->input->post('goods_desc'),
                 'cs' =>  $this->input->post('cs'),
-                'status' =>  15
+                'status' =>  15,
+                'updateon' => $this->session->userdata('name')
             ];
 
             $photo_fields = [
