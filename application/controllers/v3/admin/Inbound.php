@@ -23,7 +23,7 @@
                 'inbounds' => $this->Inbound_model->getAll(),
             ];
 
-            $this->config->load('assets/inbound');
+            $this->config->load('assets/inbound/list');
             $page_assets = $this->config->item('assets');
 
             $this->pageScripts = $page_assets['js'];
@@ -37,10 +37,10 @@
             $data = [
                 'inbounds' => $this->Inbound_model->get_inbound_by_status()
             ];
-            $this->config->load('assets/inbound');
+            $this->config->load('assets/inbound/list');
             $page_assets = $this->config->item('assets');
-            $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-            $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+            $this->pageScripts = $page_assets['js'];
+            $this->pageStyles = $page_assets['css'];
 
             $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
         }
@@ -64,18 +64,13 @@
                 'users' => $this->User_model->getAllUser()
             ];
 
-            $this->config->load('assets/_partials/form');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
             $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
         }
 
         public function store()
         {
-            $this->form_validation->set_rules('sender_name', 'Sender Name', 'required');
-            $this->form_validation->set_rules('phone_num', 'Phone Number', 'required|min_length[10]');
+            $this->form_validation->set_rules('shipper_name', 'Sender Name', 'required');
+            $this->form_validation->set_rules('shipper_phone', 'Phone Number', 'required|min_length[10]');
             $this->form_validation->set_rules('weight', 'Weight', 'required');
             $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
             $this->form_validation->set_rules('cs', 'CS', 'required');
@@ -84,14 +79,11 @@
                 $data = [
                     'inbounds' => $this->Inbound_model->get_inbound_by_status()
                 ];
-                $this->config->load('assets/inbound');
+
+                $this->config->load('assets/inbound/list');
                 $page_assets = $this->config->item('assets');
-
-                $this->config->load('assets/_partials/dataTables');
-                $datatables_assets = $this->config->item('assets');
-
-                $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-                $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+                $this->pageScripts = $page_assets['js'];
+                $this->pageStyles = $page_assets['css'];
 
                 $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
                 return;
@@ -138,11 +130,6 @@
                 'users' => $this->User_model->getAllUser()
             ];
 
-            $this->config->load('assets/_partials/form');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
             $this->loadView('v3/admin/inbound/edit', 'Edit Inbound', $data);
         }
 
@@ -158,14 +145,11 @@
                 $data = [
                     'inbounds' => $this->Inbound_model->get_inbound_by_status()
                 ];
-                $this->config->load('assets/inbound');
+
+                $this->config->load('assets/inbound/list');
                 $page_assets = $this->config->item('assets');
-
-                $this->config->load('assets/_partials/dataTables');
-                $datatables_assets = $this->config->item('assets');
-
-                $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-                $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+                $this->pageScripts = $page_assets['js'];
+                $this->pageStyles = $page_assets['css'];
 
                 $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
                 return;
@@ -201,6 +185,31 @@
 
             $this->Inbound_model->update($code, $data);
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+            redirect('admin/list_inbound');
+        }
+
+        public  function delete($code)
+        {
+            $inbound = $this->Inbound_model->get_inbound_by_code($code);
+
+            if (!$inbound) {
+                $this->session->set_flashdata('error', 'Data tidak ditemukan!');
+                redirect('admin/list_inbound');
+                return;
+            }
+
+            if (!empty($inbound->picture) && file_exists(FCPATH . 'uploads/' . $inbound->picture)) {
+                unlink(FCPATH . 'uploads/' . $inbound->picture);
+            }
+            if (!empty($inbound->picture2) && file_exists(FCPATH . 'uploads/' . $inbound->picture2)) {
+                unlink(FCPATH . 'uploads/' . $inbound->picture2);
+            }
+            if (!empty($inbound->picture3) && file_exists(FCPATH . 'uploads/' . $inbound->picture3)) {
+                unlink(FCPATH . 'uploads/' . $inbound->picture3);
+            }
+
+            $this->Inbound_model->delete($code);
+            $this->session->set_flashdata('success', 'Data berhasil dihapus!');
             redirect('admin/list_inbound');
         }
     }
