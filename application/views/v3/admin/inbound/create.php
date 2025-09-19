@@ -57,7 +57,7 @@
                                     <span class="path8"></span>
                                     <span class="path9"></span>
                                 </i>
-                                <h2>User Form</h2>
+                                <h2>Add Inbound</h2>
                             </div>
                             <!--end::Card title-->
                         </div>

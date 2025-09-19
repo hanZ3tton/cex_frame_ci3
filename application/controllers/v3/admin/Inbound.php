@@ -26,11 +26,8 @@
             $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
 
-            $this->config->load('assets/_partials/dataTables');
-            $datatables_assets = $this->config->item('assets');
-
-            $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-            $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+            $this->pageScripts = $page_assets['js'];
+            $this->pageStyles = $page_assets['css'];
 
             $this->loadView('v3/admin/inbound/index', 'Inbound List', $data);
         }
@@ -42,10 +39,6 @@
             ];
             $this->config->load('assets/inbound');
             $page_assets = $this->config->item('assets');
-
-            $this->config->load('assets/_partials/dataTables');
-            $datatables_assets = $this->config->item('assets');
-
             $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
             $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
 
@@ -85,8 +78,6 @@
             $this->form_validation->set_rules('phone_num', 'Phone Number', 'required|min_length[10]');
             $this->form_validation->set_rules('weight', 'Weight', 'required');
             $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
-<<<<<<< HEAD
-=======
             $this->form_validation->set_rules('cs', 'CS', 'required');
 
             if ($this->form_validation->run() == FALSE) {
@@ -138,7 +129,6 @@
             $this->Inbound_model->insert($data);
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
             redirect('admin/list_inbound');
->>>>>>> 546ea907ec3f00bc99f7be7343c8412da0028b2f
         }
 
         public function edit($code)

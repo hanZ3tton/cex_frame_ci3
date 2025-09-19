@@ -10,40 +10,10 @@
 				<h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0"><?= $title; ?></h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
-				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">
-						<a href="index.html" class="text-muted text-hover-primary">Home</a>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-500 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">User Management</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-500 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Users</li>
-					<!--end::Item-->
-				</ul>
+				<?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['shipment', 'All Inbound']]); ?>
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
-			<!--begin::Actions-->
-			<div class="d-flex align-items-center gap-2 gap-lg-3">
-
-				<!--begin::Secondary button-->
-				<!--end::Secondary button-->
-
-			</div>
-			<!--end::Actions-->
 		</div>
 		<!--end::Toolbar container-->
 	</div>
@@ -64,15 +34,14 @@
 								<span class="path1"></span>
 								<span class="path2"></span>
 							</i>
-							<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search user" />
+							<input type="text" data-kt-inbound-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Package" />
 						</div>
 						<!--end::Search-->
 					</div>
-					<!--begin::Card title-->
 					<!--begin::Card toolbar-->
 					<div class="card-toolbar">
 						<!--begin::Toolbar-->
-						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+						<div class="d-flex justify-content-end" data-kt-inbound-table-toolbar="base">
 							<!--begin::Filter-->
 							<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 								<i class="ki-duotone ki-filter fs-2">
@@ -90,11 +59,11 @@
 								<div class="separator border-gray-200"></div>
 								<!--end::Separator-->
 								<!--begin::Content-->
-								<div class="px-7 py-5" data-kt-user-table-filter="form">
+								<div class="px-7 py-5" data-kt-inbound-table-filter="form">
 									<!--begin::Input group-->
 									<div class="mb-10">
 										<label class="form-label fs-6 fw-semibold">Role:</label>
-										<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+										<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-inbound-table-filter="role" data-hide-search="true">
 											<option></option>
 											<option value="Administrator">Administrator</option>
 											<option value="Analyst">Analyst</option>
@@ -107,7 +76,7 @@
 									<!--begin::Input group-->
 									<div class="mb-10">
 										<label class="form-label fs-6 fw-semibold">Two Step Verification:</label>
-										<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="two-step" data-hide-search="true">
+										<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-inbound-table-filter="two-step" data-hide-search="true">
 											<option></option>
 											<option value="Enabled">Enabled</option>
 										</select>
@@ -115,8 +84,8 @@
 									<!--end::Input group-->
 									<!--begin::Actions-->
 									<div class="d-flex justify-content-end">
-										<button type="reset" class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
-										<button type="submit" class="btn btn-primary fw-semibold px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="filter">Apply</button>
+										<button type="reset" class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6" data-kt-menu-dismiss="true" data-kt-inbound-table-filter="reset">Reset</button>
+										<button type="submit" class="btn btn-primary fw-semibold px-6" data-kt-menu-dismiss="true" data-kt-inbound-table-filter="filter">Apply</button>
 									</div>
 									<!--end::Actions-->
 								</div>
@@ -131,15 +100,14 @@
 									<span class="path2"></span>
 								</i>Export</button>
 							<!--end::Export-->
-							<!--begin::Add user-->
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Group actions-->
-						<div class="d-flex justify-content-end align-items-center d-none" data-kt-user-table-toolbar="selected">
+						<div class="d-flex justify-content-end align-items-center d-none" data-kt-inbound-table-toolbar="selected">
 							<div class="fw-bold me-5">
-								<span class="me-2" data-kt-user-table-select="selected_count"></span>Selected
+								<span class="me-2" data-kt-inbound-table-select="selected_count"></span>Selected
 							</div>
-							<button type="button" class="btn btn-danger" data-kt-user-table-select="delete_selected">Delete Selected</button>
+							<button type="button" class="btn btn-danger" data-kt-inbound-table-select="delete_selected">Delete Selected</button>
 						</div>
 						<!--end::Group actions-->
 						<!--begin::Modal - Adjust Balance-->
@@ -227,12 +195,12 @@
 				<!--begin::Card body-->
 				<div class="card-body py-4">
 					<!--begin::Table-->
-					<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+					<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_inbounds">
 						<thead>
 							<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 								<th class="w-10px pe-2">
 									<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-										<input class="form-check-input" name type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="" />
+										<input class="form-check-input" name type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_inbounds .form-check-input" value="" />
 									</div>
 								</th>
 								<th class="min-w-75px text-start">Code</th>
