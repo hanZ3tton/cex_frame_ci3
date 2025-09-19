@@ -270,6 +270,16 @@ class Order extends MY_Controller
 
   public function outbound_scanner()
   {
+    $status_id = 7;
+
+    $data = [
+      'orders' => $this->Order_model->get_order_by_status($status_id)
+    ];
+
+    $this->config->load('assets/order');
+    $page_assets = $this->config->item('assets');
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
     $this->loadView('v3/admin/order/obscan', 'List Order Completed', []);
   }
 }
