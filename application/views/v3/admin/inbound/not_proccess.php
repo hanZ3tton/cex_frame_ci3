@@ -28,6 +28,7 @@
                 <div class="card-header border-0 pt-6">
                     <!--begin::Card title-->
                     <?php $this->load->view('v3/admin/_partials/search', [
+                        'module' => 'inbound',
                         'placeholder' => 'Search Package'
                     ]); ?>
                     <!--begin::Card title-->

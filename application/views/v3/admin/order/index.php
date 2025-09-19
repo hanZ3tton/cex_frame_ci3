@@ -30,6 +30,7 @@
           <div class="card-title">
             <!--begin::Card title-->
             <?php $this->load->view('v3/admin/_partials/search', [
+              'module' => 'order',
               'placeholder' => 'Search Package'
             ]); ?>
             <!--begin::Card title-->
