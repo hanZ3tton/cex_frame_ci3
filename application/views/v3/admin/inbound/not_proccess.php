@@ -10,7 +10,7 @@
                 <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0"><?= $title ?></h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
-                <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Shipment', 'Inbound']]); ?>
+                <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Shipment', 'List Inbound']]); ?>
                 <!--end::Breadcrumb-->
             </div>
             <!--end::Page title-->

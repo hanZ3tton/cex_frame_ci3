@@ -19,10 +19,9 @@
 					<!--begin::Modal body-->
 					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
 						<!--begin::Heading-->
-						<div class="mb-13 text-center">
-							<!--begin::Title-->
-							<h1 class="mb-3">Detail Data Inbound</h1>
-							<!--end::Title-->
+						<div class="mb-10 text-center">
+							<h1 class="mb-3 fw-bold text-primary">Detail Data Inbound</h1>
+							<div class="text-muted">Informasi lengkap inbound shipment</div>
 						</div>
 						<!--end::Heading-->
 						<!--begin::Detail-->

@@ -150,7 +150,7 @@
                                      </span>
                                      <span class="menu-title">All Inbound</span>
                                      <span class="menu-badge">
-                                         <span class="badge badge-square badge-warning">3</span>
+                                         <span class="badge badge-square badge-warning"><?= $count_all ?></span>
                                      </span>
                                  </a>
                                  <!--end:Menu link-->
@@ -168,7 +168,7 @@
                                      </span>
                                      <span class="menu-title">Not Proccess</span>
                                      <span class="menu-badge">
-                                         <span class="badge badge-square badge-danger">3</span>
+                                         <span class="badge badge-square badge-danger"><?= $count_not_process ?></span>
                                      </span>
                                  </a>
                                  <!--end:Menu link-->
@@ -186,7 +186,7 @@
                                      </span>
                                      <span class="menu-title">Not Completed</span>
                                      <span class="menu-badge">
-                                         <span class="badge badge-square badge-danger">3</span>
+                                         <span class="badge badge-square badge-danger"><?= $count_not_completed ?></span>
                                      </span>
                                  </a>
                                  <!--end:Menu link-->
@@ -204,7 +204,7 @@
                                      </span>
                                      <span class="menu-title">Completed</span>
                                      <span class="menu-badge">
-                                         <span class="badge badge-square badge-success">3</span>
+                                         <span class="badge badge-square badge-success"><?= $count_completed ?></span>
                                      </span>
                                  </a>
                                  <!--end:Menu link-->

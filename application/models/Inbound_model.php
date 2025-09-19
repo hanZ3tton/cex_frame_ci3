@@ -9,7 +9,7 @@ class Inbound_model extends CI_Model
     parent::__construct();
   }
 
-  public function getAll()
+  public function get_all_inbound()
   {
     $account = $this->session->userdata('account');
 
@@ -27,7 +27,6 @@ class Inbound_model extends CI_Model
 
     return $this->db->get()->result();
   }
-
 
   public function get_inbound_by_status($status = 15)
   {
@@ -55,7 +54,6 @@ class Inbound_model extends CI_Model
     return $this->db->get()->row(); // karena code unik, ambil 1 row aja
   }
 
-
   public function insert($data)
   {
     return $this->db->insert($this->table, $data);
@@ -70,5 +68,16 @@ class Inbound_model extends CI_Model
   public function delete($code)
   {
     return $this->db->delete($this->table, ['code' => $code]);
+  }
+
+  public function count_all_inbound()
+  {
+    return $this->db->count_all($this->table);
+  }
+
+  public function count_by_status($status_code)
+  {
+    $this->db->where('status', $status_code);
+    return $this->db->count_all_results($this->table);
   }
 }

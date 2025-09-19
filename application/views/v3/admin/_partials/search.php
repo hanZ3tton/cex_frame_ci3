@@ -7,7 +7,7 @@
     </i>
     <input
       type="text"
-      data-kt-inbound-table-filter="search"
+      data-kt-order-table-filter="search"
       class="form-control form-control-solid w-250px ps-13"
       placeholder="<?= isset($placeholder) ? $placeholder : 'Search Bar' ?>" />
   </div>

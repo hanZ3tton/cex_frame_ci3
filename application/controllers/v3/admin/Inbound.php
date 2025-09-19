@@ -19,7 +19,7 @@
         public function index()
         {
             $data = [
-                'inbounds' => $this->Inbound_model->getAll(),
+                'inbounds' => $this->Inbound_model->get_all_inbound(),
             ];
 
             $this->config->load('assets/inbound/list');
