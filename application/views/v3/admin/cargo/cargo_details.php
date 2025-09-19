@@ -141,7 +141,7 @@
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
 
-                            <h2 class="mb-5">Origin</h2>
+                            <h2 class="mb-5">Sender Information</h2>
                         </div>
                         <!--end::Card title-->
                         <!--begin::Row-->
@@ -158,10 +158,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Province">
-                                        <option label="Label" value=""></option>
-                                        <option value="1">NANGGROE ACEH DARUSSALAM</option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="SenderProvince" placeholder="DKI Jakarta" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -177,9 +174,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select City">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="SenderProvince" placeholder="Jakarta Selatan" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -195,9 +190,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select District">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="SenderProvince" placeholder="Mampang Prapatan" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -207,29 +200,21 @@
                         </div>
                         <!--end::Col-->
                         <!--end::Separator-->
-                        <div class="separator mb-6"></div>
-                        <!--begin::Card title-->
-                        <div class="card-title d-flex align-items-center">
-                            <h2 class="mb-5">Destination</h2>
-                        </div>
                         
                         <!--end::Card title-->
                         <!--begin::Row-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-2 g-5">
                             <!--begin::Col for Province-->
                             <div class="col">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Province</span>
+                                        <span class="required">Sender Name</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Province">
-                                        <option label="Label" value=""></option>
-                                        <option value="1">NANGGROE ACEH DARUSSALAM</option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverProvince" placeholder="Samuel Toko Choir" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -241,54 +226,213 @@
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver City</span>
+                                        <span class="required">Company Name</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select City">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="Samuel Toko Choir" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
                             <!--begin::Col for District-->
-                            <div class="col">
+                        </div>
+                        <!--end::Col-->
+                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Area</span>
+                                        <span class="required">Sender Email</span>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select District">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="diniheryani3@gmail.com" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Phone Number</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="085961176347" readonly />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
-                            <div class="col">
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
+                                <!--begin::Input group-->
                                 <div class="fv-row mb-7">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid ">
-                                        <input id="send_to_office" class="form-check-input" type="checkbox" data-kt-check="true" />
-                                        <label class="form-check-label" for="send_to_office">
-                                            Send To CEX Head Office
-                                        </label>
-                                    </div>
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Postal Code</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="12630" readonly />
+                                    <!--end::Input-->
                                 </div>
+                                <!--end::Input group-->
                             </div>
+                            <!--end::Col-->
                         </div>
                         <!--begin::Input group-->
-                        
+                        <div class="row g-9 mb-7">
+                            <!-- Receiver Address textarea column -->
+                            <div class="col-md-12 fv-row">
+                                <label class="fs-6 fw-semibold form-label mt-3">
+                                    <span class="required">Sender Address</span>
+                                </label>
+                                <textarea class="form-control form-control-solid" name="SenderAddress" rows="4" placeholder=" Choir Express Pusat Jl. Timbul Raya. 3C & 3D, RT.7/RW.4, Cipedak, Kec. Jagakarsa, Kota Jakarta Selatan, DKI Jakarta 12630 " readonly></textarea>
+                            </div>
+                        </div>
                         <!--end::Input group-->
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
 
+                        <!--begin::Card title-->
+                        <div class="card-title d-flex align-items-center mb-5">
+                            <h2 class="mb-4">Receiver Information</h2>
+                        </div>
+                        <!--end::Card title-->
+                        <!--begin::Notice-->
+                        <!--end::Notice-->
+
+                        <!--begin::Col-->
+                        
+                        <!--end::Col-->
+                        <!-- Main container for the form section -->
+                        <div class="row g-9 mb-7">
+                            <!-- Length input column -->
+                            <div class="col-md-4 fv-row">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Receiver Province</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="DKI Jakarta" readonly />
+                                </div>
+                            </div>
+                            <!-- Width input column -->
+                            <div class="col-md-4 fv-row">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Receiver City</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="Jakarta Selatan" readonly />
+                                </div>
+                            </div>
+                            <!-- Height input column -->
+                            <div class="col-md-4 fv-row">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Receiver Areas</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="Jagakarsa" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second row for Weight and Total Qty -->
+                        <div class="row g-9 mb-7">
+                            <!-- Weight input column -->
+                            <div class="col-md-6 fv-row">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Name</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="CHOIR EXPRESS" readonly />
+                                </div>
+                            </div>
+                            <!-- Total Qty input column -->
+                            <div class="col-md-6 fv-row">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Company Name</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="CHOIR EXPRESS" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Third row for Cost and Calculate Button -->
+                        <!--end::Col-->
+                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Email</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="diniheryani3@gmail.com" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Phone Number</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="628111353585" readonly />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col for District-->
+                            <div class="col-md-6 fv-row">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Sender Postal Code</span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="ReceiverCity" placeholder="diniheryani3@gmail.com" readonly/>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--begin::Input group-->
+                        <div class="row g-9 mb-7">
+                            <!-- Receiver Address textarea column -->
+                            <div class="col-md-12 fv-row">
+                                <label class="fs-6 fw-semibold form-label mt-3">
+                                    <span class="required">Sender Address</span>
+                                </label>
+                                <textarea class="form-control form-control-solid" name="SenderAddress" rows="4" placeholder="Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630" readonly></textarea>
+                            </div>
+                        </div>               
+                        <!--end::Input group-->
+                        <!--begin::Separator-->
+                        <div class="separator mb-6"></div>
+                        <!--end::Separator-->
+                        <!--begin::Card title-->              
+                        <!--end::Col-->
+                        <!-- Main container for the form section -->
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center mb-5">
                             <h2 class="mb-4">Package Information</h2>
@@ -308,7 +452,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Length</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="length" placeholder="Enter Length Value" />
+                                    <input type="number" class="form-control form-control-solid" name="length" placeholder="10" readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -317,7 +461,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Width</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" placeholder="Enter Width Value" />
+                                    <input type="number" class="form-control form-control-solid" name="width" placeholder="10" readonly/>
                                 </div>
                             </div>
                             <!-- Height input column -->
@@ -326,7 +470,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Height</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" placeholder="Enter Height Value" />
+                                    <input type="number" class="form-control form-control-solid" name="height" placeholder="10" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -338,7 +482,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="weight" placeholder="Enter Weight Value" />
+                                    <input type="number" class="form-control form-control-solid" name="weight" placeholder="7.00" readonly/>
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
@@ -347,7 +491,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Total Koli</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="total_qty" placeholder="Enter Total Qty Value" />
+                                    <input type="number" class="form-control form-control-solid" name="total_qty" placeholder="1" readonly />
                                 </div>
                             </div>
                         </div>
@@ -357,11 +501,9 @@
                             <div class="col-md-4 fv-row">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Package Type</span>
+                                        <span class="required">Item Type</span>
                                     </label>
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Package Type">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="total_qty" placeholder="Industrial Electronics" readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -370,9 +512,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Service Type</span>
                                     </label>
-                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Service Type">
-                                        <option label="Label" value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control form-control-solid" name="total_qty" placeholder="Door To Door Pickup" readonly />
                                 </div>
                             </div>
                             <!-- Height input column -->
@@ -384,279 +524,24 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="number" class="form-control form-control-solid" name="cost" value="0" readonly />
+                                    <input type="number" class="form-control form-control-solid" name="cost" placeholder="5000" readonly />
                                     <!--end::Input-->
                                 </div>
                             </div>
                         </div>                
                         <!--end::Input group-->
-                        <div class="d-flex justify-content-end mb-6">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-search"></i>Calculate
-                            </button>
-                        </div>
-                        <!--begin::Separator-->
-                        <div class="separator mb-6"></div>
-
-                        <div class="card-title d-flex align-items-center mb-5">
-                            <h2 class="mb-4">Calculation Results</h2>
-                        </div>
-                        <!--end::Card title-->
-                        <!--begin::Notice-->
-                        <!--end::Notice-->
-
-                        <!--begin::Col-->
-                        
-                        <!--end::Col-->
-                        <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
-                            <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Estimated Shipping Cost</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                            <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Insurance Estimate</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                            <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">VAT Estimate</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
-                            <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Estimated Shipping Cost (VAT)</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                            <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Estimated Total Cost</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Third row for Cost and Calculate Button -->
-                        <div class="row g-9 mb-7">
-                            <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Time Estimation</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                </div>
-                            </div>
-                            <!-- Width input column -->
-                            <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Estimated Publishing Cost</span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
-                                    <!--end::Input-->
-                                </div>
-                            </div>
-                        </div>                
-                        <!--end::Input group-->
-                        <div class="d-flex justify-content-end mb-6">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-arrow-right"></i>Continue
-                            </button>
-                        </div>
-                        <!--begin::Separator-->
-                        <div class="separator mb-6"></div>
-                        <!--end::Separator-->
-                        <!--begin::Card title-->
-                        <div class="card-title d-flex align-items-center mb-5">
-                            <h2 class="mb-4">Sender Information</h2>
-                        </div>
-                        <!--end::Card title-->
-                        <!--begin::Notice-->
-                        <!--end::Notice-->
-
-                        <!--begin::Col-->
-                        
-                        <!--end::Col-->
-                        <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
-                            <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Sender Name</span>
-                                    </label>
-                                    <input type="number" class="form-control form-control-solid" name="length" placeholder="Enter Sender Name" />
-                                </div>
-                            </div>
-                            <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Company Name</span>
-                                    </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" placeholder="Enter Company Name" />
-                                </div>
-                            </div>
-                            <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Sender Email</span>
-                                    </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" placeholder="Enter Sender Email" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
-                            <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Sender Phone</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="SenderPhone" placeholder="Enter Sender Phone Number" />
-                                </div>
-                            </div>
-                            <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Sender Postal Code</span>
-                                    </label>
-                                    <input type="number" class="form-control form-control-solid" name="SenderPostalCode" placeholder="Enter Sender Postal Code" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-9 mb-7">
-                            <!-- Receiver Address textarea column -->
-                            <div class="col-md-12 fv-row">
-                                <label class="fs-6 fw-semibold form-label mt-3">
-                                    <span class="required">Sender Address</span>
-                                </label>
-                                <textarea class="form-control form-control-solid" name="SenderAddress" rows="4" placeholder="Enter Sender Address"></textarea>
-                            </div>
-                        </div>
                         <!-- Third row for Cost and Calculate Button -->             
                         <!--end::Input group-->
                         <!--begin::Separator-->
-                        <div class="separator mb-6"></div>
-
-                        <div class="card-title d-flex align-items-center mb-5">
-                            <h2 class="mb-4">Receiver Information</h2>
-                        </div>
-                        <!--end::Card title-->
-                        <!--begin::Notice-->
-                        <!--end::Notice-->
-
-                        <!--begin::Col-->
-                        
-                        <!--end::Col-->
-                        <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
-                            <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Name</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverName" placeholder="Choir Express" readonly/>
-                                </div>
-                            </div>
-                            <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Company Name</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="CompanyName" placeholder="PT FIA EXPRESS INDONESIA" readonly />
-                                </div>
-                            </div>
-                            <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Email</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverEmail" placeholder="rama@choirexpress.co.id" readonly />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
-                            <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Phone Number</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverPhone" placeholder="+628111353585" readonly />
-                                </div>
-                            </div>
-                            <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
-                                    <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Receiver Postal Code</span>
-                                    </label>
-                                    <input type="text" class="form-control form-control-solid" name="SenderPostalCode" placeholder="12630" readonly />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-9 mb-7">
-                            <!-- Receiver Address textarea column -->
-                            <div class="col-md-12 fv-row">
-                                <label class="fs-6 fw-semibold form-label mt-3">
-                                    <span class="required">Receiver Address</span>
-                                </label>
-                                <textarea class="form-control form-control-solid" name="ReceiverAddress" rows="4" placeholder="Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630" readonly></textarea>
-                            </div>
-                        </div>
                         <!-- Third row for Cost and Calculate Button -->             
                         <!--end::Input group-->
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
                         <div class="card-title d-flex align-items-center mb-5">
-                            <h2 class="mb-4">Package Information</h2>
+                            <h2 class="mb-4">Item Information</h2>
                         </div>
                         <!--end::Card title-->
-                        <div class="d-flex mb-6">
-                            <button type="button" class="btn btn-primary addItemBtn me-3">
-                                <i class="fa fa-plus"></i>Add Items
-                            </button>
-                            <button type="button" class="btn btn-light-danger removeItemBtn">
-                                <i class="fa fa-trash"></i>Remove Last Items
-                            </button>
-                        </div>
                         <!--begin::Notice-->
                         <!--end::Notice-->
 
@@ -671,7 +556,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Type</span>
                                     </label>
-                                    <input type="select" class="form-control form-control-solid" name="ItemType" placeholder="Select Item Type" />
+                                    <input type="select" class="form-control form-control-solid" name="ItemType" placeholder="Others" readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -680,7 +565,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Name</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="ItemName" placeholder="Enter Item Name" />
+                                    <input type="text" class="form-control form-control-solid" name="ItemName" placeholder="Test" readonly />
                                 </div>
                             </div>
                             <!-- Height input column -->
@@ -689,7 +574,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Quantity</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="Quantity" placeholder="Enter Quantity" />
+                                    <input type="number" class="form-control form-control-solid" name="Quantity" placeholder="1" readonly />
                                 </div>
                             </div>
                         </div>
@@ -701,7 +586,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Value</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="ItemValue" placeholder="Enter Item Value" />
+                                    <input type="number" class="form-control form-control-solid" name="ItemValue" placeholder="1" readonly />
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
@@ -720,7 +605,7 @@
                                 <label class="fs-6 fw-semibold form-label mt-3">
                                     <span class="required">Description</span>
                                 </label>
-                                <textarea class="form-control form-control-solid" name="ItemDescription" rows="4" placeholder="Enter Item Description"></textarea>
+                                <textarea class="form-control form-control-solid" name="ItemDescription" rows="4" placeholder="Test" readonly></textarea>
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->             
@@ -729,8 +614,11 @@
                         <div class="separator mb-6"></div>
                         <!--begin::Action buttons-->
                         <div class="d-flex justify-content-end mb-6">
-                            <a href="<?= base_url('v3/admin/cargo/index') ?>" class="btn btn-danger">
-                                <i class="fa fa-close"></i>Cancel
+                            <a href="<?= base_url('v3/admin/cargo/index') ?>" class="btn btn-danger me-3">
+                                <i class="fa fa-close fs-4"></i>Cancel
+                            </a>
+                            <a href="<?= base_url('v3/admin/cargo/edit_cargo') ?>" class="btn btn-info">
+                                <i class="fa fa-save fs-4"></i>Update Shipment
                             </a>
                         </div>
                         <!--end::Action buttons-->

@@ -357,7 +357,7 @@
                             <div class="col-md-4 fv-row">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                        <span class="required">Package Type</span>
+                                        <span class="required">Item Type</span>
                                     </label>
                                     <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Package Type">
                                         <option label="Label" value=""></option>
@@ -384,7 +384,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="number" class="form-control form-control-solid" name="cost" value="0" readonly />
+                                    <input type="number" class="form-control form-control-solid" name="cost" placeholder="0" readonly />
                                     <!--end::Input-->
                                 </div>
                             </div>
@@ -416,7 +416,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -425,7 +425,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Insurance Estimate</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                             <!-- Height input column -->
@@ -434,7 +434,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">VAT Estimate</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                         </div>
@@ -446,7 +446,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost (VAT)</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
@@ -455,7 +455,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Total Cost</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                         </div>
@@ -467,7 +467,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Time Estimation</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -480,17 +480,12 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="cost" value="..." readonly />
+                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
                                     <!--end::Input-->
                                 </div>
                             </div>
                         </div>                
                         <!--end::Input group-->
-                        <div class="d-flex justify-content-end mb-6">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-arrow-right"></i>Continue
-                            </button>
-                        </div>
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
@@ -637,7 +632,7 @@
                                 <label class="fs-6 fw-semibold form-label mt-3">
                                     <span class="required">Receiver Address</span>
                                 </label>
-                                <textarea class="form-control form-control-solid" name="ReceiverAddress" rows="4" placeholder="Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630" readonly></textarea>
+                                <textarea class="form-control form-control-solid" name="ReceiverAddress" rows="4"  readonly>Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630</textarea>
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->             
@@ -646,7 +641,7 @@
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
                         <div class="card-title d-flex align-items-center mb-5">
-                            <h2 class="mb-4">Package Information</h2>
+                            <h2 class="mb-4">Item Information</h2>
                         </div>
                         <!--end::Card title-->
                         <div class="d-flex mb-6">
@@ -671,7 +666,9 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Type</span>
                                     </label>
-                                    <input type="select" class="form-control form-control-solid" name="ItemType" placeholder="Select Item Type" />
+                                    <select class="form-select form-control-solid" data-control="select2" data-placeholder="Select Item Type">
+                                        <option label="Label" value=""></option>
+                                    </select>
                                 </div>
                             </div>
                             <!-- Width input column -->
@@ -730,7 +727,7 @@
                         <!--begin::Action buttons-->
                         <div class="d-flex justify-content-end mb-6">
                             <a href="<?= base_url('v3/admin/cargo/index') ?>" class="btn btn-danger">
-                                <i class="fa fa-close"></i>Cancel
+                                <i class="fa fa-close fs-4"></i>Cancel
                             </a>
                         </div>
                         <!--end::Action buttons-->
