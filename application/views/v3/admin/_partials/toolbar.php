@@ -56,7 +56,7 @@
     <?php if (!empty($show_add_button) && $show_add_button) : ?>
       <!--begin::Add Inbound-->
       <a href="<?= $add_url ?>" class="btn btn-primary">
-        <i class="ki-duotone ki-plus fs-2"></i>Add Inbound
+        <i class="ki-duotone ki-plus fs-2"></i><?= $title ?>
       </a>
       <!--end::Add Inbound-->
     <?php endif; ?>

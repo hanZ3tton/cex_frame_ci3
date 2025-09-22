@@ -36,6 +36,7 @@
                     <?php $this->load->view('v3/admin/_partials/toolbar', [
                         'show_add_button'  => true,
                         'show_edit_button' => true,
+                        'title'          => 'Add Inbound',
                         'add_url'          => base_url('admin/inbound/create')
                     ]); ?>
                     <!--end::Card toolbar-->
