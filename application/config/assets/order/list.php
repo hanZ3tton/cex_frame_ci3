@@ -8,6 +8,7 @@ $config['assets'] = [
     'assets/js/admin/page/order/search.js',
   ],
   'css' => [
-    'assets/plugins/custom/datatables/datatables.bundle.css'
+    'assets/plugins/custom/datatables/datatables.bundle.css',
+    'assets/css/custom-obscan.css'
   ]
 ];

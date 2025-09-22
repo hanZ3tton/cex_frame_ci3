@@ -1,35 +1,37 @@
-<div class="row">
-    <!-- Konten utama di kiri -->
-    <div class="col-md-8">
-        <h3>Data Barang</h3>
-        <!-- tabel atau konten lain di sini -->
-    </div>
-
-    <!-- Scanner di kanan -->
-    <div class="">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Barcode Scanner</h5>
-            </div>
-            <div class="card-body">
-                <div id="video"></div>
-                <canvas id="snapshot" style="display:none; width:100%;"></canvas>
-
-                <div class="mt-2">
-                    <button id="startBtn" class="btn btn-sm btn-primary">Start</button>
-                    <button id="stopBtn" class="btn btn-sm btn-danger" disabled>Stop</button>
-                </div>
-
-                <div class="mt-2">
-                    <strong>Hasil:</strong>
-                    <pre id="result">—</pre>
-                </div>
-
-                <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
-            </div>
+<!--begin::Card-->
+<div class="card mb-5">
+    <!--begin::Card header-->
+    <div class="card-header border-0 pt-6">
+        <div class="card-title">
+            <h3 class="fw-bold m-0">Barcode Scanner</h3>
         </div>
     </div>
+    <!--end::Card header-->
+
+    <!--begin::Card body-->
+    <div class="card-body">
+        <div class="mb-5">
+            <div id="video" class="border rounded w-100"
+                style="height:482px; background:#000; overflow:hidden; border-radius:10px;">
+            </div>
+            <canvas id="snapshot" class="mt-3 border rounded w-100" style="display:none;"></canvas>
+        </div>
+
+        <div class="d-flex gap-3 mb-5">
+            <button id="startBtn" class="btn btn-sm btn-primary">Start</button>
+            <button id="stopBtn" class="btn btn-sm btn-danger" disabled>Stop</button>
+        </div>
+
+        <div class="fs-6">
+            <strong>Scan result:</strong>
+            <pre id="result" class="border rounded p-3 bg-light">—</pre>
+        </div>
+
+        <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+    </div>
+    <!--end::Card body-->
 </div>
+<!--end::Card-->
 
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -480,7 +482,7 @@
     const startBtn = document.getElementById('startBtn');
     const stopBtn = document.getElementById('stopBtn');
     const resultEl = document.getElementById('result');
-    const videoContainer = document.getElementById('video');
+    const videoEl = document.getElementById('video');
     const snapshot = document.getElementById('snapshot');
     const beep = document.getElementById('beep');
 
@@ -491,22 +493,23 @@
 
     function startScanner() {
         if (currentStreamActive) return;
+
         Quagga.init({
             inputStream: {
                 type: "LiveStream",
+                target: videoEl,
                 constraints: {
-                    facingMode: "environment",
-                    width: {
-                        min: 100
-                    },
-                    height: {
-                        min: 100
-                    }
-                },
-                target: videoContainer
+                    facingMode: "environment"
+                }
             },
             decoder: {
-                readers: ["ean_reader", "code_128_reader", "code_39_reader", "upc_reader", "codabar_reader"]
+                readers: [
+                    "ean_reader",
+                    "code_128_reader",
+                    "code_39_reader",
+                    "upc_reader",
+                    "codabar_reader"
+                ]
             },
             locate: true
         }, function(err) {
@@ -520,6 +523,7 @@
             stopBtn.disabled = false;
             resultEl.textContent = 'Scanning...';
         });
+
         Quagga.onDetected(onDetected);
     }
 
@@ -552,16 +556,18 @@
         stopScanner();
         resultEl.textContent = code;
 
-        const video = videoContainer.querySelector("video");
+        const video = videoEl.querySelector("video");
         if (video) {
-            const ctx = snapshot.getContext("2d");
+            // pastikan canvas ukurannya sama dengan video asli
             snapshot.width = video.videoWidth;
             snapshot.height = video.videoHeight;
+
+            const ctx = snapshot.getContext("2d");
             ctx.drawImage(video, 0, 0, snapshot.width, snapshot.height);
-            videoContainer.innerHTML = "";
-            snapshot.style.display = "block";
-            videoContainer.appendChild(snapshot);
+
+            snapshot.style.display = "block"; // tampilkan canvas hasil snapshot
         }
+
         beep.play();
     }
 
