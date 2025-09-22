@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-var KTModalOutboundsearch = (function () {
+var KTModalDataHoSearch = (function () {
 	// Private variables
 	var element;
 	var suggestionsElement;
@@ -48,7 +48,7 @@ var KTModalOutboundsearch = (function () {
 	return {
 		init: function () {
 			// Elements
-			element = document.querySelector("#kt_modal_outbounds_search_handler");
+			element = document.querySelector("#kt_modal_data_ho_search_handler");
 
 			if (!element) {
 				return;
@@ -79,5 +79,5 @@ var KTModalOutboundsearch = (function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-	KTModalOutboundsearch.init();
+	KTModalDataHoSearch.init();
 });

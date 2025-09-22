@@ -17,7 +17,7 @@
         {
             $data = [];
 
-            $this->config->load('assets/dashboard');
+            $this->config->load('assets/dashboard/page');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
