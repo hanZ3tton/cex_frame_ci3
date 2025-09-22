@@ -335,7 +335,7 @@ F <div
                     </div>
                     <!--end: Menu Kalog-->
 
-                    <!--begin: Menu JNE Cargo-->
+                    <!--begin: Menu JNT Cargo-->
                     <div
                         data-kt-menu-trigger="click"
                         class="menu-item menu-accordion">
@@ -350,7 +350,7 @@ F <div
                                     <span class="path5"></span>
                                 </i>
                             </span>
-                            <span class="menu-title">JNE Cargo</span>
+                            <span class="menu-title">JNT Cargo</span>
                             <span class="menu-arrow"></span>
                         </span>
                         <!--end:Menu link-->
@@ -359,7 +359,7 @@ F <div
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_jnt_cargo') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/cargo/jnt') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -375,7 +375,7 @@ F <div
                         <!--end:Menu sub-->
 
                     </div>
-                    <!--end: Menu JNE Cargo-->
+                    <!--end: Menu JNT Cargo-->
 
                     <!--begin: Menu Dosmestics-->
                     <div

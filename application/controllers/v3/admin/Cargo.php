@@ -17,14 +17,10 @@ class Cargo extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/cargo');
+    $this->config->load('assets/cargo/list');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/cargo/index', 'JNE Cargo List', $data);
   }
@@ -33,33 +29,26 @@ class Cargo extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/cargo');
+    $this->config->load('assets/cargo/form');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/cargo/create', 'Create JNT Cargo Form', $data);
   }
 
-  public function edit_cargo()
+  public function edit($id)
   {
     $data = [];
 
-    $this->config->load('assets/cargo');
+    $this->config->load('assets/cargo/form');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/cargo/edit_cargo', 'Edit JNT Cargo Form', $data);
   }
+
   public function cargo_details()
   {
     $data = [];

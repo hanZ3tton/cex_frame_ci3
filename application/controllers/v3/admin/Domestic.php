@@ -13,43 +13,35 @@ class Domestic extends MY_Controller
     }
   }
 
+  public function index()
+  {
+    $data = [];
+
+    $this->config->load('assets/domestic/list');
+    $page_assets = $this->config->item('assets');
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
+
+    $this->loadView('v3/admin/domestic/index', 'Exsys Shipment', $data);
+  }
+
   public function jnt_express()
   {
     $data = [];
 
-    $this->config->load('assets/domestic');
+    $this->config->load('assets/domestic/list');
     $page_assets = $this->config->item('assets');
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/domestic/jnt_express', 'Domestic', $data);
-  }
-
-  public function shipment()
-  {
-    $data = [];
-
-    $this->config->load('assets/topup');
-    $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/domestic/shipment', 'Exsys Shipment', $data);
+    $this->loadView('v3/admin/domestic/jnt_express', 'JNT Express', $data);
   }
 
   public function create()
   {
     $data = [];
 
-    $this->config->load('assets/add');
+    $this->config->load('assets/domestic/form');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
@@ -61,7 +53,7 @@ class Domestic extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/add');
+    $this->config->load('assets/domestic/form');
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
