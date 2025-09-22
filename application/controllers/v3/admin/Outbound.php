@@ -33,7 +33,7 @@ class Outbound extends MY_Controller
     $this->loadView('v3/admin/outbound/index', 'List Order Completed', $data);
   }
 
-  public function outbound_scanner()
+  public function scanner()
   {
     $status_id = 7;
 
@@ -46,6 +46,6 @@ class Outbound extends MY_Controller
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/outbound/obscan', 'List Order Completed', []);
+    $this->loadView('v3/admin/outbound/scanner', 'List Order Completed', []);
   }
 }
