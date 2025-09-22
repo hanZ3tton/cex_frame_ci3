@@ -28,12 +28,12 @@
         <div class="card-header border-0 pt-6">
           <!--begin::Card title-->
           <div class="card-title">
-            <!--begin::Card title-->
+            <!--begin::Card Search Bar-->
             <?php $this->load->view('v3/admin/_partials/search', [
               'module' => 'order',
               'placeholder' => 'Search Package'
             ]); ?>
-            <!--begin::Card title-->
+            <!--begin::Card Search Bar-->
           </div>
           <!--begin::Card title-->
           <!--begin::Card toolbar-->

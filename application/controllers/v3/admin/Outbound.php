@@ -45,6 +45,7 @@ class Outbound extends MY_Controller
     $page_assets = $this->config->item('assets');
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
+
     $this->loadView('v3/admin/outbound/obscan', 'List Order Completed', []);
   }
 }

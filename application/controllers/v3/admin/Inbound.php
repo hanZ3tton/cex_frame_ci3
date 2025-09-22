@@ -71,7 +71,7 @@
                 $this->pageScripts = $page_assets['js'];
                 $this->pageStyles = $page_assets['css'];
 
-                $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
+                $this->loadView('v3/admin/inbound/not_process', 'Not Process', $data);
                 return;
             }
 
