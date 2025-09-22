@@ -98,14 +98,11 @@ class Order extends MY_Controller
       'detail_item' => $this->Detail_item_model->getAll($awb)
     ];
 
-    $this->config->load('assets/order');
+    $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
     $this->loadView('v3/admin/order/create', 'Update Order', $data);
   }
 
@@ -231,47 +228,11 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
-
-    $this->config->load('assets/order');
+    $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($page_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $datatables_assets['css']);
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
     $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
-  }
-
-  public function outbound()
-  {
-    $status_id = 7;
-
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
-    ];
-
-    $this->config->load('assets/order');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
-
-    $this->loadView('v3/admin/order/outbound', 'List Order Completed', $data);
-  }
-
-  public function outbound_scanner()
-  {
-    $status_id = 7;
-
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
-    ];
-
-    $this->config->load('assets/order');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
-    $this->loadView('v3/admin/order/obscan', 'List Order Completed', []);
   }
 }

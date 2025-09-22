@@ -63,7 +63,7 @@ $route['admin/add_inbound'] = 'v3/admin/inbound/create';
 $route['admin/edit_inbound'] = 'v3/admin/inbound/edit';
 $route['admin/list_order'] = 'v3/admin/order';
 $route['admin/list_order_completed'] = 'v3/admin/order/completed';
-$route['admin/list_order_outbound'] = 'v3/admin/order/outbound';
+$route['admin/list_order_outbound'] = 'v3/admin/outbound';
 
 $route['admin/list_inbound_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
 $route['admin/list_cleansing_ho'] = 'v3/admin/data_ho/not_completed';

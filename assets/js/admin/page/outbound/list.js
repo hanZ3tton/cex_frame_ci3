@@ -1,12 +1,12 @@
 "use strict";
 
-var KTOrdersList = (function () {
+var KTOutboundsList = (function () {
 	// Define shared variables
-	var table = document.getElementById("kt_table_orders");
+	var table = document.getElementById("kt_table_outbounds");
 	var datatable;
 
 	// Private functions
-	var initOrderTable = function () {
+	var initOutboundTable = function () {
 		if (!table) return;
 
 		// kalau mau proses tiap row, pakai table.querySelectorAll("tbody tr")
@@ -28,7 +28,7 @@ var KTOrdersList = (function () {
 
 	var handleSearchDatatable = () => {
 		const filterSearch = document.querySelector(
-			'[data-kt-order-table-filter="search"], [data-kt-order-table-filter="search"], [data-kt-table-filter="search"]'
+			'[data-kt-outbound-table-filter="search"], [data-kt-outbound-table-filter="search"], [data-kt-table-filter="search"]'
 		);
 		if (!filterSearch || !datatable) return;
 
@@ -40,12 +40,12 @@ var KTOrdersList = (function () {
 	// Filter Datatable
 	var handleFilterDatatable = () => {
 		const filterForm = document.querySelector(
-			'[data-kt-order-table-filter="form"], [data-kt-order-table-filter="form"], [data-kt-table-filter="form"]'
+			'[data-kt-outbound-table-filter="form"], [data-kt-outbound-table-filter="form"], [data-kt-table-filter="form"]'
 		);
 		if (!filterForm || !datatable) return;
 
 		const filterButton = filterForm.querySelector(
-			'[data-kt-order-table-filter="filter"], [data-kt-order-table-filter="filter"], [data-kt-table-filter="filter"]'
+			'[data-kt-outbound-table-filter="filter"], [data-kt-outbound-table-filter="filter"], [data-kt-table-filter="filter"]'
 		);
 		const selectOptions = filterForm.querySelectorAll("select");
 
@@ -68,13 +68,13 @@ var KTOrdersList = (function () {
 	// Reset Filter
 	var handleResetForm = () => {
 		const resetButton = document.querySelector(
-			'[data-kt-order-table-filter="reset"], [data-kt-order-table-filter="reset"], [data-kt-table-filter="reset"]'
+			'[data-kt-outbound-table-filter="reset"], [data-kt-outbound-table-filter="reset"], [data-kt-table-filter="reset"]'
 		);
 		if (!resetButton || !datatable) return;
 
 		resetButton.addEventListener("click", function () {
 			const filterForm = document.querySelector(
-				'[data-kt-order-table-filter="form"], [data-kt-order-table-filter="form"], [data-kt-table-filter="form"]'
+				'[data-kt-outbound-table-filter="form"], [data-kt-outbound-table-filter="form"], [data-kt-table-filter="form"]'
 			);
 			if (!filterForm) return;
 
@@ -96,7 +96,7 @@ var KTOrdersList = (function () {
 				return;
 			}
 
-			initOrderTable();
+			initOutboundTable();
 			handleSearchDatatable();
 			handleResetForm();
 			handleFilterDatatable();
@@ -106,5 +106,5 @@ var KTOrdersList = (function () {
 
 // On document ready (Metronic util)
 KTUtil.onDOMContentLoaded(function () {
-	KTOrdersList.init();
+	KTOutboundsList.init();
 });
