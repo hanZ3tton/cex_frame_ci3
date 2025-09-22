@@ -30,7 +30,7 @@
             $this->loadView('v3/admin/inbound/index', 'Inbound List', $data);
         }
 
-        public function not_proccess()
+        public function not_process()
         {
             $data = [
                 'inbounds' => $this->Inbound_model->get_inbound_by_status()
@@ -40,13 +40,13 @@
             $this->pageScripts = $page_assets['js'];
             $this->pageStyles = $page_assets['css'];
 
-            $this->loadView('v3/admin/inbound/not_proccess', 'Not Process', $data);
+            $this->loadView('v3/admin/inbound/not_process', 'Not Process', $data);
         }
 
         public function create()
         {
             $data = [
-                'inbounds' => $this->Inbound_model->getAll(),
+                'inbounds' => $this->Inbound_model->get_all_inbound(),
                 'users' => $this->User_model->getAllUser()
             ];
 
@@ -84,7 +84,7 @@
                 'goods_desc' =>  $this->input->post('goods_desc'),
                 'cs' =>  $this->input->post('cs'),
                 'status' =>  15,
-                'updateon' => $this->session->userdata('name')
+                'updatedby' => $this->session->userdata('name')
             ];
 
             $photo_fields = [
@@ -98,7 +98,7 @@
                     $fileName = upload_photo($field);
                     if (!$fileName) {
                         $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/list_inbound');
+                        redirect('admin/inbound');
                         return;
                     }
                     $data[$key] = $fileName;
@@ -107,7 +107,7 @@
 
             $this->Inbound_model->insert($data);
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-            redirect('admin/list_inbound');
+            redirect('admin/inbound');
         }
 
         public function edit($code)
@@ -163,7 +163,7 @@
                     $fileName = upload_photo($field);
                     if (!$fileName) {
                         $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/list_inbound');
+                        redirect('admin/inbound');
                         return;
                     }
                     $data[$key] = $fileName;
@@ -172,7 +172,7 @@
 
             $this->Inbound_model->update($code, $data);
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-            redirect('admin/list_inbound');
+            redirect('admin/inbound');
         }
 
         public  function delete($code)
@@ -181,7 +181,7 @@
 
             if (!$inbound) {
                 $this->session->set_flashdata('error', 'Data tidak ditemukan!');
-                redirect('admin/list_inbound');
+                redirect('admin/inbound');
                 return;
             }
 
@@ -197,6 +197,6 @@
 
             $this->Inbound_model->delete($code);
             $this->session->set_flashdata('success', 'Data berhasil dihapus!');
-            redirect('admin/list_inbound');
+            redirect('admin/inbound');
         }
     }

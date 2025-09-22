@@ -223,7 +223,7 @@
 							<!--end::Input group for Transfer Proof-->
 							<!--begin::Action buttons-->
 							<div class="d-flex justify-content-end pt-5">
-								<a href="<?= base_url('v3/admin/topup') ?>" class="btn btn-light me-3" data-kt-contacts-type="cancel">Cancel</a>
+								<a href="<?= base_url('admin/topup') ?>" class="btn btn-light me-3" data-kt-contacts-type="cancel">Cancel</a>
 								<button type="submit" class="btn btn-primary">Save</button>
 							</div>
 							<!--end::Action buttons-->

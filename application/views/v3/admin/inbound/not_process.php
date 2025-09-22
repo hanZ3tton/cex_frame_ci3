@@ -34,8 +34,9 @@
                     <!--begin::Card title-->
                     <!--begin::Card toolbar-->
                     <?php $this->load->view('v3/admin/_partials/toolbar', [
-                        'show_add_button' => true,
-                        'show_edit_button' => true
+                        'show_add_button'  => true,
+                        'show_edit_button' => true,
+                        'add_url'          => base_url('admin/inbound/create')
                     ]); ?>
                     <!--end::Card toolbar-->
                 </div>
@@ -110,7 +111,7 @@
                                     <td class="text-end">
                                         <div class="d-flex justify-content-end gap-2">
                                             <a
-                                                href="<?= base_url('v3/admin/inbound/edit/' . $inbound->code) ?>"
+                                                href="<?= base_url('admin/inbound/edit/' . $inbound->code) ?>"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <i class="ki-duotone ki-pencil fs-2">
                                                     <span class="path1"></span>
@@ -118,7 +119,7 @@
                                                 </i>
                                             </a>
                                             <a
-                                                href="<?= base_url('v3/admin/inbound/delete/' . $inbound->code) ?>"
+                                                href="<?= base_url('admin/inbound/delete/' . $inbound->code) ?>"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                 <i class="ki-duotone ki-trash fs-2">
                                                     <span class="path1"></span>

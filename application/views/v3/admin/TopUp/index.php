@@ -6,7 +6,7 @@
 			<!--begin::Page title-->
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
-				<h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Topup</h1>
+				<h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0"><?= $title ?></h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -27,8 +27,6 @@
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
-			<!--begin::Actions-->
-			<!--end::Actions-->
 		</div>
 		<!--end::Toolbar container-->
 	</div>
@@ -84,18 +82,18 @@
 								<span class="path1"></span>
 								<span class="path2"></span>
 							</i>
-							<input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search" />
+							<input type="text" data-kt-deposit-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search" />
 						</div>
 					</div>
 					<!-- card-toolbar untuk penempatan tombol-tombol -->
 					<div class="card-toolbar">
-						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+						<div class="d-flex justify-content-end" data-kt-deposit-table-toolbar="base">
 							<!-- Tombol "Download" -->
 							<a href="#" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_download_topup">
 								<i class="fas fa-download"></i> Download
 							</a>
 							<!-- Tombol "Topup Deposit" -->
-							<a href="<?= base_url('v3/admin/TopUp/deposit') ?>" class="btn btn-primary">
+							<a href="<?= base_url('admin/topup/create') ?>" class="btn btn-primary">
 								<i class="ki-duotone ki-plus fs-2"></i>Topup Deposit
 							</a>
 						</div>
@@ -129,15 +127,13 @@
 						</div>
 					</div>
 				</div>
-
-				
 				<div class="card-body py-4">
-					<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+					<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_deposit">
 						<thead>
 							<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 								<th class="w-10px pe-2">
 									<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-										<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
+										<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_deposit .form-check-input" value="1" />
 									</div>
 								</th>
 								<th class="min-w-125px">Code</th>
@@ -242,7 +238,6 @@
 								<td>Rejected</td>
 								<td>BCA 123-456-7890</td>
 							</tr>
-
 						</tbody>
 					</table>
 				</div>

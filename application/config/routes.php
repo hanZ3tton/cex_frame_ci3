@@ -57,10 +57,12 @@ $route['login'] = 'auth/login';
 
 $route['admin/dashboard'] = 'v3/admin/dashboard';
 
-$route['admin/list_inbound_all'] = 'v3/admin/inbound';
-$route['admin/list_inbound'] = 'v3/admin/inbound/not_proccess';
-$route['admin/add_inbound'] = 'v3/admin/inbound/create';
-$route['admin/edit_inbound'] = 'v3/admin/inbound/edit';
+$route['admin/inbound/all'] = 'v3/admin/inbound/index';
+$route['admin/inbound'] = 'v3/admin/inbound/not_process';
+$route['admin/inbound/create'] = 'v3/admin/inbound/create';
+$route['admin/inbound/edit/(:any)'] = 'v3/admin/inbound/edit/$1';
+$route['admin/inbound/delete/(:any)'] = 'v3/admin/inbound/delete/$1';
+
 $route['admin/list_order'] = 'v3/admin/order';
 $route['admin/list_order_completed'] = 'v3/admin/order/completed';
 $route['admin/list_order_outbound'] = 'v3/admin/outbound';
@@ -82,4 +84,24 @@ $route['admin/rate_calculate'] = 'v3/admin/shipping_rates';
 
 $route['admin/list_user'] = 'v3/admin/user';
 
-$route['admin/topup'] = 'v3/admin/topup';
+$route['admin/topup'] = 'v3/admin/topup/index';
+$route['admin/topup/create'] = 'v3/admin/topup/create';
+
+
+// $route['admin/order'] = 'v3/admin/order/index';
+// $route['admin/order/completed'] = 'v3/admin/order/completed';
+// $route['admin/order/outbound'] = 'v3/admin/outbound/index';
+
+// $route['admin/data-ho/inbound'] = 'v3/admin/data_ho/direct_inbound_ho';
+// $route['admin/data-ho/cleansing'] = 'v3/admin/data_ho/not_completed';
+// $route['admin/data-ho/recipe'] = 'v3/admin/data_ho/index';
+
+// $route['admin/kalog'] = 'v3/admin/data_kalog/index';
+// $route['admin/cargo/jnt'] = 'v3/admin/cargo/index';
+
+// $route['admin/domestic/shipment'] = 'v3/admin/domestic/shipment';
+// $route['admin/domestic/jnt-express'] = 'v3/admin/domestic/jnt_express';
+
+// $route['admin/shipping-rates'] = 'v3/admin/shipping_rates/index';
+
+// $route['admin/user'] = 'v3/admin/user/index';

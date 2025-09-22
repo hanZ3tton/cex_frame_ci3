@@ -17,26 +17,23 @@
         {
             $data = [];
 
-            $this->config->load('assets/topup');
+            $this->config->load('assets/topup/list');
             $page_assets = $this->config->item('assets');
+            $this->pageScripts = $page_assets['js'];
+            $this->pageStyles = $page_assets['css'];
 
-            $this->config->load('assets/_partials/dataTables');
-            $datatables_assets = $this->config->item('assets');
-
-            $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-            $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-            $this->loadView('v3/admin/Topup/index', 'TopUp', $data);
+            $this->loadView('v3/admin/topup/index', 'Topup', $data);
         }
-        public function deposit()
+
+        public function create()
         {
             $data = [];
 
-            $this->config->load('assets/topup');
+            $this->config->load('assets/topup/form');
             $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
+            $this->pageScripts = $page_assets['js'];
+            $this->pageStyles = $page_assets['css'];
 
-            $this->loadView('v3/admin/TopUp/deposit', 'Deposit', $data);
+            $this->loadView('v3/admin/topup/create', 'Deposit', $data);
         }
     }
