@@ -67,6 +67,7 @@ $route['admin/list_order'] = 'v3/admin/order';
 $route['admin/list_order_completed'] = 'v3/admin/order/completed';
 
 $route['admin/outbound'] = 'v3/admin/outbound/index';
+$route['admin/outbound/scanner'] = 'v3/admin/outbound/scanner';
 
 $route['admin/list_inbound_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
 $route['admin/list_cleansing_ho'] = 'v3/admin/data_ho/not_completed';

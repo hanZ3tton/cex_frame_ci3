@@ -1,4 +1,4 @@
-F <div
+<div
     id="kt_app_sidebar"
     class="app-sidebar flex-column"
     data-kt-drawer="true"
@@ -216,7 +216,7 @@ F <div
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_order_outbound') ?>">
+                                    href="<?= base_url('admin/outbound') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

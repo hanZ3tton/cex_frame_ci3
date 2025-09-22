@@ -1,0 +1,13 @@
+.container {
+	display: flex; /* Biar elemen anaknya sejajar */
+	gap: 10px; /* Kasih jarak antar elemen */
+}
+
+video,
+canvas {
+	width: 400px; /* Atur ukuran biar sama */
+	height: 300px;
+	background: black; /* Supaya canvas keliatan area-nya */
+	border-radius: 10px; /* Biar sudutnya bulat */
+	object-fit: cover; /* Biar video/canvas nge-cover area-nya */
+}
