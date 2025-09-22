@@ -28,6 +28,14 @@ class Order_model extends CI_Model
     return $this->db->get()->result();
   }
 
+
+  public function getByAWB($awb)
+  {
+    $this->db->from($this->table);
+    $this->db->where('cleansing_code', $awb);
+    return $this->db->get()->result();
+  }
+
   public function insert($data)
   {
     return $this->db->insert($this->table, $data);

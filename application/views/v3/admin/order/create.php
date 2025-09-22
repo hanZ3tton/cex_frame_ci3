@@ -4,7 +4,7 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Create New Order Cleansing</h1>
+            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Create Cleansing Code</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -137,7 +137,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-5">
                     <!--begin::Form-->
-                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/update_order/' . $final_connote) ?>" method="post">
+                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/insert_order_data/' . $awb) ?>" method="post">
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
                             <i class="ki-duotone ki-user fs-1 me-2"> <!-- Ikon user untuk sender -->
@@ -166,7 +166,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="sender_name" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="sender_name" value="<?= $order->ship_name ?>" />
                                     <?= form_error('sender_name', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -190,7 +190,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="sender_phone" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="sender_phone" value="<?= $order->ship_phone ?>" />
                                     <?= form_error('sender_phone', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -214,7 +214,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <textarea class="form-control form-control-solid" name="sender_address"></textarea>
+                            <textarea class="form-control form-control-solid" name="sender_address"><?= $order->ship_address ?></textarea>
                             <?= form_error('sender_address', '<div class="text-danger">', '</div>'); ?>
 
                             <!--end::Input-->
@@ -252,7 +252,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="recipient_name" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_name" value="<?= $order->rec_name ?>" />
                                     <?= form_error('recipient_name', '<div class="text-danger">', '</div>'); ?>
 
                                     <!--end::Input-->
@@ -277,7 +277,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="recipient_phone" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_phone" value="<?= $order->rec_phone ?>" />
                                     <?= form_error('recipient_phone', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -305,7 +305,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="recipient_id" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="recipient_id" value="<?= $order->arc_no ?>" />
                                     <?= form_error('recipient_id', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -329,7 +329,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="postal_code" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="postal_code" value="<?= $order->rec_postcode ?>" />
                                     <?= form_error('postal_code', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -347,7 +347,7 @@
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span>City</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's city of residence (optional).">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Enter the contact's city of residence.">
                                             <i class="ki-duotone ki-information fs-7">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -357,7 +357,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="city" value="" />
+                                    <input type="text" class="form-control form-control-solid" name="city" value="<?= $order->rec_city ?>" />
                                     <?= form_error('city', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -405,7 +405,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <textarea class="form-control form-control-solid" name="recipient_address"></textarea>
+                            <textarea class="form-control form-control-solid" name="recipient_address"><?= $order->rec_address ?></textarea>
                             <?= form_error('recipient_address', '<div class="text-danger">', '</div>'); ?>
 
                             <!--end::Input-->
@@ -483,7 +483,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Length</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="length" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="length" value="<?= $order->length ?>" />
                                     <?= form_error('length', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
@@ -495,7 +495,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Width</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="width" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="width" value="<?= $order->width ?>" />
                                     <?= form_error('width', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
@@ -508,7 +508,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Height</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="height" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="height" value="<?= $order->height ?>" />
                                     <?= form_error('height', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
@@ -526,7 +526,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight(KG)</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="weight" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="weight" value="<?= $order->weight ?>" />
                                     <?= form_error('weight', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>

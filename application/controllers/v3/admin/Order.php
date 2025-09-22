@@ -33,7 +33,7 @@ class Order extends MY_Controller
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
 
-  public function create_empty_data()
+  public function start_new_order()
   {
 
     $time = time();
@@ -66,17 +66,18 @@ class Order extends MY_Controller
       'final_connote' => $insert_id,
     ];
     $this->Order_model->update($insert_id, $data_item);
-    redirect('v3/admin/order/create_form/' . $insert_id);
+    redirect('v3/admin/order/create_cleansing/' . $insert_id);
   }
 
-  public function create_form($awb)
+  public function create_cleansing($awb)
   {
     $status_id = 3;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Destinations_model->getAll(),
-      'final_connote' => $awb,
-      'detail_item' => 0
+      'awb' => $awb,
+      'detail_item' => $this->Detail_item_model->getAll($awb),
+      'order' => $this->Order_model->getByAWB($awb)
     ];
 
     $this->config->load('assets/order/list');
@@ -84,26 +85,7 @@ class Order extends MY_Controller
     $this->pageScripts = $page_assets['js'];
     $this->pageStyles = $page_assets['css'];
 
-    $this->loadView('v3/admin/order/create', 'Create Order', $data);
-  }
-
-  public function edit($awb)
-  {
-    $status_id = 3;
-
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id),
-      'destinations' => $this->Destinations_model->getAll(),
-      'final_connote' => $awb,
-      'detail_item' => $this->Detail_item_model->getAll($awb)
-    ];
-
-    $this->config->load('assets/order/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
-
-    $this->loadView('v3/admin/order/create', 'Update Order', $data);
+    $this->loadView('v3/admin/order/create', 'Create Cleansing', $data);
   }
 
   public function insert_detail_item($awb)
@@ -113,7 +95,7 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('qty', 'Quantity', 'required');
     $this->form_validation->set_rules('value', 'Value', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->edit($awb);
+      $this->create_cleansing($awb);
     } else {
       $data = [
         'cleansing_code' => $awb,
@@ -123,11 +105,11 @@ class Order extends MY_Controller
         'price' => $this->input->post('value'),
       ];
       $this->Detail_item_model->insert($data);
-      redirect('v3/admin/order/edit/' . $awb);
+      redirect('v3/admin/order/create_cleansing/' . $awb);
     }
   }
 
-  public function update_order($awb)
+  public function insert_order_data($awb)
   {
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
     $this->form_validation->set_rules('sender_phone', 'Phone', 'required');
@@ -148,7 +130,7 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('service', 'Service', 'required');
     $this->form_validation->set_rules('refference', 'Refference Number', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->edit($awb);
+      $this->create_cleansing($awb);
     } else {
       $number_of_pieces = 1; //default
       $vendor_awb = $awb;

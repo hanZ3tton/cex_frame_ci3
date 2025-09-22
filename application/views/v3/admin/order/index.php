@@ -39,7 +39,9 @@
           <!--begin::Card toolbar-->
           <?php $this->load->view('v3/admin/_partials/toolbar', [
             'show_add_button' => true,
-            'show_edit_button' => true
+            'show_edit_button' => true,
+            'title' => 'start new order',
+            'add_url' => base_url('v3/admin/order/start_new_order')
           ]); ?>
           <!--end::Card toolbar-->
         </div>
@@ -103,7 +105,7 @@
                   <td class="text-end">
                     <div class="d-flex justify-content-end gap-2">
                       <a
-                        href="#"
+                        href="<?= base_url('v3/admin/order/create_cleansing/' . $order->final_connote) ?>"
                         class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                         <i class="ki-duotone ki-pencil fs-2">
                           <span class="path1"></span>
