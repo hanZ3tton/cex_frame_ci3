@@ -7,10 +7,9 @@ class Outbound extends MY_Controller
   {
     parent::__construct();
     $this->defaultLayout = 'v3/layouts/app';
-    $this->load->model('Order_model');
+    $this->load->model('Outbound_model');
     $this->load->model('Destinations_model');
     $this->load->model('Detail_item_model');
-    $this->load->library('form_validation');
     if (!$this->session->userdata('logged_in')) {
       redirect('auth');
     }
@@ -18,10 +17,10 @@ class Outbound extends MY_Controller
 
   public function index()
   {
-    $status_id = 7;
+    $outbound = 1;
 
     $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
+      'orders' => $this->Outbound_model->get_outbound_by_status($outbound)
     ];
 
     $this->config->load('assets/outbound/list');
@@ -29,7 +28,7 @@ class Outbound extends MY_Controller
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/outbound/index', 'List Order Completed', $data);
+    $this->loadView('v3/admin/outbound/index', 'List Outbound ', $data);
   }
 
   public function scanner()

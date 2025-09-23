@@ -28,7 +28,7 @@ class Inbound_model extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function get_inbound_by_status($status = 15)
+  public function get_inbound_by_status($status)
   {
     $this->db->select("{$this->table}.*,
                          tb_status.status_name,

@@ -2,7 +2,7 @@
 
 var KTOutboundsList = (function () {
 	// Define shared variables
-	var table = document.getElementById("kt_table_outbounds");
+	var table = document.getElementById("kt_table_outbound");
 	var datatable;
 
 	// Private functions
@@ -18,7 +18,6 @@ var KTOutboundsList = (function () {
 			info: false,
 			order: [],
 			pageLength: 10,
-			lengthChange: false,
 			columnDefs: [
 				{ orderable: false, targets: 0 },
 				{ orderable: false, targets: 6 },
