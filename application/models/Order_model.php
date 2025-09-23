@@ -32,8 +32,8 @@ class Order_model extends CI_Model
   public function getByAWB($awb)
   {
     $this->db->from($this->table);
-    $this->db->where('cleansing_code', $awb);
-    return $this->db->get()->result();
+    $this->db->where('final_connote', $awb);
+    return $this->db->get()->row();
   }
 
   public function insert($data)

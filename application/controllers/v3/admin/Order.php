@@ -116,7 +116,7 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('sender_address', 'Address', 'required');
     $this->form_validation->set_rules('recipient_name', 'Name', 'required');
     $this->form_validation->set_rules('recipient_phone', 'Phone', 'required');
-    $this->form_validation->set_rules('recipient_id', 'ARC Number / Recipient ID', 'required');
+    $this->form_validation->set_rules('arc_no', 'ARC Number / Recipient ID', 'required');
     $this->form_validation->set_rules('postal_code', 'Postal Code', 'required');
     $this->form_validation->set_rules('city', 'City', 'required');
     $this->form_validation->set_rules('country', 'Country', 'required');
@@ -142,8 +142,7 @@ class Order extends MY_Controller
         $qty += $row->qty;
         $customs_value += $row->price * $row->qty;
       }
-
-      $goods_desc = "";
+      $goods_desc = substr_replace($goods_desc, "", -1);
       $account = $this->session->userdata('account');
       $username = $this->session->userdata('username');
       $data = [
@@ -165,8 +164,8 @@ class Order extends MY_Controller
         'rec_country' => $this->input->post('country'),
         'origin' => 'INDONESIA',
         'destination' => $this->input->post('country'),
-        'weight' => $this->input->post('berat'),
-        'charge_weight' => ceil($this->input->post('berat')),
+        'weight' => $this->input->post('weight'),
+        'charge_weight' => ceil($this->input->post('weight')),
         'number_of_pieces' => $number_of_pieces,
         'total_amount' => $customs_value,
         'currency' => 'USD',
@@ -186,6 +185,9 @@ class Order extends MY_Controller
         'payment_method' => 'DEPOSIT',
         'ship_postcode' => '0',
         'tgl_kirim' => date('Y-m-d'),
+        'length' => $this->input->post('length'),
+        'width' => $this->input->post('width'),
+        'height' => $this->input->post('height'),
         'inbound' => '0',
         'inbound_date' => '',
         'outbound' => '0',
@@ -194,7 +196,7 @@ class Order extends MY_Controller
         'inbound_by' => '',
         'service' => $this->input->post('service'),
         'arc_no' => $this->input->post('arc_no'),
-        'jenis_paket' => $this->input->post('jenis'),
+        'jenis_paket' => $this->input->post('package'),
         'connote_reff' => $this->input->post('refference')
       ];
       if ($this->Order_model->update($awb, $data)) {

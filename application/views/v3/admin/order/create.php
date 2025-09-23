@@ -305,7 +305,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="recipient_id" value="<?= $order->arc_no ?>" />
+                                    <input type="text" class="form-control form-control-solid" name="arc_no" value="<?= $order->arc_no ?>" />
                                     <?= form_error('recipient_id', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
@@ -581,7 +581,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Refference Number</span>
                                     </label>
-                                    <input type="Text" class="form-control form-control-solid" name="refference" value="" />
+                                    <input type="Text" class="form-control form-control-solid" name="refference" value="<?= $order->connote_reff ?>" />
                                     <?= form_error('refference', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
@@ -592,7 +592,7 @@
                     </form>
                     <!--end::Form-->
 
-                    <form action="<?= base_url('v3/admin/order/insert_detail_item/' . $final_connote) ?>" method="post" id="item_detail">
+                    <form action="<?= base_url('v3/admin/order/insert_detail_item/' . $awb) ?>" method="post" id="item_detail">
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->
