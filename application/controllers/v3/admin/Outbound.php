@@ -6,7 +6,6 @@ class Outbound extends MY_Controller
   public function __construct()
   {
     parent::__construct();
-
     $this->defaultLayout = 'v3/layouts/app';
     $this->load->model('Order_model');
     $this->load->model('Destinations_model');

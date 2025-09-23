@@ -28,7 +28,7 @@
         <div class="card-header border-0 pt-6">
           <!--begin::Card title-->
           <?php $this->load->view('v3/admin/_partials/search', [
-            'module' => 'cargo',
+            'module'      => 'cargo',
             'placeholder' => 'Search Package'
           ]); ?>
           <!--begin::Card title-->
@@ -36,7 +36,8 @@
           <?php $this->load->view('v3/admin/_partials/toolbar', [
             'show_add_button'  => true,
             'show_edit_button' => true,
-            'add_url'          => base_url('admin/cargo/create')
+            'title'            => 'Request JNT Cargo',
+            'add_url'          => base_url('admin/cargo/jnt/create')
           ]); ?>
           <!--end::Card toolbar-->
         </div>
