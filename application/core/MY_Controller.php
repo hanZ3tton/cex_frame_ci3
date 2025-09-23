@@ -12,14 +12,8 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
         $this->load->library('layout');
-        $this->load->model('Inbound_model');
-        $this->data = [
-            'count_all'          => $this->Inbound_model->count_all_inbound(),
-            'count_not_process'  => $this->Inbound_model->count_by_status(15),
-            'count_not_completed' => $this->Inbound_model->count_by_status(3),
-            'count_completed'    => $this->Inbound_model->count_by_status(7),
-            'count_outbound'     => $this->Inbound_model->count_by_status('OUTBOUND'),
-        ];
+        $this->load->model('Static_model');
+        $this->data['shipment_count'] = $this->Static_model->get_shipment_counts();
     }
 
     public function loadView($view, $title, $data = [])

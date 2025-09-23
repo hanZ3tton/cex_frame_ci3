@@ -68,9 +68,6 @@
     <div class="fw-bold me-5">
       <span class="me-2" data-kt-inbound-table-select="selected_count"></span>Selected
     </div>
-    <button type="button" class="btn btn-warning me-2 d-none" data-kt-inbound-table-select="edit_selected">
-      Edit
-    </button>
     <button type="button" class="btn btn-danger" data-kt-inbound-table-select="delete_selected">
       Delete
     </button>

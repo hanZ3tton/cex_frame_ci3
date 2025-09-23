@@ -32,8 +32,10 @@
 
         public function not_process()
         {
+            $status_id = 15;
+
             $data = [
-                'inbounds' => $this->Inbound_model->get_inbound_by_status()
+                'inbounds' => $this->Inbound_model->get_inbound_by_status($status_id)
             ];
             $this->config->load('assets/inbound/list');
             $page_assets = $this->config->item('assets');
