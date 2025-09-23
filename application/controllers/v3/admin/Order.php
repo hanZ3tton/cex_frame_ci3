@@ -103,11 +103,14 @@ class Order extends MY_Controller
         'goods_category' => $this->input->post('item_name'),
         'qty' => $this->input->post('qty'),
         'price' => $this->input->post('value'),
+        'updatedon' => date('Y-m-d H:i:s'),
+        'updatedby' => $this->session->userdata('username')
       ];
       $this->Detail_item_model->insert($data);
       redirect('v3/admin/order/create_cleansing/' . $awb);
     }
   }
+
 
   public function insert_order_data($awb)
   {
@@ -200,8 +203,26 @@ class Order extends MY_Controller
         'connote_reff' => $this->input->post('refference')
       ];
       if ($this->Order_model->update($awb, $data)) {
+        $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been updated');
+        redirect('admin/list_order');
+      } else {
+        $this->session->set_flashdata('error', 'Try Again Later');
         redirect('admin/list_order');
       }
+    }
+  }
+
+  public function cancel_order($awb)
+  {
+    $data = [
+      'status' => '10',
+    ];
+    if ($this->Order_model->update($awb, $data)) {
+      $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been cancelled');
+      redirect('admin/list_order');
+    } else {
+      $this->session->set_flashdata('error', 'Try Again Later');
+      redirect('admin/list_order');
     }
   }
 

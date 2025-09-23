@@ -305,8 +305,8 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="arc_no" value="<?= $order->arc_no ?>" />
-                                    <?= form_error('recipient_id', '<div class="text-danger">', '</div>'); ?>
+                                    <input type="text" class="form-control form-control-solid" name="arc_no" value="<?= $arc = $order->arc_no ?  $order->arc_no : '-' ?>" />
+                                    <?= form_error('arc_no', '<div class="text-danger">', '</div>'); ?>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -526,7 +526,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight(KG)</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="weight" value="<?= $order->weight ?>" />
+                                    <input type="text" class="form-control form-control-solid" name="weight" value="<?= $weight = $order->weight ? $order->weight : "0."  ?>" />
                                     <?= form_error('weight', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
@@ -539,7 +539,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Colli Total</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="colli" value="" />
+                                    <input type="number" class="form-control form-control-solid" name="colli" value="1" />
                                     <?= form_error('colli', '<div class="text-danger">', '</div>'); ?>
                                 </div>
                             </div>
@@ -581,7 +581,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Refference Number</span>
                                     </label>
-                                    <input type="Text" class="form-control form-control-solid" name="refference" value="<?= $order->connote_reff ?>" />
+                                    <input type="Text" class="form-control form-control-solid" name="refference" value="<?= $reff = $order->connote_reff ? $order->connote_reff : '-' ?> " />
                                     <?= form_error('refference', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
