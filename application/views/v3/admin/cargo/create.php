@@ -147,7 +147,7 @@
                         <!--begin::Row-->
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-5">
                             <!--begin::Col for Province-->
                             <div class="col">
                                 <!--begin::Input group-->
@@ -215,7 +215,7 @@
                         
                         <!--end::Card title-->
                         <!--begin::Row-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-5">
                             <!--begin::Col for Province-->
                             <div class="col">
                                 <!--begin::Input group-->
@@ -281,6 +281,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--end::Col-->
                         </div>
                         <!--begin::Input group-->
                         
@@ -301,10 +302,10 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                             <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Length</span>
                                     </label>
@@ -312,8 +313,8 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                             <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Width</span>
                                     </label>
@@ -321,8 +322,8 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                             <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Height</span>
                                     </label>
@@ -331,10 +332,10 @@
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
+                            <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight</span>
                                     </label>
@@ -342,8 +343,8 @@
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
-                                <div class="fv-row">
+                            <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Total Koli</span>
                                     </label>
@@ -352,10 +353,10 @@
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                            <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Type</span>
                                     </label>
@@ -365,8 +366,8 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                            <div class="col">
+                                <div class="fv-row mb-7">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Service Type</span>
                                     </label>
@@ -376,8 +377,8 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
-                                <div class="fv-row">
+                            <div class="col">
+                                <div class="fv-row mb-7">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Insurance Value</span>
@@ -409,9 +410,9 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost</span>
@@ -420,7 +421,7 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Insurance Estimate</span>
@@ -429,7 +430,7 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">VAT Estimate</span>
@@ -439,9 +440,9 @@
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost (VAT)</span>
@@ -450,7 +451,7 @@
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Total Cost</span>
@@ -460,9 +461,9 @@
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Time Estimation</span>
@@ -472,7 +473,7 @@
                             </div>
                             <!-- Width input column -->
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
