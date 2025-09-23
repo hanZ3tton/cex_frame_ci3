@@ -18,7 +18,6 @@ var KTODepositList = (function () {
 			info: false,
 			order: [],
 			pageLength: 10,
-			lengthChange: false,
 			columnDefs: [
 				{ orderable: false, targets: 0 },
 				{ orderable: false, targets: 6 },
