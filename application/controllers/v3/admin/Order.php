@@ -118,15 +118,12 @@ class Order extends MY_Controller
     }
   }
 
-<<<<<<< HEAD
   public function delete_detail_item($awb, $id)
   {
     $this->Detail_item_model->delete($id);
     redirect('v3/admin/order/create_cleansing/' . $awb);
   }
 
-=======
->>>>>>> 499b9f2d5d3253cf8ed2a38cd47ad02dfb18e784
   public function insert_order_data($awb)
   {
 
