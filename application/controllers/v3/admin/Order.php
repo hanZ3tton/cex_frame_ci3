@@ -111,7 +111,6 @@ class Order extends MY_Controller
     }
   }
 
-
   public function insert_order_data($awb)
   {
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
@@ -233,6 +232,7 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
+
     $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
     $this->pageScripts = $page_assets['js'];
