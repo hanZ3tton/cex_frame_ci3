@@ -8,7 +8,6 @@ class Outbound extends MY_Controller
     parent::__construct();
     $this->defaultLayout = 'v3/layouts/app';
     $this->load->model('Outbound_model');
-    $this->load->model('Destinations_model');
     $this->load->model('Detail_item_model');
     if (!$this->session->userdata('logged_in')) {
       redirect('auth');
