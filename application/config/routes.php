@@ -69,13 +69,13 @@ $route['admin/list_order_completed'] = 'v3/admin/order/completed';
 $route['admin/outbound'] = 'v3/admin/outbound/index';
 $route['admin/outbound/scanner'] = 'v3/admin/outbound/scanner';
 
-$route['admin/list_inbound_ho'] = 'v3/admin/data_ho/direct_inbound_ho';
-$route['admin/list_cleansing_ho'] = 'v3/admin/data_ho/not_completed';
-$route['admin/list_recipe_ho'] = 'v3/admin/data_ho/index';
+$route['admin/data_ho'] = 'v3/admin/data_ho/index';
+$route['admin/data_ho/inbound'] = 'v3/admin/data_ho/inbound';
+$route['admin/data_ho/cleansing'] = 'v3/admin/data_ho/cleansing';
 
-$route['admin/list_recipe_ho'] = 'v3/admin/data_ho/index';
+$route['admin/data_ho'] = 'v3/admin/data_ho/index';
 
-$route['admin/list_kalog'] = 'v3/admin/data_kalog/index';
+$route['admin/data_kalog'] = 'v3/admin/data_kalog/index';
 
 $route['admin/cargo/jnt'] = 'v3/admin/cargo/index';
 $route['admin/cargo/jnt/create'] = 'v3/admin/cargo/create';
@@ -83,9 +83,9 @@ $route['admin/cargo/jnt/create'] = 'v3/admin/cargo/create';
 $route['admin/domestic/shipment'] = 'v3/admin/domestic/index';
 $route['admin/domestic/jnt_express'] = 'v3/admin/domestic/jnt_express';
 
-$route['admin/rate_calculate'] = 'v3/admin/shipping_rates';
+$route['admin/shipping_rates'] = 'v3/admin/shipping_rates';
 
-$route['admin/list_user'] = 'v3/admin/user';
+$route['admin/user_management'] = 'v3/admin/user';
 
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';

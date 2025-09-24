@@ -10,7 +10,7 @@
         <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0"><?= $title ?></h1>
         <!--end::Title-->
         <!--begin::Breadcrumb-->
-        <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Shipment', 'List Order']]); ?>
+        <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Shipment', 'List Outbound']]); ?>
         <!--end::Breadcrumb-->
       </div>
       <!--end::Page title-->
@@ -46,7 +46,7 @@
             <thead>
               <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                 <th class="min-w-90px text-start">Actions</th>
-                <th class="min-w-140px">AWB Number</th>
+                <th class="min-w-150px text-start">AIRWAYBILL</th>
                 <th class="min-w-120px">Date</th>
                 <th class="min-w-120px">Outbound</th>
                 <th class="min-w-150px text-center">Received in HO</th>
@@ -98,7 +98,7 @@
                     </div>
                     <!--end::Menu-->
                   </td>
-                  <td><?= $order->final_connote ?></td>
+                  <td class="text-start"><?= $order->final_connote ?></td>
                   <td class="text-start"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
                   <td class="text-center">
                     <i class="ki-duotone ki-check fs-2"></i>

@@ -10,7 +10,7 @@
         <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0"><?= $title ?></h1>
         <!--end::Title-->
         <!--begin::Breadcrumb-->
-        <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Data HO', 'All Data']]); ?>
+        <?php $this->load->view('v3/admin/_partials/breadcrumb', ['breadcrumb' => ['Data HO', 'Data Cleansing']]); ?>
         <!--end::Breadcrumb-->
       </div>
       <!--end::Page title-->
@@ -45,36 +45,29 @@
           <!-- Tabel dengan styling yang responsif dan rata tengah -->
           <!--Begin::Table-->
           <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_data_ho">
-            <!--Begin::Table Head-->
+            <!-- Header tabel -->
             <thead>
               <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                 <th class="min-w-100px">Action</th>
-                <th class="min-w-125px">Status</th>
-                <th class="min-w-125px">Date</th>
                 <th class="min-w-125px">Connote</th>
-                <th class="min-w-125px">AirwayBill</th>
-                <th class="min-w-125px">Release</th>
+                <th class="min-w-125px">Status</th>
+                <th class="min-w-125px">Receiption Date</th>
                 <th class="min-w-125px">Weight</th>
-                <th class="min-w-125px">Charge Weight</th>
-                <th class="min-w-125px">Consignee Name</th>
-                <th class="min-w-125px">Consignee Phone</th>
-                <th class="min-w-125px">Consignee Address</th>
-                <th class="min-w-125px">Cons City</th>
-                <th class="min-w-125px">Post Code</th>
-                <th class="min-w-125px">Destination</th>
+                <th class="min-w-125px">Receiver Name</th>
+                <th class="min-w-125px">Receiver Phone</th>
+                <th class="min-w-125px">Receiver Address</th>
+                <th class="min-w-125px">Receiver City</th>
+                <th class="min-w-125px">Postal Code</th>
+                <th class="min-w-125px">Country</th>
                 <th class="min-w-125px">Qty</th>
-                <th class="min-w-125px">Value</th>
-                <th class="min-w-125px">Description</th>
-                <th class="min-w-125px">Item Value (USD)</th>
-                <th class="min-w-125px">Release Date</th>
-                <th class="min-w-125px">Category</th>
-                <th class="min-w-125px">Admin</th>
+                <th class="min-w-125px">Goods Description</th>
+                <th class="min-w-125px">Goods Value (USD)</th>
+                <th class="min-w-125px">Admin Resi</th>
+                <th class="min-w-125px">AirwayBill</th>
               </tr>
             </thead>
-            <!--End::Table Head-->
-            <!--Begin::Table Body-->
+            <!-- Body tabel -->
             <tbody class="text-gray-600 fw-semibold">
-              <!-- Baris data contoh -->
               <tr>
                 <td class="text-center">
                   <a
@@ -105,29 +98,23 @@
                   </div>
                   <!--end::Menu-->
                 </td>
-                <td>Delivered</td>
-                <td>08-08-2025 </td>
-                <td>17546397661636594</td>
-                <td>SF3235200655586</td>
                 <td></td>
-                <td>3</td>
-                <td>3</td>
-                <td>Chua Yi Xuan </td>
-                <td>90012345</td>
-                <td>10 Bayfront Avenue, Marina Bay Sands </td>
-                <td>SINGAPORE</td>
-                <td>018956</td>
-                <td>SINGAPORE</td>
-                <td>0</td>
-                <td>165000</td>
-                <td>-</td>
-                <td>3</td>
-                <td>0000-00-00 00:00:00 </td>
-                <td>PAKAIAN / AKSESORIS / LAINYA </td>
-                <td>developer</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
-            <!--End::Table Body-->
           </table>
           <!--end::Table-->
         </div>

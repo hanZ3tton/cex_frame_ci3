@@ -252,7 +252,22 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_inbound_ho') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data_ho') ?>">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">All Data Recipe</span>
+                                    <span class="menu-badge">
+                                        <span class="badge badge-success">3</span>
+                                    </span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link" href="<?= base_url('admin/data_ho/inbound') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -267,26 +282,11 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_cleansing_ho') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data_ho/cleansing') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Not Completed</span>
-                                    <span class="menu-badge">
-                                        <span class="badge badge-success">3</span>
-                                    </span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_recipe_ho') ?>">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Data receipt</span>
                                     <span class="menu-badge">
                                         <span class="badge badge-success">3</span>
                                     </span>
@@ -546,7 +546,7 @@
                         <!--begin:Menu link-->
                         <a
                             class="menu-link"
-                            href="<?= base_url('admin/rate_calculate') ?>">
+                            href="<?= base_url('admin/shipping_rates') ?>">
                             <span class="menu-icon">
                                 <i class="bi bi-currency-dollar fs-2"></i>
                             </span>
@@ -580,7 +580,7 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_user') ?>">
+                                    href="<?= base_url('admin/user_management') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

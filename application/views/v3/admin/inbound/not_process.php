@@ -35,7 +35,6 @@
                     <!--begin::Card toolbar-->
                     <?php $this->load->view('v3/admin/_partials/toolbar', [
                         'show_add_button'  => true,
-                        'show_edit_button' => true,
                         'title'          => 'Add Inbound',
                         'add_url'          => base_url('admin/inbound/create')
                     ]); ?>
@@ -53,6 +52,7 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_inbounds .form-check-input" value="1" />
                                     </div>
                                 </th>
+                                <th class="min-w-100px">Actions</th>
                                 <th class="min-w-75px text-start">Code</th>
                                 <th class="min-w-50px text-left">#</th>
                                 <th class="min-w-125px">Date</th>
@@ -64,7 +64,6 @@
                                 <th class="min-w-125px">CS</th>
                                 <th class="min-w-150px">Updated On</th>
                                 <th class="min-w-125px">Inbound by</th>
-                                <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
@@ -74,6 +73,35 @@
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox" value="<?= $inbound->code ?>" />
                                         </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <a
+                                            href="#"
+                                            class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm"
+                                            data-kt-menu-trigger="click"
+                                            data-kt-menu-placement="bottom-end">Actions
+                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                        <!--begin::Menu-->
+                                        <div
+                                            class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4"
+                                            data-kt-menu="true">
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a
+                                                    href="<?= base_url('admin/inbound/edit/' . $inbound->code) ?>"
+                                                    class="menu-link px-3">Edit</a>
+                                            </div>
+                                            <!--end::Menu item-->
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a
+                                                    href="<?= base_url('admin/inbound/delete/' . $inbound->code) ?>"
+                                                    class="menu-link px-3"
+                                                    data-kt-users-table-filter="delete_row">Delete</a>
+                                            </div>
+                                            <!--end::Menu item-->
+                                        </div>
+                                        <!--end::Menu-->
                                     </td>
                                     <td class="text-start"><?= $inbound->code ?></td>
                                     <td>
@@ -109,29 +137,6 @@
                                         <?= $inbound->updatedon ?>
                                     </td>
                                     <td><?= $inbound->updatedby ?></td>
-                                    <td class="text-end">
-                                        <div class="d-flex justify-content-end gap-2">
-                                            <a
-                                                href="<?= base_url('admin/inbound/edit/' . $inbound->code) ?>"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                                <i class="ki-duotone ki-pencil fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </a>
-                                            <a
-                                                href="<?= base_url('admin/inbound/delete/' . $inbound->code) ?>"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                                <i class="ki-duotone ki-trash fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                </i>
-                                            </a>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <!--begin::Modal detail inbound-->
                                 <?php $this->load->view('v3/admin/inbound/modal/index', ['inbound' => $inbound]); ?>
