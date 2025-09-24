@@ -526,7 +526,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight(KG)</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="weight" value="<?= $weight = $order->weight ? $order->weight : "0."  ?>" />
+                                    <input type="text" class="form-control form-control-solid" name="weight" value="<?= $weight = $order->weight ? $order->weight : "0.0"  ?>" />
                                     <?= form_error('weight', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>

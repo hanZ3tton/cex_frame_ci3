@@ -40,6 +40,13 @@ class Order_model extends CI_Model
   {
     return $this->db->insert($this->table, $data);
   }
+
+  public function update_by_code($code, $data)
+  {
+    $this->db->where('code', $code);
+    return $this->db->update($this->table, $data);
+  }
+
   public function update($awb, $data)
   {
     $this->db->where('final_connote', $awb);
