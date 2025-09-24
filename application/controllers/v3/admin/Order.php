@@ -65,7 +65,7 @@ class Order extends MY_Controller
       'connote' => $account . '-' . $insert_id,
       'final_connote' => $insert_id,
     ];
-    $this->Order_model->update($insert_id, $data_item);
+    $this->Order_model->update_by_code($insert_id, $data_item);
     redirect('v3/admin/order/create_cleansing/' . $insert_id);
   }
 
@@ -216,7 +216,7 @@ class Order extends MY_Controller
         'connote_reff' => $this->input->post('refference')
       ];
       if ($order->code == $awb) {
-        $data = ['final_connote' => rand('000000000', '9999999999')];
+        $data = ['final_connote' => 'CEX' . rand('000000000', '9999999999')];
       }
       if ($this->Order_model->update($awb, $data)) {
         $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been updated');

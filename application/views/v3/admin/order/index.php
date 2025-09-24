@@ -114,7 +114,7 @@
             <thead>
               <tr class="text-center text-muted fw-bold fs-7 text-uppercase gs-0">
                 <th class="text-center">Actions</th>
-                <th class="min-w-400px text-center">Airwaybill</th>
+                <th class="min-w-200px text-center">Airwaybill</th>
                 <th class="min-w-100px">Date</th>
                 <th class="min-w-50px text-center">Cln</th>
                 <th class="min-w-50px text-center">Inv</th>
