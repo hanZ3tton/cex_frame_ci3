@@ -69,15 +69,4 @@ class Inbound_model extends CI_Model
   {
     return $this->db->delete($this->table, ['code' => $code]);
   }
-
-  public function count_all_inbound()
-  {
-    return $this->db->count_all($this->table);
-  }
-
-  public function count_by_status($status_code)
-  {
-    $this->db->where('status', $status_code);
-    return $this->db->count_all_results($this->table);
-  }
 }

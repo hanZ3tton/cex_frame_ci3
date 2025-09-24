@@ -96,7 +96,7 @@
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a
-                                                    href="admin/inbound/delete/' . $inbound->code"
+                                                    href="<?= base_url('admin/inbound/delete/' . $inbound->code) ?>"
                                                     class="menu-link px-3"
                                                     data-kt-users-table-filter="delete_row">Delete</a>
                                             </div>
