@@ -17,14 +17,10 @@ class Data_kalog extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/domestic');
+    $this->config->load('assets/kalog/list');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts = $page_assets['js'];
+    $this->pageStyles = $page_assets['css'];
 
     $this->loadView('v3/admin/kalog/index', 'Kalog Data', $data);
   }
@@ -32,7 +28,7 @@ class Data_kalog extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/domestic');
+    $this->config->load('assets/kalog');
     $page_assets = $this->config->item('assets');
 
     $this->config->load('assets/_partials/dataTables');

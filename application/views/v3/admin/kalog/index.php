@@ -56,28 +56,19 @@
       <div class="card">
         <!--begin::Card header-->
         <div class="card-header border-0 pt-6">
-    <!-- card-title untuk penempatan search input -->
-            <div class="card-title">
-                <div class="d-flex align-items-center position-relative my-1">
-                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
-                    <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search" />
-                </div>
-            </div>
-            <!-- card-toolbar untuk penempatan tombol-tombol -->
-            <div class="card-toolbar">
-                <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                    <a href="<?= base_url('v3/admin/Data_kalog/request_kalog') ?>" class="btn btn-primary me-3">
-                        <i class="ki-duotone ki-plus fs-2"></i>Request Kalog
-                    </a>
-                    <!-- Tombol "Cancel" -->
-                    <a href="#" class="btn btn-light-danger" data-bs-toggle="modal" data-bs-target="#kt_modal_Cancel">
-                        <i class=""></i> Cancel
-                    </a>
-                </div>
-            </div>
+            <!--begin::Card Search Bar-->
+          <?php $this->load->view('v3/admin/_partials/search', [
+            'module' => 'kalog',
+            'placeholder' => 'Search Package'
+          ]); ?>
+          <!--begin::Card Search Bar-->
+          <!--begin::Card toolbar-->
+          <?php $this->load->view('v3/admin/_partials/toolbar', [
+            'show_add_button'  => true,
+            'show_edit_button' => true,
+            'add_url'          => base_url('admin/kalog/create')
+          ]); ?>
+          <!--end::Card toolbar-->  
         </div>
 
         <!--begin::Modal - Request Kalog-->
@@ -139,14 +130,14 @@
         <!-- Bagian body dari card, dengan padding vertikal -->
         <div class="card-body py-4">
             <!-- Tabel dengan styling yang responsif dan rata tengah -->
-            <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_users">
+            <table class="table align-middle text-truncate table-row-dashed fs-6 gy-5" id="kt_table_kalog">
                 <!-- Header tabel -->
                 <thead>
                     <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                         <!-- Kolom untuk checkbox -->
                         <th class="w-10px pe-2">
                             <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
+                                <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_kalog .form-check-input" value="1" />
                             </div>
                         </th>
                         <!-- Kolom header lainnya -->
