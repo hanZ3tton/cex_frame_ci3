@@ -35,7 +35,7 @@ class Outbound extends MY_Controller
     $status_id = 7;
 
     $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
+      'orders' => $this->Outbound_model->get_outbound_by_status($status_id)
     ];
 
     $this->config->load('assets/outbound/list');
@@ -43,6 +43,6 @@ class Outbound extends MY_Controller
     $this->pageScripts =  $page_assets['js'];
     $this->pageStyles =  $page_assets['css'];
 
-    $this->loadView('v3/admin/outbound/scanner', 'List Order Completed', []);
+    $this->loadView('v3/admin/outbound/scanner', 'List Order Completed', $data);
   }
 }
