@@ -17,47 +17,35 @@ class Data_ho extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/data_ho');
+    $this->config->load('assets/data_ho/list');
     $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($page_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/data_ho/index', 'Data Head Office', $data);
   }
 
-  public function not_completed()
+  public function inbound()
   {
     $data = [];
 
-    $this->config->load('assets/topup');
+    $this->config->load('assets/data_ho/list');
     $page_assets = $this->config->item('assets');
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/data_ho/not_completed', 'Not Completed', $data);
+    $this->loadView('v3/admin/data_ho/inbound', 'Direct Inbound Head Office', $data);
   }
 
-  public function direct_inbound_ho()
+  public function cleansing()
   {
     $data = [];
 
-    $this->config->load('assets/topup');
+    $this->config->load('assets/data_ho/list');
     $page_assets = $this->config->item('assets');
+    $this->pageScripts =  $page_assets['js'];
+    $this->pageStyles =  $page_assets['css'];
 
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/data_ho/direct_inbound_ho', 'Direct Inbound Head Office', $data);
+    $this->loadView('v3/admin/data_ho/cleansing', 'Not Completed', $data);
   }
 }

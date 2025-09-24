@@ -147,11 +147,11 @@
                         <!--begin::Row-->
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!--begin::Col for Province-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Provice</span>
@@ -170,7 +170,7 @@
                             <!--begin::Col for City-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender City</span>
@@ -188,7 +188,7 @@
                             <!--begin::Col for District-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Area</span>
@@ -215,11 +215,11 @@
                         
                         <!--end::Card title-->
                         <!--begin::Row-->
-                        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-5">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!--begin::Col for Province-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Province</span>
@@ -238,7 +238,7 @@
                             <!--begin::Col for City-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver City</span>
@@ -256,7 +256,7 @@
                             <!--begin::Col for District-->
                             <div class="col">
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Area</span>
@@ -272,7 +272,7 @@
                             </div>
                             <!--end::Col-->
                             <div class="col">
-                                <div class="fv-row mb-7">
+                                <div class="fv-row">
                                     <div class="form-check form-check-sm form-check-custom form-check-solid ">
                                         <input id="send_to_office" class="form-check-input" type="checkbox" data-kt-check="true" />
                                         <label class="form-check-label" for="send_to_office">
@@ -281,6 +281,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--end::Col-->
                         </div>
                         <!--begin::Input group-->
                         
@@ -301,9 +302,9 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                             <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Length</span>
@@ -312,7 +313,7 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                             <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Width</span>
@@ -321,7 +322,7 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                             <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Height</span>
@@ -331,9 +332,9 @@
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight</span>
@@ -342,7 +343,7 @@
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Total Koli</span>
@@ -352,9 +353,9 @@
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Type</span>
@@ -365,7 +366,7 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Service Type</span>
@@ -376,7 +377,7 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
@@ -384,7 +385,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="number" class="form-control form-control-solid" name="cost" placeholder="0" readonly />
+                                    <input type="number" class="form-control form-control-solid text-muted" name="cost" value="0" readonly />
                                     <!--end::Input-->
                                 </div>
                             </div>
@@ -409,70 +410,70 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Insurance Estimate</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">VAT Estimate</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Shipping Cost (VAT)</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Estimated Total Cost</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Time Estimation</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                 </div>
                             </div>
                             <!-- Width input column -->
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold form-label mt-3">
@@ -480,7 +481,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" name="cost" placeholder="..." readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="cost" value="..." readonly />
                                     <!--end::Input-->
                                 </div>
                             </div>
@@ -501,9 +502,9 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Name</span>
@@ -512,7 +513,7 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Company Name</span>
@@ -521,7 +522,7 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Email</span>
@@ -531,9 +532,9 @@
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Phone</span>
@@ -542,7 +543,7 @@
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Sender Postal Code</span>
@@ -551,9 +552,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mb-7 g-5">
                             <!-- Receiver Address textarea column -->
-                            <div class="col-md-12 fv-row">
+                            <div class="col">
                                 <label class="fs-6 fw-semibold form-label mt-3">
                                     <span class="required">Sender Address</span>
                                 </label>
@@ -576,63 +577,63 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Name</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverName" placeholder="Choir Express" readonly/>
+                                    <input type="text" class="form-control form-control-solid text-muted" name="ReceiverName" value="Choir Express" readonly/>
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Company Name</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="CompanyName" placeholder="PT FIA EXPRESS INDONESIA" readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="CompanyName" value="PT FIA EXPRESS INDONESIA" readonly />
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Email</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverEmail" placeholder="rama@choirexpress.co.id" readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="ReceiverEmail" value="rama@choirexpress.co.id" readonly />
                                 </div>
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Phone Number</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="ReceiverPhone" placeholder="+628111353585" readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted" name="ReceiverPhone" value="+628111353585" readonly />
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Receiver Postal Code</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="SenderPostalCode" placeholder="12630" readonly />
+                                    <input type="text" class="form-control form-control-solid text-muted " name="SenderPostalCode" value="12630" readonly />
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mb-7 g-5">
                             <!-- Receiver Address textarea column -->
-                            <div class="col-md-12 fv-row">
+                            <div class="col">
                                 <label class="fs-6 fw-semibold form-label mt-3">
                                     <span class="required">Receiver Address</span>
                                 </label>
-                                <textarea class="form-control form-control-solid" name="ReceiverAddress" rows="4"  readonly>Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630</textarea>
+                                <textarea class="form-control form-control-solid text-muted" name="ReceiverAddress" rows="4"   readonly>Jl. Timbul Raya No. 3C & 3D Rt. 07 Rw. 04 Cipedak - Jagakarsa, Jakarta Selatan, 12630</textarea>
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->             
@@ -659,9 +660,9 @@
                         
                         <!--end::Col-->
                         <!-- Main container for the form section -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 mb-7 g-5">
                             <!-- Length input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Type</span>
@@ -672,7 +673,7 @@
                                 </div>
                             </div>
                             <!-- Width input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Name</span>
@@ -681,7 +682,7 @@
                                 </div>
                             </div>
                             <!-- Height input column -->
-                            <div class="col-md-4 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Quantity</span>
@@ -691,33 +692,35 @@
                             </div>
                         </div>
                         <!-- Second row for Weight and Total Qty -->
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 mb-7 g-5">
                             <!-- Weight input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Item Value</span>
                                     </label>
-                                    <input type="number" class="form-control form-control-solid" name="ItemValue" placeholder="Enter Item Value" />
+                                    <input type="text" class="form-control form-control-solid" name="ItemValue" placeholder="Enter Item Value" />
                                 </div>
                             </div>
                             <!-- Total Qty input column -->
-                            <div class="col-md-6 fv-row">
+                            <div class="col">
                                 <div class="fv-row">
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Currency</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="Currency" placeholder="IDR" readonly/>
+                                    <input type="text" class="form-control form-control-solid text-muted" name="Currency" value="IDR" readonly/>
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-9 mb-7">
+                        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mb-7 g-5">
                             <!-- Receiver Address textarea column -->
-                            <div class="col-md-12 fv-row">
-                                <label class="fs-6 fw-semibold form-label mt-3">
-                                    <span class="required">Description</span>
-                                </label>
-                                <textarea class="form-control form-control-solid" name="ItemDescription" rows="4" placeholder="Enter Item Description"></textarea>
+                            <div class="col">
+                                <div class="fv-row">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Description</span>
+                                    </label>
+                                    <textarea class="form-control form-control-solid" name="ItemDescription" rows="4" placeholder="Enter Item Description"></textarea>
+                                </div>
                             </div>
                         </div>
                         <!-- Third row for Cost and Calculate Button -->             

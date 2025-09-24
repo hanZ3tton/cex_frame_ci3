@@ -1,4 +1,4 @@
-F <div
+<div
     id="kt_app_sidebar"
     class="app-sidebar flex-column"
     data-kt-drawer="true"
@@ -150,7 +150,7 @@ F <div
                                     </span>
                                     <span class="menu-title">All Inbound</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-warning"><?= $count_all ?></span>
+                                        <span class="badge badge-square badge-warning"><?= $shipment_count->all ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->
@@ -168,7 +168,7 @@ F <div
                                     </span>
                                     <span class="menu-title">Not Proccess</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-danger"><?= $count_not_process ?></span>
+                                        <span class="badge badge-square badge-danger"><?= $shipment_count->not_process ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->
@@ -186,7 +186,7 @@ F <div
                                     </span>
                                     <span class="menu-title">Not Completed</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-danger"><?= $count_not_completed ?></span>
+                                        <span class="badge badge-square badge-danger"><?= $shipment_count->not_completed ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->
@@ -204,7 +204,7 @@ F <div
                                     </span>
                                     <span class="menu-title">Completed</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-success"><?= $count_completed ?></span>
+                                        <span class="badge badge-square badge-success"><?= $shipment_count->completed ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->
@@ -216,13 +216,13 @@ F <div
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_order_outbound') ?>">
+                                    href="<?= base_url('admin/outbound') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Outbound</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-warning">3</span>
+                                        <span class="badge badge-square badge-warning"><?= $shipment_count->outbound ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->
@@ -252,7 +252,22 @@ F <div
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_inbound_ho') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data_ho') ?>">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">All Data Recipe</span>
+                                    <span class="menu-badge">
+                                        <span class="badge badge-success">3</span>
+                                    </span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link" href="<?= base_url('admin/data_ho/inbound') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -267,26 +282,11 @@ F <div
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_cleansing_ho') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data_ho/cleansing') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Not Completed</span>
-                                    <span class="menu-badge">
-                                        <span class="badge badge-success">3</span>
-                                    </span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/list_recipe_ho') ?>">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Data receipt</span>
                                     <span class="menu-badge">
                                         <span class="badge badge-success">3</span>
                                     </span>
@@ -546,7 +546,7 @@ F <div
                         <!--begin:Menu link-->
                         <a
                             class="menu-link"
-                            href="<?= base_url('admin/rate_calculate') ?>">
+                            href="<?= base_url('admin/shipping_rates') ?>">
                             <span class="menu-icon">
                                 <i class="bi bi-currency-dollar fs-2"></i>
                             </span>
@@ -580,7 +580,7 @@ F <div
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_user') ?>">
+                                    href="<?= base_url('admin/user_management') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

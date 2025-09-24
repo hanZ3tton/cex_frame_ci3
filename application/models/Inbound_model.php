@@ -28,7 +28,7 @@ class Inbound_model extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function get_inbound_by_status($status = 15)
+  public function get_inbound_by_status($status)
   {
     $this->db->select("{$this->table}.*,
                          tb_status.status_name,
@@ -68,16 +68,5 @@ class Inbound_model extends CI_Model
   public function delete($code)
   {
     return $this->db->delete($this->table, ['code' => $code]);
-  }
-
-  public function count_all_inbound()
-  {
-    return $this->db->count_all($this->table);
-  }
-
-  public function count_by_status($status_code)
-  {
-    $this->db->where('status', $status_code);
-    return $this->db->count_all_results($this->table);
   }
 }

@@ -33,7 +33,7 @@ class Order extends MY_Controller
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
 
-  public function create_empty_data()
+  public function start_new_order()
   {
 
     $time = time();
@@ -66,17 +66,18 @@ class Order extends MY_Controller
       'final_connote' => $insert_id,
     ];
     $this->Order_model->update($insert_id, $data_item);
-    redirect('v3/admin/order/create_form/' . $insert_id);
+    redirect('v3/admin/order/create_cleansing/' . $insert_id);
   }
 
-  public function create_form($awb)
+  public function create_cleansing($awb)
   {
     $status_id = 3;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Destinations_model->getAll(),
-      'final_connote' => $awb,
-      'detail_item' => 0
+      'awb' => $awb,
+      'detail_item' => $this->Detail_item_model->getAll($awb),
+      'order' => $this->Order_model->getByAWB($awb)
     ];
 
     $this->config->load('assets/order/list');
@@ -84,26 +85,7 @@ class Order extends MY_Controller
     $this->pageScripts = $page_assets['js'];
     $this->pageStyles = $page_assets['css'];
 
-    $this->loadView('v3/admin/order/create', 'Create Order', $data);
-  }
-
-  public function edit($awb)
-  {
-    $status_id = 3;
-
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id),
-      'destinations' => $this->Destinations_model->getAll(),
-      'final_connote' => $awb,
-      'detail_item' => $this->Detail_item_model->getAll($awb)
-    ];
-
-    $this->config->load('assets/order/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
-
-    $this->loadView('v3/admin/order/create', 'Update Order', $data);
+    $this->loadView('v3/admin/order/create', 'Create Cleansing', $data);
   }
 
   public function insert_detail_item($awb)
@@ -113,7 +95,7 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('qty', 'Quantity', 'required');
     $this->form_validation->set_rules('value', 'Value', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->edit($awb);
+      $this->create_cleansing($awb);
     } else {
       $data = [
         'cleansing_code' => $awb,
@@ -121,20 +103,22 @@ class Order extends MY_Controller
         'goods_category' => $this->input->post('item_name'),
         'qty' => $this->input->post('qty'),
         'price' => $this->input->post('value'),
+        'updatedon' => date('Y-m-d H:i:s'),
+        'updatedby' => $this->session->userdata('username')
       ];
       $this->Detail_item_model->insert($data);
-      redirect('v3/admin/order/edit/' . $awb);
+      redirect('v3/admin/order/create_cleansing/' . $awb);
     }
   }
 
-  public function update_order($awb)
+  public function insert_order_data($awb)
   {
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
     $this->form_validation->set_rules('sender_phone', 'Phone', 'required');
     $this->form_validation->set_rules('sender_address', 'Address', 'required');
     $this->form_validation->set_rules('recipient_name', 'Name', 'required');
     $this->form_validation->set_rules('recipient_phone', 'Phone', 'required');
-    $this->form_validation->set_rules('recipient_id', 'ARC Number / Recipient ID', 'required');
+    $this->form_validation->set_rules('arc_no', 'ARC Number / Recipient ID', 'required');
     $this->form_validation->set_rules('postal_code', 'Postal Code', 'required');
     $this->form_validation->set_rules('city', 'City', 'required');
     $this->form_validation->set_rules('country', 'Country', 'required');
@@ -148,7 +132,7 @@ class Order extends MY_Controller
     $this->form_validation->set_rules('service', 'Service', 'required');
     $this->form_validation->set_rules('refference', 'Refference Number', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->edit($awb);
+      $this->create_cleansing($awb);
     } else {
       $number_of_pieces = 1; //default
       $vendor_awb = $awb;
@@ -160,8 +144,7 @@ class Order extends MY_Controller
         $qty += $row->qty;
         $customs_value += $row->price * $row->qty;
       }
-
-      $goods_desc = "";
+      $goods_desc = substr_replace($goods_desc, "", -1);
       $account = $this->session->userdata('account');
       $username = $this->session->userdata('username');
       $data = [
@@ -183,8 +166,8 @@ class Order extends MY_Controller
         'rec_country' => $this->input->post('country'),
         'origin' => 'INDONESIA',
         'destination' => $this->input->post('country'),
-        'weight' => $this->input->post('berat'),
-        'charge_weight' => ceil($this->input->post('berat')),
+        'weight' => $this->input->post('weight'),
+        'charge_weight' => ceil($this->input->post('weight')),
         'number_of_pieces' => $number_of_pieces,
         'total_amount' => $customs_value,
         'currency' => 'USD',
@@ -204,6 +187,9 @@ class Order extends MY_Controller
         'payment_method' => 'DEPOSIT',
         'ship_postcode' => '0',
         'tgl_kirim' => date('Y-m-d'),
+        'length' => $this->input->post('length'),
+        'width' => $this->input->post('width'),
+        'height' => $this->input->post('height'),
         'inbound' => '0',
         'inbound_date' => '',
         'outbound' => '0',
@@ -212,12 +198,30 @@ class Order extends MY_Controller
         'inbound_by' => '',
         'service' => $this->input->post('service'),
         'arc_no' => $this->input->post('arc_no'),
-        'jenis_paket' => $this->input->post('jenis'),
+        'jenis_paket' => $this->input->post('package'),
         'connote_reff' => $this->input->post('refference')
       ];
       if ($this->Order_model->update($awb, $data)) {
+        $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been updated');
+        redirect('admin/list_order');
+      } else {
+        $this->session->set_flashdata('error', 'Try Again Later');
         redirect('admin/list_order');
       }
+    }
+  }
+
+  public function cancel_order($awb)
+  {
+    $data = [
+      'status' => '10',
+    ];
+    if ($this->Order_model->update($awb, $data)) {
+      $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been cancelled');
+      redirect('admin/list_order');
+    } else {
+      $this->session->set_flashdata('error', 'Try Again Later');
+      redirect('admin/list_order');
     }
   }
 
@@ -228,6 +232,7 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
+
     $this->config->load('assets/order/list');
     $page_assets = $this->config->item('assets');
     $this->pageScripts = $page_assets['js'];
