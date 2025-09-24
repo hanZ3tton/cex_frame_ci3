@@ -376,9 +376,10 @@
                                     <div class="w-100">
                                         <!--begin::Select2-->
                                         <select id="kt_ecommerce_select2_country" class="form-select form-select-solid" name="country" data-kt-ecommerce-settings-type="select2_flags" data-placeholder="Select a country">
-                                            <option></option>
+                                            <option>Select Country</option>
                                             <?php foreach ($destinations as $destination): ?>
-                                                <option value="<?= $destination->country_code ?>"><?= $destination->name ?></option>
+                                                <?php $country = strtoupper($destination->name) ?>
+                                                <option value="<?= $country ?>" <?= ($country == $order->destination) ? 'selected' : '';  ?>><?= $destination->name ?></option>
                                             <?php endforeach ?>
                                         </select>
                                         <!--end::Select2-->
@@ -461,10 +462,9 @@
                                     <!--begin::Select2-->
                                     <select id="package" class="form-select form-select-solid" name="package" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
                                         <option value="">Pick the Package Type</option>
-                                        <option value="non_garment">Non Garment</option>
-                                        <option value="garment">Garment</option>
-                                        <option value="extra_sensitive">Extra / Sensitive Items</option>
-                                        <option value="electronic">Electronic</option>
+                                        <?php foreach ($category as $categories): ?>
+                                            <option value="<?= $categories->text ?>" <?= ($categories->text == $order->jenis_paket) ? 'selected' : '' ?>><?= $categories->text ?></option>
+                                        <?php endforeach ?>
                                     </select>
                                     <!--end::Select2-->
                                 </div>
@@ -563,10 +563,9 @@
                                         <!--begin::Select2-->
                                         <select id="service" class="form-select form-select-solid" name="service" data-placeholder="Select Service">
                                             <option value="">Select Service</option>
-                                            <option value="reguler">REGULER</option>
-                                            <option value="special">SPECIAL</option>
-                                            <option value="express">EXPRESS</option>
-                                            <option value="promo">PROMO</option>
+                                            <?php foreach ($services as $service => $value): ?>
+                                                <option value="<?= $value ?>" <?= ($value == $order->service) ? 'selected' : '' ?>><?= $service ?></option>
+                                            <?php endforeach ?>
                                         </select>
                                         <!--end::Select2-->
                                     </div>
@@ -648,10 +647,9 @@
                                         <!--begin::Select2-->
                                         <select id="package_detail" class="form-select form-select-solid" name="package_detail" data-kt-ecommerce-settings-type="" data-placeholder="Select Package Type">
                                             <option value="">Pick the Package Type</option>
-                                            <option value="Non garment">Non Garment</option>
-                                            <option value="Garment">Garment</option>
-                                            <option value="Extra Sensitive">Extra / Sensitive Items</option>
-                                            <option value="Electronic">Electronic</option>
+                                            <?php foreach ($category as $categories): ?>
+                                                <option value="<?= $categories->text ?>"><?= $categories->text ?></option>
+                                            <?php endforeach ?>
                                         </select>
                                         <!--end::Select2-->
                                     </div>
@@ -738,68 +736,51 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <thead>
                             <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                <th class="w-10px pe-2">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-                                    </div>
-                                </th>
+                                <th>Action</th>
                                 <th class="min-w-15px text-start">AWB</th>
                                 <th>Type</th>
                                 <th>Name</th>
                                 <th>Quantity</th>
                                 <th>Value(USD)</th>
                                 <th>Total Price(USD)</th>
-                                <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
                             <?php
-                            if ($detail_item > 0) {
-                                foreach ($detail_item as $item) : ?>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="<?= $item->code ?>" />
-                                            </div>
-                                        </td>
-                                        <td class="text-start"><?= $item->cleansing_code ?></td>
-                                        <td><?= $item->goods_type ?></td>
-                                        <td><?= $item->goods_category ?></td>
-                                        <td><?= $item->qty ?></td>
-                                        <td><?= $item->price ?></td>
-                                        <td><?= $item->qty *  $item->price ?></td>
-                                        <td class="text-end">
-                                            <div class="d-flex justify-content-end gap-2">
-                                                <a
-                                                    href="#"
-                                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                                    <i class="ki-duotone ki-pencil fs-2">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                </a>
-                                                <a
-                                                    href="#"
-                                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                                    <i class="ki-duotone ki-trash fs-2">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                        <span class="path3"></span>
-                                                        <span class="path4"></span>
-                                                        <span class="path5"></span>
-                                                    </i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+
+                            foreach ($detail_item as $item) : ?>
+                                <tr>
+                                    <td class="text-start">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <a
+                                                href="<?= base_url('v3/admin/order/delete_detail_item/' . $item->cleansing_code . '/' . $item->code) ?>"
+                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                <i class="ki-duotone ki-trash fs-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                    <span class="path4"></span>
+                                                    <span class="path5"></span>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="text-start"><?= $item->cleansing_code ?></td>
+                                    <td><?= $item->goods_type ?></td>
+                                    <td><?= $item->goods_category ?></td>
+                                    <td><?= $item->qty ?></td>
+                                    <td><?= $item->price ?></td>
+                                    <td><?= $item->qty *  $item->price ?></td>
+
+                                </tr>
                             <?php endforeach;
-                            } ?>
+                            ?>
                         </tbody>
                     </table>
                     <!--begin::Action buttons-->
                     <div class="d-flex justify-content-end">
                         <!--begin::Button-->
-                        <a href="<?= base_url('v3/admin/inbound') ?>" class="btn btn-light me-3">Cancel</a>
+                        <a href="<?= base_url('v3/admin/order') ?>" class="btn btn-light me-3">Cancel</a>
                         <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" data-kt-contacts-type="submit" form="order_form" class="btn btn-primary">

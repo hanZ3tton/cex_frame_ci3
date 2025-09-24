@@ -101,7 +101,7 @@
           <?php $this->load->view('v3/admin/_partials/toolbar', [
             'show_add_button' => true,
             'show_edit_button' => true,
-            'title' => 'start new order',
+            'title' => 'Create New Order',
             'add_url' => base_url('v3/admin/order/start_new_order')
           ]); ?>
           <!--end::Card toolbar-->
@@ -177,14 +177,14 @@
                   <td class="text-center"><?= $order->rec_postcode ?></td>
                   <td><?= $order->rec_city ?></td>
                   <td><?= $order->rec_phone ?></td>
-                  <td><?= $order->origin ?></td>
+                  <td><?= $order->destination ?></td>
                   <td><?= $order->desc_of_goods ?></td>
                   <td class="text-center"><?= $order->weight ?></td>
                   <td class="text-center"><?= $order->charge_weight ?></td>
                   <td class="text-center"><?= $order->ongkir ?></td>
                   <td class="text-center"><?= $order->payment ?></td>
                   <td class="text-center"><?= $order->service ?></td>
-                  <td><?= $order->payment ?></td>
+                  <td><?= $order->payment_method ?></td>
                   <td class="text-center"><?= $order->connote_reff ?></td>
 
                 </tr>

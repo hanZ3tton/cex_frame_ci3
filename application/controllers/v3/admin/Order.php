@@ -9,7 +9,7 @@ class Order extends MY_Controller
 
     $this->defaultLayout = 'v3/layouts/app';
     $this->load->model('Order_model');
-    $this->load->model('Destinations_model');
+    $this->load->model('Dropdown_model');
     $this->load->model('Detail_item_model');
     $this->load->library('form_validation');
     if (!$this->session->userdata('logged_in')) {
@@ -74,10 +74,17 @@ class Order extends MY_Controller
     $status_id = 3;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
-      'destinations' => $this->Destinations_model->getAll(),
+      'destinations' => $this->Dropdown_model->get_all_destinations(),
       'awb' => $awb,
       'detail_item' => $this->Detail_item_model->getAll($awb),
-      'order' => $this->Order_model->getByAWB($awb)
+      'order' => $this->Order_model->getByAWB($awb),
+      'category' => $this->Dropdown_model->get_all_category()
+    ];
+    $data['services'] = [
+      'Reguler' => 'REGULER',
+      'Special' => 'SPECIAL',
+      'Express' => 'EXPRESS',
+      'Promo' => 'PROMO',
     ];
 
     $this->config->load('assets/order/list');
@@ -111,9 +118,15 @@ class Order extends MY_Controller
     }
   }
 
+  public function delete_detail_item($awb, $id)
+  {
+    $this->Detail_item_model->delete($id);
+    redirect('v3/admin/order/create_cleansing/' . $awb);
+  }
 
   public function insert_order_data($awb)
   {
+
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
     $this->form_validation->set_rules('sender_phone', 'Phone', 'required');
     $this->form_validation->set_rules('sender_address', 'Address', 'required');
@@ -136,7 +149,8 @@ class Order extends MY_Controller
       $this->create_cleansing($awb);
     } else {
       $number_of_pieces = 1; //default
-      $vendor_awb = $awb;
+      $order = $this->Order_model->getByAWB($awb);
+
       $qty = 0;
       $customs_value = 0;
       $qry =  $this->Detail_item_model->getAll($awb);
@@ -184,7 +198,6 @@ class Order extends MY_Controller
         'picture_of_paket' => '',
         'request_pickup' => '0',
         'picture_of_idcard_receiver' => '',
-        'final_connote' => $vendor_awb,
         'payment_method' => 'DEPOSIT',
         'ship_postcode' => '0',
         'tgl_kirim' => date('Y-m-d'),
@@ -202,8 +215,11 @@ class Order extends MY_Controller
         'jenis_paket' => $this->input->post('package'),
         'connote_reff' => $this->input->post('refference')
       ];
+      if ($order->code == $awb) {
+        $data = ['final_connote' => rand('000000000', '9999999999')];
+      }
       if ($this->Order_model->update($awb, $data)) {
-        $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been updated');
+        $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been updated');
         redirect('admin/list_order');
       } else {
         $this->session->set_flashdata('error', 'Try Again Later');
@@ -218,7 +234,7 @@ class Order extends MY_Controller
       'status' => '10',
     ];
     if ($this->Order_model->update($awb, $data)) {
-      $this->session->set_flashdata('success', 'Order with AWB ' . $awb . ' has been cancelled');
+      $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been cancelled');
       redirect('admin/list_order');
     } else {
       $this->session->set_flashdata('error', 'Try Again Later');

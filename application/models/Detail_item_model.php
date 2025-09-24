@@ -18,6 +18,12 @@ class Detail_item_model extends CI_Model
 
     public function insert($data)
     {
-        $this->db->insert($this->table, $data);
+        return $this->db->insert($this->table, $data);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('code', $id);
+        $this->db->delete($this->table);
     }
 }
