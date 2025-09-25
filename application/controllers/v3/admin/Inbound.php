@@ -11,6 +11,7 @@
             $this->load->helper('image');
             $this->load->model('Inbound_model');
             $this->load->model('User_model');
+            $this->load->library('form_validation');
             if (!$this->session->userdata('logged_in')) {
                 redirect('auth');
             }
@@ -64,52 +65,42 @@
             $this->form_validation->set_rules('cs', 'CS', 'required');
 
             if ($this->form_validation->run() == FALSE) {
+                $this->create();
+            } else {
                 $data = [
-                    'inbounds' => $this->Inbound_model->get_inbound_by_status()
+                    'account' => $this->session->userdata('account'),
+                    'inbound_date' => date('Y-m-d'),
+                    'shipper_name' => $this->input->post('shipper_name'),
+                    'shipper_phone' =>  $this->input->post('shipper_phone'),
+                    'weight' =>  $this->input->post('weight'),
+                    'goods_desc' =>  $this->input->post('goods_desc'),
+                    'cs' =>  $this->input->post('cs'),
+                    'status' =>  15,
+                    'updatedby' => $this->session->userdata('name')
                 ];
 
-                $this->config->load('assets/inbound/list');
-                $page_assets = $this->config->item('assets');
-                $this->pageScripts = $page_assets['js'];
-                $this->pageStyles = $page_assets['css'];
+                $photo_fields = [
+                    'picture' => 'photo_1',
+                    'picture2' => 'photo_2',
+                    'picture3' => 'photo_3'
+                ];
 
-                $this->loadView('v3/admin/inbound/not_process', 'Not Process', $data);
-                return;
-            }
-
-            $data = [
-                'account' => $this->session->userdata('account'),
-                'inbound_date' => date('Y-m-d'),
-                'shipper_name' => $this->input->post('shipper_name'),
-                'shipper_phone' =>  $this->input->post('shipper_phone'),
-                'weight' =>  $this->input->post('weight'),
-                'goods_desc' =>  $this->input->post('goods_desc'),
-                'cs' =>  $this->input->post('cs'),
-                'status' =>  15,
-                'updatedby' => $this->session->userdata('name')
-            ];
-
-            $photo_fields = [
-                'picture' => 'photo_1',
-                'picture2' => 'photo_2',
-                'picture3' => 'photo_3'
-            ];
-
-            foreach ($photo_fields as $key => $field) {
-                if (!empty($_FILES[$field]['name'])) {
-                    $fileName = upload_photo($field);
-                    if (!$fileName) {
-                        $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/inbound');
-                        return;
+                foreach ($photo_fields as $key => $field) {
+                    if (!empty($_FILES[$field]['name'])) {
+                        $fileName = upload_photo($field);
+                        if (!$fileName) {
+                            $this->session->set_flashdata('error', $this->upload->display_errors());
+                            redirect('admin/inbound');
+                            return;
+                        }
+                        $data[$key] = $fileName;
                     }
-                    $data[$key] = $fileName;
                 }
-            }
 
-            $this->Inbound_model->insert($data);
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-            redirect('admin/inbound');
+                $this->Inbound_model->insert($data);
+                $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+                redirect('admin/inbound');
+            }
         }
 
         public function edit($code)
