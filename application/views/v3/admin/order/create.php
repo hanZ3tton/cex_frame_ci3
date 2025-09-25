@@ -526,7 +526,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">Weight(KG)</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="weight" value="<?= $weight = $order->weight ? $order->weight : "0.0"  ?>" />
+                                    <input type="text" class="form-control form-control-solid" id="weight" name="weight" value="<?= $weight = $order->weight ? $order->weight : "0.0"  ?>" />
                                     <?= form_error('weight', '<div class="text-danger">', '</div>'); ?>
 
                                 </div>
@@ -570,10 +570,23 @@
                                         <!--end::Select2-->
                                     </div>
                                     <?= form_error('service', '<div class="text-danger">', '</div>'); ?>
+
                                 </div>
+
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col">
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span class="required">Total Shipping Cost</span>
+                                    </label>
+                                    <input type="number" class="form-control form-control-solid" id="total_shipping_cost" name="total_shipping_cost" value="" readonly />
+                                    <div class="text-warning">Rounded Weight x 5000</div>
+                                </div>
+                            </div>
+                            <!--end::Col -->
                             <!--begin::Col-->
                             <div class="col">
                                 <div class="fv-row mb-7">

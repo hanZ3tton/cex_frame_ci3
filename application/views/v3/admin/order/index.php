@@ -131,7 +131,7 @@
                 <th class="min-w-125px text-center">Goods Desc</th>
                 <th class="min-w-125px text-center">Actual Weight</th>
                 <th class="min-w-100px text-center">Weight</th>
-                <th class="min-w-150px text-center">Postage</th>
+                <th class="min-w-150px text-center">Shipping Cost</th>
                 <th class="min-w-75px text-center">paid</th>
                 <th class="min-w-125px text-center">Service</th>
                 <th class="min-w-150px">Term of Payment</th>
@@ -170,7 +170,7 @@
                   <td></td>
                   <td></td>
                   <td><span class="<?= $order->status_label ?>"><?= $order->status_name ?></span></td>
-                  <td><?= (!$order->inbound == 0) ? $order->ship_name . '(' . $order->weight . ' Kg)' : '' ?></td>
+                  <td><?= (!$order->inbound == 0) ? $order->ship_name . ' (' . $order->weight . ' Kg)' : '' ?></td>
                   <td><?= $order->ship_name ?></td>
                   <td><?= $order->rec_name ?></td>
                   <td><?= $order->ship_address ?></td>

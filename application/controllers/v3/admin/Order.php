@@ -88,6 +88,7 @@ class Order extends MY_Controller
     ];
 
     $this->config->load('assets/order/list');
+    $this->config->load('assets/calculate/calculate_shipping');
     $page_assets = $this->config->item('assets');
     $this->pageScripts = $page_assets['js'];
     $this->pageStyles = $page_assets['css'];
@@ -207,7 +208,7 @@ class Order extends MY_Controller
         'inbound_date' => '',
         'outbound' => '0',
         'outbound_date' => '',
-        'ongkir' => $this->input->post('ongkir'),
+        'ongkir' => $this->input->post('total_shipping_cost'),
         'inbound_by' => '',
         'service' => $this->input->post('service'),
         'arc_no' => $this->input->post('arc_no'),
