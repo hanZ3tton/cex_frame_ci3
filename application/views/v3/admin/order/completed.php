@@ -125,7 +125,7 @@
                 <th class="min-w-125px text-start">Country</th>
                 <th class="min-w-125px text-start">Goods Desc</th>
                 <th class="min-w-125px text-start">Actual Weight</th>
-                <th class="min-w-100px text-center">Weight</th>
+                <th class="min-w-75px text-center">Weight</th>
                 <th class="min-w-125px text-start">Postage</th>
                 <th class="min-w-125px text-start">paid</th>
                 <th class="min-w-100px text-start">Service</th>
@@ -166,7 +166,7 @@
                     <!--end::Menu-->
                   </td>
                   <td class="text-start"><?= $order->code ?></td>
-                  <td class="text-end"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
+                  <td class="text-start "><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
                   <td></td>
                   <td></td>
                   <td></td>
