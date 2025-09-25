@@ -88,6 +88,7 @@ $route['admin/domestic/jnt_express'] = 'v3/admin/domestic/jnt_express';
 $route['admin/shipping_rates'] = 'v3/admin/shipping_rates';
 
 $route['admin/user_management'] = 'v3/admin/user';
+$route['admin/user/create'] = 'v3/admin/user/create';
 
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';

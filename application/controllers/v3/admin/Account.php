@@ -26,7 +26,7 @@
                 'user'     => $this->User_model->getUserByCode($this->session->userdata('user_code')),
                 'mitra'     => $this->Mitra_model->getMitrabyAccount($this->session->userdata('account')),
             ];
-            $this->config->load('assets/account');
+            $this->config->load('assets/account/account');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];

@@ -108,3 +108,4 @@ var KTAppReportShipment = (function () {
 KTUtil.onDOMContentLoaded(function () {
 	KTAppReportShipment.init();
 });
+

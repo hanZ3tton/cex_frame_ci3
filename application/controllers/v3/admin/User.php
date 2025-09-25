@@ -20,7 +20,7 @@
             $data = [
                 'users' => $this->User_model->getAllUser()
             ];
-            $this->config->load('assets/user');
+            $this->config->load('assets/user/list');
             $page_assets = $this->config->item('assets');
             $this->pageScripts =  $page_assets['js'];
             $this->pageStyles =  $page_assets['css'];
@@ -30,20 +30,13 @@
         public function create()
         {
             $data = [];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
 
-            $this->loadView('v3/admin/user/create', 'Create User', $data);
+                $this->config->load('assets/user/list');
+                $page_assets = $this->config->item('assets');
+                $this->pageScripts = $page_assets['js'];
+                $this->pageStyles = $page_assets['css'];
+
+                $this->loadView('v3/admin/user/create', 'Create User', $data);
         }
 
         public function store()
