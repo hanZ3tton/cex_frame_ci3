@@ -177,6 +177,21 @@
             redirect('admin/inbound');
         }
 
+        public function soft_delete($code)
+        {
+            $inbound = $this->inbound_model->get_inbound_by_code($code);
+
+            if (!$inbound) {
+                $this->session->set_flashdata('error', 'Data tidak ditemukan!');
+                redirect('admin/inbound');
+                return;
+            }
+
+            $this->inbound_model->soft_delete($code);
+            $this->session->set_flashdata('success', 'Data Berhasil diapuskan!');
+            redirect('admin/inbound');
+        }
+
         public  function delete($code)
         {
             $inbound = $this->Inbound_model->get_inbound_by_code($code);

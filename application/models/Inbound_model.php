@@ -65,6 +65,14 @@ class Inbound_model extends CI_Model
     return $this->db->update($this->table, $data);
   }
 
+  public function soft_delete($code)
+  {
+    $this->db->where('code', $code);
+    return $this->db->update($this->table, [
+      'status' => 10
+    ]);
+  }
+
   public function delete($code)
   {
     return $this->db->delete($this->table, ['code' => $code]);
