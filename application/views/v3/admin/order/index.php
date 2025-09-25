@@ -170,7 +170,7 @@
                   <td></td>
                   <td></td>
                   <td><span class="<?= $order->status_label ?>"><?= $order->status_name ?></span></td>
-                  <td><?= $order->inbound ?></td>
+                  <td><?= (!$order->inbound == 0) ? $order->ship_name . '(' . $order->weight . ' Kg)' : '' ?></td>
                   <td><?= $order->ship_name ?></td>
                   <td><?= $order->rec_name ?></td>
                   <td><?= $order->ship_address ?></td>

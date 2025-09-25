@@ -204,7 +204,6 @@ class Order extends MY_Controller
         'length' => $this->input->post('length'),
         'width' => $this->input->post('width'),
         'height' => $this->input->post('height'),
-        'inbound' => '0',
         'inbound_date' => '',
         'outbound' => '0',
         'outbound_date' => '',

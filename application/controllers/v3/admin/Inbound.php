@@ -170,7 +170,7 @@
 
         public function soft_delete($code)
         {
-            $inbound = $this->inbound_model->get_inbound_by_code($code);
+            $inbound = $this->Inbound_model->get_inbound_by_code($code);
 
             if (!$inbound) {
                 $this->session->set_flashdata('error', 'Data tidak ditemukan!');
@@ -178,9 +178,90 @@
                 return;
             }
 
-            $this->inbound_model->soft_delete($code);
+            $this->Inbound_model->soft_delete($code);
             $this->session->set_flashdata('success', 'Data Berhasil diapuskan!');
             redirect('admin/inbound');
+        }
+
+        public function claim_to_recipt($code)
+        {
+            $inbound = $this->Inbound_model->get_inbound_by_code($code);
+            $username = $this->session->userdata('username');
+            $account = $this->session->userdata('account');
+            $time = time();
+            $data = [
+                'connote' => $time,
+                'ship_account_number' => $account,
+                'domestic_courier' => '',
+                'domestic_awb' => '',
+                'ship_account' => $account,
+                'ship_ref' => '',
+                'ship_address' => '',
+                'ship_province' => '',
+                'ship_city' => '',
+                'ship_country' => '',
+                'rec_account_number' => '',
+                'rec_name' => '',
+                'rec_ref' => '',
+                'rec_address' => '',
+                'rec_postcode' => '',
+                'rec_city' => '',
+                'rec_phone' => '',
+                'rec_country' => '',
+                'origin' => 'INDONESIA',
+                'destination' => '',
+                'number_of_pieces' => '0',
+                'total_amount' => '0',
+                'currency' => 'USD',
+                'notes' => '',
+                'status' => '3',
+                'mode' => '1',
+                'updatedby' => $username,
+                'updatedon' => date('Y-m-d H:i:s'),
+                'sumber' => 'FRM',
+                'value_of_goods' => '',
+                'picture_of_goods' => '',
+                'picture_of_paket' => '',
+                'request_pickup' => '',
+                'picture_of_idcard_receiver' => '',
+                'payment_method' => '',
+                'ship_postcode' => '',
+                'tgl_kirim' => null,
+                'inbound' => 1,
+                'inbound_date' => '',
+                'outbound' => '0',
+                'outbound_date' => '',
+                'ongkir' => '0',
+                'inbound_by' => $username,
+                'service' => '',
+                'arc_no' => '',
+                'ship_account' => '',
+                'weight' => $inbound->weight,
+                'charge_weight' => ceil($inbound->weight),
+                'ship_name' => $inbound->shipper_name,
+                'ship_phone' => $inbound->shipper_phone,
+                'desc_of_goods' => $inbound->goods_desc,
+                'cs' => $inbound->cs,
+            ];
+            try {
+                $this->Inbound_model->input_cleansing($data);
+                $insert_id = $this->db->insert_id();
+                $data_item = [
+                    'connote' => $account . '-' . $insert_id,
+                    'final_connote' => $insert_id,
+                ];
+
+                if ($this->Inbound_model->update_cleansing($insert_id, $data_item)) {
+                    $data = [
+                        'status' => '3'
+                    ];
+                    $this->Inbound_model->update($code, $data);
+                    $this->session->set_flashdata('success', 'This inbound data success claim to recipt!');
+                    redirect('admin/inbound');
+                }
+            } catch (Exception $e) {
+                $this->session->set_flashdata('success', '$e->getMessage()');
+            }
         }
 
         public  function delete($code)

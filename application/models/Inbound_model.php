@@ -77,4 +77,14 @@ class Inbound_model extends CI_Model
   {
     return $this->db->delete($this->table, ['code' => $code]);
   }
+
+  public function input_cleansing($data)
+  {
+    return $this->db->insert('tb_order_member', $data);
+  }
+  public function update_cleansing($code, $data)
+  {
+    $this->db->where('code', $code);
+    return $this->db->update('tb_order_member', $data);
+  }
 }
