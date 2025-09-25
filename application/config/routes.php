@@ -73,6 +73,8 @@ $route['admin/data_ho'] = 'v3/admin/data_ho/index';
 $route['admin/data_ho/inbound'] = 'v3/admin/data_ho/inbound';
 $route['admin/data_ho/cleansing'] = 'v3/admin/data_ho/cleansing';
 
+$route['admin/tracking'] = 'v3/admin/tracking/index';
+
 $route['admin/data_ho'] = 'v3/admin/data_ho/index';
 
 $route['admin/data_kalog'] = 'v3/admin/data_kalog/index';
@@ -89,6 +91,8 @@ $route['admin/user_management'] = 'v3/admin/user';
 
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';
+
+
 
 
 // $route['admin/order'] = 'v3/admin/order/index';
