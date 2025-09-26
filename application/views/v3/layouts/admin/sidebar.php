@@ -528,7 +528,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="v3/admin/reports/index">
+                                <a class="menu-link" href="">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -542,25 +542,11 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="v3/admin/reports/manifest_reports">
+                                    href="">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Revanue Reports</span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a
-                                    class="menu-link"
-                                    href="pages/social/followers.html">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Perfomance Reports</span>
                                 </a>
                                 <!--end:Menu link-->
                             </div>
