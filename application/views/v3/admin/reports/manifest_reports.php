@@ -129,18 +129,18 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Report" />
+                            <input type="text" data-kt-report-order-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Report" />
                         </div>
                         <!--end::Search-->
                         <!--begin::Export buttons-->
-                        <div id="kt_ecommerce_report_sales_export" class="d-none"></div>
+                        <div id="kt_report_shipment_export" class="d-none"></div>
                         <!--end::Export buttons-->
                     </div>
                     <!--end::Card title-->
                     <!--begin::Card toolbar-->
                     <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                         <!--begin::Daterangepicker-->
-                        <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range" id="kt_ecommerce_report_sales_daterangepicker" />
+                        <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range" id="kt_report_shipment_daterangepicker" />
                         <!--end::Daterangepicker-->
                         <!--begin::Export dropdown-->
                         <button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -149,25 +149,25 @@
                             <span class="path2"></span>
                         </i>Export Report</button>
                         <!--begin::Menu-->
-                        <div id="kt_ecommerce_report_sales_export_menu" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4" data-kt-menu="true">
+                        <div id="kt_report_export_menu" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4" data-kt-menu="true">
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="#" class="menu-link px-3" data-kt-ecommerce-export="copy">Copy to clipboard</a>
+                                <a href="#" class="menu-link px-3" data-kt-report-export="copy">Copy to clipboard</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="#" class="menu-link px-3" data-kt-ecommerce-export="excel">Export as Excel</a>
+                                <a href="#" class="menu-link px-3" data-kt-report-export="excel">Export as Excel</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="#" class="menu-link px-3" data-kt-ecommerce-export="csv">Export as CSV</a>
+                                <a href="#" class="menu-link px-3" data-kt-report-export="csv">Export as CSV</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="#" class="menu-link px-3" data-kt-ecommerce-export="pdf">Export as PDF</a>
+                                <a href="#" class="menu-link px-3" data-kt-report-export="pdf">Export as PDF</a>
                             </div>
                             <!--end::Menu item-->
                         </div>
@@ -181,12 +181,16 @@
                 <div class="card-body py-4">
                     <div class="table-responsive">
                         <!--begin::Table-->
-                        <table class="table text-truncate align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_report_sales_table">
+                        <table class="table text-truncate align-middle table-row-dashed fs-6 gy-5" id="kt_report_shipment_table">
                             <thead>
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="w-10px pe-2">
                                         <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                            <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_report_sales_table .form-check-input" value="1" />
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                data-kt-check="true"
+                                                data-kt-check-target="#kt_report_shipment_table tbody .form-check-input" />
                                         </div>
                                     </th>
                                     <th class="min-w-100px">Date</th>
