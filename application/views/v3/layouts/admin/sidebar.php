@@ -619,7 +619,7 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/user_management') ?>">
+                                    href="<?= base_url('admin/user-management') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
