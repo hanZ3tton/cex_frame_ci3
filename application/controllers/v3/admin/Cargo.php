@@ -16,11 +16,7 @@ class Cargo extends MY_Controller
   public function index()
   {
     $data = [];
-
-    $this->config->load('assets/cargo/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'cargo/list');
 
     $this->loadView('v3/admin/cargo/index', 'JNE Cargo List', $data);
   }
@@ -29,11 +25,6 @@ class Cargo extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/cargo/form');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
-
     $this->loadView('v3/admin/cargo/create', 'Create JNT Cargo Form', $data);
   }
 
@@ -41,27 +32,13 @@ class Cargo extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/cargo/form');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
-
     $this->loadView('v3/admin/cargo/edit_cargo', 'Edit JNT Cargo Form', $data);
   }
 
-  public function cargo_details()
+  public function detail($id)
   {
     $data = [];
 
-    $this->config->load('assets/cargo');
-    $page_assets = $this->config->item('assets');
-
-    $this->config->load('assets/_partials/dataTables');
-    $datatables_assets = $this->config->item('assets');
-
-    $this->pageScripts = array_merge($datatables_assets['js'], $page_assets['js']);
-    $this->pageStyles = array_merge($datatables_assets['css'], $page_assets['css']);
-
-    $this->loadView('v3/admin/cargo/cargo_details', 'JNT Cargo Details Form', $data);
+    $this->loadView('v3/admin/cargo/detail', 'JNT Cargo Details Form', $data);
   }
 }

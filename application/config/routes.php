@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'auth/login';
 
+$route['admin/account'] = 'v3/admin/account/index';
+
 $route['admin/dashboard'] = 'v3/admin/dashboard/index';
 
 $route['admin/inbound/all'] = 'v3/admin/inbound/index';
@@ -63,53 +65,39 @@ $route['admin/inbound/create'] = 'v3/admin/inbound/create';
 $route['admin/inbound/edit/(:any)'] = 'v3/admin/inbound/edit/$1';
 $route['admin/inbound/delete/(:any)'] = 'v3/admin/inbound/delete/$1';
 
-$route['admin/list_order'] = 'v3/admin/order';
-$route['admin/list_order_completed'] = 'v3/admin/order/completed';
+$route['admin/order'] = 'v3/admin/order';
+$route['admin/order/completed'] = 'v3/admin/order/completed';
 
 $route['admin/outbound'] = 'v3/admin/outbound/index';
 $route['admin/outbound/scanner'] = 'v3/admin/outbound/scanner';
 
-$route['admin/data_ho'] = 'v3/admin/data_ho/index';
-$route['admin/data_ho/inbound'] = 'v3/admin/data_ho/inbound';
-$route['admin/data_ho/cleansing'] = 'v3/admin/data_ho/cleansing';
+$route['admin/data-ho'] = 'v3/admin/data_ho/index';
+$route['admin/data-ho/inbound'] = 'v3/admin/data_ho/inbound';
+$route['admin/data-ho/cleansing'] = 'v3/admin/data_ho/cleansing';
 
 $route['admin/tracking'] = 'v3/admin/tracking/index';
 
-$route['admin/data_ho'] = 'v3/admin/data_ho/index';
-
-$route['admin/data_kalog'] = 'v3/admin/data_kalog/index';
+$route['admin/kalog'] = 'v3/admin/kalog/index';
+$route['admin/kalog/create'] = 'v3/admin/kalog/create';
 
 $route['admin/cargo/jnt'] = 'v3/admin/cargo/index';
 $route['admin/cargo/jnt/create'] = 'v3/admin/cargo/create';
+$route['admin/cargo/jnt/detail/(:any)'] = 'v3/admin/cargo/detail';
 
 $route['admin/domestic/shipment'] = 'v3/admin/domestic/index';
-$route['admin/domestic/jnt_express'] = 'v3/admin/domestic/jnt_express';
+$route['admin/domestic/jnt-express'] = 'v3/admin/domestic/jnt_express';
 
-$route['admin/shipping_rates'] = 'v3/admin/shipping_rates';
+$route['admin/shipping-rates'] = 'v3/admin/shipping_rates';
 
-$route['admin/user_management'] = 'v3/admin/user';
-$route['admin/user/create'] = 'v3/admin/user/create';
+$route['admin/user-management'] = 'v3/admin/user/index';
+$route['admin/user-management/create'] = 'v3/admin/user/create';
+$route['admin/user-management/edit/(:any)'] = 'v3/admin/user/edit';
+$route['admin/user-management/change-password/(:any)'] = 'v3/admin/user/change_password';
+$route['admin/user-management/delete/(:any)'] = 'v3/admin/user/delete';
 
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';
 
-
-
-
 // $route['admin/order'] = 'v3/admin/order/index';
 // $route['admin/order/completed'] = 'v3/admin/order/completed';
 // $route['admin/order/outbound'] = 'v3/admin/outbound/index';
-
-// $route['admin/data-ho/inbound'] = 'v3/admin/data_ho/direct_inbound_ho';
-// $route['admin/data-ho/cleansing'] = 'v3/admin/data_ho/not_completed';
-// $route['admin/data-ho/recipe'] = 'v3/admin/data_ho/index';
-
-// $route['admin/kalog'] = 'v3/admin/data_kalog/index';
-// $route['admin/cargo/jnt'] = 'v3/admin/cargo/index';
-
-// $route['admin/domestic/shipment'] = 'v3/admin/domestic/shipment';
-// $route['admin/domestic/jnt-express'] = 'v3/admin/domestic/jnt_express';
-
-// $route['admin/shipping-rates'] = 'v3/admin/shipping_rates/index';
-
-// $route['admin/user'] = 'v3/admin/user/index';

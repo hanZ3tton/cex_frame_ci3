@@ -16,11 +16,7 @@
         public function index()
         {
             $data = [];
-
-            $this->config->load('assets/dashboard/page');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
+            load_page__assets($this, 'dashboard/page');
 
             $this->loadView('v3/admin/dashboard/index', 'Dashboard', $data);
         }

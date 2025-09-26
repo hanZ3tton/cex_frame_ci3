@@ -16,22 +16,15 @@ class Reports extends MY_Controller
   public function index()
   {
     $data = [];
-
-    $this->config->load('assets/report/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'report/list');
 
     $this->loadView('v3/admin/reports/index', 'Transaction Reports', $data);
   }
+
   public function manifest_reports()
   {
     $data = [];
-
-    $this->config->load('assets/report/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'report/list');
 
     $this->loadView('v3/admin/reports/manifest_reports', 'Manifest Reports', $data);
   }

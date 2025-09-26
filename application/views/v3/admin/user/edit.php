@@ -157,7 +157,7 @@
                                 <!--begin::Action buttons-->
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Button-->
-                                    <a href="<?= base_url('v3/admin/user') ?>" class="btn btn-light me-3">Cancel</a>
+                                    <a href="<?= base_url('admin/user-management') ?>" class="btn btn-light me-3">Cancel</a>
                                     <!--end::Button-->
                                     <!--begin::Button-->
                                     <button type="submit" class="btn btn-primary">

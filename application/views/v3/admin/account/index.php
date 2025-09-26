@@ -47,7 +47,7 @@
 			<!--begin:: Navbar Profile-->
 			<?php $this->load->view('v3/admin/account/nav', [
 				'active_tab' => isset($active_tab) ? $active_tab : 'overview',
-				'tab_url'    => isset($tab_url) ? $tab_url : site_url('admin/account/index'),
+				'tab_url'    => isset($tab_url) ? $tab_url : site_url('admin/account'),
 			]); ?>
 			<!--end:: Navbar Profile-->
 

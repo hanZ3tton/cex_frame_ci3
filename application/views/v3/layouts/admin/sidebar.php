@@ -59,6 +59,7 @@
                     id="#kt_app_sidebar_menu"
                     data-kt-menu="true"
                     data-kt-menu-expand="false">
+
                     <!--begin:Menu item-->
                     <div
                         data-kt-menu-trigger="click"
@@ -180,7 +181,7 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_order') ?>">
+                                    href="<?= base_url('admin/order') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -198,7 +199,7 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="<?= base_url('admin/list_order_completed') ?>">
+                                    href="<?= base_url('admin/order/completed') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -252,7 +253,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/data_ho') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data-ho') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -267,7 +268,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/data_ho/inbound') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data-ho/inbound') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -282,7 +283,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="<?= base_url('admin/data_ho/cleansing') ?>">
+                                <a class="menu-link" href="<?= base_url('admin/data-ho/cleansing') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -297,7 +298,7 @@
                         </div>
                         <!--end:Menu sub-->
                     </div>
-                    <!--end:Menu Data Heed Office-->
+                    <!--end:Menu Data Head Office-->
 
                     <!--begin:Menu Tracking-->
                     <div
@@ -451,7 +452,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="<?= base_url('admin/domestic/jnt_express') ?>">
+                                    <a class="menu-link" href="<?= base_url('admin/domestic/jnt-express') ?>">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -584,7 +585,7 @@
                         <!--begin:Menu link-->
                         <a
                             class="menu-link"
-                            href="<?= base_url('admin/shipping_rates') ?>">
+                            href="<?= base_url('admin/shipping-rates') ?>">
                             <span class="menu-icon">
                                 <i class="bi bi-currency-dollar fs-2"></i>
                             </span>

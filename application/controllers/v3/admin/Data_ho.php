@@ -16,11 +16,7 @@ class Data_ho extends MY_Controller
   public function index()
   {
     $data = [];
-
-    $this->config->load('assets/data_ho/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'data_ho/list');
 
     $this->loadView('v3/admin/data_ho/index', 'Data Head Office', $data);
   }
@@ -28,11 +24,7 @@ class Data_ho extends MY_Controller
   public function inbound()
   {
     $data = [];
-
-    $this->config->load('assets/data_ho/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'data_ho/list');
 
     $this->loadView('v3/admin/data_ho/inbound', 'Direct Inbound Head Office', $data);
   }
@@ -40,11 +32,7 @@ class Data_ho extends MY_Controller
   public function cleansing()
   {
     $data = [];
-
-    $this->config->load('assets/data_ho/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'data_ho/list');
 
     $this->loadView('v3/admin/data_ho/cleansing', 'Not Completed', $data);
   }

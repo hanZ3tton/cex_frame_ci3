@@ -16,11 +16,7 @@ class Domestic extends MY_Controller
   public function index()
   {
     $data = [];
-
-    $this->config->load('assets/domestic/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'domestic/list');
 
     $this->loadView('v3/admin/domestic/index', 'Exsys Shipment', $data);
   }
@@ -28,11 +24,7 @@ class Domestic extends MY_Controller
   public function jnt_express()
   {
     $data = [];
-
-    $this->config->load('assets/domestic/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'domestic/list');
 
     $this->loadView('v3/admin/domestic/jnt_express', 'JNT Express', $data);
   }
@@ -41,22 +33,12 @@ class Domestic extends MY_Controller
   {
     $data = [];
 
-    $this->config->load('assets/domestic/form');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
-
     $this->loadView('v3/admin/domestic/create', 'Create Order', $data);
   }
 
   public function detailandtracking()
   {
     $data = [];
-
-    $this->config->load('assets/domestic/form');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/domestic/detailandtracking', 'Detail And Tracking Information', $data);
   }

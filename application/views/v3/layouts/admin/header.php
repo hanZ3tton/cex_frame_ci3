@@ -5887,10 +5887,10 @@
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="<?= base_url('v3/admin/account/index') ?>" class="menu-link px-5">My Profile</a>
+                            <a href="<?= base_url('admin/account') ?>" class="menu-link px-5">My Profile</a>
                         </div>
                         <!--end::Menu item-->
-                        
+
                         <!--begin::Menu separator-->
                         <div class="separator my-2"></div>
                         <!--end::Menu separator-->

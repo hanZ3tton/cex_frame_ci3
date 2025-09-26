@@ -6,7 +6,6 @@
         public function __construct()
         {
             parent::__construct();
-
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->model('User_model');
             $this->load->model('Mitra_model');
@@ -22,16 +21,21 @@
             $data = [
                 'active_tab' => $tab,
                 'tab_view'   => "v3/admin/account/tab/{$tab}",
-                'tab_url'    => site_url('v3/admin/account/index'),
+                'tab_url'    => site_url('admin/account'),
                 'user'     => $this->User_model->getUserByCode($this->session->userdata('user_code')),
                 'mitra'     => $this->Mitra_model->getMitrabyAccount($this->session->userdata('account')),
             ];
-            $this->config->load('assets/account/account');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
+            load_page__assets($this, 'account/page');
 
             $this->loadView('v3/admin/account/index', 'My Account', $data);
+        }
+
+        public function settings()
+        {
+            $data = [];
+            load_page__assets($this, 'account/page');
+
+            $this->loadView('v3/admin/account/settings', 'Settings Account', $data);
         }
 
         public function edit_profile()
@@ -57,7 +61,7 @@
                 $updateMitra = $this->Mitra_model->updateMitra($account, $data);
                 $updateUser =  $this->User_model->updateUser($this->session->userdata('user_code'), $dataUser);
                 if ($updateMitra && $updateUser) {
-                    redirect('v3/admin/account/index');
+                    redirect('admin/account/index');
                 } else {
                     $this->session->set_flashdata('error', 'Invalid username or password');
                 }
@@ -67,18 +71,7 @@
         public function change_password()
         {
             $data = [];
-            $this->pageScripts = [
-                "assets/js/custom/apps/contacts/edit-contact.js",
-                "assets/js/widgets.bundle.js",
-                "assets/js/custom/widgets.js",
-                "assets/js/custom/apps/chat/chat.js",
-                "assets/js/custom/utilities/modals/upgrade-plan.js",
-                "assets/js/custom/utilities/modals/create-app.js",
-                "assets/js/custom/utilities/modals/users-search.js",
-            ];
-            $this->pageStyles = [
-                'assets/plugins/custom/datatables/datatables.bundle.css',
-            ];
+
             $this->loadView('v3/admin/account/change_password', 'Change Password', $data);
         }
 
@@ -96,22 +89,11 @@
                 ];
                 if ($this->User_model->updateUser($code, $data)) {
                     $this->session->set_flashdata('success', 'Password successfully updated! You can now log in with your new password. ');
-                    redirect('v3/admin/dashboard');
+                    redirect('admin/dashboard');
                 } else {
                     $this->session->set_flashdata('error', 'Failed to change password. Try again later');
-                    redirect('v3/admin/dashboard');
+                    redirect('admin/dashboard');
                 }
             }
-        }
-
-        public function settings()
-        {
-            $data = [];
-            $this->config->load('assets/account');
-            $page_assets = $this->config->item('assets');
-            $this->pageScripts =  $page_assets['js'];
-            $this->pageStyles =  $page_assets['css'];
-
-            $this->loadView('v3/admin/account/settings', 'Settings Account', $data);
         }
     }

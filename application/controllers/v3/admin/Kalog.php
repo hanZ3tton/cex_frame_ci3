@@ -19,11 +19,7 @@ class Kalog extends MY_Controller
     $data = [
       'kalog' => $this->Kalog_model->get_all_data_kalog()
     ];
-
-    $this->config->load('assets/kalog/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'kalog/list');
 
     $this->loadView('v3/admin/kalog/index', 'Kalog Data', $data);
   }
@@ -31,11 +27,6 @@ class Kalog extends MY_Controller
   public function create()
   {
     $data = [];
-
-    $this->config->load('assets/kalog/form');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
 
     $this->loadView('v3/admin/kalog/create', 'Request Kalog', $data);
   }

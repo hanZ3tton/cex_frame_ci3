@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 $config['assets'] = [
     'js' => [
-        'assets/plugins/custom/fullcalendar/fullcalendar.bundle.js',
         'https://cdn.amcharts.com/lib/5/index.js',
         'https://cdn.amcharts.com/lib/5/xy.js',
         'https://cdn.amcharts.com/lib/5/percent.js',
@@ -16,7 +15,6 @@ $config['assets'] = [
         'https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js',
         'https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js',
         'assets/plugins/custom/datatables/datatables.bundle.js',
-        'assets/js/custom/utilities/modals/new-target.js',
     ],
     'css' => [
         'assets/plugins/custom/datatables/datatables.bundle.css'

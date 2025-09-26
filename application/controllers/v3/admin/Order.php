@@ -24,27 +24,22 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
-
-    $this->config->load('assets/order/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'order/list');
 
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
 
   public function start_new_order()
   {
-
-    $time = time();
     $account = $this->session->userdata('account');
     $username = $this->session->userdata('username');
+    $connote = $account . '-' . time();
+
     $data_order = [
-      'connote' => $time,
+      'connote' => $connote,
       'ship_account_number' => $account,
       'ship_account' => $account,
       'origin' => 'INDONESIA',
-      'number_of_pieces' => '0',
       'total_amount' => '0',
       'currency' => 'USD',
       'status' => '3',
@@ -56,16 +51,18 @@ class Order extends MY_Controller
       'inbound' => '0',
       'outbound' => '0',
       'ongkir' => '0',
-      'number_of_pieces' => 1, // Add default number of pieces
+      'number_of_pieces' => 1,
       'cs' => $username
     ];
+
+    $this->db->trans_start();
     $this->Order_model->insert($data_order);
     $insert_id = $this->db->insert_id();
-    $data_item = [
-      'connote' => $account . '-' . $insert_id,
-      'final_connote' => $insert_id,
-    ];
-    $this->Order_model->update_by_code($insert_id, $data_item);
+    $this->Order_model->update_by_code($insert_id, [
+      'final_connote' => $insert_id
+    ]);
+    $this->db->trans_complete();
+
     redirect('v3/admin/order/create_cleansing/' . $insert_id);
   }
 
@@ -86,12 +83,7 @@ class Order extends MY_Controller
       'Express' => 'EXPRESS',
       'Promo' => 'PROMO',
     ];
-
-    $this->config->load('assets/order/list');
-    $this->config->load('assets/calculate/calculate_shipping');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'order/list');
 
     $this->loadView('v3/admin/order/create', 'Create Cleansing', $data);
   }
@@ -216,14 +208,14 @@ class Order extends MY_Controller
         'connote_reff' => $this->input->post('refference')
       ];
       if ($order->code == $awb) {
-        $data = ['final_connote' => 'CEX' . rand('000000000', '9999999999')];
+        $data = ['final_connote' => 'CEX' . rand('100000000', '9999999999')];
       }
       if ($this->Order_model->update($awb, $data)) {
         $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been updated');
-        redirect('admin/list_order');
+        redirect('admin/order');
       } else {
         $this->session->set_flashdata('error', 'Try Again Later');
-        redirect('admin/list_order');
+        redirect('admin/order');
       }
     }
   }
@@ -235,10 +227,10 @@ class Order extends MY_Controller
     ];
     if ($this->Order_model->update($awb, $data)) {
       $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been cancelled');
-      redirect('admin/list_order');
+      redirect('admin/order');
     } else {
       $this->session->set_flashdata('error', 'Try Again Later');
-      redirect('admin/list_order');
+      redirect('admin/order');
     }
   }
 
@@ -249,11 +241,7 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id)
     ];
-
-    $this->config->load('assets/order/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts = $page_assets['js'];
-    $this->pageStyles = $page_assets['css'];
+    load_page__assets($this, 'order/list');
 
     $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
   }

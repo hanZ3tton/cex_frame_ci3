@@ -21,11 +21,8 @@ class Outbound extends MY_Controller
     $data = [
       'orders' => $this->Outbound_model->get_outbound_by_status($outbound)
     ];
+    load_page__assets($this, 'outbound/list');
 
-    $this->config->load('assets/outbound/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
 
     $this->loadView('v3/admin/outbound/index', 'List Outbound ', $data);
   }
@@ -37,11 +34,7 @@ class Outbound extends MY_Controller
     $data = [
       'orders' => $this->Outbound_model->get_outbound_by_status($status_id)
     ];
-
-    $this->config->load('assets/outbound/list');
-    $page_assets = $this->config->item('assets');
-    $this->pageScripts =  $page_assets['js'];
-    $this->pageStyles =  $page_assets['css'];
+    load_page__assets($this, 'outbound/list');
 
     $this->loadView('v3/admin/outbound/scanner', 'List Order Completed', $data);
   }

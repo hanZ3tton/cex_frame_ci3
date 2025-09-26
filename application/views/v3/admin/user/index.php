@@ -88,19 +88,18 @@
                 <!--begin::Card header-->
                 <div class="card-header border-0 pt-6">
                     <!--begin::Card title-->
-                        <!--begin::Card Search Bar-->
-                        <?php $this->load->view('v3/admin/_partials/search', [
-                            'module' => 'user',
-                            'placeholder' => 'Search users'
-                        ]); ?>
-                        <!--begin::Card Search Bar-->
-                        <!--begin::Card toolbar-->
-                        <?php $this->load->view('v3/admin/_partials/toolbar', [
-                            'show_add_button'  => true,
-                            'show_edit_button' => true,
-                            'add_url'          => base_url('admin/user/create')
-                        ]); ?>
-                        <!--end::Card toolbar-->  
+                    <!--begin::Card Search Bar-->
+                    <?php $this->load->view('v3/admin/_partials/search', [
+                        'module' => 'user',
+                        'placeholder' => 'Search users'
+                    ]); ?>
+                    <!--begin::Card Search Bar-->
+                    <!--begin::Card toolbar-->
+                    <?php $this->load->view('v3/admin/_partials/toolbar', [
+                        'show_add_button'  => true,
+                        'add_url'          => base_url('admin/user-management/create')
+                    ]); ?>
+                    <!--end::Card toolbar-->
                 </div>
                 <!--end::Card header-->
 
@@ -155,18 +154,18 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="<?= base_url('v3/admin/user/edit/' . $user->code) ?>" class="menu-link px-3">Edit</a>
+                                                <a href="<?= base_url('admin/user-management/edit/' . $user->code) ?>" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
 
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="<?= base_url('v3/admin/user/change_password/' . $user->code) ?>" class="menu-link px-3 text-left">Change Password</a>
+                                                <a href="<?= base_url('admin/user-management/change-password/' . $user->code) ?>" class="menu-link px-3 text-left">Change Password</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="<?= base_url('v3/admin/user/delete/' . $user->code) ?>" class="menu-link px-3">Delete</a>
+                                                <a href="<?= base_url('admin/user-management/delete/' . $user->code) ?>" class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
 
