@@ -7,9 +7,6 @@ $config['assets'] = [
         'assets/js/custom/apps/user-management/users/list/table.js',
         'assets/js/custom/apps/user-management/users/list/export-users.js',
         'assets/js/custom/apps/user-management/users/list/add.js',
-        'assets/js/widgets.bundle.js',
-        'assets/js/custom/widgets.js',
-        'assets/js/custom/apps/chat/chat.js',
     ],
     'css' => [
         'assets/plugins/custom/datatables/datatables.bundle.css'

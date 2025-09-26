@@ -220,6 +220,20 @@ class Order extends MY_Controller
     }
   }
 
+  public function pay() {}
+
+  public function completed()
+  {
+    $status_id = 7;
+
+    $data = [
+      'orders' => $this->Order_model->get_order_by_status($status_id)
+    ];
+    load_page__assets($this, 'order/list');
+
+    $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
+  }
+
   public function cancel_order($awb)
   {
     $data = [
@@ -232,17 +246,5 @@ class Order extends MY_Controller
       $this->session->set_flashdata('error', 'Try Again Later');
       redirect('admin/order');
     }
-  }
-
-  public function completed()
-  {
-    $status_id = 7;
-
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
-    ];
-    load_page__assets($this, 'order/list');
-
-    $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
   }
 }

@@ -19,7 +19,6 @@
   </div>
   <!--end::Toolbar-->
   <!--begin::Content-->
-
   <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-xxl">
@@ -100,7 +99,6 @@
           <!--begin::Card toolbar-->
           <?php $this->load->view('v3/admin/_partials/toolbar', [
             'show_add_button' => true,
-            'show_edit_button' => true,
             'title' => 'Create New Order',
             'add_url' => base_url('v3/admin/order/start_new_order')
           ]); ?>
@@ -141,28 +139,40 @@
             <tbody class="text-gray-600 fw-semibold">
               <?php foreach ($orders as $order) : ?>
                 <tr>
-                  <td class="text-end">
-                    <div class="d-flex justify-content-end gap-2">
-                      <a
-                        href="<?= base_url('v3/admin/order/create_cleansing/' . $order->final_connote) ?>"
-                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                        <i class="ki-duotone ki-pencil fs-2">
-                          <span class="path1"></span>
-                          <span class="path2"></span>
-                        </i>
-                      </a>
-                      <a
-                        href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
-                        class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                        <i class="ki-duotone ki-trash fs-2">
-                          <span class="path1"></span>
-                          <span class="path2"></span>
-                          <span class="path3"></span>
-                          <span class="path4"></span>
-                          <span class="path5"></span>
-                        </i>
-                      </a>
+                  <td class="text-center">
+                    <a
+                      href="#"
+                      class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm"
+                      data-kt-menu-trigger="click"
+                      data-kt-menu-placement="bottom-end">Actions
+                      <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                    <!--begin::Menu-->
+                    <div
+                      class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4"
+                      data-kt-menu="true">
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a
+                          href="<?= base_url('v3/admin/order/create_cleansing/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Edit</a>
+                      </div>
+                      <!--end::Menu item-->
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a
+                          href="<?= base_url('v3/admin/order/pay/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Pay</a>
+                      </div>
+                      <!--end::Menu item-->
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a
+                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Delete</a>
+                      </div>
+                      <!--end::Menu item-->
                     </div>
+                    <!--end::Menu-->
                   </td>
                   <td><?= $order->final_connote ?></td>
                   <td class="text-center"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
@@ -186,7 +196,6 @@
                   <td class="text-center"><?= $order->service ?></td>
                   <td><?= $order->payment_method ?></td>
                   <td class="text-center"><?= $order->connote_reff ?></td>
-
                 </tr>
               <?php endforeach ?>
             </tbody>
