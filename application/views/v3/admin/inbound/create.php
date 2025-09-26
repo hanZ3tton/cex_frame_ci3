@@ -170,6 +170,7 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <?= form_error('cs', '<div class="text-danger">', '</div>'); ?>
                                         <!--end::Default example-->
                                     </div>
                                 </div>
