@@ -160,15 +160,15 @@
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
-                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
-                          class="menu-link px-3">Delete</a>
+                          href="<?= base_url('v3/admin/order/pay/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Pay</a>
                       </div>
                       <!--end::Menu item-->
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
-                          href="<?= base_url('v3/admin/inbound/claim_to_recipt/' . $inbound->code) ?>"
-                          class="menu-link px-3">Claim To Recipt</a>
+                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Delete</a>
                       </div>
                       <!--end::Menu item-->
                     </div>
@@ -196,7 +196,6 @@
                   <td class="text-center"><?= $order->service ?></td>
                   <td><?= $order->payment_method ?></td>
                   <td class="text-center"><?= $order->connote_reff ?></td>
-
                 </tr>
               <?php endforeach ?>
             </tbody>
