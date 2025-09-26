@@ -21,10 +21,35 @@ class Order extends MY_Controller
   {
     $status_id = 3;
 
-    $data = [
-      'orders' => $this->Order_model->get_order_by_status($status_id)
-    ];
+
+    $orders = $this->Order_model->get_order_by_status($status_id);
+    foreach ($orders as $order) {
+
+      $status_cleansing = 0;
+      if (!empty($order->ship_name) && !empty($order->rec_name) && !empty($order->ship_address) && !empty($order->rec_postcode) && !empty($order->rec_city) && !empty($order->rec_phone) && !empty($order->destination) && !empty($order->desc_of_goods) && !empty($order->weight) && !empty($order->charge_weight) && !empty($order->ongkir)) {
+        $status_cleansing = 1;
+      }
+      $status_invoice = 0;
+      if ($this->Detail_item_model->getAll($order->code)) {
+        $status_invoice = 1;
+      }
+
+      $status_payment = 0;
+      if (!empty($order->payment) && $order->payment == $order->ongkir) {
+        $status_payment = 1;
+      }
+
+      $order->status_cleansing = $status_cleansing;
+      $order->status_invoice   = $status_invoice;
+      $order->status_payment   = $status_payment;
+      $data_listing_final[] = $order;
+    }
     load_page__assets($this, 'order/list');
+
+    $data = [
+      'orders' => $data_listing_final
+    ];
+
 
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
@@ -69,11 +94,12 @@ class Order extends MY_Controller
   public function create_cleansing($awb)
   {
     $status_id = 3;
+    $order = $this->Order_model->getByAWB($awb);
+    $code = $order->code;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Dropdown_model->get_all_destinations(),
-      'awb' => $awb,
-      'detail_item' => $this->Detail_item_model->getAll($awb),
+      'detail_item' => $this->Detail_item_model->getAll($code),
       'order' => $this->Order_model->getByAWB($awb),
       'category' => $this->Dropdown_model->get_all_category()
     ];
@@ -84,11 +110,12 @@ class Order extends MY_Controller
       'Promo' => 'PROMO',
     ];
     load_page__assets($this, 'order/list');
+    load_page__assets($this, 'order/calculate');
 
     $this->loadView('v3/admin/order/create', 'Create Cleansing', $data);
   }
 
-  public function insert_detail_item($awb)
+  public function insert_detail_item($awb, $code)
   {
     $this->form_validation->set_rules('package_detail', 'Category', 'required');
     $this->form_validation->set_rules('item_name', 'Item Name', 'required');
@@ -98,7 +125,7 @@ class Order extends MY_Controller
       $this->create_cleansing($awb);
     } else {
       $data = [
-        'cleansing_code' => $awb,
+        'cleansing_code' => $code,
         'goods_type' => $this->input->post('package_detail'),
         'goods_category' => $this->input->post('item_name'),
         'qty' => $this->input->post('qty'),
@@ -206,6 +233,8 @@ class Order extends MY_Controller
         'jenis_paket' => $this->input->post('package'),
         'connote_reff' => $this->input->post('refference')
       ];
+      $this->Order_model->update($awb, $data);
+
       if ($order->code == $awb) {
         $data = ['final_connote' => 'CEX' . rand('100000000', '9999999999')];
       }

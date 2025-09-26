@@ -137,7 +137,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-5">
                     <!--begin::Form-->
-                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/insert_order_data/' . $awb) ?>" method="post">
+                    <form id="order_form" class="form" action="<?= base_url('v3/admin/order/insert_order_data/' . $order->final_connote) ?>" method="post">
                         <!--begin::Card title-->
                         <div class="card-title d-flex align-items-center">
                             <i class="ki-duotone ki-user fs-1 me-2"> <!-- Ikon user untuk sender -->
@@ -604,7 +604,7 @@
                     </form>
                     <!--end::Form-->
 
-                    <form action="<?= base_url('v3/admin/order/insert_detail_item/' . $awb) ?>" method="post" id="item_detail">
+                    <form action="<?= base_url('v3/admin/order/insert_detail_item/' . $order->final_connote . '/' . $order->code) ?>" method="post" id="item_detail">
                         <!--begin::Separator-->
                         <div class="separator mb-6"></div>
                         <!--end::Separator-->

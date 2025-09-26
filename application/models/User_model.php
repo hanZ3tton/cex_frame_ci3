@@ -11,6 +11,15 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    public function getAllCS()
+    {
+        $account  = $this->session->userdata('account');
+        $this->db->where('account', $account);
+        $this->db->where('grup', 'CS');
+        $query = $this->db->get('tb_user_agent');
+        return $query->result();
+    }
+
     public function getUserByCode($id)
     {
         $this->db->where('code', $id);

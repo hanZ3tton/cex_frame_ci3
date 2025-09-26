@@ -176,9 +176,30 @@
                   </td>
                   <td><?= $order->final_connote ?></td>
                   <td class="text-center"><?= date("m/d/Y", strtotime($order->tgl_kirim)) ?></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>
+                    <?php
+                    if ($order->status_cleansing == 1) : ?>
+                      <i class="ki-duotone ki-check fs-1">
+                      </i>
+                    <?php endif
+                    ?>
+                  </td>
+                  <td>
+                    <?php
+                    if ($order->status_invoice == 1) : ?>
+                      <i class="ki-duotone ki-check fs-1">
+                      </i>
+                    <?php endif
+                    ?>
+                  </td>
+                  <td>
+                    <?php
+                    if ($order->status_payment == 1) : ?>
+                      <i class="ki-duotone ki-check fs-1">
+                      </i>
+                    <?php endif
+                    ?>
+                  </td>
                   <td><span class="<?= $order->status_label ?>"><?= $order->status_name ?></span></td>
                   <td><?= (!$order->inbound == 0) ? $order->ship_name . ' (' . $order->weight . ' Kg)' : '' ?></td>
                   <td><?= $order->ship_name ?></td>
