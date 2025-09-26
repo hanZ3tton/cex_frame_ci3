@@ -44,7 +44,7 @@ class Inbound extends MY_Controller
     public function create()
     {
         $data = [
-            'users' => $this->User_model->getAllUser()
+            'users' => $this->User_model->getAllCS()
         ];
 
         $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
