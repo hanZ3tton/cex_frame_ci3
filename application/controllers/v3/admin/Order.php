@@ -119,7 +119,6 @@ class Order extends MY_Controller
 
   public function insert_order_data($awb)
   {
-
     $this->form_validation->set_rules('sender_name', 'Name', 'required');
     $this->form_validation->set_rules('sender_phone', 'Phone', 'required');
     $this->form_validation->set_rules('sender_address', 'Address', 'required');

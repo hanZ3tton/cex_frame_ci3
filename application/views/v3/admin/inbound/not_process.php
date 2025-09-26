@@ -152,7 +152,7 @@
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a
-                                                    href="<?= base_url('v3/admin/inbound/claim_to_recipt/' . $inbound->code) ?>"
+                                                    href="<?= base_url('v3/admin/inbound/claim_to_receipt/' . $inbound->code) ?>"
                                                     class="menu-link px-3">Claim To Recipt</a>
                                             </div>
                                             <!--end::Menu item-->

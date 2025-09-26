@@ -3,6 +3,10 @@ defined('BASEPATH') or exit('no direct script access allowed');
 
 class Inbound extends MY_Controller
 {
+    const STATUS_NOT_PROCESSED = 15;
+    const STATUS_CLAIMED = 3;
+    const STATUS_DELETED = 10;
+
     public function __construct()
     {
         parent::__construct();
@@ -29,10 +33,8 @@ class Inbound extends MY_Controller
 
     public function not_process()
     {
-        $status_id = 15;
-
         $data = [
-            'inbounds' => $this->Inbound_model->get_inbound_by_status($status_id)
+            'inbounds' => $this->Inbound_model->get_inbound_by_status(self::STATUS_NOT_PROCESSED)
         ];
         load_page__assets($this, 'inbound/list');
 
@@ -42,56 +44,85 @@ class Inbound extends MY_Controller
     public function create()
     {
         $data = [
-            'inbounds' => $this->Inbound_model->get_all_inbound(),
             'users' => $this->User_model->getAllUser()
         ];
 
         $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
     }
 
+    private function set_validation_rules()
+    {
+        $this->form_validation->set_rules('shipper_name', 'Sender Name', 'required|trim');
+        $this->form_validation->set_rules('shipper_phone', 'Phone Number', 'required|min_length[10]|trim');
+        $this->form_validation->set_rules('weight', 'Weight', 'required|numeric|greater_than[0]|trim');
+        $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required|trim');
+        $this->form_validation->set_rules('cs', 'CS', 'required|trim');
+    }
+
+    private function sanitize_input($data)
+    {
+        $sanitized = [];
+        foreach ($data as $key => $value) {
+            $sanitized[$key] = $this->security->xss_clean(trim($value));
+        }
+        return $sanitized;
+    }
+
+    private function handle_photo_uploads(&$data)
+    {
+        $photo_fields = [
+            'picture' => 'photo_1',
+            'picture2' => 'photo_2',
+            'picture3' => 'photo_3'
+        ];
+
+        foreach ($photo_fields as $key => $field) {
+            if (!empty($_FILES[$field]['name'])) {
+                $fileName = upload_photo($field);
+                if (!$fileName) {
+                    throw new Exception($this->upload->display_errors());
+                }
+                $data[$key] = $fileName;
+            }
+        }
+    }
+
     public function store()
     {
-        $this->form_validation->set_rules('shipper_name', 'Sender Name', 'required');
-        $this->form_validation->set_rules('shipper_phone', 'Phone Number', 'required|min_length[10]');
-        $this->form_validation->set_rules('weight', 'Weight', 'required');
-        $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
-        $this->form_validation->set_rules('cs', 'CS', 'required');
+        $this->set_validation_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
-            $data = [
-                'account' => $this->session->userdata('account'),
-                'inbound_date' => date('Y-m-d'),
-                'shipper_name' => $this->input->post('shipper_name'),
-                'shipper_phone' =>  $this->input->post('shipper_phone'),
-                'weight' =>  $this->input->post('weight'),
-                'goods_desc' =>  $this->input->post('goods_desc'),
-                'cs' =>  $this->input->post('cs'),
-                'status' =>  15,
-                'updatedby' => $this->session->userdata('name')
-            ];
+            try {
+                $data = [
+                    'account' => $this->session->userdata('account'),
+                    'inbound_date' => date('Y-m-d'),
+                    'shipper_name' => $this->input->post('shipper_name'),
+                    'shipper_phone' => $this->input->post('shipper_phone'),
+                    'weight' => $this->input->post('weight'),
+                    'goods_desc' => $this->input->post('goods_desc'),
+                    'cs' => $this->input->post('cs'),
+                    'status' => self::STATUS_NOT_PROCESSED,
+                    'updatedby' => $this->session->userdata('name')
+                ];
 
-            $photo_fields = [
-                'picture' => 'photo_1',
-                'picture2' => 'photo_2',
-                'picture3' => 'photo_3'
-            ];
+                // Sanitize input data
+                $data = $this->sanitize_input($data);
 
-            foreach ($photo_fields as $key => $field) {
-                if (!empty($_FILES[$field]['name'])) {
-                    $fileName = upload_photo($field);
-                    if (!$fileName) {
-                        $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/inbound');
-                        return;
-                    }
-                    $data[$key] = $fileName;
+                // Handle photo uploads
+                $this->handle_photo_uploads($data);
+
+                if ($this->Inbound_model->insert($data)) {
+                    $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+                } else {
+                    $this->session->set_flashdata('error', 'Gagal menyimpan data!');
                 }
+            } catch (Exception $e) {
+                log_message('error', 'Store inbound error: ' . $e->getMessage());
+                $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
             }
 
-            $this->Inbound_model->insert($data);
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
             redirect('admin/inbound');
         }
     }
@@ -108,127 +139,58 @@ class Inbound extends MY_Controller
 
     public function update($code)
     {
-        $this->form_validation->set_rules('shipper_name', 'Shipper Name', 'required');
-        $this->form_validation->set_rules('shipper_phone', 'Shipper Phone', 'required|min_length[10]');
-        $this->form_validation->set_rules('weight', 'Weight', 'required');
-        $this->form_validation->set_rules('goods_desc', 'Goods Description', 'required');
-        $this->form_validation->set_rules('cs', 'CS', 'required');
+        $this->set_validation_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->not_process();
         } else {
-            $data = [
-                'shipper_name' => $this->input->post('shipper_name'),
-                'shipper_phone' =>  $this->input->post('shipper_phone'),
-                'weight' =>  $this->input->post('weight'),
-                'goods_desc' =>  $this->input->post('goods_desc'),
-                'cs' =>  $this->input->post('cs'),
-                'updatedon' => date('Y-m-d H:i:s'),
-                'updatedby' =>  $this->session->userdata('account'),
-            ];
+            try {
+                $data = [
+                    'shipper_name' => $this->input->post('shipper_name'),
+                    'shipper_phone' => $this->input->post('shipper_phone'),
+                    'weight' => $this->input->post('weight'),
+                    'goods_desc' => $this->input->post('goods_desc'),
+                    'cs' => $this->input->post('cs'),
+                    'updatedon' => date('Y-m-d H:i:s'),
+                    'updatedby' => $this->session->userdata('account'),
+                ];
 
-            $photo_fields = [
-                'picture' => 'photo_1',
-                'picture2' => 'photo_2',
-                'picture3' => 'photo_3'
-            ];
+                // Sanitize input data
+                $data = $this->sanitize_input($data);
 
-            foreach ($photo_fields as $key => $field) {
-                if (!empty($_FILES[$field]['name'])) {
-                    $fileName = upload_photo($field);
-                    if (!$fileName) {
-                        $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/inbound');
-                        return;
-                    }
-                    $data[$key] = $fileName;
+                // Handle photo uploads
+                $this->handle_photo_uploads($data);
+
+                if ($this->Inbound_model->update($code, $data)) {
+                    $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+                } else {
+                    $this->session->set_flashdata('error', 'Gagal menyimpan data!');
                 }
+            } catch (Exception $e) {
+                log_message('error', 'Update inbound error: ' . $e->getMessage());
+                $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
             }
 
-            $this->Inbound_model->update($code, $data);
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
             redirect('admin/inbound');
         }
     }
 
-    public function claim_to_recipt($code)
+    public function claim_to_receipt($code)
     {
-        $inbound = $this->Inbound_model->get_inbound_by_code($code);
         $username = $this->session->userdata('username');
-        $account = $this->session->userdata('account');
-        $time = time();
-        $data = [
-            'connote' => $time,
-            'ship_account_number' => $account,
-            'domestic_courier' => '',
-            'domestic_awb' => '',
-            'ship_account' => $account,
-            'ship_ref' => '',
-            'ship_address' => '',
-            'ship_province' => '',
-            'ship_city' => '',
-            'ship_phone' => $inbound->shipper_phone,
-            'ship_country' => strtoupper('indonesia'),
-            'rec_account_number' => '',
-            'rec_name' => '',
-            'rec_ref' => '',
-            'rec_address' => '',
-            'rec_postcode' => '',
-            'rec_city' => '',
-            'rec_phone' => '',
-            'rec_country' => '',
-            'origin' => 'INDONESIA',
-            'destination' => '',
-            'weight' => $inbound->weight,
-            'charge_weight' => ceil($inbound->weight),
-            'number_of_pieces' => '0',
-            'total_amount' => '0',
-            'currency' => 'USD',
-            'notes' => '',
-            'status' => '3',
-            'mode' => '1',
-            'updatedby' => $username,
-            'updatedon' => date('Y-m-d H:i:s'),
-            'sumber' => 'FRM',
-            'value_of_goods' => '',
-            'picture_of_goods' => '',
-            'picture_of_paket' => '',
-            'request_pickup' => '',
-            'picture_of_idcard_receiver' => '',
-            'payment_method' => '',
-            'ship_postcode' => '',
-            'tgl_kirim' => date('Y-m-d'),
-            'inbound' => 1,
-            'inbound_date' => $inbound->inbound_date,
-            'outbound' => '0',
-            'outbound_date' => '',
-            'ongkir' => '0',
-            'inbound_by' => $username,
-            'service' => '',
-            'arc_no' => '',
-            'ship_name' => $inbound->shipper_name,
-            'cs' => $inbound->cs,
-        ];
+        $account  = $this->session->userdata('account');
 
-        $this->db->trans_start();
+        try {
+            $result = $this->Inbound_model->claim_to_receipt($code, $username, $account);
 
-        $this->Inbound_model->input_cleansing($data);
-        $insert_id = $this->db->insert_id();
-
-        $data_item = [
-            'connote' => $account . '-' . $insert_id,
-            'final_connote' => $insert_id,
-        ];
-        $this->Inbound_model->update_cleansing($insert_id, $data_item);
-
-        $this->Inbound_model->update($code, ['status' => 3]);
-
-        $this->db->trans_complete();
-
-        if ($this->db->trans_status() === FALSE) {
-            $this->session->set_flashdata('error', 'Failed to claim to receipt!');
-        } else {
-            $this->session->set_flashdata('success', 'Inbound successfully claimed to receipt!');
+            if ($result) {
+                $this->session->set_flashdata('success', 'Data inbound berhasil diklaim ke receipt!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal mengklaim data inbound!');
+            }
+        } catch (Exception $e) {
+            log_message('error', 'Claim to receipt error: ' . $e->getMessage());
+            $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         redirect('admin/inbound');
@@ -236,41 +198,63 @@ class Inbound extends MY_Controller
 
     public function soft_delete($code)
     {
-        $inbound = $this->Inbound_model->get_inbound_by_code($code);
+        try {
+            $inbound = $this->Inbound_model->get_inbound_by_code($code);
 
-        if (!$inbound) {
-            $this->session->set_flashdata('error', 'Data tidak ditemukan!');
-            redirect('admin/inbound');
-            return;
+            if (!$inbound) {
+                $this->session->set_flashdata('error', 'Data tidak ditemukan!');
+                redirect('admin/inbound');
+                return;
+            }
+
+            if ($this->Inbound_model->soft_delete($code)) {
+                $this->session->set_flashdata('success', 'Data berhasil dihapus!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal menghapus data!');
+            }
+        } catch (Exception $e) {
+            log_message('error', 'Soft delete inbound error: ' . $e->getMessage());
+            $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        $this->Inbound_model->soft_delete($code);
-        $this->session->set_flashdata('success', 'Data Berhasil diapuskan!');
         redirect('admin/inbound');
     }
 
-    public  function delete($code)
+    public function delete($code)
     {
-        $inbound = $this->Inbound_model->get_inbound_by_code($code);
+        try {
+            $inbound = $this->Inbound_model->get_inbound_by_code($code);
 
-        if (!$inbound) {
-            $this->session->set_flashdata('error', 'Data tidak ditemukan!');
-            redirect('admin/inbound');
-            return;
+            if (!$inbound) {
+                $this->session->set_flashdata('error', 'Data tidak ditemukan!');
+                redirect('admin/inbound');
+                return;
+            }
+
+            // Delete associated files
+            $this->delete_associated_files($inbound);
+
+            if ($this->Inbound_model->delete($code)) {
+                $this->session->set_flashdata('success', 'Data berhasil dihapus!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal menghapus data!');
+            }
+        } catch (Exception $e) {
+            log_message('error', 'Delete inbound error: ' . $e->getMessage());
+            $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        if (!empty($inbound->picture) && file_exists(FCPATH . 'uploads/' . $inbound->picture)) {
-            unlink(FCPATH . 'uploads/' . $inbound->picture);
-        }
-        if (!empty($inbound->picture2) && file_exists(FCPATH . 'uploads/' . $inbound->picture2)) {
-            unlink(FCPATH . 'uploads/' . $inbound->picture2);
-        }
-        if (!empty($inbound->picture3) && file_exists(FCPATH . 'uploads/' . $inbound->picture3)) {
-            unlink(FCPATH . 'uploads/' . $inbound->picture3);
-        }
-
-        $this->Inbound_model->delete($code);
-        $this->session->set_flashdata('success', 'Data berhasil dihapus!');
         redirect('admin/inbound');
+    }
+
+    private function delete_associated_files($inbound)
+    {
+        $pictures = ['picture', 'picture2', 'picture3'];
+
+        foreach ($pictures as $picture) {
+            if (!empty($inbound->$picture) && file_exists(FCPATH . 'uploads/' . $inbound->$picture)) {
+                unlink(FCPATH . 'uploads/' . $inbound->$picture);
+            }
+        }
     }
 }
