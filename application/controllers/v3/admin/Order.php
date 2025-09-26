@@ -11,6 +11,7 @@ class Order extends MY_Controller
     $this->load->model('Order_model');
     $this->load->model('Dropdown_model');
     $this->load->model('Detail_item_model');
+    $this->load->model('Mitra_model');
     $this->load->library('form_validation');
     if (!$this->session->userdata('logged_in')) {
       redirect('auth');
@@ -248,7 +249,32 @@ class Order extends MY_Controller
     }
   }
 
-  public function pay() {}
+  public function pay($awb)
+  {
+    $account = $this->session->userdata('account');
+    $mitra = $this->Mitra_model->getMitraByAccount($account);
+    $order = $this->Order_model->getByAWB($awb);
+    $pay = $mitra->deposit_balance - ($order->ongkir * 16721);
+    $data_mitra = [
+      'deposit_balance' => $pay
+    ];
+    if ($this->Mitra_model->updateMitra($account, $data_mitra)) {
+      $data_order = [
+        'payment' => $order->ongkir,
+        'status' => '7',
+        'updatedby' => $this->session->userdata('username'),
+        'updatedon' => date('Y-m-d H:i:s'),
+      ];
+      $pay = $this->session->set_userdata('credit', $mitra->deposit_balance);
+      if ($this->Order_model->update($awb, $data_order)) {
+        $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been paid');
+        redirect('admin/order');
+      } else {
+        $this->session->set_flashdata('error', 'Try Again Later');
+        redirect('admin/order');
+      }
+    }
+  }
 
   public function completed()
   {
