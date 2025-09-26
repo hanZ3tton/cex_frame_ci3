@@ -149,17 +149,17 @@
                       data-kt-menu="true">
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
-                        <a
-                          href="<?= base_url('admin/inbound/edit/') ?>"
-                          class="menu-link px-3">Edit</a>
+                        <a href="<?= base_url('v3/admin/order/set_outbound/' . $order->final_connote) ?>"
+                          class="menu-link px-3">
+                          Set Outbound
+                        </a>
                       </div>
                       <!--end::Menu item-->
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
-                          href="<?= base_url('admin/inbound/delete/') ?>"
-                          class="menu-link px-3"
-                          data-kt-users-table-filter="delete_row">Delete</a>
+                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
+                          class="menu-link px-3">Cancel</a>
                       </div>
                       <!--end::Menu item-->
                     </div>

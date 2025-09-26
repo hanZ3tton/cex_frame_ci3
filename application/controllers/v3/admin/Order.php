@@ -233,6 +233,29 @@ class Order extends MY_Controller
     $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
   }
 
+  public function set_outbound($awb)
+  {
+    $order = $this->Order_model->get_by_awb($awb);
+
+    if (!$order) {
+      $this->session->set_flashdata('error', 'Data tidak ditemukan!');
+      redirect('admin/order/completed');
+      return;
+    }
+
+    $data = [
+      'branch_outbound' => 1
+    ];
+
+    if ($this->Order_model->update_outbound($awb, $data)) {
+      $this->session->set_flashdata('success', 'Branch outbound berhasil diupdate!');
+    } else {
+      $this->session->set_flashdata('error', 'Gagal update branch outbound!');
+    }
+
+    redirect('admin/order/completed');
+  }
+
   public function cancel_order($awb)
   {
     $data = [

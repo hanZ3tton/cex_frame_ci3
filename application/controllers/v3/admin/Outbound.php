@@ -16,10 +16,10 @@ class Outbound extends MY_Controller
 
   public function index()
   {
-    $outbound = 1;
+    $flag = 1;
 
     $data = [
-      'orders' => $this->Outbound_model->get_outbound_by_status($outbound)
+      'orders' => $this->Outbound_model->get_outbound_by_flag($flag)
     ];
     load_page__assets($this, 'outbound/list');
 

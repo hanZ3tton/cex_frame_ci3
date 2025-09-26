@@ -9,6 +9,12 @@ class Order_model extends CI_Model
     parent::__construct();
   }
 
+  public function get_by_awb($awb)
+  {
+    $this->db->where('final_connote', $awb);
+    return $this->db->get($this->table)->result();
+  }
+
   public function getAll()
   {
     $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label as status_label');
@@ -25,6 +31,7 @@ class Order_model extends CI_Model
     $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');
     $this->db->order_by("{$this->table}.code", 'DESC');
     $this->db->where("{$this->table}.status", $status_id);
+    $this->db->where("{$this->table}.branch_outbound", 0);
     return $this->db->get()->result();
   }
 
@@ -48,6 +55,12 @@ class Order_model extends CI_Model
   }
 
   public function update($awb, $data)
+  {
+    $this->db->where('final_connote', $awb);
+    return $this->db->update($this->table, $data);
+  }
+
+  public function update_outbound($awb, $data)
   {
     $this->db->where('final_connote', $awb);
     return $this->db->update($this->table, $data);
