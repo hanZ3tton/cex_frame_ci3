@@ -220,7 +220,7 @@ class Order extends MY_Controller
     }
   }
 
-
+  public function pay() {}
 
   public function completed()
   {
