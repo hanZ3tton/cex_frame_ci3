@@ -3,9 +3,7 @@ defined('BASEPATH') or exit('no direct script access allowed');
 
 class Inbound extends MY_Controller
 {
-    const STATUS_NOT_PROCESSED = 15;
-    const STATUS_CLAIMED = 3;
-    const STATUS_DELETED = 10;
+    const STATUS_INBOUND = 15;
 
     public function __construct()
     {
@@ -34,7 +32,7 @@ class Inbound extends MY_Controller
     public function not_process()
     {
         $data = [
-            'inbounds' => $this->Inbound_model->get_inbound_by_status(self::STATUS_NOT_PROCESSED)
+            'inbounds' => $this->Inbound_model->get_inbound_by_status(self::STATUS_INBOUND)
         ];
         load_page__assets($this, 'inbound/list');
 
@@ -103,7 +101,7 @@ class Inbound extends MY_Controller
                     'weight' => $this->input->post('weight'),
                     'goods_desc' => $this->input->post('goods_desc'),
                     'cs' => $this->input->post('cs'),
-                    'status' => self::STATUS_NOT_PROCESSED,
+                    'status' => self::STATUS_INBOUND,
                     'updatedby' => $this->session->userdata('name')
                 ];
 
