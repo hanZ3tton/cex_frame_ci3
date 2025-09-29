@@ -23,6 +23,13 @@ class Order_model extends CI_Model
     return $this->db->get()->row();
   }
 
+  public function get_by_code($code)
+  {
+    $this->db->from($this->table);
+    $this->db->where('code', $code);
+    return $this->db->get()->row();
+  }
+
   public function get_all()
   {
     $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label as status_label');
