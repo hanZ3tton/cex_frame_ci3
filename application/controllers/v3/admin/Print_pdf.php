@@ -10,7 +10,7 @@ class Print_pdf extends CI_Controller
 
     function index($code, $type)
     {
-        $dataOrder = $this->order_model->get_by_code($code)[0];
+        $dataOrder = $this->order_model->get_by_code($code);
         if ($type == 1) {
             $this->domestic_print_a4($dataOrder);
         } else if ($type == 2) {

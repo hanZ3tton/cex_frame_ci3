@@ -59,11 +59,6 @@ class Order_model extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function getByAWB($awb)
-  {
-    return $this->get_by_awb($awb);
-  }
-
   public function insert($data)
   {
     return $this->db->insert($this->table, $data);
