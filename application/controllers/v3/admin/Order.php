@@ -5,7 +5,6 @@ class Order extends MY_Controller
 {
   const STATUS_CLAIMED = 3;
   const STATUS_COMPLETED = 7;
-  const STATUS_VOID = 10;
   const MODE_FORM = 1;
 
   public function __construct()
