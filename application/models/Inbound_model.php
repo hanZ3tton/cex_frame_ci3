@@ -1,8 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 class Inbound_model extends CI_Model
 {
   protected $table = 'tb_order_inbound';
+
+  const STATUS_CLAIMED = 3;
+  const STATUS_VOID = 10;
+  const STATUS_INBOUND = 15;
 
   public function __construct()
   {
@@ -20,16 +25,20 @@ class Inbound_model extends CI_Model
     $this->db->from($this->table);
     $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
     $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
+    $this->db->where_in("{$this->table}.status", [self::STATUS_INBOUND, self::STATUS_VOID]);
 
     if ($account) {
       $this->db->where("{$this->table}.account", $account);
     }
 
+    $this->db->order_by("{$this->table}.code", 'DESC');
     return $this->db->get()->result();
   }
 
   public function get_inbound_by_status($status)
   {
+    $account = $this->session->userdata('account');
+
     $this->db->select("{$this->table}.*,
                          tb_status.status_name,
                          tb_status.label,
@@ -38,6 +47,12 @@ class Inbound_model extends CI_Model
     $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
     $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
     $this->db->where("{$this->table}.status", $status);
+
+    if ($account) {
+      $this->db->where("{$this->table}.account", $account);
+    }
+
+    $this->db->order_by("{$this->table}.code", 'DESC');
     return $this->db->get()->result();
   }
 
@@ -51,7 +66,7 @@ class Inbound_model extends CI_Model
     $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
     $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
     $this->db->where("{$this->table}.code", $code);
-    return $this->db->get()->row(); // karena code unik, ambil 1 row aja
+    return $this->db->get()->row();
   }
 
   public function insert($data)
@@ -102,7 +117,7 @@ class Inbound_model extends CI_Model
       'currency' => 'USD',
       'desc_of_goods' => $inbound->goods_desc,
       'notes' => '',
-      'status' => '3',
+      'status' => (string) self::STATUS_CLAIMED,
       'mode' => '1',
       'updatedby' => $username,
       'updatedon' => date('Y-m-d H:i:s'),
@@ -140,7 +155,7 @@ class Inbound_model extends CI_Model
     ];
     $this->update_cleansing($insert_id, $data_item);
 
-    $this->update($code, ['status' => '3']);
+    $this->update($code, ['status' => self::STATUS_CLAIMED]);
 
     return true;
   }
@@ -149,7 +164,7 @@ class Inbound_model extends CI_Model
   {
     $this->db->where('code', $code);
     return $this->db->update($this->table, [
-      'status' => 10
+      'status' => self::STATUS_VOID
     ]);
   }
 
@@ -162,9 +177,27 @@ class Inbound_model extends CI_Model
   {
     return $this->db->insert('tb_order_member', $data);
   }
+
   public function update_cleansing($code, $data)
   {
     $this->db->where('code', $code);
     return $this->db->update('tb_order_member', $data);
+  }
+
+  public function count_by_status($status_id)
+  {
+    $this->db->where('status', $status_id);
+    $this->db->from($this->table);
+    return $this->db->count_all_results();
+  }
+
+  public function get_by_account($account)
+  {
+    $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label as status_label');
+    $this->db->from($this->table);
+    $this->db->join('tb_status', $this->table . '.status = tb_status.code', 'inner');
+    $this->db->where($this->table . '.account', $account);
+    $this->db->order_by($this->table . '.code', 'DESC');
+    return $this->db->get()->result();
   }
 }
