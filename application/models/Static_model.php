@@ -8,22 +8,36 @@ class Static_model extends CI_Model
       'not_process'   => $this->count_by_status_inbound(15),
       'not_completed' => $this->count_by_status_order(3),
       'completed'     => $this->count_by_status_order(7),
-      'outbound'      => $this->count_by_status_outbound(1)
+      'outbound'      => $this->count_by_branch_outbound(1)
     ];
   }
 
   private function count_by_status_inbound($status)
   {
-    return $this->db->where('status', $status)->from('tb_order_inbound')->count_all_results();
+    $account = $this->session->userdata('username');
+
+    $this->db->where('status', $status);
+    $this->db->from('tb_order_inbound')->count_all_results();
+    return $this->db->count_all_results();
   }
 
   private function count_by_status_order($status)
   {
-    return $this->db->where('status', $status)->from('tb_order_member')->count_all_results();
+    $account = $this->session->userdata('username');
+
+    $this->db->where('ship_account', $account);
+    $this->db->where('status', $status);
+    $this->db->from('tb_order_member');
+    return $this->db->count_all_results();
   }
 
-  private function count_by_status_outbound($status)
+  private function count_by_branch_outbound($status)
   {
-    return $this->db->where('outbound', $status)->from('tb_order_member')->count_all_results();
+    $account = $this->session->userdata('username');
+
+    $this->db->where('ship_account', $account);
+    $this->db->where('branch_outbound', $status);
+    $this->db->from('tb_order_member');
+    return $this->db->count_all_results();
   }
 }
