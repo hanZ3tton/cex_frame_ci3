@@ -157,6 +157,22 @@
                       <!--end::Menu item-->
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
+                        <a href="<?= base_url('v3/admin/print_pdf/index/' . $order->code . '/1') ?>"
+                          class="menu-link px-3">
+                          Print Receipt
+                        </a>
+                      </div>
+                      <!--end::Menu item-->
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a href="<?= base_url('v3/admin/print_pdf/index/' . $order->code . '/2') ?>"
+                          class="menu-link px-3">
+                          Print Thermal Receipt
+                        </a>
+                      </div>
+                      <!--end::Menu item-->
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
                         <a
                           href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
                           class="menu-link px-3">Cancel</a>

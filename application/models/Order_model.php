@@ -15,6 +15,13 @@ class Order_model extends CI_Model
     return $this->db->get($this->table)->result();
   }
 
+  public function get_by_code($code)
+  {
+    $this->db->where('code', $code);
+    return $this->db->get($this->table)->result();
+  }
+
+
   public function getAll()
   {
     $this->db->select($this->table . '.*,tb_status.status_name,tb_status.label as status_label');
@@ -33,14 +40,6 @@ class Order_model extends CI_Model
     $this->db->where("{$this->table}.status", $status_id);
     $this->db->where("{$this->table}.branch_outbound", 0);
     return $this->db->get()->result();
-  }
-
-
-  public function getByAWB($awb)
-  {
-    $this->db->from($this->table);
-    $this->db->where('final_connote', $awb);
-    return $this->db->get()->row();
   }
 
   public function insert($data)

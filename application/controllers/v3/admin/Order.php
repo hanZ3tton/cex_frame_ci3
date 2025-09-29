@@ -73,7 +73,7 @@ class Order extends MY_Controller
       'updatedby' => $username,
       'updatedon' => date('Y-m-d H:i:s'),
       'sumber' => 'FRM',
-      'tgl_kirim' => null,
+      'tgl_kirim' => date('Y-m-d'),
       'inbound' => '0',
       'outbound' => '0',
       'ongkir' => '0',
@@ -95,13 +95,13 @@ class Order extends MY_Controller
   public function create_cleansing($awb)
   {
     $status_id = 3;
-    $order = $this->Order_model->getByAWB($awb);
+    $order = $this->Order_model->get_by_awb($awb);
     $code = $order->code;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Dropdown_model->get_all_destinations(),
       'detail_item' => $this->Detail_item_model->getAll($code),
-      'order' => $this->Order_model->getByAWB($awb),
+      'order' => $this->Order_model->get_by_awb($awb),
       'category' => $this->Dropdown_model->get_all_category()
     ];
     $data['services'] = [
@@ -169,7 +169,7 @@ class Order extends MY_Controller
       $this->create_cleansing($awb);
     } else {
       $number_of_pieces = 1; //default
-      $order = $this->Order_model->getByAWB($awb);
+      $order = $this->Order_model->get_by_awb($awb);
 
       $qty = 0;
       $customs_value = 0;
@@ -253,7 +253,7 @@ class Order extends MY_Controller
   {
     $account = $this->session->userdata('account');
     $mitra = $this->Mitra_model->getMitraByAccount($account);
-    $order = $this->Order_model->getByAWB($awb);
+    $order = $this->Order_model->get_by_awb($awb);
     $pay = $mitra->deposit_balance - ($order->ongkir * 16721);
     $data_mitra = [
       'deposit_balance' => $pay
