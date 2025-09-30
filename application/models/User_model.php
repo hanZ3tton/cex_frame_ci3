@@ -13,7 +13,6 @@ class User_model extends CI_Model
 
     public function get_all_cs()
     {
-        $this->db->from($this->table);
         $account  = $this->session->userdata('account');
         $this->db->where('account', $account);
         $this->db->where('grup', 'CS');
