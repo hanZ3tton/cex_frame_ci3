@@ -528,7 +528,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="">
+                                <a class="menu-link" href="<?= base_url('admin/report') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -542,7 +542,7 @@
                                 <!--begin:Menu link-->
                                 <a
                                     class="menu-link"
-                                    href="">
+                                    href="<?= base_url('admin/report/revanue_report') ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

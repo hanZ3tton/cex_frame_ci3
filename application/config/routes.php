@@ -98,6 +98,9 @@ $route['admin/user-management/delete/(:any)'] = 'v3/admin/user/delete';
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';
 
+$route['admin/report'] = 'v3/admin/report/index';
+$route['admin/report/revanue_report'] = 'v3/admin/report/revanue_report';
+
 // $route['admin/order'] = 'v3/admin/order/index';
 // $route['admin/order/completed'] = 'v3/admin/order/completed';
 // $route['admin/order/outbound'] = 'v3/admin/outbound/index';
