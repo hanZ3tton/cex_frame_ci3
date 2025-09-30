@@ -126,7 +126,7 @@
                 <th class="min-w-225px">City</th>
                 <th class="min-w-125px text-center">Phone number</th>
                 <th class="min-w-125px text-center">Country</th>
-                <th class="min-w-125px text-center">Goods Desc</th>
+                <!-- <th class="min-w-125px text-center">Goods Desc</th> -->
                 <th class="min-w-125px text-center">Actual Weight</th>
                 <th class="min-w-100px text-center">Weight</th>
                 <th class="min-w-150px text-center">Shipping Cost</th>
@@ -211,7 +211,7 @@
                   <td><?= $order->rec_city ?></td>
                   <td><?= $order->rec_phone ?></td>
                   <td><?= $order->destination ?></td>
-                  <td><?= $order->desc_of_goods ?></td>
+                  <!-- <td><?= $order->desc_of_goods ?></td> -->
                   <td class="text-center"><?= $order->weight ?></td>
                   <td class="text-center"><?= $order->charge_weight ?></td>
                   <td class="text-center"><?= $order->ongkir ?></td>

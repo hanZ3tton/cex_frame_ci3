@@ -31,7 +31,6 @@ class Order extends MY_Controller
       && !empty($order->rec_city)
       && !empty($order->rec_phone)
       && !empty($order->destination)
-      && !empty($order->desc_of_goods)
       && !empty($order->weight)
       && !empty($order->charge_weight)
       && !empty($order->ongkir);
