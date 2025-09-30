@@ -1,3 +1,38 @@
+<!--begin::Card-->
+<div class="card mb-5">
+  <!--begin::Card header-->
+  <div class="card-header border-0 pt-6">
+    <div class="card-title">
+      <h3 class="fw-bold m-0">Barcode Scanner</h3>
+    </div>
+  </div>
+  <!--end::Card header-->
+
+  <!--begin::Card body-->
+  <div class="card-body">
+    <div class="mb-5">
+      <div id="video" class="border rounded w-100"
+        style="height:482px; background:#000; overflow:hidden; border-radius:10px;">
+      </div>
+      <canvas id="snapshot" class="mt-3 border rounded w-100" style="display:none;"></canvas>
+    </div>
+
+    <div class="d-flex gap-3 mb-5">
+      <button id="startBtn" class="btn btn-sm btn-primary">Start</button>
+      <button id="stopBtn" class="btn btn-sm btn-danger" disabled>Stop</button>
+    </div>
+
+    <div class="fs-6">
+      <strong>Scan result:</strong>
+      <pre id="result" class="border rounded p-3 bg-light">—</pre>
+    </div>
+
+    <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+  </div>
+  <!--end::Card body-->
+</div>
+<!--end::Card-->
+
 <!--begin::Content wrapper-->
 <div class="d-flex flex-column flex-column-fluid">
   <!--begin::Toolbar-->
@@ -133,3 +168,101 @@
   <!--end::Content-->
 </div>
 <!--end::Content wrapper-->
+
+<script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+<script>
+  const startBtn = document.getElementById('startBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const resultEl = document.getElementById('result');
+  const videoEl = document.getElementById('video');
+  const snapshot = document.getElementById('snapshot');
+  const beep = document.getElementById('beep');
+
+  let currentStreamActive = false;
+  let lastResult = null;
+  let sameCount = 0;
+  const threshold = 3; // konsistensi minimal
+
+  function startScanner() {
+    if (currentStreamActive) return;
+
+    Quagga.init({
+      inputStream: {
+        type: "LiveStream",
+        target: videoEl,
+        constraints: {
+          facingMode: "environment"
+        }
+      },
+      decoder: {
+        readers: [
+          "ean_reader",
+          "code_128_reader",
+          "code_39_reader",
+          "upc_reader",
+          "codabar_reader"
+        ]
+      },
+      locate: true
+    }, function(err) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      Quagga.start();
+      currentStreamActive = true;
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      resultEl.textContent = 'Scanning...';
+    });
+
+    Quagga.onDetected(onDetected);
+  }
+
+  function stopScanner() {
+    if (!currentStreamActive) return;
+    Quagga.stop();
+    Quagga.offDetected(onDetected);
+    currentStreamActive = false;
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+
+  function onDetected(data) {
+    if (!data || !data.codeResult) return;
+    const code = data.codeResult.code;
+
+    if (code === lastResult) {
+      sameCount++;
+    } else {
+      sameCount = 0;
+      lastResult = code;
+    }
+
+    if (sameCount >= threshold) {
+      finalizeResult(code);
+    }
+  }
+
+  function finalizeResult(code) {
+    stopScanner();
+    resultEl.textContent = code;
+
+    const video = videoEl.querySelector("video");
+    if (video) {
+      // pastikan canvas ukurannya sama dengan video asli
+      snapshot.width = video.videoWidth;
+      snapshot.height = video.videoHeight;
+
+      const ctx = snapshot.getContext("2d");
+      ctx.drawImage(video, 0, 0, snapshot.width, snapshot.height);
+
+      snapshot.style.display = "block"; // tampilkan canvas hasil snapshot
+    }
+
+    beep.play();
+  }
+
+  startBtn.addEventListener('click', startScanner);
+  stopBtn.addEventListener('click', stopScanner);
+</script>
