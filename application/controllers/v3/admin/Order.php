@@ -22,39 +22,48 @@ class Order extends MY_Controller
     }
   }
 
+  private function is_order_cleansed($order)
+  {
+    return !empty($order->ship_name)
+      && !empty($order->rec_name)
+      && !empty($order->ship_address)
+      && !empty($order->rec_postcode)
+      && !empty($order->rec_city)
+      && !empty($order->rec_phone)
+      && !empty($order->destination)
+      && !empty($order->desc_of_goods)
+      && !empty($order->weight)
+      && !empty($order->charge_weight)
+      && !empty($order->ongkir);
+  }
+
+  private function has_order_invoice($code)
+  {
+    return (bool) $this->Detail_item_model->get_order_by_code($code);
+  }
+
+  private function is_order_paid($order)
+  {
+    return !empty($order->payment) && $order->payment == $order->ongkir;
+  }
+
   public function index()
   {
     $status_id = self::STATUS_CLAIMED;
+    $orders = $this->Order_model->get_order_by_status($status_id);
 
     $data_listing_final = [];
-    $orders = $this->Order_model->get_order_by_status($status_id);
     foreach ($orders as $order) {
-
-      $status_cleansing = 0;
-      if (!empty($order->ship_name) && !empty($order->rec_name) && !empty($order->ship_address) && !empty($order->rec_postcode) && !empty($order->rec_city) && !empty($order->rec_phone) && !empty($order->destination) && !empty($order->desc_of_goods) && !empty($order->weight) && !empty($order->charge_weight) && !empty($order->ongkir)) {
-        $status_cleansing = 1;
-      }
-      $status_invoice = 0;
-      if ($this->Detail_item_model->getAll($order->code)) {
-        $status_invoice = 1;
-      }
-
-      $status_payment = 0;
-      if (!empty($order->payment) && $order->payment == $order->ongkir) {
-        $status_payment = 1;
-      }
-
-      $order->status_cleansing = $status_cleansing;
-      $order->status_invoice   = $status_invoice;
-      $order->status_payment   = $status_payment;
+      $order->status_cleansing = $this->is_order_cleansed($order) ? 1 : 0;
+      $order->status_invoice   = $this->has_order_invoice($order->code) ? 1 : 0;
+      $order->status_payment   = $this->is_order_paid($order) ? 1 : 0;
       $data_listing_final[] = $order;
     }
-    load_page__assets($this, 'order/list');
 
     $data = [
       'orders' => $data_listing_final
     ];
-
+    load_page__assets($this, 'order/list');
 
     $this->loadView('v3/admin/order/index', 'Order List', $data);
   }
@@ -104,7 +113,7 @@ class Order extends MY_Controller
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Dropdown_model->get_all_destinations(),
-      'detail_item' => $this->Detail_item_model->getAll($code),
+      'detail_item' => $this->Detail_item_model->get_order_by_code($code),
       'order' => $this->Order_model->get_by_awb($awb),
       'category' => $this->Dropdown_model->get_all_category()
     ];
@@ -156,7 +165,7 @@ class Order extends MY_Controller
     $qty_total = 0;
     $customs_value = 0;
     $goods_desc_parts = [];
-    $qry = $this->Detail_item_model->getAll($awb);
+    $qry = $this->Detail_item_model->get_order_by_code($awb);
     foreach ($qry as $row) {
       $goods_desc_parts[] = $row->goods_category;
       $qty_total += (int) $row->qty;
@@ -211,12 +220,11 @@ class Order extends MY_Controller
       $this->create_cleansing($awb);
     } else {
       try {
-        $number_of_pieces = 1; // default
+        $number_of_pieces = 1;
         $order = $this->Order_model->get_by_awb($awb);
 
         $summary = $this->summarize_detail_items($awb);
         $goods_desc = $summary['goods_desc'];
-        $qty = $summary['qty_total'];
         $customs_value = $summary['customs_value'];
         $account = $this->session->userdata('account');
         $username = $this->session->userdata('username');
@@ -277,8 +285,9 @@ class Order extends MY_Controller
         $this->Order_model->update($awb, $data);
 
         if ($order->code == $awb) {
-          $data = ['final_connote' => 'CEX' . rand('100000000', '9999999999')];
+          $data['final_connote'] = 'CEX' . rand(100000000, 9999999999);
         }
+
         if ($this->Order_model->update($awb, $data)) {
           $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been updated');
           redirect('admin/order');

@@ -5,7 +5,6 @@ class Order_model extends CI_Model
 {
   protected $table = 'tb_order_member';
 
-  // Status and mode constants (single source of truth)
   const STATUS_CLAIMED = 3;
   const STATUS_COMPLETED = 7;
   const STATUS_VOID = 10;
@@ -82,20 +81,6 @@ class Order_model extends CI_Model
     return $this->db->update($this->table, $data);
   }
 
-  public function soft_delete($awb)
-  {
-    $order = $this->get_by_awb($awb);
-
-    $this->db->where('final_connote', $awb)->update($this->table, ['status' => 10]);
-    $this->db->where('code', $order->code)->update('tb_order_inbound', ['status' => 10]);
-  }
-
-  public function delete($awb)
-  {
-    $this->db->where('final_connote', $awb);
-    return $this->db->delete($this->table);
-  }
-
   public function count_by_status($status_id)
   {
     $this->db->where('status', $status_id);
@@ -111,5 +96,19 @@ class Order_model extends CI_Model
     $this->db->where("{$this->table}.ship_account", $account);
     $this->db->order_by("{$this->table}.code", 'DESC');
     return $this->db->get()->result();
+  }
+
+  public function soft_delete($awb)
+  {
+    $order = $this->get_by_awb($awb);
+    $this->db->where('final_connote', $awb)->update($this->table, ['status' => 10]);
+    $this->db->where('code', $order->code)->update('tb_order_inbound', ['status' => 10]);
+    return true;
+  }
+
+  public function delete($awb)
+  {
+    $this->db->where('final_connote', $awb);
+    return $this->db->delete($this->table);
   }
 }

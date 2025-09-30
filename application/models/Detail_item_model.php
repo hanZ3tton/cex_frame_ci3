@@ -9,10 +9,10 @@ class Detail_item_model extends CI_Model
         parent::__construct();
     }
 
-    public function getAll($awb)
+    public function get_order_by_code($code)
     {
         $this->db->from($this->table);
-        $this->db->where('cleansing_code', $awb);
+        $this->db->where('cleansing_code', $code);
         return $this->db->get()->result();
     }
 

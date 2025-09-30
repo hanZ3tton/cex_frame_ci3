@@ -157,18 +157,20 @@
                           class="menu-link px-3">Edit</a>
                       </div>
                       <!--end::Menu item-->
-                      <!--begin::Menu item-->
-                      <div class="menu-item px-3">
-                        <a
-                          href="<?= base_url('v3/admin/order/pay/' . $order->final_connote) ?>"
-                          class="menu-link px-3">Pay</a>
-                      </div>
-                      <!--end::Menu item-->
+                      <?php if ($order->status_cleansing == 1 && $order->status_invoice == 1): ?>
+                        <!--begin::Menu item-->
+                        <div class="menu-item px-3">
+                          <a
+                            href="<?= base_url('v3/admin/order/pay/' . $order->final_connote) ?>"
+                            class="menu-link px-3">Pay</a>
+                        </div>
+                        <!--end::Menu item-->
+                      <?php endif; ?>
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
                           href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
-                          class="menu-link px-3">Delete</a>
+                          class="menu-link px-3">Cancel</a>
                       </div>
                       <!--end::Menu item-->
                     </div>
