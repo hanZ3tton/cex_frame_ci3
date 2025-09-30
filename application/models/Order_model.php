@@ -84,8 +84,10 @@ class Order_model extends CI_Model
 
   public function soft_delete($awb)
   {
-    $this->db->where('final_connote', $awb);
-    return $this->db->update($this->table, ['status' => 10]);
+    $order = $this->get_by_awb($awb);
+
+    $this->db->where('final_connote', $awb)->update($this->table, ['status' => 10]);
+    $this->db->where('code', $order->code)->update('tb_order_inbound', ['status' => 10]);
   }
 
   public function delete($awb)

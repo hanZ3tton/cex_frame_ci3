@@ -146,7 +146,7 @@
                                             <div class="menu-item px-3">
                                                 <a
                                                     href="<?= base_url('v3/admin/inbound/soft_delete/' . $inbound->code) ?>"
-                                                    class="menu-link px-3">Delete</a>
+                                                    class="menu-link px-3">Cancel</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
