@@ -99,7 +99,7 @@ class Order extends MY_Controller
   public function create_cleansing($awb)
   {
     $status_id = self::STATUS_CLAIMED;
-    $order = $this->Order_model->getByAWB($awb);
+    $order = $this->Order_model->get_by_awb($awb);
     $code = $order->code;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
@@ -212,7 +212,7 @@ class Order extends MY_Controller
     } else {
       try {
         $number_of_pieces = 1; // default
-        $order = $this->Order_model->getByAWB($awb);
+        $order = $this->Order_model->get_by_awb($awb);
 
         $summary = $this->summarize_detail_items($awb);
         $goods_desc = $summary['goods_desc'];

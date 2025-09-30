@@ -151,7 +151,7 @@
                                     </span>
                                     <span class="menu-title">All Inbound</span>
                                     <span class="menu-badge">
-                                        <span class="badge badge-square badge-warning"><?= $shipment_count->all ?></span>
+                                        <span class="badge badge-square badge-warning"><?= $shipment_count->all_inbound ?></span>
                                     </span>
                                 </a>
                                 <!--end:Menu link-->

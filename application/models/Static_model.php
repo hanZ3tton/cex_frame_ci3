@@ -4,7 +4,7 @@ class Static_model extends CI_Model
   public function get_shipment_counts()
   {
     return (object) [
-      'all'           => $this->db->count_all('tb_order_inbound'),
+      'all_inbound'   => $this->db->count_all('tb_order_inbound'),
       'not_process'   => $this->count_by_status_inbound(15),
       'not_completed' => $this->count_by_status_order(3),
       'completed'     => $this->count_by_status_order(7),
@@ -16,8 +16,9 @@ class Static_model extends CI_Model
   {
     $account = $this->session->userdata('username');
 
+    $this->db->where('account', $account);
     $this->db->where('status', $status);
-    $this->db->from('tb_order_inbound')->count_all_results();
+    $this->db->from('tb_order_inbound');
     return $this->db->count_all_results();
   }
 

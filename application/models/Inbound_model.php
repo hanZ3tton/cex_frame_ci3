@@ -25,13 +25,14 @@ class Inbound_model extends CI_Model
     $this->db->from($this->table);
     $this->db->join('tb_status', "{$this->table}.status = tb_status.code", 'inner');
     $this->db->join('tb_user_agent', "{$this->table}.cs = tb_user_agent.username", 'left');
+    $this->db->join('tb_order_member', "tb_order_member.code = {$this->table}.code", 'left');
     $this->db->where_in("{$this->table}.status", [self::STATUS_INBOUND, self::STATUS_VOID]);
+    $this->db->order_by("{$this->table}.status", 'DESC');
 
     if ($account) {
       $this->db->where("{$this->table}.account", $account);
     }
 
-    $this->db->order_by("{$this->table}.code", 'DESC');
     return $this->db->get()->result();
   }
 
@@ -89,6 +90,7 @@ class Inbound_model extends CI_Model
 
     $time = time();
     $data = [
+      'code' => $inbound->code,
       'connote' => $time,
       'ship_account_number' => $account,
       'domestic_courier' => '',
