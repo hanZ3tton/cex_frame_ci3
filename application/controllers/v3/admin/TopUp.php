@@ -8,6 +8,8 @@ class Topup extends MY_Controller
         parent::__construct();
 
         $this->defaultLayout = 'v3/layouts/app';
+
+        $this->load->model('Mitra_model');
         if (!$this->session->userdata('logged_in')) {
             redirect('auth');
         }
@@ -26,5 +28,17 @@ class Topup extends MY_Controller
         $data = [];
 
         $this->loadView('v3/admin/topup/create', 'Deposit', $data);
+    }
+
+    public function store()
+    {
+        $mitra = $this->Mitra_model->get_mitra_by_account($this->session->userdata('account'));
+        $total = $mitra->deposit_balance + $this->input->post('Nominal');
+        $data = [
+            'deposit_balance' => $total,
+        ];
+        $this->Mitra_model->update_mitra($this->session->userdata('account'), $data);
+        redirect('admin/topup');
+        // code to process top-up submission
     }
 }

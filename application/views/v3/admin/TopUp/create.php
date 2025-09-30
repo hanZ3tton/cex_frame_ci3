@@ -71,9 +71,9 @@
 					<!--begin::Card body-->
 					<div class="card-body pt-5">
 						<!--begin::Form-->
-						<form id="kt_ecommerce_settings_general_form" class="form" action="#">
+						<form id="kt_ecommerce_settings_general_form" class="form" action="<?= base_url('v3/admin/topup/store') ?>" method="post">
 							<!--begin::Input group-->
-							<div class="fv-row mb-7">
+							<div class=" fv-row mb-7">
 								<!--begin::Label-->
 								<label class="fs-6 fw-semibold form-label mt-3">
 									<span class="required">Bank Name</span>
