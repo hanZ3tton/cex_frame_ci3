@@ -22,8 +22,8 @@
                 'active_tab' => $tab,
                 'tab_view'   => "v3/admin/account/tab/{$tab}",
                 'tab_url'    => site_url('admin/account'),
-                'user'     => $this->User_model->getUserByCode($this->session->userdata('user_code')),
-                'mitra'     => $this->Mitra_model->getMitrabyAccount($this->session->userdata('account')),
+                'user'     => $this->User_model->get_user_by_code($this->session->userdata('user_code')),
+                'mitra'     => $this->Mitra_model->get_mitra_by_account($this->session->userdata('account')),
             ];
             load_page__assets($this, 'account/page');
 
@@ -58,10 +58,10 @@
                     'updatedon' => date('Y-m-d H:i:s'),
                 ];
                 $account = $this->session->userdata('account');
-                $updateMitra = $this->Mitra_model->updateMitra($account, $data);
-                $updateUser =  $this->User_model->updateUser($this->session->userdata('user_code'), $dataUser);
-                if ($updateMitra && $updateUser) {
-                    redirect('admin/account/index');
+                $update_mitra = $this->Mitra_model->update_mitra($account, $data);
+                $update_user =  $this->User_model->update_user($this->session->userdata('user_code'), $dataUser);
+                if ($update_mitra && $update_user) {
+                    redirect('admin/account');
                 } else {
                     $this->session->set_flashdata('error', 'Invalid username or password');
                 }
@@ -87,7 +87,7 @@
                 $data = [
                     'password' => hash('sha256', $password)
                 ];
-                if ($this->User_model->updateUser($code, $data)) {
+                if ($this->User_model->update_user($code, $data)) {
                     $this->session->set_flashdata('success', 'Password successfully updated! You can now log in with your new password. ');
                     redirect('admin/dashboard');
                 } else {

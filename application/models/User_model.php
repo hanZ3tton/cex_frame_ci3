@@ -1,52 +1,53 @@
 <?php
 class User_model extends CI_Model
 {
-
-    public function getAllUser()
+    protected $table = 'tb_user_agent';
+    public function get_all_user()
     {
+        $this->db->from($this->table);
         $account  = $this->session->userdata('account');
         $this->db->where('account', $account);
         $this->db->where('grup <>', 'ADMIN');
-        $query = $this->db->get('tb_user_agent');
-        return $query->result();
+        return $this->db->get()->result();
     }
 
-    public function getAllCS()
+    public function get_all_cs()
     {
+        $this->db->from($this->table);
         $account  = $this->session->userdata('account');
         $this->db->where('account', $account);
         $this->db->where('grup', 'CS');
-        $query = $this->db->get('tb_user_agent');
-        return $query->result();
+        return $this->db->get('tb_user_agent');
     }
 
-    public function getUserByCode($id)
+    public function get_user_by_code($code)
     {
-        $this->db->where('code', $id);
-        $query = $this->db->get('tb_user_agent');
-        return $query->row();
+        $this->db->from($this->table);
+        $this->db->where('code', $code);
+        return $this->db->get()->row();
     }
 
-    public function getUserByUsername($username)
+    public function get_user_by_username($username)
     {
+        $this->db->from($this->table);
         $this->db->where('username', $username);
-        $query = $this->db->get('tb_user_agent');
-        return $query->row();
+        return $this->db->get()->row();
     }
 
-    public function createUser($data)
+    public function create_user($data)
     {
-        return $this->db->insert('tb_user_agent', $data);
+
+        return $this->db->insert($this->table, $data);
     }
 
-    public function updateUser($id, $data)
+    public function update_user($code, $data)
     {
-        $this->db->where('code', $id);
-        return $this->db->update('tb_user_agent', $data);
+        $this->db->where('code', $code);
+        return $this->db->update($this->table, $data);
     }
-    public function deleteUser($id)
+    public function delete_user($code)
     {
-        $this->db->where('code', $id);
-        return $this->db->delete('tb_user_agent');
+        $this->db->where('code', $code);
+        return $this->db->delete($this->table);
     }
 }

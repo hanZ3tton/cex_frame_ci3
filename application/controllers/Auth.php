@@ -41,9 +41,9 @@ class Auth extends MY_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $user = $this->User_model->getUserByUsername($username);
+            $user = $this->User_model->get_user_by_username($username);
             if ($user && hash('sha256', $password) == $user->password) {
-                $mitra = $this->Mitra_model->getMitraByAccount($user->account);
+                $mitra = $this->Mitra_model->get_mitra_by_account($user->account);
 
                 if ($user->status == 2) {
                     $this->session->set_flashdata('error', 'Your account is inactive. Please contact the admin.');
@@ -139,7 +139,7 @@ class Auth extends MY_Controller
                 'created_at' => date('Y-m-d H:i:s'),
                 'is_active' => 1
             ];
-            if ($this->User_model->createUser($data)) {
+            if ($this->User_model->create_user($data)) {
                 $this->session->set_flashdata('success', 'Registration successful');
                 redirect('v3/auth/login');
             } else {

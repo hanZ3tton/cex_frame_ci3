@@ -42,7 +42,7 @@ class Inbound extends MY_Controller
     public function create()
     {
         $data = [
-            'users' => $this->User_model->getAllCS()
+            'users' => $this->User_model->get_all_cs()
         ];
 
         $this->loadView('v3/admin/inbound/create', 'Create Inbound', $data);
@@ -129,7 +129,7 @@ class Inbound extends MY_Controller
     {
         $data = [
             'inbound' => $this->Inbound_model->get_inbound_by_code($code),
-            'users' => $this->User_model->getAllUser()
+            'users' => $this->User_model->get_all_cs()
         ];
 
         $this->loadView('v3/admin/inbound/edit', 'Edit Inbound', $data);

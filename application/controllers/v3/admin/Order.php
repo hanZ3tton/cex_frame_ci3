@@ -307,7 +307,7 @@ class Order extends MY_Controller
   {
     try {
       $account = $this->session->userdata('account');
-      $mitra = $this->Mitra_model->getMitraByAccount($account);
+      $mitra = $this->Mitra_model->get_mitra_by_account($account);
       $order = $this->Order_model->get_by_awb($awb);
 
       if (!$order) {
@@ -323,7 +323,7 @@ class Order extends MY_Controller
         'deposit_balance' => $pay
       ];
 
-      if ($this->Mitra_model->updateMitra($account, $data_mitra)) {
+      if ($this->Mitra_model->update_mitra($account, $data_mitra)) {
         $data_order = [
           'payment' => $order->ongkir,
           'status' => (string) self::STATUS_COMPLETED,

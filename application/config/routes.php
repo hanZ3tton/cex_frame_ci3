@@ -90,10 +90,10 @@ $route['admin/domestic/jnt-express'] = 'v3/admin/domestic/jnt_express';
 $route['admin/shipping-rates'] = 'v3/admin/shipping_rates';
 
 $route['admin/user-management'] = 'v3/admin/user/index';
-$route['admin/user-management/create'] = 'v3/admin/user/create';
-$route['admin/user-management/edit/(:any)'] = 'v3/admin/user/edit';
-$route['admin/user-management/change-password/(:any)'] = 'v3/admin/user/change_password';
-$route['admin/user-management/delete/(:any)'] = 'v3/admin/user/delete';
+$route['admin/user-management/create'] = 'v3/admin/user/create/$1';
+$route['admin/user-management/edit/(:any)'] = 'v3/admin/user/edit/$1';
+$route['admin/user-management/change-password/(:any)'] = 'v3/admin/user/change_password/$1';
+$route['admin/user-management/delete/(:any)'] = 'v3/admin/user/delete/$1';
 
 $route['admin/topup'] = 'v3/admin/topup/index';
 $route['admin/topup/create'] = 'v3/admin/topup/create';

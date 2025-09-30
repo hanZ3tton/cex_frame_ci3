@@ -18,7 +18,7 @@
         public function index()
         {
             $data = [
-                'users' => $this->User_model->getAllUser()
+                'users' => $this->User_model->get_all_user()
             ];
             load_page__assets($this, 'user/list');
 
@@ -73,12 +73,12 @@
 
                 ];
 
-                if ($this->User_model->createUser($data)) {
-                    redirect('admin/user');
+                if ($this->User_model->create_user($data)) {
                     $this->session->set_flashdata('success', 'New user has been added');
+                    redirect('admin/user-management');
                 } else {
                     $this->session->set_flashdata('error', 'Failed to create user. Try again later');
-                    redirect('admin/user');
+                    redirect('admin/user-management');
                 }
             }
         }
@@ -86,7 +86,7 @@
         public function edit($code)
         {
             $data = [
-                'user' => $this->User_model->getUserByCode($code)
+                'user' => $this->User_model->get_user_by_code($code)
             ];
             $this->pageScripts = [
                 "assets/js/custom/apps/contacts/edit-contact.js",
@@ -119,12 +119,12 @@
                     'updatedon' => date('Y-m-d H:i:s')
                 ];
 
-                if ($this->User_model->updateUser($code, $data)) {
+                if ($this->User_model->update_user($code, $data)) {
                     $this->session->set_flashdata('success', 'Changes saved! The user data has been updated');
-                    redirect('admin/user');
+                    redirect('admin/user-management');
                 } else {
                     $this->session->set_flashdata('error', 'Failed to update user. Try again later');
-                    redirect('admin/user');
+                    redirect('admin/user-management');
                 }
             }
         }
@@ -132,7 +132,7 @@
         public function change_password($code)
         {
             $data = [
-                'user' => $this->User_model->getUserByCode($code)
+                'user' => $this->User_model->get_user_by_code($code)
             ];
 
             $this->loadView('v3/admin/user/change_password', 'Change Password', $data);
@@ -147,26 +147,28 @@
             } else {
                 $password = $this->input->post('password');
                 $data = [
-                    'password' => hash('sha256', $password)
+                    'password' => hash('sha256', $password),
+                    'updatedby' => $this->session->userdata('username'),
+                    'updatedon' => date('Y-m-d H:i:s')
                 ];
-                if ($this->User_model->updateUser($code, $data)) {
+                if ($this->User_model->update_user($code, $data)) {
                     $this->session->set_flashdata('success', 'Password successfully updated! You can now log in with your new password. ');
-                    redirect('admin/user');
+                    redirect('admin/user-management');
                 } else {
                     $this->session->set_flashdata('error', 'Failed to change password. Try again later');
-                    redirect('admin/user');
+                    redirect('admin/user-management');
                 }
             }
         }
 
         public function delete($code)
         {
-            if ($this->User_model->deleteUser($code)) {
+            if ($this->User_model->delete_user($code)) {
                 $this->session->set_flashdata('success', 'The user has been removed');
-                redirect('admin/user');
+                redirect('admin/user-management');
             } else {
                 $this->session->set_flashdata('error', 'Failed to delete data. Try again later');
-                redirect('admin/user');
+                redirect('admin/user-management');
             }
         }
     }
