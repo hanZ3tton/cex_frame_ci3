@@ -78,7 +78,7 @@
                                     <div
                                         class="fs-2 fw-bold"
                                         data-kt-countup="true"
-                                        data-kt-countup-value="<?= $this->session->userdata('credit'); ?>"
+                                        data-kt-countup-value="<?= $mitra->deposit_balance; ?>"
                                         data-kt-countup-prefix="Rp">
                                         0
                                     </div>

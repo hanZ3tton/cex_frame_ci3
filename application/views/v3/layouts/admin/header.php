@@ -5878,7 +5878,7 @@
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <p class="menu-link px-5 m-0">Credit: <?= "Rp " . number_format($this->session->userdata('credit'), 0, ",", "."); ?></p>
+                            <p class="menu-link px-5 m-0">Credit: <?= "Rp " . number_format($mitra->deposit_balance, 0, ",", "."); ?></p>
                         </div>
                         <!--end::Menu item-->
 

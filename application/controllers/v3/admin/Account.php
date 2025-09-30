@@ -8,7 +8,6 @@
             parent::__construct();
             $this->defaultLayout = 'v3/layouts/app';
             $this->load->model('User_model');
-            $this->load->model('Mitra_model');
             $this->load->library('form_validation');
             if (!$this->session->userdata('logged_in')) {
                 redirect('auth');
@@ -23,7 +22,6 @@
                 'tab_view'   => "v3/admin/account/tab/{$tab}",
                 'tab_url'    => site_url('admin/account'),
                 'user'     => $this->User_model->get_user_by_code($this->session->userdata('user_code')),
-                'mitra'     => $this->Mitra_model->get_mitra_by_account($this->session->userdata('account')),
             ];
             load_page__assets($this, 'account/page');
 

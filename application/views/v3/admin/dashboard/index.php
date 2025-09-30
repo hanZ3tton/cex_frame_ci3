@@ -149,7 +149,7 @@
 
                                 <!--begin::Amount-->
                                 <span
-                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><span class="fw-bold fs-6">Rp</span>&ensp;<?= number_format($this->session->userdata('credit'), 0, ",", "."); ?></span>
+                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><span class="fw-bold fs-6">Rp</span>&ensp;<?= number_format($mitra->deposit_balance, 0, ",", "."); ?></span>
                                 <!--end::Amount-->
 
                             </div>

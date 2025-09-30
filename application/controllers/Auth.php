@@ -58,7 +58,6 @@ class Auth extends MY_Controller
                     'profile_photo' => $user->profile_photo,
                     'username' => $user->username,
                     'grup' => $user->grup,
-                    'credit' => $mitra->deposit_balance,
                     'logged_in' => TRUE
                 ];
                 $this->session->set_userdata($session_data);

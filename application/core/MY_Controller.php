@@ -13,6 +13,8 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         $this->load->library('layout');
         $this->load->model('Static_model');
+        $this->load->model('Mitra_model');
+        $this->data['mitra'] = $this->Mitra_model->get_mitra_by_account($this->session->userdata('username'));
         $this->data['shipment_count'] = $this->Static_model->get_shipment_counts();
     }
 
