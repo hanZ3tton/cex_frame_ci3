@@ -153,7 +153,7 @@
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
-                          href="<?= base_url('v3/admin/order/create_cleansing/' . $order->final_connote) ?>"
+                          href="<?= base_url('v3/admin/order/create_cleansing/' . $order->code) ?>"
                           class="menu-link px-3">Edit</a>
                       </div>
                       <!--end::Menu item-->
@@ -161,7 +161,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
                           <a
-                            href="<?= base_url('v3/admin/order/pay/' . $order->final_connote) ?>"
+                            href="<?= base_url('v3/admin/order/pay/' . $order->code) ?>"
                             class="menu-link px-3">Pay</a>
                         </div>
                         <!--end::Menu item-->
@@ -169,7 +169,7 @@
                       <!--begin::Menu item-->
                       <div class="menu-item px-3">
                         <a
-                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->final_connote) ?>"
+                          href="<?= base_url('v3/admin/order/cancel_order/' . $order->code) ?>"
                           class="menu-link px-3">Cancel</a>
                       </div>
                       <!--end::Menu item-->

@@ -96,24 +96,23 @@ class Order extends MY_Controller
     $this->db->trans_start();
     $this->Order_model->insert($data_order);
     $insert_id = $this->db->insert_id();
-    $this->Order_model->update_by_code($insert_id, [
+    $this->Order_model->update($insert_id, [
       'final_connote' => $insert_id
     ]);
     $this->db->trans_complete();
-
     redirect('v3/admin/order/create_cleansing/' . $insert_id);
   }
 
-  public function create_cleansing($awb)
+  public function create_cleansing($code)
   {
     $status_id = self::STATUS_CLAIMED;
-    $order = $this->Order_model->get_by_awb($awb);
+    $order = $this->Order_model->get_by_code($code);
     $code = $order->code;
     $data = [
       'orders' => $this->Order_model->get_order_by_status($status_id),
       'destinations' => $this->Dropdown_model->get_all_destinations(),
       'detail_item' => $this->Detail_item_model->get_order_by_code($code),
-      'order' => $this->Order_model->get_by_awb($awb),
+      'order' => $this->Order_model->get_by_code($code),
       'category' => $this->Dropdown_model->get_all_category()
     ];
     $data['services'] = [
@@ -159,12 +158,12 @@ class Order extends MY_Controller
     return $clean;
   }
 
-  private function summarize_detail_items($awb)
+  private function summarize_detail_items($code)
   {
     $qty_total = 0;
     $customs_value = 0;
     $goods_desc_parts = [];
-    $qry = $this->Detail_item_model->get_order_by_code($awb);
+    $qry = $this->Detail_item_model->get_order_by_code($code);
     foreach ($qry as $row) {
       $goods_desc_parts[] = $row->goods_category;
       $qty_total += (int) $row->qty;
@@ -183,14 +182,14 @@ class Order extends MY_Controller
     return ceil($weight);
   }
 
-  public function insert_detail_item($awb, $code)
+  public function insert_detail_item($code)
   {
     $this->form_validation->set_rules('package_detail', 'Category', 'required');
     $this->form_validation->set_rules('item_name', 'Item Name', 'required');
     $this->form_validation->set_rules('qty', 'Quantity', 'required');
     $this->form_validation->set_rules('value', 'Value', 'required');
     if ($this->form_validation->run() == FALSE) {
-      $this->create_cleansing($awb);
+      $this->create_cleansing($code);
     } else {
       $data = [
         'cleansing_code' => $code,
@@ -202,27 +201,27 @@ class Order extends MY_Controller
         'updatedby' => $this->session->userdata('username')
       ];
       $this->Detail_item_model->insert($data);
-      redirect('v3/admin/order/create_cleansing/' . $awb);
+      redirect('v3/admin/order/create_cleansing/' . $code);
     }
   }
 
-  public function delete_detail_item($awb, $id)
+  public function delete_detail_item($code)
   {
-    $this->Detail_item_model->delete($id);
-    redirect('v3/admin/order/create_cleansing/' . $awb);
+    $this->Detail_item_model->delete($code);
+    redirect('v3/admin/order/create_cleansing/' . $code);
   }
 
-  public function insert_order_data($awb)
+  public function insert_order_data($code)
   {
     $this->set_insert_order_rules();
     if ($this->form_validation->run() == FALSE) {
-      $this->create_cleansing($awb);
+      $this->create_cleansing($code);
     } else {
       try {
         $number_of_pieces = 1;
-        $order = $this->Order_model->get_by_awb($awb);
-
-        $summary = $this->summarize_detail_items($awb);
+        $order = $this->Order_model->get_by_code($code);
+        $awb = $order->final_connote;
+        $summary = $this->summarize_detail_items($code);
         $goods_desc = $summary['goods_desc'];
         $customs_value = $summary['customs_value'];
         $account = $this->session->userdata('account');
@@ -281,13 +280,13 @@ class Order extends MY_Controller
         ];
         // sanitize payload before saving
         $data = $this->sanitize_array($data);
-        $this->Order_model->update($awb, $data);
+        $this->Order_model->update($code, $data);
 
-        if ($order->code == $awb) {
+        if ($order->code == $code) {
           $data['final_connote'] = 'CEX' . rand(100000000, 9999999999);
         }
 
-        if ($this->Order_model->update($awb, $data)) {
+        if ($this->Order_model->update($code, $data)) {
           $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been updated');
           redirect('admin/order');
         } else {
@@ -302,12 +301,13 @@ class Order extends MY_Controller
     }
   }
 
-  public function pay($awb)
+  public function pay($code)
   {
     try {
       $account = $this->session->userdata('account');
       $mitra = $this->Mitra_model->get_mitra_by_account($account);
-      $order = $this->Order_model->get_by_awb($awb);
+      $order = $this->Order_model->get_by_code($code);
+      $awb = $order->final_connote;
 
       if (!$order) {
         $this->session->set_flashdata('error', 'Order tidak ditemukan!');
@@ -329,10 +329,9 @@ class Order extends MY_Controller
           'updatedby' => $this->session->userdata('username'),
           'updatedon' => date('Y-m-d H:i:s'),
         ];
-
         $this->session->set_userdata('credit', $mitra->deposit_balance);
 
-        if ($this->Order_model->update($awb, $data_order)) {
+        if ($this->Order_model->update($code, $data_order)) {
           $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been paid');
         } else {
           $this->session->set_flashdata('error', 'Gagal update status order!');
@@ -360,10 +359,10 @@ class Order extends MY_Controller
     $this->loadView('v3/admin/order/completed', 'List Order Completed', $data);
   }
 
-  public function set_outbound($awb)
+  public function set_outbound($code)
   {
     try {
-      $order = $this->Order_model->get_by_awb($awb);
+      $order = $this->Order_model->get_by_code($code);
 
       if (!$order) {
         $this->session->set_flashdata('error', 'Data tidak ditemukan!');
@@ -375,7 +374,7 @@ class Order extends MY_Controller
         'branch_outbound' => 1
       ];
 
-      if ($this->Order_model->update_outbound($awb, $data)) {
+      if ($this->Order_model->update_outbound($code, $data)) {
         $this->session->set_flashdata('success', 'Branch outbound berhasil diupdate!');
       } else {
         $this->session->set_flashdata('error', 'Gagal update branch outbound!');
@@ -388,18 +387,18 @@ class Order extends MY_Controller
     redirect('admin/order/completed');
   }
 
-  public function cancel_order($awb)
+  public function cancel_order($code)
   {
     try {
-      $order = $this->Order_model->get_by_awb($awb);
-
+      $order = $this->Order_model->get_by_code($code);
+      $awb = $order->final_connote;
       if (!$order) {
         $this->session->set_flashdata('error', 'Order tidak ditemukan!');
         redirect('admin/order');
         return;
       }
 
-      if ($this->Order_model->soft_delete($awb)) {
+      if ($this->Order_model->soft_delete($code)) {
         $this->session->set_flashdata('success', 'Order with airwaybill <b>' . $awb . '</b> has been cancelled');
       } else {
         $this->session->set_flashdata('error', 'Gagal membatalkan order!');
