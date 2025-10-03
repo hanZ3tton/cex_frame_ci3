@@ -123,7 +123,7 @@ class Order extends MY_Controller
     ];
     load_page__assets($this, 'order/list');
     load_page__assets($this, 'order/calculate');
-
+    load_page__assets($this, 'order/ajax');
     $this->loadView('v3/admin/order/create', 'Create Cleansing', $data);
   }
 
@@ -182,6 +182,14 @@ class Order extends MY_Controller
     return ceil($weight);
   }
 
+  public function table_detail_item($code)
+  {
+    $data = [
+      'detail_item' => $this->Detail_item_model->get_order_by_code($code),
+    ];
+    $this->load->view('v3/admin/order/table_detail_item', $data);
+  }
+
   public function insert_detail_item($code)
   {
     $this->form_validation->set_rules('package_detail', 'Category', 'required');
@@ -205,11 +213,13 @@ class Order extends MY_Controller
     }
   }
 
-  public function delete_detail_item($code)
+  public function delete_detail_item($code, $id)
   {
-    $this->Detail_item_model->delete($code);
+    $this->Detail_item_model->delete($id);
     redirect('v3/admin/order/create_cleansing/' . $code);
   }
+
+
 
   public function insert_order_data($code)
   {
